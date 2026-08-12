@@ -1,0 +1,198 @@
+---
+import { Image } from 'astro:assets';
+import dashboard from '../assets/inventory-dashboard.webp';
+import caringMinds from '../assets/customers/caring-minds.webp';
+import germanOsteo from '../assets/customers/german-osteo.webp';
+import premierHospital from '../assets/customers/premier-hospital.webp';
+import samonnoyClinic from '../assets/customers/samonnoy-clinic.webp';
+import { SITE_TITLE } from '../consts';
+
+const customers = [
+	{ name: 'Caring Minds', logo: caringMinds },
+	{ name: 'German Osteo', logo: germanOsteo },
+	{ name: 'Premier Hospital', logo: premierHospital },
+	{ name: 'Samonnoy Clinic', logo: samonnoyClinic },
+];
+---
+
+<section class="hero">
+	<div class="inner">
+		<div class="copy">
+			<h1>AI EMR &amp; Clinic Management Software</h1>
+			<p class="lede">
+				Enhance patient care, improve revenue, and eliminate administrative overload with AI-driven
+				software.
+			</p>
+			<div class="cta">
+				<a class="btn btn-solid" href="/contact-us#demo-form">Schedule a Demo</a>
+				<a class="btn btn-ghost" href="/pricing">View Pricing</a>
+			</div>
+			<p class="proof">
+				Physicians, specialists &amp; clinic chains using {SITE_TITLE} worldwide:
+			</p>
+			<ul class="customers">
+				{
+					customers.map((customer) => (
+						<li>
+							<Image src={customer.logo} alt={customer.name} height={36} densities={[1, 2]} />
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<div class="showcase">
+			<Image
+				class="dashboard"
+				src={dashboard}
+				alt={`${SITE_TITLE} inventory and pharmacy screens: products and services catalogue, medication selection with pricing, order versus consumption chart, and stock levels with low-stock alerts`}
+				widths={[540, 800, 1200]}
+				sizes="(max-width: 1080px) 92vw, 45vw"
+				loading="eager"
+			/>
+		</div>
+	</div>
+</section>
+<style>
+	.hero {
+		background: var(--brand-wash);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+		align-items: center;
+		gap: 3rem;
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 6.5rem 1.5rem 7.5rem;
+	}
+
+	/* left column */
+	h1 {
+		margin: 0;
+		max-width: 19ch;
+		color: var(--navy);
+		font-size: clamp(2.25rem, 4.4vw, 3.25rem);
+		font-weight: 700;
+		line-height: 1.06;
+		letter-spacing: -0.02em;
+	}
+	.lede {
+		margin: 1.5rem 0 0;
+		max-width: 52ch;
+		color: var(--muted);
+		font-size: 1.125rem;
+	}
+	.cta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+		margin-top: 2.25rem;
+	}
+	.btn {
+		border-radius: 10px;
+		padding: 0.875rem 1.375rem;
+		font-weight: 600;
+		line-height: 1.2;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	.btn-solid {
+		border: 1.5px solid var(--brand-blue);
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+	.btn-solid:hover {
+		border-color: var(--brand-blue-dark);
+		background: var(--brand-blue-dark);
+	}
+	.btn-ghost {
+		border: 1.5px solid var(--brand-blue);
+		color: var(--brand-blue);
+	}
+	.btn-ghost:hover {
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+	.proof {
+		margin: 3.25rem 0 0;
+		color: var(--muted);
+		font-size: 0.9375rem;
+	}
+	/* one row, equal columns — mixed logo aspects stay on an even rhythm */
+	.customers {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: 1fr;
+		align-items: center;
+		gap: 1.5rem;
+		max-width: 540px;
+		margin: 1rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.customers li {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 36px;
+	}
+	.customers img {
+		width: auto;
+		height: auto;
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: contain;
+		/* logos ship on white — multiply drops it into the wash */
+		mix-blend-mode: multiply;
+	}
+
+	/* right column */
+	.showcase {
+		display: flex;
+		justify-content: center;
+	}
+	.dashboard {
+		width: 100%;
+		height: auto;
+		border-radius: 16px;
+		box-shadow: 0 24px 48px rgba(10, 37, 64, 12%);
+	}
+
+	@media (max-width: 1080px) {
+		.inner {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+			padding: 5rem 1.5rem 5.5rem;
+		}
+		h1,
+		.lede {
+			max-width: none;
+		}
+	}
+	@media (max-width: 720px) {
+		.inner {
+			padding: 3.5rem 1rem 4rem;
+		}
+		.cta {
+			gap: 0.75rem;
+		}
+		.btn {
+			flex: 1 1 auto;
+			text-align: center;
+		}
+		/* four logos in one row are illegible on a phone — pair them up instead */
+		.customers {
+			grid-auto-flow: row;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 1.25rem 1rem;
+			max-width: none;
+		}
+		.customers li {
+			height: 32px;
+		}
+	}
+</style>

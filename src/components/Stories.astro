@@ -1,0 +1,283 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+
+// newest first; the track scrolls, so a few beyond the visible three are useful
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 6);
+
+const readingTime = (body: string | undefined) => {
+	const words = (body ?? '').trim().split(/\s+/).filter(Boolean).length;
+	return Math.max(1, Math.round(words / 200));
+};
+---
+
+<section class="stories">
+	<div class="inner">
+		<header class="head">
+			<h2>Guidance and stories</h2>
+			<div class="controls">
+				<button type="button" class="arrow" data-scroll="prev" aria-label="Previous stories">
+					<svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true">
+						<path
+							d="M10 2.8 4.8 8l5.2 5.2"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.6"
+							stroke-linecap="round"
+							stroke-linejoin="round"></path>
+					</svg>
+				</button>
+				<button type="button" class="arrow" data-scroll="next" aria-label="More stories">
+					<svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true">
+						<path
+							d="M6 2.8 11.2 8 6 13.2"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.6"
+							stroke-linecap="round"
+							stroke-linejoin="round"></path>
+					</svg>
+				</button>
+				<a class="btn" href="/blog">View all</a>
+			</div>
+		</header>
+
+		<ul class="track" data-track data-stagger>
+			{
+				posts.map((post) => (
+					<li class="card">
+						<a href={`/blog/${post.id}/`}>
+							{post.data.heroImage && (
+								<Image
+									class="shot"
+									src={post.data.heroImage}
+									alt=""
+									widths={[420, 640, 900]}
+									sizes="(max-width: 720px) 84vw, (max-width: 1080px) 44vw, 30vw"
+								/>
+							)}
+							{post.data.category && <span class="pill">{post.data.category}</span>}
+							<h3>{post.data.title}</h3>
+							<p class="excerpt">{post.data.description}</p>
+							<p class="meta">
+								<FormattedDate date={post.data.pubDate} />
+								{post.data.author && <span>{post.data.author}</span>}
+								<span>{readingTime(post.body)} minute read</span>
+							</p>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+
+<script>
+	document.querySelectorAll<HTMLElement>('.stories').forEach((section) => {
+		const track = section.querySelector<HTMLElement>('[data-track]');
+		const arrows = section.querySelectorAll<HTMLButtonElement>('[data-scroll]');
+		if (!track) return;
+
+		const sync = () => {
+			const end = track.scrollWidth - track.clientWidth;
+			arrows.forEach((arrow) => {
+				const atEdge =
+					arrow.dataset.scroll === 'prev' ? track.scrollLeft < 8 : track.scrollLeft >= end - 8;
+				arrow.disabled = atEdge;
+			});
+		};
+
+		arrows.forEach((arrow) => {
+			arrow.addEventListener('click', () => {
+				const card = track.querySelector<HTMLElement>('.card');
+				const step = card ? card.offsetWidth + 24 : track.clientWidth;
+				track.scrollBy({ left: arrow.dataset.scroll === 'prev' ? -step : step });
+			});
+		});
+
+		track.addEventListener('scroll', sync, { passive: true });
+		window.addEventListener('resize', sync);
+		sync();
+	});
+</script>
+
+<style>
+	.stories {
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 5rem 1.5rem 6rem;
+	}
+
+	.head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+	}
+	h2 {
+		margin: 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+	}
+	.controls {
+		display: flex;
+		flex-shrink: 0;
+		align-items: center;
+		gap: 0.625rem;
+	}
+	.arrow {
+		display: grid;
+		place-items: center;
+		width: 46px;
+		height: 46px;
+		border: 1px solid var(--border);
+		border-radius: 12px;
+		padding: 0;
+		background: var(--surface);
+		color: var(--navy);
+		cursor: pointer;
+	}
+	.arrow:hover:not(:disabled) {
+		border-color: var(--navy);
+		background: var(--brand-wash);
+	}
+	.arrow:disabled {
+		color: var(--muted);
+		cursor: default;
+		opacity: 0.4;
+	}
+	.btn {
+		border-radius: 12px;
+		padding: 0.8125rem 1.375rem;
+		background: var(--navy);
+		color: var(--surface);
+		font-weight: 600;
+		line-height: 1.2;
+		text-decoration: none;
+	}
+	.btn:hover {
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+
+	/* one row that scrolls under the arrows, a card at a time */
+	.track {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: calc((100% - 3rem) / 3);
+		gap: 1.5rem;
+		margin: 3rem 0 0;
+		padding: 0;
+		list-style: none;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+		scrollbar-width: none;
+	}
+	.track::-webkit-scrollbar {
+		display: none;
+	}
+	.card {
+		scroll-snap-align: start;
+	}
+	.card a {
+		display: block;
+		color: inherit;
+		text-decoration: none;
+	}
+	.shot {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 16 / 10;
+		border-radius: 16px;
+		object-fit: cover;
+	}
+	.pill {
+		display: inline-block;
+		border-radius: 8px;
+		padding: 0.3125rem 0.625rem;
+		margin-top: 1.25rem;
+		background: var(--brand-wash);
+		color: var(--navy);
+		font-size: 0.8125rem;
+		font-weight: 500;
+		line-height: 1.2;
+	}
+	h3 {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		overflow: hidden;
+		margin: 1rem 0 0;
+		color: var(--navy);
+		font-size: 1.375rem;
+		font-weight: 700;
+		line-height: 1.25;
+		letter-spacing: -0.01em;
+	}
+	.card a:hover h3 {
+		color: var(--brand-blue);
+	}
+	.excerpt {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		overflow: hidden;
+		margin: 0.75rem 0 0;
+		color: var(--muted);
+	}
+	.meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 1.25rem 0 0;
+		color: var(--muted);
+		font-size: 0.875rem;
+	}
+	.meta > * + *::before {
+		content: '•';
+		margin-right: 0.5rem;
+	}
+
+	@media (max-width: 1080px) {
+		.inner {
+			padding: 3.5rem 1.5rem 4rem;
+		}
+		.track {
+			grid-auto-columns: calc((100% - 1.5rem) / 2);
+			margin-top: 2.5rem;
+		}
+	}
+	@media (max-width: 720px) {
+		.inner {
+			padding: 2.5rem 1rem 3rem;
+		}
+		.head {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 1.25rem;
+		}
+		.track {
+			grid-auto-columns: 84%;
+			gap: 1rem;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.track {
+			scroll-behavior: auto;
+		}
+	}
+</style>

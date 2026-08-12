@@ -14,6 +14,9 @@ const blog = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			heroImage: z.optional(image()),
+			// shown on the homepage cards as the pill and the byline
+			category: z.string().optional(),
+			author: z.string().optional(),
 		}),
 });
 

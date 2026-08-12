@@ -1,0 +1,229 @@
+---
+import { Image } from 'astro:assets';
+import bhatia from '../assets/testimonials/dr-manish-bhatia.webp';
+import buragohain from '../assets/testimonials/dr-chao-buragohain.webp';
+import chakrabarti from '../assets/testimonials/dr-prantar-chakrabarti.webp';
+import mishra from '../assets/testimonials/dr-tarun-mishra.webp';
+import prabhu from '../assets/testimonials/dr-tl-prabhu.webp';
+import seetha from '../assets/testimonials/dr-seetha-lakshmi.webp';
+import { SITE_TITLE } from '../consts';
+
+// Quotes, names, roles and photos are the real testimonials published on easyclinic.io/testimonials
+const testimonials = [
+	{
+		quote:
+			'It is very easy, user friendly with world class technology. Easy Clinic people are hard working, soft spoken and play a vital role in patient’s management.',
+		name: 'Dr. Tarun Mishra',
+		role: 'Director, City Hospital',
+		photo: mishra,
+	},
+	{
+		quote:
+			'Easy Clinic has touched all aspects of the processes we follow at Prashanthi Clinic and Healthcare Services Pvt Ltd and helped me become more efficient. We have moved from a paper based clinic to a completely paperless setup in about 6 months.',
+		name: 'Dr. T. L. Prabhu',
+		role: 'Chief Physician & Managing Director, Prashanthi Clinic',
+		photo: prabhu,
+	},
+	{
+		quote:
+			'I have been using Easy Clinic for the last 5 years in my clinical practice. This software is really user friendly and customizable. I highly recommend Easy Clinic to the busy clinicians for their day to day practice.',
+		name: 'Dr. Chao Rochek Buragohain',
+		role: 'Orthopaedic, Arogya Orthopaedic Clinic',
+		photo: buragohain,
+	},
+	{
+		quote:
+			'I have been using Easy Clinic for more than 10 years now. The software is mature and has helped me keep my clinic paperless. It improves my work efficiency, record management, and accounting. The team is very responsive and support is excellent!',
+		name: 'Dr. Manish Bhatia',
+		role: 'Founder & Director, Asha Homeopathy Medical Center',
+		photo: bhatia,
+	},
+	{
+		quote:
+			'I have been an avid user of Easy Clinic since 2008 and have become almost addicted to it. The features I like the most are: data handling and analytical tools available to generate information from the patient’s data.',
+		name: 'Dr. Prantar Chakrabarti',
+		role: 'Haematology, Institute of Hematology & Transfusion Medicine',
+		photo: chakrabarti,
+	},
+	{
+		quote:
+			'We have been using Easy Clinic Software since 2012. I found it very useful and user friendly. Their service and support is very prompt. I strongly recommend this software as it is very useful.',
+		name: 'Dr. Seetha Lakshmi Kolanakuduru',
+		role: 'Aditya Women & Infertility Clinic, Hyderabad',
+		photo: seetha,
+	},
+];
+---
+
+<section class="proof">
+	<div class="panel">
+		<h2>Trusted by practices worldwide</h2>
+		<p class="lede">
+			See how healthcare providers of all sizes use {SITE_TITLE} to simplify their work, connect with
+			patients, and grow their practices.
+		</p>
+
+		<ul class="wall" data-stagger>
+			{
+				testimonials.map((item) => (
+					<li class="card">
+						<p class="stars" aria-label="Rated 5 out of 5">
+							<span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+						</p>
+						<blockquote>&ldquo;{item.quote}&rdquo;</blockquote>
+						<figure class="who">
+							<Image src={item.photo} alt={item.name} width={44} height={44} densities={[1, 2]} />
+							<figcaption>
+								<strong>{item.name}</strong>
+								<small>{item.role}</small>
+							</figcaption>
+						</figure>
+					</li>
+				))
+			}
+		</ul>
+
+		<p class="more">
+			<a class="btn" href="/testimonials">See customer stories</a>
+		</p>
+	</div>
+</section>
+<style>
+	.proof {
+		background: var(--surface);
+	}
+	.panel {
+		background: var(--navy);
+		border-radius: 24px 24px 0 0;
+		padding: 6rem 1.5rem 5rem;
+		color: var(--surface);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+
+	h2 {
+		max-width: 22ch;
+		margin: 0 auto;
+		color: var(--surface);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-align: center;
+	}
+	.lede {
+		max-width: 56ch;
+		margin: 1.25rem auto 0;
+		color: rgba(255, 255, 255, 72%);
+		font-size: 1.125rem;
+		text-align: center;
+	}
+
+	/* staggered wall — columns balance by height, so every card stays whole */
+	.wall {
+		--wall-fade: 200px;
+		columns: 3;
+		column-gap: 1.25rem;
+		max-width: 1120px;
+		margin: 3.5rem auto 0;
+		padding: 0;
+		list-style: none;
+		/* foot dissolves into the panel, as in the reference wall */
+		-webkit-mask-image: linear-gradient(
+			to bottom,
+			#000 calc(100% - var(--wall-fade)),
+			transparent 100%
+		);
+		mask-image: linear-gradient(to bottom, #000 calc(100% - var(--wall-fade)), transparent 100%);
+	}
+	.card {
+		break-inside: avoid;
+		border: 1px solid rgba(255, 255, 255, 8%);
+		border-radius: 20px;
+		padding: 1.5rem;
+		margin-bottom: 1.25rem;
+		background: rgba(255, 255, 255, 6%);
+	}
+	.stars {
+		margin: 0 0 1rem;
+		color: var(--brand-amber);
+		font-size: 1.0625rem;
+		line-height: 1;
+		letter-spacing: 0.18em;
+	}
+	/* the site-wide blockquote rule adds a rule + larger type; the card wants neither */
+	blockquote {
+		border: 0;
+		padding: 0;
+		margin: 0;
+		color: rgba(255, 255, 255, 92%);
+		font-size: 1rem;
+		line-height: 1.55;
+	}
+	.who {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin: 1.5rem 0 0;
+	}
+	.who img {
+		flex-shrink: 0;
+		width: 44px;
+		height: 44px;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+	.who figcaption {
+		display: flex;
+		flex-direction: column;
+		gap: 0.125rem;
+		line-height: 1.3;
+	}
+	.who strong {
+		font-size: 0.9375rem;
+		font-weight: 600;
+	}
+	.who small {
+		color: rgba(255, 255, 255, 62%);
+		font-size: 0.8125rem;
+	}
+
+	.more {
+		margin: 3rem 0 0;
+		text-align: center;
+	}
+	.btn {
+		display: inline-block;
+		border-radius: 999px;
+		padding: 0.9375rem 1.75rem;
+		background: var(--surface);
+		color: var(--navy);
+		font-weight: 600;
+		line-height: 1.2;
+		text-decoration: none;
+	}
+	.btn:hover {
+		background: var(--brand-wash);
+		color: var(--navy);
+	}
+
+	@media (max-width: 1080px) {
+		.panel {
+			padding: 4rem 1.5rem 3.5rem;
+		}
+		.wall {
+			columns: 2;
+		}
+	}
+	@media (max-width: 640px) {
+		.panel {
+			padding: 3rem 1rem 3rem;
+		}
+		/* one column: a fade would swallow the last quote whole, so drop it */
+		.wall {
+			columns: 1;
+			-webkit-mask-image: none;
+			mask-image: none;
+		}
+	}
+</style>

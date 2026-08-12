@@ -5,6 +5,24 @@
  */
 
 :root {
+	/* EasyClinic brand palette */
+	--brand-blue: #0080f6;
+	--brand-blue-dark: #006fd4;
+	--brand-teal: #04bdaf;
+	--navy: #0a2540;
+	--ink: #181818;
+	--muted: #474747;
+	--brand-amber: #f2b01e;
+	--brand-red: #fb2c36;
+	--surface: #ffffff;
+	--surface-tint: #eff6ff;
+	--border: #e5e7eb;
+	/* wash carries across the header + hero band */
+	--brand-wash: #e9f3fe;
+	--brand-wash-deep: #d7e8fc;
+	/* content width shared by the header nav and hero */
+	--page-max: 1320px;
+
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
@@ -17,7 +35,7 @@
 		0 16px 32px rgba(var(--gray), 33%);
 }
 body {
-	font-family: var(--font-atkinson);
+	font-family: var(--font-inter);
 	margin: 0;
 	padding: 0;
 	text-align: left;

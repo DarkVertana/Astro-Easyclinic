@@ -1,0 +1,196 @@
+---
+import { SITE_TITLE } from '../consts';
+
+// Answers only restate claims published on easyclinic.io: free trial with no strings
+// attached, cloud hosting with ABHA/HIPAA/GDPR compliance, WhatsApp/email/SMS, lab
+// reporting and third-party API integrations, 5000+ doctors across 18 countries since 2003.
+const faqs = [
+	{
+		question: `Is ${SITE_TITLE} the right platform for my practice?`,
+		answer: `${SITE_TITLE} is built for every kind of healthcare provider — from solo practitioners to multi-specialty clinics and hospital chains. More than 5,000 doctors across 18 countries have run their practice on it since 2003, and it adapts to the way you already work for scheduling, records, billing and patient care.`,
+	},
+	{
+		question: `Can I try ${SITE_TITLE} for free?`,
+		answer: `Yes — you can try ${SITE_TITLE} absolutely free, with no strings attached. Book a demo and we will walk you through the workflows that matter most to your practice before you commit to anything.`,
+	},
+	{
+		question: 'Do I need technical experience to set it up?',
+		answer: `No. ${SITE_TITLE} runs in the cloud, so there is nothing to install or maintain — you sign in from any browser on the devices you already have. Our team helps you get your practice set up and trains your staff, and support stays with you long after you go live.`,
+	},
+	{
+		question: 'Is patient data secure?',
+		answer: `${SITE_TITLE} is built on the latest cloud technology with industry-leading encryption standards, and is compliant with ABHA, HIPAA and GDPR. Your clinical, financial and administrative data stays yours — we never sell it, misuse it or pry into it.`,
+	},
+	{
+		question: `Can ${SITE_TITLE} integrate with my existing tools?`,
+		answer:
+			'Yes. WhatsApp, email and SMS are built in for reminders and patient updates, lab reporting flows straight into the patient record, and third-party API integration connects the systems you already run.',
+	},
+];
+---
+
+<section class="faq">
+	<div class="panel">
+		<h2>Frequently asked questions</h2>
+
+		<div class="list">
+			{
+				faqs.map((item, index) => (
+					<details open={index === 0}>
+						<summary>
+							<span class="question">{item.question}</span>
+							<span class="toggle" aria-hidden="true" />
+						</summary>
+						<div class="answer" data-accordion-body>
+							<p>{item.answer}</p>
+						</div>
+					</details>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<script>
+	import { initAccordion } from '../scripts/accordion';
+
+	initAccordion('.faq details');
+</script>
+<style>
+	/* the navy behind the panel carries the dark band down from the testimonial wall */
+	.faq {
+		background: var(--navy);
+	}
+	.panel {
+		background: var(--surface);
+		border-radius: 24px 24px 0 0;
+		padding: 6rem 1.5rem 4rem;
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+
+	h2 {
+		max-width: 22ch;
+		margin: 0 auto;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-align: center;
+	}
+
+	.list {
+		max-width: 920px;
+		margin: 3.5rem auto 0;
+	}
+	details {
+		border-bottom: 1px solid var(--border);
+	}
+	summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.5rem;
+		padding: 1.5rem 0;
+		cursor: pointer;
+		list-style: none;
+	}
+	summary::-webkit-details-marker {
+		display: none;
+	}
+	summary:focus-visible {
+		border-radius: 8px;
+		outline: 2px solid var(--brand-blue);
+		outline-offset: 4px;
+	}
+	.question {
+		color: var(--navy);
+		font-size: 1.1875rem;
+		font-weight: 600;
+	}
+
+	/* one plus sign; open rotates it into a close icon */
+	.toggle {
+		position: relative;
+		flex-shrink: 0;
+		width: 40px;
+		height: 40px;
+		border-radius: 10px;
+		background: var(--brand-wash);
+		transition:
+			transform 0.2s ease,
+			background 0.2s ease;
+	}
+	.toggle::before,
+	.toggle::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		border-radius: 1px;
+		background: var(--navy);
+		transform: translate(-50%, -50%);
+	}
+	.toggle::before {
+		width: 14px;
+		height: 2px;
+	}
+	.toggle::after {
+		width: 2px;
+		height: 14px;
+	}
+	summary:hover .toggle {
+		background: var(--brand-wash-deep);
+	}
+	details[open] .toggle {
+		transform: rotate(45deg);
+	}
+
+	/* the wrapper is what the open/close animation sizes */
+	.answer {
+		overflow: hidden;
+	}
+	.answer p {
+		max-width: 76ch;
+		margin: 0 0 1.75rem;
+		color: var(--muted);
+		font-size: 1.0625rem;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.toggle {
+			transition: none;
+		}
+	}
+
+	@media (max-width: 1080px) {
+		.panel {
+			padding: 4rem 1.5rem 5rem;
+		}
+	}
+	@media (max-width: 640px) {
+		.panel {
+			padding: 3rem 1rem 4rem;
+		}
+		.list {
+			margin-top: 2.5rem;
+		}
+		summary {
+			gap: 1rem;
+			padding: 1.25rem 0;
+		}
+		.question {
+			font-size: 1.0625rem;
+		}
+		.toggle {
+			width: 36px;
+			height: 36px;
+		}
+		.answer p {
+			margin-bottom: 1.5rem;
+			font-size: 1rem;
+		}
+	}
+</style>

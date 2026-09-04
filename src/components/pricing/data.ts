@@ -22,7 +22,7 @@ export const plans: Plan[] = [
 	{
 		id: 'professional',
 		name: 'Professional',
-		audience: 'Best for GPs and physicians',
+		audience: 'Best for GPs and physicians running an EMR day to day',
 		price: { annual: '$79', quarterly: '$99' },
 		cadence: 'per doctor / month',
 		features: [
@@ -43,7 +43,7 @@ export const plans: Plan[] = [
 	{
 		id: 'premium',
 		name: 'Premium',
-		audience: 'Best for specialists',
+		audience: 'Best for specialists who need advanced EMR and telehealth',
 		price: { annual: '$99', quarterly: '$129' },
 		cadence: 'per doctor / month',
 		includesFrom: 'Everything in Professional, plus',

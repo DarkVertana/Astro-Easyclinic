@@ -1,0 +1,98 @@
+---
+import type { Solution } from './data';
+
+interface Props {
+	solution: Solution;
+}
+
+const { solution } = Astro.props;
+---
+
+<section class="fit">
+	<div class="inner">
+		<p class="eyebrow">{solution.fitEyebrow}</p>
+		<h2>{solution.fitTitle}</h2>
+		<p class="lede">{solution.fitLede}</p>
+		<ul data-stagger>
+			{solution.fit.map((item) => <li>{item}</li>)}
+		</ul>
+	</div>
+</section>
+<style>
+	.fit {
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 2rem 1.5rem 5rem;
+	}
+	.eyebrow {
+		margin: 0;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	h2 {
+		max-width: 22ch;
+		margin: 0.85rem 0 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+	}
+	.lede {
+		max-width: 54ch;
+		margin: 1.15rem 0 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+	}
+	ul {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		margin: 2.5rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		position: relative;
+		border: 1px solid var(--border);
+		border-radius: 16px;
+		padding: 1.25rem 1.25rem 1.25rem 2.75rem;
+		background: var(--surface-tint);
+		color: var(--navy);
+		font-weight: 600;
+		line-height: 1.35;
+	}
+	li::before {
+		content: '';
+		position: absolute;
+		top: 1.45rem;
+		left: 1.15rem;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: var(--brand-teal);
+	}
+
+	@media (max-width: 1080px) {
+		.inner {
+			padding: 1rem 1.5rem 4rem;
+		}
+		ul {
+			grid-template-columns: 1fr;
+		}
+	}
+	@media (max-width: 640px) {
+		.inner {
+			padding: 0.5rem 1rem 3rem;
+		}
+	}
+</style>

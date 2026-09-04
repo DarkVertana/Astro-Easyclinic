@@ -1,0 +1,33 @@
+---
+import PageHero from '../PageHero.astro';
+import type { Solution } from './data';
+
+interface Props {
+	solution: Solution;
+}
+
+const { solution } = Astro.props;
+---
+
+<PageHero
+	eyebrow={solution.eyebrow}
+	title={solution.title}
+	lede={solution.lede}
+	secondaryHref="/pricing"
+	secondaryLabel="View Pricing"
+	note={solution.note}
+>
+	<div class="card">
+		<p class="card-label">{solution.eyebrow}</p>
+		<ul class="rows">
+			{
+				solution.heroFacts.map((item) => (
+					<li class="fact">
+						<strong>{item.value}</strong>
+						<span>{item.label}</span>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</PageHero>

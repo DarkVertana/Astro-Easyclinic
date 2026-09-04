@@ -1,0 +1,30 @@
+---
+import Faq from '../../components/Faq.astro';
+import Fit from '../../components/solutions/Fit.astro';
+import Hero from '../../components/solutions/Hero.astro';
+import Modules from '../../components/solutions/Modules.astro';
+import Problems from '../../components/solutions/Problems.astro';
+import SolutionCta from '../../components/solutions/SolutionCta.astro';
+import { solutionBySlug, solutionSlugs, type Solution } from '../../components/solutions/data';
+import Marketing from '../../layouts/Marketing.astro';
+
+export function getStaticPaths() {
+	return solutionSlugs.map((slug) => ({ params: { slug } }));
+}
+
+const slug = Astro.params.slug as Solution['slug'];
+const solution = solutionBySlug[slug];
+
+if (!solution) {
+	throw new Error(`Unknown solution slug: ${slug}`);
+}
+---
+
+<Marketing title={solution.seoTitle} description={solution.seoDescription} mainClass="solution">
+	<Hero solution={solution} />
+	<Problems solution={solution} />
+	<Fit solution={solution} />
+	<Modules solution={solution} />
+	<Faq items={solution.faqs} />
+	<SolutionCta title={solution.ctaTitle} lede={solution.ctaLede} />
+</Marketing>

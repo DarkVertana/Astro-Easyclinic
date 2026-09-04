@@ -41,7 +41,7 @@ const readingTime = (body: string | undefined) => {
 							stroke-linejoin="round"></path>
 					</svg>
 				</button>
-				<a class="btn" href="/#stories">View all</a>
+				<a class="btn" href="/blogs">View all</a>
 			</div>
 		</header>
 
@@ -49,7 +49,7 @@ const readingTime = (body: string | undefined) => {
 			{
 				posts.map((post) => (
 					<li class="card">
-						<a href="/">
+						<a href={`/blogs/${post.id}`}>
 							{post.data.heroImage && (
 								<Image
 									class="shot"

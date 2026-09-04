@@ -1,0 +1,242 @@
+---
+const strips = [
+	{
+		id: 'emr-detail',
+		eyebrow: 'EMR',
+		title: 'Notes that keep up with the consult',
+		copy: 'Face sheets, specialty forms, and thirty-second prescriptions so the record is complete before the next patient sits down.',
+		points: [
+			'Point-and-click templates by specialty',
+			'Allergies, meds, and problems on one summary',
+			'Orders and results beside the visit timeline',
+		],
+		chip: 'Chart in under a minute',
+	},
+	{
+		id: 'scheduling-detail',
+		eyebrow: 'Scheduling',
+		title: 'A day view the front desk trusts',
+		copy: 'Walk-ins, timed slots, and teleconsults share one calendar — with reminders that cut no-shows without another spreadsheet.',
+		points: [
+			'Waiting-room status from booked to seen',
+			'WhatsApp, SMS, and email confirmations',
+			'Location-aware slots for multi-site clinics',
+		],
+		chip: 'Fewer empty chairs',
+		alt: true,
+	},
+	{
+		id: 'billing-detail',
+		eyebrow: 'Billing',
+		title: 'Close the till without the archaeology',
+		copy: 'Invoices follow the visit. Part payments, tax rules, and cash–card–online sit in one ledger your team can reconcile before they leave.',
+		points: [
+			'One-click bills from procedures and pharmacy',
+			'Clear patient and insurance balances',
+			'Claim-ready lines with fewer re-keys',
+		],
+		chip: 'Balanced before close',
+	},
+	{
+		id: 'engagement-detail',
+		eyebrow: 'Engagement',
+		title: 'Patients self-serve; you stay branded',
+		copy: 'Portal booking, records, education, and feedback under your clinic name — so reception answers fewer “what time was I?” calls.',
+		points: [
+			'Branded patient portal and reminders',
+			'Post-visit feedback beside your reports',
+			'Education tied to visit type',
+		],
+		chip: 'Less phone tag',
+		alt: true,
+	},
+];
+---
+
+<section class="detail">
+	<div class="inner">
+		{
+			strips.map((strip) => (
+				<article class:list={['strip', { alt: strip.alt }]} id={strip.id}>
+					<div class="copy">
+						<p class="eyebrow">{strip.eyebrow}</p>
+						<h2>{strip.title}</h2>
+						<p class="lede">{strip.copy}</p>
+						<ul>
+							{strip.points.map((point) => (
+								<li>{point}</li>
+							))}
+						</ul>
+					</div>
+					<div class="aside" aria-hidden="true">
+						<div class="card">
+							<p class="card-label">{strip.eyebrow}</p>
+							<p class="chip">{strip.chip}</p>
+							<ul class="rows">
+								{strip.points.map((point) => (
+									<li class="fact">
+										<strong>{point.split(' ').slice(0, 3).join(' ')}</strong>
+										<span>Ready</span>
+									</li>
+								))}
+							</ul>
+						</div>
+					</div>
+				</article>
+			))
+		}
+	</div>
+</section>
+<style>
+	.detail {
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 1rem 1.5rem 5rem;
+		display: grid;
+		gap: 3.5rem;
+	}
+	.strip {
+		display: grid;
+		grid-template-columns: minmax(0, 1.1fr) minmax(240px, 0.85fr);
+		align-items: center;
+		gap: 3rem;
+		scroll-margin-top: 6rem;
+	}
+	.strip.alt {
+		direction: rtl;
+	}
+	.strip.alt > * {
+		direction: ltr;
+	}
+	.eyebrow {
+		margin: 0 0 0.65rem;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	h2 {
+		margin: 0;
+		max-width: 16ch;
+		color: var(--navy);
+		font-size: clamp(1.625rem, 3vw, 2.25rem);
+		font-weight: 700;
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+	}
+	.lede {
+		margin: 1rem 0 0;
+		max-width: 46ch;
+		color: var(--muted);
+		font-size: 1.0625rem;
+	}
+	.copy ul {
+		display: grid;
+		gap: 0.65rem;
+		margin: 1.5rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.copy li {
+		position: relative;
+		padding-left: 1.35rem;
+		color: var(--navy);
+		font-weight: 500;
+	}
+	.copy li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.45rem;
+		width: 0.55rem;
+		height: 0.55rem;
+		border-radius: 50%;
+		background: var(--brand-teal);
+	}
+	.aside .card {
+		border: 1px solid rgba(10, 37, 64, 10%);
+		border-radius: 20px;
+		padding: 1.35rem 1.4rem;
+		background: var(--brand-wash);
+		box-shadow: 0 12px 32px rgba(10, 37, 64, 6%);
+	}
+	.card-label {
+		margin: 0 0 0.75rem;
+		color: var(--navy);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	.chip {
+		display: inline-block;
+		margin: 0 0 1rem;
+		border-radius: 999px;
+		padding: 0.35rem 0.75rem;
+		background: var(--navy);
+		color: var(--surface);
+		font-size: 0.8125rem;
+		font-weight: 600;
+	}
+	.rows {
+		display: grid;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.fact {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 0.7rem 0;
+	}
+	.fact + .fact {
+		border-top: 1px solid rgba(10, 37, 64, 8%);
+	}
+	.fact:first-child {
+		padding-top: 0;
+	}
+	.fact:last-child {
+		padding-bottom: 0;
+	}
+	.fact strong {
+		color: var(--navy);
+		font-size: 0.9375rem;
+		font-weight: 700;
+	}
+	.fact span {
+		color: var(--brand-teal);
+		font-size: 0.8125rem;
+		font-weight: 600;
+	}
+
+	@media (max-width: 1080px) {
+		.inner {
+			padding: 0.5rem 1.5rem 4rem;
+			gap: 2.75rem;
+		}
+		.strip,
+		.strip.alt {
+			grid-template-columns: 1fr;
+			direction: ltr;
+			gap: 1.75rem;
+		}
+		h2,
+		.lede {
+			max-width: none;
+		}
+	}
+	@media (max-width: 640px) {
+		.inner {
+			padding: 0 1rem 3.5rem;
+		}
+	}
+</style>

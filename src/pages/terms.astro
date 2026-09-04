@@ -1,0 +1,164 @@
+---
+import Cta from '../components/Cta.astro';
+import Marketing from '../layouts/Marketing.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<Marketing
+	title={`Terms of service — ${SITE_TITLE}`}
+	description={`Terms for using the ${SITE_TITLE} marketing website and requesting product information.`}
+	mainClass="legal"
+>
+	<section class="hero">
+		<div class="inner">
+			<p class="eyebrow">Legal</p>
+			<h1>Terms of service</h1>
+			<p class="lede">
+				These terms cover your use of the EasyClinic marketing website operated by Novel Medicare
+				Solutions Pvt Ltd. Product subscriptions are governed by a separate customer agreement.
+			</p>
+			<p class="updated">Last updated: 4 September 2026</p>
+		</div>
+	</section>
+
+	<section class="body">
+		<div class="panel">
+			<div class="prose">
+				<h2>Acceptance</h2>
+				<p>
+					By browsing this site or sending a demo request, you agree to these terms. If you do not
+					agree, please do not use the site.
+				</p>
+
+				<h2>What this site is for</h2>
+				<p>
+					This website describes EasyClinic software and lets you contact our team. It is not a
+					medical device interface and does not provide clinical advice. Content is for general
+					information only.
+				</p>
+
+				<h2>Accounts and the product</h2>
+				<p>
+					Access to the EasyClinic application (including login at app.easyclinic.io) requires a
+					customer relationship with us. Those services are subject to your order form, master
+					subscription agreement, and acceptable-use rules — not these marketing-site terms alone.
+				</p>
+
+				<h2>Acceptable use</h2>
+				<p>
+					You agree not to misuse the site: no scraping that harms availability, no attempts to
+					bypass security, and no sending unlawful, deceptive, or abusive content through our
+					contact channels.
+				</p>
+
+				<h2>Intellectual property</h2>
+				<p>
+					Site text, branding, and design belong to Novel Medicare Solutions Pvt Ltd or its
+					licensors. You may not copy or reuse them for competing products without written
+					permission. Trademarks remain our property.
+				</p>
+
+				<h2>Disclaimer</h2>
+				<p>
+					The marketing site is provided “as is.” We aim for accuracy but do not warrant that
+					descriptions are complete or that the site will be uninterrupted. To the fullest extent
+					allowed by law, we disclaim liability for indirect or consequential damages arising from
+					use of this website.
+				</p>
+
+				<h2>Governing law</h2>
+				<p>
+					These terms are governed by the laws of India. Courts in Kolkata, West Bengal, have
+					exclusive jurisdiction over disputes arising from this marketing website, unless a
+					customer contract says otherwise for product use.
+				</p>
+
+				<h2>Contact</h2>
+				<p>
+					Questions about these terms:
+					<a href="mailto:hello@easyclinic.io">hello@easyclinic.io</a> · Novel Medicare Solutions
+					Pvt Ltd, 30 Circus Avenue, Kolkata - 700 017, India.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<Cta />
+</Marketing>
+
+<style>
+	.hero {
+		background: var(--brand-wash);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: 760px;
+		margin: 0 auto;
+		padding: 4rem 1.5rem 3rem;
+	}
+	.eyebrow {
+		margin: 0 0 0.85rem;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	h1 {
+		margin: 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.6vw, 2.75rem);
+		font-weight: 700;
+		line-height: 1.12;
+		letter-spacing: -0.02em;
+	}
+	.lede {
+		margin: 1.15rem 0 0;
+		color: var(--muted);
+		font-size: 1.0625rem;
+	}
+	.updated {
+		margin: 1rem 0 0;
+		color: var(--muted);
+		font-size: 0.875rem;
+	}
+	.body {
+		background: var(--brand-wash);
+	}
+	.panel {
+		max-width: 760px;
+		margin: 0 auto;
+		border-radius: 24px 24px 0 0;
+		padding: 2.5rem 1.5rem 4rem;
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.7;
+	}
+	.prose h2 {
+		margin: 2rem 0 0.75rem;
+		color: var(--navy);
+		font-size: 1.25rem;
+		font-weight: 700;
+	}
+	.prose h2:first-child {
+		margin-top: 0;
+	}
+	.prose p {
+		margin: 0 0 1.15rem;
+		color: var(--muted);
+	}
+	.prose a {
+		color: var(--brand-blue);
+	}
+	@media (max-width: 720px) {
+		.inner {
+			padding: 2.75rem 1rem 2.25rem;
+		}
+		.panel {
+			padding: 1.5rem 1rem 3rem;
+		}
+	}
+</style>

@@ -2,6 +2,7 @@
 import Cta from '../components/Cta.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Hero from '../components/testimonials/Hero.astro';
+import Logos from '../components/testimonials/Logos.astro';
 import Marketing from '../layouts/Marketing.astro';
 import { SITE_TITLE } from '../consts';
 ---
@@ -12,6 +13,7 @@ import { SITE_TITLE } from '../consts';
 	mainClass="testimonials-page"
 >
 	<Hero />
+	<Logos />
 	<Testimonials showMore={false} />
 	<Cta />
 </Marketing>

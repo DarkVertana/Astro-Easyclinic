@@ -1,0 +1,270 @@
+---
+const channels = [
+	{
+		label: 'Email us',
+		value: 'hello@easyclinic.io',
+		href: 'mailto:hello@easyclinic.io',
+		note: 'We read every message.',
+	},
+	{
+		label: 'Call us',
+		value: '+91 91477 70277',
+		href: 'tel:+919147770277',
+		note: 'Talk to a real person on the team.',
+	},
+	{
+		label: 'Visit us',
+		value: '30 Circus Avenue, Kolkata - 700 017, India',
+		href: 'https://maps.google.com/?q=30+Circus+Avenue+Kolkata',
+		note: 'Novel Medicare Solutions Pvt Ltd.',
+	},
+];
+---
+
+<section class="stage">
+	<div class="panel">
+		<div class="grid">
+			<div class="support">
+				<p class="eyebrow">Support</p>
+				<h2>We are easier to reach than a call centre</h2>
+				<p class="lede">
+					Tell us what you need. A demo, a billing question, or help going live — the same team
+					stays with you.
+				</p>
+				<ul data-stagger>
+					{
+						channels.map((item) => (
+							<li>
+								<a href={item.href}>
+									<small>{item.label}</small>
+									<strong>{item.value}</strong>
+									<span>{item.note}</span>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<form
+				id="demo-form"
+				class="form"
+				action="mailto:hello@easyclinic.io"
+				method="post"
+				enctype="text/plain"
+			>
+				<p class="eyebrow">Book a demo</p>
+				<h2>Tell us about your practice</h2>
+				<p class="lede">Share a few details and we will set up a walkthrough that fits your day.</p>
+
+				<label>
+					<span>Name</span>
+					<input type="text" name="Name" autocomplete="name" required />
+				</label>
+				<label>
+					<span>Clinic name</span>
+					<input type="text" name="Clinic" autocomplete="organization" required />
+				</label>
+				<label>
+					<span>Email</span>
+					<input type="email" name="Email" autocomplete="email" required />
+				</label>
+				<label>
+					<span>Phone</span>
+					<input type="tel" name="Phone" autocomplete="tel" required />
+				</label>
+				<label>
+					<span>Message</span>
+					<textarea name="Message" rows="4"></textarea>
+				</label>
+				<button class="btn btn-solid" type="submit">Send request</button>
+				<p class="hint">Opens your email to hello@easyclinic.io — nothing is stored on this site.</p>
+			</form>
+		</div>
+	</div>
+</section>
+
+<script>
+	const form = document.querySelector<HTMLFormElement>('#demo-form');
+	form?.addEventListener('submit', (event) => {
+		const data = new FormData(form);
+		const name = String(data.get('Name') ?? '').trim();
+		const lines = [...data.entries()]
+			.map(([key, value]) => `${key}: ${String(value).trim()}`)
+			.filter((line) => !line.endsWith(': '));
+		const subject = name ? `Demo request from ${name}` : 'Demo request';
+		const href = `mailto:hello@easyclinic.io?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+		event.preventDefault();
+		window.location.href = href;
+	});
+</script>
+<style>
+	.stage {
+		background: var(--brand-wash);
+	}
+	.panel {
+		background: var(--surface);
+		border-radius: 24px 24px 0 0;
+		padding: 5.5rem 1.5rem 4.5rem;
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: 4rem;
+		max-width: var(--page-max);
+		margin: 0 auto;
+		align-items: start;
+	}
+
+	.eyebrow {
+		margin: 0 0 0.75rem;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	h2 {
+		margin: 0;
+		max-width: 18ch;
+		color: var(--navy);
+		font-size: clamp(1.75rem, 3vw, 2.25rem);
+		font-weight: 700;
+		line-height: 1.12;
+		letter-spacing: -0.02em;
+	}
+	.lede {
+		margin: 1rem 0 0;
+		max-width: 42ch;
+		color: var(--muted);
+		font-size: 1.0625rem;
+	}
+
+	.support ul {
+		display: grid;
+		gap: 0.75rem;
+		margin: 2rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.support a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		border: 1px solid var(--border);
+		border-radius: 16px;
+		padding: 1.1rem 1.25rem;
+		background: var(--surface-tint);
+		color: inherit;
+		text-decoration: none;
+	}
+	.support a:hover {
+		border-color: var(--brand-blue);
+	}
+	.support small {
+		color: var(--brand-blue);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+	.support strong {
+		color: var(--navy);
+		font-size: 1.0625rem;
+		font-weight: 700;
+	}
+	.support span {
+		color: var(--muted);
+		font-size: 0.875rem;
+	}
+
+	.form {
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 2rem;
+		background: var(--surface);
+		box-shadow: 0 16px 40px rgba(10, 37, 64, 6%);
+		scroll-margin-top: 6rem;
+	}
+	.form h2 {
+		max-width: none;
+	}
+	.form label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		margin-top: 1.1rem;
+		color: var(--navy);
+		font-size: 0.875rem;
+		font-weight: 600;
+	}
+	.form input,
+	.form textarea {
+		border: 1.5px solid var(--border);
+		border-radius: 8px;
+		padding: 0.75rem 0.9rem;
+		background: var(--surface);
+		color: var(--ink);
+		font-family: inherit;
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.4;
+	}
+	.form input:focus,
+	.form textarea:focus {
+		border-color: var(--brand-blue);
+		outline: none;
+	}
+	.form textarea {
+		resize: vertical;
+		min-height: 6.5rem;
+	}
+	.btn {
+		display: inline-block;
+		margin-top: 1.5rem;
+		border-radius: 8px;
+		padding: 0.875rem 1.375rem;
+		font-weight: 600;
+		line-height: 1.2;
+		cursor: pointer;
+	}
+	.btn-solid {
+		border: 1.5px solid var(--brand-blue);
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+	.btn-solid:hover {
+		border-color: var(--brand-blue-dark);
+		background: var(--brand-blue-dark);
+	}
+	.hint {
+		margin: 0.85rem 0 0;
+		color: var(--muted);
+		font-size: 0.8125rem;
+		font-weight: 400;
+	}
+
+	@media (max-width: 1080px) {
+		.panel {
+			padding: 4rem 1.5rem 4rem;
+		}
+		.grid {
+			grid-template-columns: 1fr;
+			gap: 2.5rem;
+		}
+		h2 {
+			max-width: none;
+		}
+	}
+	@media (max-width: 640px) {
+		.panel {
+			padding: 3rem 1rem 3.5rem;
+		}
+		.form {
+			padding: 1.35rem 1.1rem 1.5rem;
+		}
+	}
+</style>

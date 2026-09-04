@@ -1,0 +1,176 @@
+---
+import { proofStats } from './data';
+---
+
+<section class="proof">
+	<div class="panel">
+		<p class="eyebrow">Peer-reviewed evidence · Nature Health</p>
+		<h2>Measured across 39,849 patient visits</h2>
+		<p class="lede">
+			Penda Health, Nairobi — one of the world’s earliest deployments of AI-assisted clinical decision
+			support, developed with OpenAI and Easy Clinic. Approved by the Kenya Ministry of Health, Kenya
+			Digital Health Agency, and AMREF Ethics Committee.
+		</p>
+
+		<ul class="metrics" data-stagger>
+			{
+				proofStats.map((item) => (
+					<li>
+						<strong>{item.stat}</strong>
+						<small>{item.label}</small>
+					</li>
+				))
+			}
+		</ul>
+
+		<figure class="quote">
+			<blockquote>
+				“Easy Clinic has been a true innovation partner for nearly a decade. Together we implemented
+				one of the world’s early deployments of an AI-assisted clinical decision support system
+				developed in collaboration with OpenAI.”
+			</blockquote>
+			<figcaption>
+				<strong>Dr. Robert Korom</strong>
+				<small>Chief Medical Officer, Penda Health</small>
+			</figcaption>
+		</figure>
+
+		<ul class="aside">
+			<li><strong>15</strong> clinics</li>
+			<li><strong>108</strong> physicians</li>
+			<li><strong>10%</strong> fewer unnecessary investigations</li>
+			<li><strong>99.97%</strong> uptime over 9 years</li>
+		</ul>
+	</div>
+</section>
+<style>
+	.proof {
+		background: var(--surface);
+	}
+	.panel {
+		background: var(--navy);
+		border-radius: 24px 24px 0 0;
+		padding: 5.5rem 1.5rem 5rem;
+		color: var(--surface);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.eyebrow {
+		margin: 0;
+		color: var(--brand-teal);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	h2 {
+		max-width: 18ch;
+		margin: 0.85rem auto 0;
+		color: var(--surface);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-align: center;
+	}
+	.lede {
+		max-width: 58ch;
+		margin: 1.15rem auto 0;
+		color: rgba(255, 255, 255, 72%);
+		font-size: 1.0625rem;
+		text-align: center;
+	}
+	.metrics {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1rem;
+		max-width: var(--page-max);
+		margin: 3rem auto 0;
+		padding: 0;
+		list-style: none;
+		text-align: center;
+	}
+	.metrics li {
+		border: 1px solid rgba(255, 255, 255, 8%);
+		border-radius: 16px;
+		padding: 1.25rem 0.75rem;
+		background: rgba(255, 255, 255, 6%);
+	}
+	.metrics strong {
+		display: block;
+		font-size: 2rem;
+		font-weight: 700;
+		letter-spacing: -0.03em;
+		line-height: 1.1;
+	}
+	.metrics small {
+		display: block;
+		margin-top: 0.4rem;
+		color: rgba(255, 255, 255, 72%);
+		font-size: 0.875rem;
+	}
+	.quote {
+		max-width: 760px;
+		margin: 3rem auto 0;
+		border-radius: 20px;
+		padding: 2rem;
+		background: rgba(255, 255, 255, 6%);
+	}
+	blockquote {
+		border: 0;
+		padding: 0;
+		margin: 0;
+		color: rgba(255, 255, 255, 92%);
+		font-size: 1.125rem;
+		line-height: 1.55;
+	}
+	figcaption {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		margin-top: 1.25rem;
+	}
+	figcaption strong {
+		font-size: 0.9375rem;
+	}
+	figcaption small {
+		color: rgba(255, 255, 255, 62%);
+		font-size: 0.8125rem;
+	}
+	.aside {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.75rem 1.75rem;
+		max-width: var(--page-max);
+		margin: 2rem auto 0;
+		padding: 0;
+		list-style: none;
+		color: rgba(255, 255, 255, 78%);
+		font-size: 0.9375rem;
+	}
+	.aside strong {
+		color: var(--surface);
+	}
+
+	@media (max-width: 1080px) {
+		.panel {
+			padding: 4rem 1.5rem 3.5rem;
+		}
+		.metrics {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	@media (max-width: 640px) {
+		.panel {
+			padding: 3rem 1rem 3rem;
+		}
+		.metrics {
+			grid-template-columns: 1fr 1fr;
+		}
+		blockquote {
+			font-size: 1rem;
+		}
+	}
+</style>

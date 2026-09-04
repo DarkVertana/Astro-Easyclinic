@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import FormattedDate from '../FormattedDate.astro';
+import PageHero from '../PageHero.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const featured = posts[0];
+---
+
+<PageHero
+	eyebrow="Resources"
+	title="Helpful resources"
+	lede="Guidance, product notes, and stories from clinics running Easy Clinic — written for the people who use it every day."
+>
+	{
+		featured && (
+			<a class="card post" href={`/blogs/${featured.id}`}>
+				<p class="card-label">Latest</p>
+				<strong>{featured.data.title}</strong>
+				<FormattedDate date={featured.data.pubDate} />
+				<span class="read">Read article</span>
+			</a>
+		)
+	}
+</PageHero>

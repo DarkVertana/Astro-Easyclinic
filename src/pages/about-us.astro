@@ -1,0 +1,25 @@
+---
+import Cta from '../components/Cta.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Hero from '../components/about/Hero.astro';
+import Stats from '../components/about/Stats.astro';
+import Story from '../components/about/Story.astro';
+import Team from '../components/about/Team.astro';
+import Values from '../components/about/Values.astro';
+import Marketing from '../layouts/Marketing.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<Marketing
+	title={`About us — ${SITE_TITLE}`}
+	description={`${SITE_TITLE} has built clinic software since 2003, serving 5,000+ doctors across 18 countries.`}
+	mainClass="about"
+>
+	<Hero />
+	<Story />
+	<Values />
+	<Stats />
+	<Team />
+	<Testimonials moreHref="/testimonials" />
+	<Cta />
+</Marketing>

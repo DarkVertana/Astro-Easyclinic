@@ -1,0 +1,19 @@
+---
+import Cta from '../components/Cta.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Grid from '../components/features/Grid.astro';
+import Hero from '../components/features/Hero.astro';
+import Marketing from '../layouts/Marketing.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<Marketing
+	title={`Features — ${SITE_TITLE}`}
+	description={`Explore ${SITE_TITLE} EMR, scheduling, billing, inventory, pharmacy, lab, reports, engagement, multi-location, and Cura AI.`}
+	mainClass="features-page"
+>
+	<Hero />
+	<Grid />
+	<Testimonials moreHref="/testimonials" />
+	<Cta />
+</Marketing>

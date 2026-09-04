@@ -1,0 +1,162 @@
+---
+const team = [
+	{
+		name: 'Girish Mohata',
+		role: 'Founder & CEO',
+		copy: 'Leads Easy Clinic for some of the largest and most complex healthcare clinics worldwide. He has built and exited multiple tech companies.',
+	},
+	{
+		name: 'Mrinal Pasari',
+		role: 'Co-Founder',
+		copy: 'Solution architect with two decades in enterprise applications — banking, insurance, healthcare, logistics, telecom, and ERP.',
+	},
+	{
+		name: 'Vikas Malpani',
+		role: 'Director, Business Growth',
+		copy: 'Entrepreneur and business strategist focused on leadership, innovation, and value creation through technology.',
+	},
+	{
+		name: 'Gaurab Chatterjee',
+		role: 'Head of Software Development',
+		copy: 'Technology specialist with 16+ years across the software lifecycle. Has led delivery at Easy Clinic since 2010.',
+	},
+	{
+		name: 'Subhashish Saha',
+		role: 'Head of Customer Success',
+		copy: 'At the front of customer satisfaction since 2012 — making sure every clinic gets service that actually shows up.',
+	},
+];
+
+const initials = (name: string) =>
+	name
+		.split(' ')
+		.filter(Boolean)
+		.slice(0, 2)
+		.map((part) => part[0])
+		.join('');
+---
+
+<section class="team">
+	<div class="inner">
+		<p class="eyebrow">People</p>
+		<h2>The team behind the product</h2>
+		<p class="lede">
+			Easy Clinic is Novel Medicare Solutions Pvt Ltd — a group that has been in the clinic with
+			doctors since 2003.
+		</p>
+		<ul data-stagger>
+			{
+				team.map((person) => (
+					<li>
+						<span class="avatar" aria-hidden="true">
+							{initials(person.name)}
+						</span>
+						<h3>{person.name}</h3>
+						<p class="role">{person.role}</p>
+						<p>{person.copy}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+<style>
+	.team {
+		background: var(--navy);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: none;
+		margin: 0;
+		border-radius: 24px 24px 0 0;
+		padding: 4rem 1.5rem 5rem;
+		background: var(--surface);
+	}
+	.eyebrow {
+		margin: 0;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	h2 {
+		margin: 0.85rem auto 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-align: center;
+	}
+	.lede {
+		max-width: 50ch;
+		margin: 1.15rem auto 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+		text-align: center;
+	}
+	ul {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.15rem;
+		max-width: var(--page-max);
+		margin: 2.75rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.6rem 1.5rem;
+		background: var(--surface-tint);
+	}
+	.avatar {
+		display: grid;
+		place-items: center;
+		width: 48px;
+		height: 48px;
+		margin-bottom: 1rem;
+		border-radius: 50%;
+		background: var(--navy);
+		color: var(--surface);
+		font-size: 0.875rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.125rem;
+		font-weight: 700;
+	}
+	.role {
+		margin: 0.25rem 0 0;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+	}
+	li p:last-child {
+		margin: 0.75rem 0 0;
+		color: var(--muted);
+	}
+	@media (max-width: 1080px) {
+		.inner {
+			padding: 1.5rem 1.5rem 4rem;
+		}
+		ul {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	@media (max-width: 640px) {
+		.inner {
+			padding: 1rem 1rem 3rem;
+		}
+		ul {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

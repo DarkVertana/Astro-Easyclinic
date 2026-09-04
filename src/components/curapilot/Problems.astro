@@ -1,0 +1,136 @@
+---
+import { problems } from './data';
+---
+
+<section class="problems">
+	<div class="panel">
+		<p class="eyebrow">The problem</p>
+		<h2>Three invisible leaks in every health system</h2>
+		<p class="lede">
+			Better outcomes do not come from bigger budgets. They come from connection — clinical,
+			operational, and financial working as one.
+		</p>
+		<ul class="cards" data-stagger>
+			{
+				problems.map((item) => (
+					<li>
+						<p class="kicker">{item.kicker}</p>
+						<h3>{item.title}</h3>
+						<p>{item.copy}</p>
+						<p class="stat">
+							<strong>{item.stat}</strong>
+							<small>{item.statLabel}</small>
+						</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+<style>
+	.problems {
+		background: var(--brand-wash);
+	}
+	.panel {
+		background: var(--surface);
+		border-radius: 24px 24px 0 0;
+		padding: 5.5rem 1.5rem 4.5rem;
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.eyebrow {
+		margin: 0;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	h2 {
+		max-width: 18ch;
+		margin: 0.85rem auto 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-align: center;
+	}
+	.lede {
+		max-width: 52ch;
+		margin: 1.15rem auto 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+		text-align: center;
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.25rem;
+		max-width: var(--page-max);
+		margin: 3rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	.cards li {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.75rem;
+		background: var(--surface-tint);
+	}
+	.kicker {
+		margin: 0 0 0.65rem;
+		color: var(--brand-blue);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.25rem;
+		font-weight: 700;
+		line-height: 1.2;
+	}
+	.cards p {
+		margin: 0.75rem 0 0;
+		color: var(--muted);
+	}
+	.stat {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		margin-top: auto;
+		padding-top: 1.5rem;
+	}
+	.stat strong {
+		color: var(--navy);
+		font-size: 2rem;
+		font-weight: 700;
+		letter-spacing: -0.03em;
+		line-height: 1;
+	}
+	.stat small {
+		color: var(--muted);
+		font-size: 0.875rem;
+	}
+
+	@media (max-width: 1080px) {
+		.panel {
+			padding: 4rem 1.5rem 3.5rem;
+		}
+		.cards {
+			grid-template-columns: 1fr;
+		}
+	}
+	@media (max-width: 640px) {
+		.panel {
+			padding: 3rem 1rem 3rem;
+		}
+	}
+</style>

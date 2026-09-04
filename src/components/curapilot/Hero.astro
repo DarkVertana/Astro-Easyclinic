@@ -1,0 +1,31 @@
+---
+import PageHero from '../PageHero.astro';
+
+const facts = [
+	{ value: '39,849', label: 'Visits reviewed' },
+	{ value: 'Peer-reviewed', label: 'Published study' },
+	{ value: 'Advisory', label: 'Doctor in charge' },
+];
+---
+
+<PageHero
+	eyebrow="Cura AI"
+	title="The AI copilot built into your healthcare organisation"
+	lede="CuraPilot is the intelligence layer on your EMR and hospital systems. It makes every clinician sharper, every operation tighter, and every unit of revenue traceable."
+	secondaryHref="/pricing"
+	secondaryLabel="View Pricing"
+>
+	<div class="card">
+		<p class="card-label">CuraPilot</p>
+		<ul class="rows">
+			{
+				facts.map((item) => (
+					<li class="fact">
+						<strong>{item.value}</strong>
+						<span>{item.label}</span>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</PageHero>

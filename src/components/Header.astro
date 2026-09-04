@@ -4,11 +4,11 @@ import logo from '../assets/footer-logo-img-1.png';
 import { SITE_TITLE } from '../consts';
 
 const navLinks = [
-	{ href: '/features', label: 'Features', menu: true },
-	{ href: '/curapilot', label: 'Cura AI', menu: true },
-	{ href: '/blogs', label: 'Resources', menu: true },
-	{ href: '/testimonials', label: 'Customers', menu: false },
-	{ href: '/pricing', label: 'Pricing', menu: false },
+	{ href: '/curapilot', label: 'Cura AI' },
+	{ href: '/features', label: 'Features' },
+	{ href: '/pricing', label: 'Pricing' },
+	{ href: '/about-us', label: 'About us' },
+	{ href: '/blogs', label: 'Resources' },
 ];
 
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
@@ -39,17 +39,6 @@ const isActive = (href: string) => href === pathname || href === '/' + (subpath?
 					navLinks.map((link) => (
 						<a href={link.href} class:list={['link', { active: isActive(link.href) }]}>
 							{link.label}
-							{link.menu && (
-								<svg class="chevron" viewBox="0 0 16 16" aria-hidden="true" width="14" height="14">
-									<path
-										fill="none"
-										stroke="currentColor"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="m4 6.5 4 4 4-4"></path>
-								</svg>
-							)}
 						</a>
 					))
 				}

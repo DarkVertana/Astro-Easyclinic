@@ -1,0 +1,31 @@
+---
+import PageHero from '../PageHero.astro';
+
+const facts = [
+	{ value: '2003', label: 'Founded' },
+	{ value: '5,000+', label: 'Doctors' },
+	{ value: '18', label: 'Countries' },
+];
+---
+
+<PageHero
+	eyebrow="About us"
+	title="Streamlining clinic operations since 2003"
+	lede="Easy Clinic began as software for doctors who were tired of paper. Two decades on, it is the platform behind thousands of practices — still built to be used, still priced to be kept."
+	secondaryHref="/testimonials"
+	secondaryLabel="Customer stories"
+>
+	<div class="card">
+		<p class="card-label">At a glance</p>
+		<ul class="rows">
+			{
+				facts.map((item) => (
+					<li class="fact">
+						<strong>{item.value}</strong>
+						<span>{item.label}</span>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</PageHero>

@@ -1,0 +1,36 @@
+---
+import PageHero from '../PageHero.astro';
+
+const modules = [
+	{ href: '#emr', name: 'EMR', note: 'Notes & Rx' },
+	{ href: '#scheduling', name: 'Scheduling', note: 'Slots & walk-ins' },
+	{ href: '#billing', name: 'Billing', note: 'Invoices & till' },
+	{ href: '/curapilot', name: 'Cura AI', note: 'Clinical copilot' },
+	{ href: '#inventory', name: 'Inventory', note: 'Stock & reorders' },
+	{ href: '#pharmacy', name: 'Pharmacy', note: 'Dispense & expiry' },
+];
+---
+
+<PageHero
+	eyebrow="Product"
+	title="Everything a clinic needs, in one place"
+	lede="EMR, scheduling, billing, inventory, pharmacy, lab, and Cura AI — connected so clinical care, operations, and revenue move together."
+	secondaryHref="/pricing"
+	secondaryLabel="View Pricing"
+>
+	<div class="card">
+		<p class="card-label">Modules</p>
+		<ul class="rows">
+			{
+				modules.map((item) => (
+					<li>
+						<a href={item.href}>
+							<strong>{item.name}</strong>
+							<span>{item.note}</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</PageHero>

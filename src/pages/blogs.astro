@@ -1,0 +1,17 @@
+---
+import Cta from '../components/Cta.astro';
+import Grid from '../components/blogs/Grid.astro';
+import Hero from '../components/blogs/Hero.astro';
+import Marketing from '../layouts/Marketing.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<Marketing
+	title={`Resources — ${SITE_TITLE}`}
+	description={`Helpful resources from ${SITE_TITLE}: product guidance, clinic stories, and notes from the team.`}
+	mainClass="blogs"
+>
+	<Hero />
+	<Grid />
+	<Cta />
+</Marketing>

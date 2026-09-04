@@ -1,21 +1,21 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Cta from '../components/Cta.astro';
-import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
-import Features from '../components/Features.astro';
 import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import PatientCare from '../components/PatientCare.astro';
-import Stories from '../components/Stories.astro';
-import Testimonials from '../components/Testimonials.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+interface Props {
+	title: string;
+	description: string;
+	mainClass?: string;
+}
+
+const { title, description, mainClass = '' } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={title} description={description} />
 		{/* set before paint, so sections are only hidden when the observer can reveal them */}
 		<script is:inline>
 			document.documentElement.classList.add('js-reveal');
@@ -23,21 +23,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main class="home">
-			<Hero />
-			<Features />
-			<PatientCare />
-			<Testimonials />
-			<Faq />
-			<Stories />
-			<Cta />
+		<main class:list={['page', mainClass]}>
+			<slot />
 		</main>
 		<Footer />
 	</body>
 </html>
 
 <script>
-	const sections = [...document.querySelectorAll<HTMLElement>('main.home > section')];
+	const sections = [...document.querySelectorAll<HTMLElement>('main.page > section')];
 	const [hero, ...rest] = sections;
 	hero?.classList.add('is-visible');
 
@@ -69,49 +63,59 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 <style is:global>
 	@media (prefers-reduced-motion: no-preference) {
-		/* sections rise into place as they enter the viewport */
-		html.js-reveal main.home > section:first-child {
+		html.js-reveal main.page > section:first-child {
 			opacity: 1;
 			transform: none;
 		}
-		html.js-reveal main.home > section:not(:first-child) {
+		html.js-reveal main.page > section:not(:first-child) {
 			opacity: 0;
 			transform: translateY(24px);
 			transition:
 				opacity 0.7s ease,
 				transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 		}
-		html.js-reveal main.home > section.is-visible {
+		html.js-reveal main.page > section.is-visible {
 			opacity: 1;
 			transform: none;
 		}
 
-		/* card groups inside a revealed section arrive one after another */
-		html.js-reveal main.home > section [data-stagger] > * {
+		html.js-reveal main.page > section [data-stagger] > * {
 			opacity: 0;
 			transform: translateY(18px);
 			transition:
 				opacity 0.6s ease,
 				transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 		}
-		html.js-reveal main.home > section.is-visible [data-stagger] > * {
+		html.js-reveal main.page > section.is-visible [data-stagger] > * {
 			opacity: 1;
 			transform: none;
 		}
-		html.js-reveal main.home > section.is-visible [data-stagger] > :nth-child(2) {
+		html.js-reveal main.page > section.is-visible [data-stagger] > :nth-child(2) {
 			transition-delay: 0.09s;
 		}
-		html.js-reveal main.home > section.is-visible [data-stagger] > :nth-child(3) {
+		html.js-reveal main.page > section.is-visible [data-stagger] > :nth-child(3) {
 			transition-delay: 0.18s;
 		}
-		html.js-reveal main.home > section.is-visible [data-stagger] > :nth-child(4) {
+		html.js-reveal main.page > section.is-visible [data-stagger] > :nth-child(4) {
 			transition-delay: 0.27s;
 		}
-		html.js-reveal main.home > section.is-visible [data-stagger] > :nth-child(5) {
+		html.js-reveal main.page > section.is-visible [data-stagger] > :nth-child(5) {
 			transition-delay: 0.36s;
 		}
-		html.js-reveal main.home > section.is-visible [data-stagger] > :nth-child(6) {
+		html.js-reveal main.page > section.is-visible [data-stagger] > :nth-child(6) {
 			transition-delay: 0.45s;
+		}
+		html.js-reveal main.page > section.is-visible [data-stagger] > :nth-child(7) {
+			transition-delay: 0.54s;
+		}
+		html.js-reveal main.page > section.is-visible [data-stagger] > :nth-child(8) {
+			transition-delay: 0.63s;
+		}
+		html.js-reveal main.page > section.is-visible [data-stagger] > :nth-child(9) {
+			transition-delay: 0.72s;
+		}
+		html.js-reveal main.page > section.is-visible [data-stagger] > :nth-child(10) {
+			transition-delay: 0.81s;
 		}
 	}
 </style>

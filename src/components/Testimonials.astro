@@ -53,9 +53,16 @@ const testimonials = [
 		photo: seetha,
 	},
 ];
+
+interface Props {
+	showMore?: boolean;
+	moreHref?: string;
+}
+
+const { showMore = true, moreHref = '/#customers' } = Astro.props;
 ---
 
-<section class="proof">
+<section class="proof" id="customers">
 	<div class="panel">
 		<h2>Trusted by practices worldwide</h2>
 		<p class="lede">
@@ -83,9 +90,15 @@ const testimonials = [
 			}
 		</ul>
 
-		<p class="more">
-			<a class="btn" href="/testimonials">See customer stories</a>
-		</p>
+		{
+			showMore && (
+				<p class="more">
+					<a class="btn" href={moreHref}>
+						See customer stories
+					</a>
+				</p>
+			)
+		}
 	</div>
 </section>
 <style>

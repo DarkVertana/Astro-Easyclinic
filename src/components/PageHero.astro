@@ -1,0 +1,254 @@
+---
+interface Props {
+	eyebrow: string;
+	title: string;
+	lede: string;
+	primaryHref?: string;
+	primaryLabel?: string;
+	secondaryHref?: string;
+	secondaryLabel?: string;
+	note?: string;
+}
+
+const {
+	eyebrow,
+	title,
+	lede,
+	primaryHref = '/contact-us#demo-form',
+	primaryLabel = 'Book a Demo',
+	secondaryHref,
+	secondaryLabel,
+	note,
+} = Astro.props;
+---
+
+<section class="hero">
+	<div class="inner">
+		<div class="copy">
+			<p class="eyebrow">{eyebrow}</p>
+			<h1>{title}</h1>
+			<p class="lede">{lede}</p>
+			<div class="cta">
+				<a class="btn btn-solid" href={primaryHref}>{primaryLabel}</a>
+				{
+					secondaryHref && secondaryLabel && (
+						<a class="btn btn-ghost" href={secondaryHref}>
+							{secondaryLabel}
+						</a>
+					)
+				}
+			</div>
+			{note && <p class="note">{note}</p>}
+		</div>
+		<div class="aside">
+			<slot />
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		background: var(--brand-wash);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+		overflow: hidden;
+	}
+	.hero p {
+		margin-bottom: 0;
+	}
+	.inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.85fr);
+		align-items: center;
+		gap: 4rem;
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 4.5rem 1.5rem 5.5rem;
+	}
+	.eyebrow {
+		margin: 0 0 0.75rem;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	h1 {
+		margin: 0;
+		max-width: 16ch;
+		color: var(--navy);
+		font-size: clamp(2.125rem, 4vw, 2.75rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+	}
+	.lede {
+		margin: 1rem 0 0;
+		max-width: 46ch;
+		color: var(--muted);
+		font-size: 1.0625rem;
+	}
+	.cta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1.5rem;
+	}
+	.btn {
+		border-radius: 8px;
+		padding: 0.875rem 1.375rem;
+		font-weight: 600;
+		line-height: 1.2;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	.btn-solid {
+		border: 1.5px solid var(--brand-blue);
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+	.btn-solid:hover {
+		border-color: var(--brand-blue-dark);
+		background: var(--brand-blue-dark);
+	}
+	.btn-ghost {
+		border: 1.5px solid var(--brand-blue);
+		color: var(--brand-blue);
+	}
+	.btn-ghost:hover {
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+	.note {
+		margin: 1.15rem 0 0;
+		color: var(--muted);
+		font-size: 0.9375rem;
+	}
+	.aside {
+		min-width: 0;
+	}
+	.aside :global(.card) {
+		display: block;
+		border: 1px solid rgba(10, 37, 64, 10%);
+		border-radius: 16px;
+		padding: 1.35rem 1.4rem;
+		background: var(--surface);
+		box-shadow: 0 12px 32px rgba(10, 37, 64, 8%);
+		color: inherit;
+		text-decoration: none;
+	}
+	.aside :global(.card-label) {
+		margin: 0 0 1rem;
+		color: var(--navy);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	.aside :global(.rows) {
+		display: grid;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.aside :global(.rows li + li),
+	.aside :global(.rows a + a) {
+		border-top: 1px solid rgba(10, 37, 64, 8%);
+	}
+	.aside :global(.rows a),
+	.aside :global(.fact) {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 0.7rem 0;
+		color: inherit;
+		text-decoration: none;
+	}
+	.aside :global(.rows li:first-child a),
+	.aside :global(.rows .fact:first-child) {
+		padding-top: 0;
+	}
+	.aside :global(.rows li:last-child a),
+	.aside :global(.rows .fact:last-child) {
+		padding-bottom: 0;
+	}
+	.aside :global(.rows strong) {
+		color: var(--navy);
+		font-size: 0.9375rem;
+		font-weight: 700;
+	}
+	.aside :global(.rows span) {
+		color: var(--muted);
+		font-size: 0.8125rem;
+		text-align: right;
+	}
+	.aside :global(.quote p) {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.125rem;
+		font-weight: 600;
+		line-height: 1.4;
+		letter-spacing: -0.02em;
+	}
+	.aside :global(.quote footer) {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		margin-top: 1.15rem;
+	}
+	.aside :global(.quote strong) {
+		color: var(--navy);
+		font-size: 0.9375rem;
+	}
+	.aside :global(.quote small) {
+		color: var(--muted);
+		font-size: 0.8125rem;
+	}
+	.aside :global(.post strong) {
+		display: block;
+		margin: 0.35rem 0 0.5rem;
+		color: var(--navy);
+		font-size: 1.125rem;
+		font-weight: 700;
+		line-height: 1.3;
+		letter-spacing: -0.02em;
+	}
+	.aside :global(.post time) {
+		display: block;
+		color: var(--muted);
+		font-size: 0.8125rem;
+	}
+	.aside :global(.post .read) {
+		display: inline-block;
+		margin-top: 0.85rem;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+	}
+	.aside :global(a.card:hover .read) {
+		text-decoration: underline;
+	}
+
+	@media (max-width: 1080px) {
+		.inner {
+			grid-template-columns: 1fr;
+			gap: 2.25rem;
+			padding: 3.5rem 1.5rem 4.25rem;
+		}
+		h1,
+		.lede {
+			max-width: none;
+		}
+	}
+	@media (max-width: 720px) {
+		.inner {
+			padding: 2.75rem 1rem 3.25rem;
+		}
+		.btn {
+			flex: 1 1 auto;
+			text-align: center;
+		}
+	}
+</style>

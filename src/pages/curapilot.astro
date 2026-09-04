@@ -1,0 +1,24 @@
+---
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Capabilities from '../components/curapilot/Capabilities.astro';
+import Hero from '../components/curapilot/Hero.astro';
+import Problems from '../components/curapilot/Problems.astro';
+import Proof from '../components/curapilot/Proof.astro';
+import { curaFaqs } from '../components/curapilot/data';
+import Marketing from '../layouts/Marketing.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<Marketing
+	title={`CuraPilot — ${SITE_TITLE}`}
+	description="The AI copilot built into your healthcare organisation. Peer-reviewed across 39,849 visits — clinical, operational, and financial intelligence in one layer."
+	mainClass="curapilot"
+>
+	<Hero />
+	<Problems />
+	<Capabilities />
+	<Proof />
+	<Faq items={curaFaqs} />
+	<Cta />
+</Marketing>

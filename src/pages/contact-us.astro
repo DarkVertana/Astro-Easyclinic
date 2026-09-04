@@ -1,0 +1,17 @@
+---
+import Cta from '../components/Cta.astro';
+import Hero from '../components/contact/Hero.astro';
+import Stage from '../components/contact/Stage.astro';
+import Marketing from '../layouts/Marketing.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<Marketing
+	title={`Contact us — ${SITE_TITLE}`}
+	description={`Need some help? Email hello@easyclinic.io, call +91 91477 70277, or book a demo of ${SITE_TITLE}.`}
+	mainClass="contact"
+>
+	<Hero />
+	<Stage />
+	<Cta />
+</Marketing>

@@ -1,0 +1,205 @@
+---
+const features = [
+	{
+		id: 'emr',
+		title: 'EMR',
+		copy: 'Thirty-second prescriptions, custom forms, point-and-click notes, and a face sheet that actually summarises the patient.',
+		href: '#emr',
+	},
+	{
+		id: 'scheduling',
+		title: 'Scheduling',
+		copy: 'Walk-ins, timed slots, teleconsults, waiting-room status, and reminders that cut no-shows — including across locations.',
+		href: '#scheduling',
+	},
+	{
+		id: 'billing',
+		title: 'Billing',
+		copy: 'One-click invoices, part payments, tax rules, and a till that balances cash, card, and online in one view.',
+		href: '#billing',
+	},
+	{
+		id: 'cura',
+		title: 'Cura AI',
+		copy: 'The copilot for clinical decisions, safety alerts, claims, and supply — advisory, with the doctor still in charge.',
+		href: '/curapilot',
+		featured: true,
+	},
+	{
+		id: 'inventory',
+		title: 'Inventory',
+		copy: 'Stock, barcodes, reorders, and logistics from purchase order to transfer — with AI-assisted reorder levels.',
+		href: '#inventory',
+	},
+	{
+		id: 'pharmacy',
+		title: 'Pharmacy',
+		copy: 'Prescriptions flow to dispensing, expiry is flagged at sale, and refill reminders go out without extra work.',
+		href: '#pharmacy',
+	},
+	{
+		id: 'lab',
+		title: 'Lab',
+		copy: 'Orders route from the EMR, abnormal values flag on the report, and results graph beside the visit.',
+		href: '#lab',
+	},
+	{
+		id: 'reports',
+		title: 'Reports',
+		copy: 'A hundred-plus dashboards for clinical, inventory, and finance — exportable, access-controlled, and customisable.',
+		href: '#reports',
+	},
+	{
+		id: 'engagement',
+		title: 'Engagement',
+		copy: 'Patient portal, WhatsApp, SMS, and email for booking, records, education, and feedback — branded as your clinic.',
+		href: '#engagement',
+	},
+	{
+		id: 'multi-location',
+		title: 'Multi-location',
+		copy: 'One patient, one record across owned and franchise sites. SOPs, KPIs, and a birds-eye dashboard for the chain.',
+		href: '#multi-location',
+	},
+];
+---
+
+<section class="grid-sec">
+	<div class="panel">
+		<p class="eyebrow">Modules</p>
+		<h2>A hub, not an encyclopedia</h2>
+		<p class="lede">
+			Ten ways clinics use Easy Clinic every day — from the consult to the till. Cura AI is the layer
+			that ties them together.
+		</p>
+		<ul class="cards" data-stagger>
+			{
+				features.map((item) => (
+					<li id={item.id}>
+						{item.featured ? (
+							<a class="card featured" href={item.href}>
+								<h3>{item.title}</h3>
+								<p>{item.copy}</p>
+								<span class="more">Explore Cura AI</span>
+							</a>
+						) : (
+							<article class="card">
+								<h3>{item.title}</h3>
+								<p>{item.copy}</p>
+							</article>
+						)}
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+<style>
+	.grid-sec {
+		background: var(--brand-wash);
+	}
+	.panel {
+		background: var(--surface);
+		border-radius: 24px 24px 0 0;
+		padding: 5.5rem 1.5rem 4.5rem;
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.eyebrow {
+		margin: 0;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	h2 {
+		max-width: 16ch;
+		margin: 0.85rem auto 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-align: center;
+	}
+	.lede {
+		max-width: 52ch;
+		margin: 1.15rem auto 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+		text-align: center;
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.15rem;
+		max-width: var(--page-max);
+		margin: 3rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	.cards li {
+		scroll-margin-top: 6rem;
+	}
+	.card {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.6rem 1.5rem 1.35rem;
+		background: var(--surface-tint);
+		color: inherit;
+		text-decoration: none;
+	}
+	.card:hover {
+		border-color: var(--brand-blue);
+	}
+	.card.featured {
+		border-color: transparent;
+		background: var(--navy);
+	}
+	.card.featured h3,
+	.card.featured .more {
+		color: var(--surface);
+	}
+	.card.featured p {
+		color: rgba(255, 255, 255, 0.72);
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.25rem;
+		font-weight: 700;
+	}
+	.card p {
+		margin: 0.75rem 0 1.25rem;
+		color: var(--muted);
+		flex: 1;
+	}
+	.more {
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+	}
+
+	@media (max-width: 1080px) {
+		.panel {
+			padding: 4rem 1.5rem 3.5rem;
+		}
+		.cards {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	@media (max-width: 640px) {
+		.panel {
+			padding: 3rem 1rem 3rem;
+		}
+		.cards {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

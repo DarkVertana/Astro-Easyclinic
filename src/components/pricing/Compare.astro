@@ -1,0 +1,217 @@
+---
+import { compareGroups, plans } from './data';
+
+const columns = plans.map((plan) => ({
+	id: plan.id,
+	name: plan.name,
+	featured: Boolean(plan.featured),
+}));
+
+const mark = (on: boolean) =>
+	on
+		? `<span class="yes"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="m3.4 8.4 3 3 6.2-6.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Included</span></span>`
+		: `<span class="no" aria-hidden="true">—</span><span class="sr-only">Not included</span>`;
+---
+
+<section class="compare" id="compare">
+	<div class="inner">
+		<p class="eyebrow">What's included</p>
+		<h2>Compare every module</h2>
+		<p class="lede">
+			Professional covers day-to-day clinic work. Premium adds specialist and multi-location tools.
+			Enterprise is the full operating system for clinic chains.
+		</p>
+
+		<div class="ledger">
+			<div class="names">
+				<span class="corner">Modules</span>
+				{
+					columns.map((column) => (
+						<span class:list={['plan', { featured: column.featured }]}>{column.name}</span>
+					))
+				}
+			</div>
+
+			{
+				compareGroups.map((group) => (
+					<div class="group">
+						<p class="group-title">{group.heading}</p>
+						<ul>
+							{group.rows.map((entry) => (
+								<li class="row">
+									<span class="module">{entry.name}</span>
+									<span class:list={['cell', { featured: columns[0].featured }]} set:html={mark(entry.professional)} />
+									<span class:list={['cell', { featured: columns[1].featured }]} set:html={mark(entry.premium)} />
+									<span class:list={['cell', { featured: columns[2].featured }]} set:html={mark(entry.enterprise)} />
+								</li>
+							))}
+						</ul>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
+<style>
+	.compare {
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 4.5rem 1.5rem 5.5rem;
+	}
+
+	.eyebrow {
+		margin: 0;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	h2 {
+		max-width: 18ch;
+		margin: 0.85rem auto 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-align: center;
+	}
+	.lede {
+		max-width: 54ch;
+		margin: 1rem auto 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+		text-align: center;
+	}
+
+	.ledger {
+		margin: 3rem auto 0;
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		overflow: hidden;
+		background: var(--surface);
+	}
+
+	.names,
+	.row {
+		display: grid;
+		grid-template-columns: minmax(12rem, 1.6fr) repeat(3, minmax(5.5rem, 0.7fr));
+		align-items: stretch;
+	}
+
+	.names {
+		position: sticky;
+		top: 0;
+		z-index: 2;
+		background: var(--navy);
+		color: var(--surface);
+		font-size: 0.9375rem;
+		font-weight: 700;
+	}
+	.corner,
+	.plan {
+		padding: 1rem 1.15rem;
+	}
+	.corner {
+		color: rgba(255, 255, 255, 62%);
+		font-weight: 600;
+	}
+	.plan {
+		text-align: center;
+		border-left: 1px solid rgba(255, 255, 255, 10%);
+	}
+	.plan.featured {
+		background: rgba(4, 189, 175, 22%);
+		color: var(--surface);
+	}
+
+	.group-title {
+		margin: 0;
+		padding: 0.85rem 1.15rem;
+		background: var(--brand-wash);
+		color: var(--navy);
+		font-size: 0.8125rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.group ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.row {
+		border-top: 1px solid var(--border);
+	}
+	.row:first-child {
+		border-top: 0;
+	}
+	.module {
+		padding: 0.85rem 1.15rem;
+		color: var(--ink);
+		font-size: 0.9375rem;
+	}
+	.cell {
+		display: grid;
+		place-items: center;
+		border-left: 1px solid var(--border);
+		padding: 0.7rem 0.5rem;
+	}
+	.cell.featured {
+		background: var(--brand-wash);
+	}
+
+	.yes {
+		display: grid;
+		place-items: center;
+		width: 26px;
+		height: 26px;
+		border-radius: 50%;
+		background: var(--brand-wash-deep);
+		color: var(--brand-blue);
+	}
+	.cell.featured .yes {
+		background: var(--brand-teal);
+		color: var(--surface);
+	}
+	.no {
+		color: var(--muted);
+		font-size: 1.125rem;
+		line-height: 1;
+	}
+
+	@media (max-width: 1080px) {
+		.inner {
+			padding: 3.5rem 1.5rem 4.5rem;
+		}
+	}
+	@media (max-width: 720px) {
+		.inner {
+			padding: 2.75rem 1rem 3.5rem;
+		}
+		.ledger {
+			overflow-x: auto;
+		}
+		.names,
+		.row {
+			min-width: 36rem;
+		}
+		.names {
+			top: 0;
+		}
+		.module,
+		.corner,
+		.plan {
+			padding: 0.8rem 0.9rem;
+		}
+	}
+</style>

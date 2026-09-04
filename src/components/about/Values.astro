@@ -1,0 +1,116 @@
+---
+const values = [
+	{
+		title: 'Innovation',
+		copy: 'We keep exploring the next useful thing — so clients stay at the front of healthcare management, not the brochure.',
+	},
+	{
+		title: 'Integrity',
+		copy: 'Ethical practice is how trust is built. We operate with transparency because clinics hand us their records.',
+	},
+	{
+		title: 'Excellence',
+		copy: 'From the product to support, we aim for work that holds up on a busy clinic day — not just a launch day.',
+	},
+	{
+		title: 'Collaboration',
+		copy: 'The best solutions show up when our team and yours sit on the same side of the table.',
+	},
+	{
+		title: 'Customer Success',
+		copy: 'We stay after go-live. The partnership is meant to grow the practice, not just install software.',
+	},
+	{
+		title: 'Adaptability',
+		copy: 'Healthcare keeps moving. So do we — so clients stay competitive without ripping out what already works.',
+	},
+];
+---
+
+<section class="values">
+	<div class="inner">
+		<p class="eyebrow">How we work</p>
+		<h2>Values we actually practise</h2>
+		<ul data-stagger>
+			{
+				values.map((item) => (
+					<li>
+						<h3>{item.title}</h3>
+						<p>{item.copy}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+<style>
+	.values {
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 3rem 1.5rem 4.5rem;
+	}
+	.eyebrow {
+		margin: 0;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	h2 {
+		margin: 0.85rem auto 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-align: center;
+	}
+	ul {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.15rem;
+		margin: 2.75rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.5rem;
+		background: var(--surface-tint);
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.15rem;
+		font-weight: 700;
+	}
+	p {
+		margin: 0.65rem 0 0;
+		color: var(--muted);
+	}
+	@media (max-width: 1080px) {
+		.inner {
+			padding: 2.5rem 1.5rem 3.5rem;
+		}
+		ul {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	@media (max-width: 640px) {
+		.inner {
+			padding: 2rem 1rem 3rem;
+		}
+		ul {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

@@ -1,0 +1,26 @@
+---
+import Cta from '../components/Cta.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Hero from '../components/testimonials/Hero.astro';
+import Marketing from '../layouts/Marketing.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<Marketing
+	title={`Testimonials — ${SITE_TITLE}`}
+	description={`5000+ doctors in 18 countries trust ${SITE_TITLE} for EMR, clinic management, and patient care.`}
+	mainClass="testimonials-page"
+>
+	<Hero />
+	<Testimonials showMore={false} />
+	<Cta />
+</Marketing>
+
+<style>
+	main :global(section.proof) {
+		background: var(--navy);
+	}
+	main :global(section.cta) {
+		border-radius: 24px 24px 0 0;
+	}
+</style>

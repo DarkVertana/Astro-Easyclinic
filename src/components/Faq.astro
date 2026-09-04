@@ -1,10 +1,16 @@
 ---
 import { SITE_TITLE } from '../consts';
 
+export type FaqItem = {
+	question: string;
+	answer: string;
+	list?: string[];
+};
+
 // Answers only restate claims published on easyclinic.io: free trial with no strings
 // attached, cloud hosting with ABHA/HIPAA/GDPR compliance, WhatsApp/email/SMS, lab
 // reporting and third-party API integrations, 5000+ doctors across 18 countries since 2003.
-const faqs = [
+const faqs: FaqItem[] = [
 	{
 		question: `Is ${SITE_TITLE} the right platform for my practice?`,
 		answer: `${SITE_TITLE} is built for every kind of healthcare provider — from solo practitioners to multi-specialty clinics and hospital chains. More than 5,000 doctors across 18 countries have run their practice on it since 2003, and it adapts to the way you already work for scheduling, records, billing and patient care.`,
@@ -27,6 +33,12 @@ const faqs = [
 			'Yes. WhatsApp, email and SMS are built in for reminders and patient updates, lab reporting flows straight into the patient record, and third-party API integration connects the systems you already run.',
 	},
 ];
+
+interface Props {
+	items?: FaqItem[];
+}
+
+const { items = faqs } = Astro.props;
 ---
 
 <section class="faq">
@@ -35,7 +47,7 @@ const faqs = [
 
 		<div class="list">
 			{
-				faqs.map((item, index) => (
+				items.map((item, index) => (
 					<details open={index === 0}>
 						<summary>
 							<span class="question">{item.question}</span>
@@ -43,6 +55,13 @@ const faqs = [
 						</summary>
 						<div class="answer" data-accordion-body>
 							<p>{item.answer}</p>
+							{item.list && (
+								<ul>
+									{item.list.map((entry) => (
+										<li>{entry}</li>
+									))}
+								</ul>
+							)}
 						</div>
 					</details>
 				))
@@ -158,6 +177,34 @@ const faqs = [
 		color: var(--muted);
 		font-size: 1.0625rem;
 	}
+	.answer p:has(+ ul) {
+		margin-bottom: 0.85rem;
+	}
+	.answer ul {
+		max-width: 76ch;
+		margin: 0 0 1.75rem;
+		padding: 0;
+		list-style: none;
+	}
+	.answer li {
+		position: relative;
+		padding-left: 1.15rem;
+		color: var(--muted);
+		font-size: 1.0625rem;
+	}
+	.answer li + li {
+		margin-top: 0.4rem;
+	}
+	.answer li::before {
+		content: '';
+		position: absolute;
+		top: 0.55em;
+		left: 0;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--brand-teal);
+	}
 
 	@media (prefers-reduced-motion: reduce) {
 		.toggle {
@@ -188,9 +235,13 @@ const faqs = [
 			width: 36px;
 			height: 36px;
 		}
-		.answer p {
+		.answer p,
+		.answer li {
 			margin-bottom: 1.5rem;
 			font-size: 1rem;
+		}
+		.answer li {
+			margin-bottom: 0;
 		}
 	}
 </style>

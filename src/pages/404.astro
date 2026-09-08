@@ -1,0 +1,194 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+const title = `Page not found — ${SITE_TITLE}`;
+const description =
+	'This page does not exist or may have moved. Return home or explore EasyClinic features, pricing, and resources.';
+
+const usefulLinks = [
+	{ href: '/features', label: 'Features' },
+	{ href: '/solutions', label: 'Solutions' },
+	{ href: '/pricing', label: 'Pricing' },
+	{ href: '/blogs', label: 'Resources' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<meta name="robots" content="noindex, follow" />
+	</head>
+	<body>
+		<Header />
+		<main class="page not-found">
+			<section class="hero">
+				<div class="inner">
+					<p class="eyebrow">404</p>
+					<h1>Page not found</h1>
+					<p class="lede">
+						The page you requested is not here — it may have moved or the link is outdated. Head
+						home, or jump to a section that can help.
+					</p>
+					<div class="cta">
+						<a class="btn btn-solid" href="/">Back to home</a>
+						<a class="btn btn-ghost" href="/contact-us">Contact us</a>
+					</div>
+					<nav class="useful" aria-label="Helpful links">
+						<p class="useful-label">Helpful links</p>
+						<ul>
+							{
+								usefulLinks.map((link) => (
+									<li>
+										<a href={link.href}>{link.label}</a>
+									</li>
+								))
+							}
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		width: 100%;
+		max-width: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.hero {
+		background: var(--brand-wash);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+		overflow-x: clip;
+	}
+
+	.hero p {
+		margin-bottom: 0;
+	}
+
+	.inner {
+		box-sizing: border-box;
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 5rem 1.5rem 5.5rem;
+	}
+
+	.eyebrow {
+		margin: 0 0 0.85rem;
+		color: var(--brand-teal);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	h1 {
+		margin: 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.6vw, 2.75rem);
+		font-weight: 700;
+		line-height: 1.12;
+		letter-spacing: -0.02em;
+	}
+
+	.lede {
+		margin: 1.15rem 0 0;
+		max-width: 46ch;
+		color: var(--muted);
+		font-size: 1.0625rem;
+	}
+
+	.cta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1.75rem;
+	}
+
+	.btn {
+		border-radius: 8px;
+		padding: 0.875rem 1.375rem;
+		font-weight: 600;
+		line-height: 1.2;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	.btn-solid {
+		border: 1.5px solid var(--brand-blue);
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+
+	.btn-solid:hover {
+		border-color: var(--brand-blue-dark);
+		background: var(--brand-blue-dark);
+		color: var(--surface);
+	}
+
+	.btn-ghost {
+		border: 1.5px solid var(--brand-blue);
+		color: var(--brand-blue);
+	}
+
+	.btn-ghost:hover {
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+
+	.useful {
+		margin-top: 2.75rem;
+		padding-top: 1.75rem;
+		border-top: 1px solid rgba(10, 37, 64, 10%);
+	}
+
+	.useful-label {
+		margin: 0 0 0.85rem;
+		color: var(--navy);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.useful ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.65rem 1.25rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.useful a {
+		color: var(--brand-blue);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.useful a:hover {
+		text-decoration: underline;
+	}
+
+	@media (max-width: 720px) {
+		.inner {
+			padding: 3.25rem 1rem 3.75rem;
+		}
+
+		.btn {
+			flex: 1 1 auto;
+			text-align: center;
+		}
+	}
+</style>

@@ -1,0 +1,154 @@
+<section class="explore">
+	<div class="inner">
+		<div class="copy">
+			<p class="eyebrow">Go deeper</p>
+			<h2>Have an idea for AI in healthcare? Let’s explore it together.</h2>
+			<p class="lede">
+				Leverage our healthcare AI expertise to ideate, validate, and deliver practical AI solutions
+				for your environment — or start with CuraPilot, the clinical AI copilot built into your
+				systems.
+			</p>
+			<div class="actions">
+				<a class="btn btn-solid" href="/contact-us#demo-form">Schedule a meeting with our AI experts</a>
+				<a class="btn btn-ghost" href="/curapilot">See CuraPilot</a>
+			</div>
+		</div>
+		<div class="card">
+			<p class="card-label">CuraPilot</p>
+			<p class="card-title">Clinical AI copilot for your organisation</p>
+			<p class="card-copy">
+				Peer-reviewed intelligence across clinical, operational, and financial workflows — distinct
+				from this broader Easy Clinic AI hub.
+			</p>
+			<a class="card-link" href="/curapilot">Open CuraPilot →</a>
+		</div>
+	</div>
+</section>
+<style>
+	.explore {
+		background: var(--brand-wash);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+		align-items: center;
+		gap: 3rem;
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 5rem 1.5rem 5rem;
+	}
+	.eyebrow {
+		margin: 0 0 0.75rem;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	h2 {
+		margin: 0;
+		max-width: 20ch;
+		color: var(--navy);
+		font-size: clamp(1.75rem, 3vw, 2.5rem);
+		font-weight: 700;
+		line-height: 1.12;
+		letter-spacing: -0.02em;
+	}
+	.lede {
+		margin: 1rem 0 0;
+		max-width: 48ch;
+		color: var(--muted);
+		font-size: 1.0625rem;
+	}
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1.75rem;
+	}
+	.btn {
+		border-radius: 8px;
+		padding: 0.875rem 1.375rem;
+		font-weight: 600;
+		line-height: 1.2;
+		text-decoration: none;
+	}
+	.btn-solid {
+		border: 1.5px solid var(--brand-blue);
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+	.btn-solid:hover {
+		border-color: var(--brand-blue-dark);
+		background: var(--brand-blue-dark);
+	}
+	.btn-ghost {
+		border: 1.5px solid var(--brand-blue);
+		color: var(--brand-blue);
+	}
+	.btn-ghost:hover {
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+	.card {
+		border: 1px solid rgba(10, 37, 64, 10%);
+		border-radius: 20px;
+		padding: 1.75rem;
+		background: var(--surface);
+		box-shadow: 0 12px 32px rgba(10, 37, 64, 8%);
+	}
+	.card-label {
+		margin: 0 0 0.75rem;
+		color: var(--brand-teal);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	.card-title {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.25rem;
+		font-weight: 700;
+		line-height: 1.25;
+		letter-spacing: -0.02em;
+	}
+	.card-copy {
+		margin: 0.75rem 0 0;
+		color: var(--muted);
+		font-size: 0.975rem;
+	}
+	.card-link {
+		display: inline-block;
+		margin-top: 1.25rem;
+		color: var(--brand-blue);
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.card-link:hover {
+		text-decoration: underline;
+	}
+
+	@media (max-width: 1080px) {
+		.inner {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			padding: 4rem 1.5rem 4rem;
+		}
+		h2 {
+			max-width: none;
+		}
+	}
+	@media (max-width: 640px) {
+		.inner {
+			padding: 3rem 1rem 3.5rem;
+		}
+		.btn {
+			flex: 1 1 auto;
+			text-align: center;
+		}
+	}
+</style>

@@ -1,0 +1,35 @@
+---
+import PageHero from '../PageHero.astro';
+
+const facts = [
+	{ value: 'Clinical AI', label: 'Decision support' },
+	{ value: 'Front desk', label: 'AI reception' },
+	{ value: 'Ambient notes', label: 'You talk, we type' },
+	{ value: 'Ops + billing', label: 'Journey to revenue' },
+];
+---
+
+<PageHero
+	eyebrow="Easy Clinic AI"
+	title="AI-driven clinic management software"
+	lede="Achieve more with less effort. Intelligent automation that enhances clinical care, improves financial outcomes, and streamlines operations — so your practice runs smarter and is ready for long-term growth."
+	primaryHref="/contact-us#demo-form")
+	primaryLabel="Schedule a Demo"
+	secondaryHref="/curapilot"
+	secondaryLabel="Explore CuraPilot"
+	note="Broader AI for clinics · deeper copilot on CuraPilot"
+>
+	<div class="card">
+		<p class="card-label">What AI covers</p>
+		<ul class="rows">
+			{
+				facts.map((item) => (
+					<li class="fact">
+						<strong>{item.value}</strong>
+						<span>{item.label}</span>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</PageHero>

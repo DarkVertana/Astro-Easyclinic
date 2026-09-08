@@ -1,0 +1,146 @@
+---
+const pillars = [
+	{
+		eyebrow: 'Clinical assistant',
+		title: 'AI-powered clinical decision support',
+		copy: 'Automate data entry and support clinicians with real-time, evidence-based recommendations. Personalized insights aid accurate diagnoses and treatment planning — improving efficiency and patient outcomes.',
+	},
+	{
+		eyebrow: 'AI reception',
+		title: 'Front desk assistant for seamless service',
+		copy: 'Handle appointment scheduling, patient intake, queue management, and real-time communication. Automated confirmations, smart triage routing, and status updates keep every touchpoint fast and accurate.',
+	},
+	{
+		eyebrow: 'Ambient documentation',
+		title: 'Faster notes. More time for patients.',
+		copy: 'Turn spoken notes into structured clinical documentation in real time. Dictate findings, diagnoses, and treatment plans — transcribed and organized into the EMR so you stay focused on the patient.',
+	},
+	{
+		eyebrow: 'Patient journey',
+		title: 'From booking to outcomes',
+		copy: 'Intelligent scheduling and reminders through post-visit follow-ups and health progress tracking. Real-time analytics and personalized care plans keep every patient engaged along the way.',
+	},
+	{
+		eyebrow: 'AI billing',
+		title: 'Smarter billing starts here',
+		copy: 'Auto-code consultations, flag errors, and simplify claims so your team bills faster with fewer rejections. Streamline revenue cycle management with real-time error detection and compliant workflows.',
+	},
+	{
+		eyebrow: 'Analytics',
+		title: 'From data to decisions — instantly',
+		copy: 'Turn clinical, operational, and financial data into clear real-time insights. Track performance across locations, uncover inefficiencies, and decide with confidence — without a team of analysts.',
+	},
+];
+---
+
+<section class="pillars">
+	<div class="panel">
+		<p class="eyebrow">AI across the clinic</p>
+		<h2>Your clinical assistant and more</h2>
+		<p class="lede">
+			Enhance the efficiency and capabilities of your clinic — from the front desk to billing and
+			analytics — with AI built into Easy Clinic.
+		</p>
+		<ul class="cards" data-stagger>
+			{
+				pillars.map((item) => (
+					<li>
+						<p class="card-eyebrow">{item.eyebrow}</p>
+						<h3>{item.title}</h3>
+						<p>{item.copy}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+<style>
+	.pillars {
+		background: var(--brand-wash);
+	}
+	.panel {
+		background: var(--surface);
+		border-radius: 24px 24px 0 0;
+		padding: 5.5rem 1.5rem 4.5rem;
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.eyebrow {
+		margin: 0;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	h2 {
+		max-width: 18ch;
+		margin: 0.85rem auto 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-align: center;
+	}
+	.lede {
+		max-width: 54ch;
+		margin: 1.15rem auto 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+		text-align: center;
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.25rem;
+		max-width: var(--page-max);
+		margin: 3rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	.cards li {
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.5rem;
+		background: var(--surface-tint);
+	}
+	.card-eyebrow {
+		margin: 0 0 0.55rem;
+		color: var(--brand-teal);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.125rem;
+		font-weight: 700;
+		line-height: 1.25;
+	}
+	.cards p:last-child {
+		margin: 0.65rem 0 0;
+		color: var(--muted);
+	}
+
+	@media (max-width: 1080px) {
+		.panel {
+			padding: 4rem 1.5rem 3.5rem;
+		}
+		.cards {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	@media (max-width: 640px) {
+		.panel {
+			padding: 3rem 1rem 3rem;
+		}
+		.cards {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

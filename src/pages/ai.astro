@@ -1,0 +1,21 @@
+---
+import Cta from '../components/Cta.astro';
+import Explore from '../components/ai/Explore.astro';
+import Hero from '../components/ai/Hero.astro';
+import Pillars from '../components/ai/Pillars.astro';
+import Pilot from '../components/ai/Pilot.astro';
+import Marketing from '../layouts/Marketing.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<Marketing
+	title={`Easy Clinic AI — ${SITE_TITLE}`}
+	description="AI-driven clinic management from Easy Clinic — clinical assistant, AI reception, ambient documentation, patient journey, billing, and analytics. Explore CuraPilot for the clinical copilot."
+	mainClass="ai"
+>
+	<Hero />
+	<Pillars />
+	<Pilot />
+	<Explore />
+	<Cta />
+</Marketing>

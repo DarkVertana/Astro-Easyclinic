@@ -1,0 +1,34 @@
+---
+import PageHero from '../PageHero.astro';
+
+const facts = [
+	{ value: 'Consultants', label: 'Advisory partners' },
+	{ value: 'Distributors', label: 'Channel partners' },
+	{ value: 'IT providers', label: 'Implementation partners' },
+];
+---
+
+<PageHero
+	eyebrow="Partner with us"
+	title="Empower clinics. Drive growth. Earn together."
+	lede="Whether you are a consultant, distributor, or IT service provider, partnering with EasyClinic means delivering real value to clinics — and building recurring income while you grow your brand."
+	primaryHref="#partner-form"
+	primaryLabel="Become a partner"
+	secondaryHref="mailto:hello@easyclinic.io"
+	secondaryLabel="Email us"
+	note="Revenue share · product training · co-marketing support"
+>
+	<div class="card">
+		<p class="card-label">Who this is for</p>
+		<ul class="rows">
+			{
+				facts.map((item) => (
+					<li class="fact">
+						<strong>{item.value}</strong>
+						<span>{item.label}</span>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</PageHero>

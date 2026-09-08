@@ -1,0 +1,116 @@
+---
+const items = [
+	{
+		title: 'Bring clinics a better solution',
+		copy: 'Clinics still wrestle with manual processes, delayed claims, and weak patient engagement. EasyClinic is an AI-driven clinic management platform that streamlines operations, improves care, and lifts profitability.',
+	},
+	{
+		title: 'Earn as clinics grow',
+		copy: 'Every clinic you onboard is a win for your business. Our partner program includes a revenue-sharing model that scales with your effort.',
+	},
+	{
+		title: 'Trust proven results',
+		copy: 'From Qualitas Health in Malaysia to Penda Health in Kenya, leading providers trust EasyClinic to improve patient care and operational efficiency.',
+	},
+];
+---
+
+<section class="why">
+	<div class="panel">
+		<p class="eyebrow">Why partner</p>
+		<h2>Why partner with EasyClinic?</h2>
+		<p class="lede">
+			Join a partner program built to help you sell with confidence and grow alongside the clinics
+			you introduce.
+		</p>
+		<ul class="cards" data-stagger>
+			{
+				items.map((item) => (
+					<li>
+						<h3>{item.title}</h3>
+						<p>{item.copy}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+<style>
+	.why {
+		background: var(--brand-wash);
+	}
+	.panel {
+		background: var(--surface);
+		border-radius: 24px 24px 0 0;
+		padding: 5.5rem 1.5rem 4.5rem;
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.eyebrow {
+		margin: 0;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	h2 {
+		max-width: 20ch;
+		margin: 0.85rem auto 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-align: center;
+	}
+	.lede {
+		max-width: 52ch;
+		margin: 1.15rem auto 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+		text-align: center;
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.25rem;
+		max-width: var(--page-max);
+		margin: 3rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	.cards li {
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.75rem;
+		background: var(--surface-tint);
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.25rem;
+		font-weight: 700;
+		line-height: 1.2;
+	}
+	.cards p {
+		margin: 0.75rem 0 0;
+		color: var(--muted);
+	}
+
+	@media (max-width: 1080px) {
+		.panel {
+			padding: 4rem 1.5rem 3.5rem;
+		}
+		.cards {
+			grid-template-columns: 1fr;
+		}
+	}
+	@media (max-width: 640px) {
+		.panel {
+			padding: 3rem 1rem 3rem;
+		}
+	}
+</style>

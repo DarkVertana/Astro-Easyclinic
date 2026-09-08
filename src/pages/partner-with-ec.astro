@@ -1,0 +1,48 @@
+---
+import Faq from '../components/Faq.astro';
+import Benefits from '../components/partner/Benefits.astro';
+import Contact from '../components/partner/Contact.astro';
+import Hero from '../components/partner/Hero.astro';
+import Love from '../components/partner/Love.astro';
+import Steps from '../components/partner/Steps.astro';
+import Why from '../components/partner/Why.astro';
+import Marketing from '../layouts/Marketing.astro';
+import { SITE_TITLE } from '../consts';
+
+const partnerFaqs = [
+	{
+		question: 'Who can join the EasyClinic partner program?',
+		answer:
+			'Consultants, distributors, and IT service providers who work with clinics are a strong fit. If you introduce practices to clinic management software and want a recurring revenue share, we would like to hear from you.',
+	},
+	{
+		question: 'How does the revenue-sharing model work?',
+		answer:
+			'Partners earn from clinics they introduce. As those clinics grow with EasyClinic, your share grows with them. Exact commercial terms are shared when we review your partner inquiry.',
+	},
+	{
+		question: 'Do partners get product training and support?',
+		answer:
+			'Yes. We train you on how EasyClinic works so you can pitch confidently, and our support team stays available when the clinics you introduce need help after go-live.',
+	},
+	{
+		question: 'Can we co-market EasyClinic with our brand?',
+		answer:
+			'Partners can use co-branded materials, success stories, and demo environments to open doors with prospects. We align on messaging so clinics get a clear, consistent story.',
+	},
+];
+---
+
+<Marketing
+	title={`Partner with Easy Clinic — ${SITE_TITLE}`}
+	description="Partner with EasyClinic — revenue sharing, training, and co-marketing for consultants, distributors, and IT providers who help clinics grow."
+	mainClass="partner"
+>
+	<Hero />
+	<Why />
+	<Benefits />
+	<Steps />
+	<Love />
+	<Faq items={partnerFaqs} />
+	<Contact />
+</Marketing>

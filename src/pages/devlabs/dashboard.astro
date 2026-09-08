@@ -1,0 +1,32 @@
+---
+export const prerender = false;
+
+import Devlabs from '../../layouts/Devlabs.astro';
+import { requireUser } from '../../lib/devlabs/auth';
+
+const user = Astro.locals.devlabsUser || requireUser(Astro.cookies);
+if (!user) return Astro.redirect('/devlabs');
+---
+
+<Devlabs title="CMS dashboard" user={user} active="dashboard">
+	<p style="margin:0 0 1.25rem;color:var(--muted)">
+		Signed-in shell for future CMS modules. Auth is env-based with signed session cookies — no database required for v1.
+	</p>
+	<div class="grid-cards">
+		<section class="card" id="content">
+			<h2>Content</h2>
+			<p>Blog posts and marketing copy will be managed here.</p>
+			<span class="pill">Coming soon</span>
+		</section>
+		<section class="card" id="forms">
+			<h2>Forms</h2>
+			<p>Demo and contact submissions will land in this inbox.</p>
+			<span class="pill">Coming soon</span>
+		</section>
+		<section class="card" id="settings">
+			<h2>Settings</h2>
+			<p>SMTP and site configuration placeholders for later.</p>
+			<span class="pill">Coming soon</span>
+		</section>
+	</div>
+</Devlabs>

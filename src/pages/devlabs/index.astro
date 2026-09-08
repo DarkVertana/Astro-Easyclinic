@@ -1,0 +1,169 @@
+---
+export const prerender = false;
+
+import { Font } from 'astro:assets';
+import { readSession } from '../../lib/devlabs/auth';
+
+const user = readSession(Astro.cookies);
+if (user) {
+	return Astro.redirect('/devlabs/dashboard');
+}
+const error = Astro.url.searchParams.get('error');
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, nofollow" />
+		<title>DevLabs Login — EasyClinic</title>
+		<Font cssVariable="--font-inter" preload />
+		<style>
+			:root {
+				--brand-blue: #0080f6;
+				--brand-blue-dark: #006fd4;
+				--navy: #0a2540;
+				--ink: #181818;
+				--muted: #474747;
+				--brand-wash: #e9f3fe;
+				--surface: #ffffff;
+				--border: #e5e7eb;
+			}
+			body {
+				margin: 0;
+				min-height: 100vh;
+				font-family: var(--font-inter), system-ui, sans-serif;
+				background: var(--brand-wash);
+				color: var(--ink);
+			}
+			.wrap {
+				display: grid;
+				place-items: center;
+				min-height: 100vh;
+				padding: 1.5rem;
+			}
+			.card {
+				width: min(100%, 420px);
+				border: 1px solid var(--border);
+				border-radius: 20px;
+				padding: 2rem;
+				background: var(--surface);
+				box-shadow: 0 16px 40px rgba(10, 37, 64, 0.06);
+			}
+			.eyebrow {
+				margin: 0 0 0.5rem;
+				color: var(--brand-blue);
+				font-size: 0.8rem;
+				font-weight: 600;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+			}
+			h1 {
+				margin: 0;
+				color: var(--navy);
+				font-size: 1.75rem;
+				letter-spacing: -0.02em;
+			}
+			.lede {
+				margin: 0.65rem 0 1.25rem;
+				color: var(--muted);
+				font-size: 0.95rem;
+			}
+			label {
+				display: grid;
+				gap: 0.35rem;
+				margin-bottom: 1rem;
+				color: var(--navy);
+				font-size: 0.85rem;
+				font-weight: 600;
+			}
+			input {
+				border: 1.5px solid var(--border);
+				border-radius: 8px;
+				padding: 0.75rem 0.9rem;
+				font: inherit;
+				font-weight: 400;
+			}
+			input:focus {
+				outline: none;
+				border-color: var(--brand-blue);
+			}
+			.btn {
+				display: block;
+				width: 100%;
+				margin-top: 0.35rem;
+				border-radius: 8px;
+				padding: 0.85rem 1.25rem;
+				font-weight: 600;
+				font-family: inherit;
+				cursor: pointer;
+				border: 1.5px solid var(--brand-blue);
+				background: var(--brand-blue);
+				color: #fff;
+			}
+			.btn:hover {
+				background: var(--brand-blue-dark);
+				border-color: var(--brand-blue-dark);
+			}
+			.hint {
+				margin: 1.25rem 0 0;
+				font-size: 0.85rem;
+			}
+			.hint a {
+				color: var(--brand-blue);
+				text-decoration: none;
+			}
+			.flash {
+				border-radius: 10px;
+				padding: 0.7rem 0.9rem;
+				margin: 0 0 1rem;
+				font-size: 0.9rem;
+				background: #fef2f2;
+				color: #b91c1c;
+			}
+		</style>
+	</head>
+	<body>
+		<main class="wrap">
+			<section class="card">
+				<p class="eyebrow">DevLabs</p>
+				<h1>Sign in</h1>
+				<p class="lede">CMS access for the EasyClinic marketing site. Product login stays at app.easyclinic.io.</p>
+				{error && <p class="flash" role="alert">Invalid email or password.</p>}
+				<form id="login-form">
+					<label>
+						<span>Email</span>
+						<input type="email" name="email" autocomplete="username" required />
+					</label>
+					<label>
+						<span>Password</span>
+						<input type="password" name="password" autocomplete="current-password" required />
+					</label>
+					<button class="btn" type="submit">Sign in</button>
+				</form>
+				<p class="hint"><a href="/">← Back to site</a></p>
+			</section>
+		</main>
+		<script>
+			const form = document.querySelector('#login-form');
+			form?.addEventListener('submit', async (event) => {
+				event.preventDefault();
+				const data = new FormData(form);
+				const res = await fetch('/api/devlabs/login', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						email: String(data.get('email') || ''),
+						password: String(data.get('password') || ''),
+					}),
+				});
+				if (res.ok) {
+					location.href = '/devlabs/dashboard';
+					return;
+				}
+				location.href = '/devlabs?error=1';
+			});
+		</script>
+	</body>
+</html>

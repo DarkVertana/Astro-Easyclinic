@@ -1,0 +1,202 @@
+---
+import { Font } from 'astro:assets';
+import type { DevlabsUser } from '../lib/devlabs/auth';
+
+interface Props {
+	title: string;
+	user: DevlabsUser;
+	active?: 'dashboard' | 'content' | 'forms' | 'settings';
+}
+
+const { title, user, active = 'dashboard' } = Astro.props;
+
+const nav = [
+	{ href: '/devlabs/dashboard', id: 'dashboard', label: 'Dashboard' },
+	{ href: '/devlabs/dashboard#content', id: 'content', label: 'Content' },
+	{ href: '/devlabs/dashboard#forms', id: 'forms', label: 'Forms' },
+	{ href: '/devlabs/dashboard#settings', id: 'settings', label: 'Settings' },
+] as const;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, nofollow" />
+		<title>{title} — EasyClinic DevLabs</title>
+		<Font cssVariable="--font-inter" preload />
+		<style is:global>
+			:root {
+				--brand-blue: #0080f6;
+				--brand-blue-dark: #006fd4;
+				--brand-teal: #04bdaf;
+				--navy: #0a2540;
+				--ink: #181818;
+				--muted: #474747;
+				--brand-wash: #e9f3fe;
+				--surface: #ffffff;
+				--border: #e5e7eb;
+			}
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				margin: 0;
+				font-family: var(--font-inter), system-ui, sans-serif;
+				background: var(--brand-wash);
+				color: var(--ink);
+				font-size: 15px;
+				line-height: 1.5;
+			}
+			a {
+				color: var(--brand-blue);
+			}
+			.shell {
+				display: grid;
+				grid-template-columns: 240px minmax(0, 1fr);
+				min-height: 100vh;
+			}
+			.side {
+				background: var(--navy);
+				color: #fff;
+				padding: 1.5rem 1rem;
+				display: flex;
+				flex-direction: column;
+				gap: 1.5rem;
+			}
+			.brand {
+				color: #fff;
+				text-decoration: none;
+				font-weight: 700;
+				letter-spacing: -0.02em;
+				font-size: 1.1rem;
+				padding: 0 0.5rem;
+			}
+			.brand span {
+				color: var(--brand-teal);
+			}
+			.side nav {
+				display: flex;
+				flex-direction: column;
+				gap: 0.25rem;
+			}
+			.side a.nav {
+				color: rgba(255, 255, 255, 0.78);
+				text-decoration: none;
+				padding: 0.65rem 0.75rem;
+				border-radius: 8px;
+				font-weight: 500;
+			}
+			.side a.nav:hover,
+			.side a.nav.active {
+				background: rgba(255, 255, 255, 0.1);
+				color: #fff;
+			}
+			.side a.nav.active {
+				background: var(--brand-blue);
+			}
+			.side-foot {
+				margin-top: auto;
+				padding: 0.5rem;
+				font-size: 0.8rem;
+				color: rgba(255, 255, 255, 0.65);
+			}
+			.side-foot a {
+				color: #fff;
+			}
+			.main {
+				padding: 1.75rem 1.5rem 3rem;
+			}
+			.top {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 1rem;
+				margin-bottom: 1.5rem;
+			}
+			.top h1 {
+				margin: 0;
+				color: var(--navy);
+				font-size: 1.6rem;
+				letter-spacing: -0.02em;
+			}
+			.top .user {
+				color: var(--muted);
+				font-size: 0.875rem;
+			}
+			.card {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 16px;
+				padding: 1.25rem 1.35rem;
+				box-shadow: 0 8px 24px rgba(10, 37, 64, 0.04);
+			}
+			.grid-cards {
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 1rem;
+			}
+			.card h2 {
+				margin: 0 0 0.5rem;
+				color: var(--navy);
+				font-size: 1.05rem;
+				letter-spacing: -0.01em;
+			}
+			.card p {
+				margin: 0;
+				color: var(--muted);
+				font-size: 0.9rem;
+			}
+			.pill {
+				display: inline-block;
+				margin-top: 0.85rem;
+				border-radius: 999px;
+				padding: 0.15rem 0.55rem;
+				font-size: 0.75rem;
+				font-weight: 600;
+				background: var(--brand-wash);
+				color: var(--navy);
+			}
+			@media (max-width: 960px) {
+				.shell {
+					grid-template-columns: 1fr;
+				}
+				.side nav {
+					flex-direction: row;
+					flex-wrap: wrap;
+				}
+				.grid-cards {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="shell">
+			<aside class="side">
+				<a class="brand" href="/devlabs/dashboard">EasyClinic <span>DevLabs</span></a>
+				<nav>
+					{
+						nav.map((item) => (
+							<a class:list={['nav', { active: active === item.id }]} href={item.href}>
+								{item.label}
+							</a>
+						))
+					}
+				</nav>
+				<div class="side-foot">
+					<div>{user.email}</div>
+					<p><a href="/devlabs/logout">Log out</a> · <a href="/">View site</a></p>
+				</div>
+			</aside>
+			<div class="main">
+				<div class="top">
+					<h1>{title}</h1>
+					<div class="user">{user.email}</div>
+				</div>
+				<slot />
+			</div>
+		</div>
+	</body>
+</html>

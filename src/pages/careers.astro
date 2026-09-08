@@ -1,0 +1,46 @@
+---
+import Faq from '../components/Faq.astro';
+import Hero from '../components/careers/Hero.astro';
+import Process from '../components/careers/Process.astro';
+import Status from '../components/careers/Status.astro';
+import StayClose from '../components/careers/StayClose.astro';
+import Why from '../components/careers/Why.astro';
+import Marketing from '../layouts/Marketing.astro';
+import { SITE_TITLE } from '../consts';
+
+const careersFaqs = [
+	{
+		question: 'Are there any open roles at EasyClinic right now?',
+		answer:
+			'Not at the moment. We grow deliberately and only open a role when we can give the new teammate real ownership and proper support. Bookmark this page or follow us on LinkedIn to hear about openings first.',
+	},
+	{
+		question: 'Can I still share my CV if you are not hiring?',
+		answer:
+			'Yes. Send a short introduction and your CV to hello@easyclinic.io. We keep strong introductions on file so we can reach out when a fitting role opens.',
+	},
+	{
+		question: 'What is the hiring process like?',
+		answer:
+			'When a role opens we post it here and on LinkedIn, review a short introduction and CV, talk through your experience and the role, then decide quickly and update you either way.',
+	},
+	{
+		question: 'Where can I follow EasyClinic for career updates?',
+		answer:
+			'Follow Easy Clinic on LinkedIn — we share new roles there as soon as they go live, alongside product and company news.',
+	},
+];
+---
+
+<Marketing
+	title={`Careers — ${SITE_TITLE}`}
+	description="Careers at EasyClinic — join a product team building clinic management software for doctors worldwide. Not hiring right now? Introduce yourself and stay close."
+	mainClass="careers"
+>
+	<Hero />
+	<Status />
+	<Why />
+	<Process />
+	<Faq items={careersFaqs} />
+	<StayClose />
+</Marketing>

@@ -1,0 +1,132 @@
+---
+const steps = [
+	{
+		label: 'Job posted',
+		copy: 'We post the role here and on our LinkedIn page.',
+	},
+	{
+		label: 'Quick apply',
+		copy: 'You apply with a short introduction and CV.',
+	},
+	{
+		label: 'Get to know you',
+		copy: 'We talk about your experience and the role.',
+	},
+	{
+		label: 'Decision & update',
+		copy: 'We decide quickly and tell you either way.',
+	},
+];
+---
+
+<section class="process">
+	<div class="panel">
+		<p class="eyebrow">Hiring</p>
+		<h2>How our hiring works</h2>
+		<p class="lede">When a role does open, the process is designed to respect your time.</p>
+		<ol class="cards" data-stagger>
+			{
+				steps.map((item) => (
+					<li>
+						<h3>{item.label}</h3>
+						<p>{item.copy}</p>
+					</li>
+				))
+			}
+		</ol>
+	</div>
+</section>
+<style>
+	.process {
+		background: var(--brand-wash);
+	}
+	.panel {
+		background: var(--surface);
+		border-radius: 24px 24px 0 0;
+		padding: 5rem 1.5rem 4.5rem;
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.eyebrow {
+		margin: 0;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	h2 {
+		max-width: 18ch;
+		margin: 0.85rem auto 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-align: center;
+	}
+	.lede {
+		max-width: 48ch;
+		margin: 1.15rem auto 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+		text-align: center;
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1.25rem;
+		max-width: var(--page-max);
+		margin: 3rem auto 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: step;
+	}
+	.cards li {
+		position: relative;
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.5rem;
+		background: var(--surface-tint);
+		counter-increment: step;
+	}
+	.cards li::before {
+		content: counter(step, decimal-leading-zero);
+		display: block;
+		margin-bottom: 0.85rem;
+		color: var(--brand-teal);
+		font-size: 0.8125rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.125rem;
+		font-weight: 700;
+		line-height: 1.25;
+	}
+	.cards p {
+		margin: 0.65rem 0 0;
+		color: var(--muted);
+	}
+
+	@media (max-width: 1080px) {
+		.panel {
+			padding: 4rem 1.5rem 3.5rem;
+		}
+		.cards {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	@media (max-width: 640px) {
+		.panel {
+			padding: 3rem 1rem 3rem;
+		}
+		.cards {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

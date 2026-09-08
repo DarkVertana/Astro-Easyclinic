@@ -1,0 +1,110 @@
+<section class="cta">
+	<div class="inner">
+		<p class="eyebrow">Stay close</p>
+		<h2>No open roles right now — say hello anyway</h2>
+		<p class="lede">
+			Roles can open at short notice. Introduce yourself by email, or reach the team through contact —
+			so you’re already on our radar when we start hiring.
+		</p>
+		<div class="actions">
+			<a class="btn btn-solid" href="mailto:hello@easyclinic.io">Email hello@easyclinic.io</a>
+			<a class="btn btn-ghost" href="/contact-us">Contact us</a>
+		</div>
+	</div>
+</section>
+<style>
+	.cta {
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 5rem 1.5rem 7rem;
+		text-align: center;
+	}
+	.eyebrow {
+		margin: 0 0 0.85rem;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	h2 {
+		max-width: 22ch;
+		margin: 0 auto;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+	}
+	.lede {
+		max-width: 52ch;
+		margin: 1.25rem auto 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+	}
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1rem;
+		margin-top: 2.5rem;
+	}
+	.btn {
+		border-radius: 10px;
+		padding: 0.875rem 1.5rem;
+		font-weight: 600;
+		line-height: 1.2;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	.btn-solid {
+		border: 1.5px solid var(--brand-blue);
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+	.btn-solid:hover {
+		border-color: var(--brand-blue-dark);
+		background: var(--brand-blue-dark);
+	}
+	.btn-ghost {
+		border: 1.5px solid var(--brand-blue);
+		color: var(--brand-blue);
+	}
+	.btn-ghost:hover {
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+
+	@media (max-width: 1080px) {
+		.inner {
+			padding: 3.5rem 1.5rem 4.5rem;
+		}
+	}
+	@media (max-width: 720px) {
+		.inner {
+			padding: 2.5rem 1rem 3.5rem;
+		}
+		h2 {
+			max-width: 18ch;
+			font-size: clamp(1.5rem, 6.4vw, 1.875rem);
+		}
+		.lede {
+			font-size: 1.0625rem;
+		}
+		.actions {
+			gap: 0.75rem;
+			margin-top: 2rem;
+		}
+		.btn {
+			flex: 1 1 auto;
+			text-align: center;
+			white-space: normal;
+		}
+	}
+</style>

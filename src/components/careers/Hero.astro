@@ -1,0 +1,34 @@
+---
+import PageHero from '../PageHero.astro';
+
+const facts = [
+	{ value: 'Not hiring', label: 'No open roles right now' },
+	{ value: 'Say hello', label: 'hello@easyclinic.io' },
+	{ value: 'Follow us', label: 'LinkedIn for openings' },
+];
+---
+
+<PageHero
+	eyebrow="Careers"
+	title="Build with EasyClinic"
+	lede="EasyClinic is on a mission to make clinical care simpler, faster, and smarter for doctors and clinics. Our software already supports 5,000+ doctors across 200 cities — and everything we build starts with one question: does this make a clinician’s day easier?"
+	primaryHref="mailto:hello@easyclinic.io"
+	primaryLabel="Introduce yourself"
+	secondaryHref="https://www.linkedin.com/company/easy-clinic/"
+	secondaryLabel="Follow on LinkedIn"
+	note="We grow deliberately — roles open when we can give real ownership and support."
+>
+	<div class="card">
+		<p class="card-label">Team status</p>
+		<ul class="rows">
+			{
+				facts.map((item) => (
+					<li class="fact">
+						<strong>{item.value}</strong>
+						<span>{item.label}</span>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</PageHero>

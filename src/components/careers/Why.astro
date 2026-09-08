@@ -1,0 +1,119 @@
+---
+const items = [
+	{
+		title: 'Real impact, real users',
+		copy: 'Every feature ships to practising doctors who depend on it daily. You will see the difference your work makes in how clinics run — from a faster prescription to a smoother billing queue.',
+	},
+	{
+		title: 'Ownership over tickets',
+		copy: 'We hire people we can trust with problems, not just tasks. You’ll own outcomes end to end and have a genuine say in how we solve them.',
+	},
+	{
+		title: 'Room to grow',
+		copy: 'We push each other to get better. Expect honest feedback, space to learn, and the chance to stretch into new areas as the product and the company grow.',
+	},
+	{
+		title: 'Built on modern technology',
+		copy: 'Our platform uses a modern, low-code technical framework — so you’ll work with current tools and clean architecture rather than fighting legacy systems.',
+	},
+];
+---
+
+<section class="why">
+	<div class="inner">
+		<p class="eyebrow">Life on the team</p>
+		<h2>Why build your career at EasyClinic</h2>
+		<p class="lede">
+			We’re a product company at heart. The work you do here reaches real clinics and real patients —
+			not a slide deck.
+		</p>
+		<ul class="cards" data-stagger>
+			{
+				items.map((item) => (
+					<li>
+						<h3>{item.title}</h3>
+						<p>{item.copy}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+<style>
+	.why {
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 5rem 1.5rem 4.5rem;
+	}
+	.eyebrow {
+		margin: 0;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	h2 {
+		max-width: 22ch;
+		margin: 0.85rem auto 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-align: center;
+	}
+	.lede {
+		max-width: 52ch;
+		margin: 1.15rem auto 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+		text-align: center;
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1.25rem;
+		margin: 3rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.cards li {
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.75rem;
+		background: var(--surface-tint);
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.25rem;
+		font-weight: 700;
+		line-height: 1.2;
+	}
+	.cards p {
+		margin: 0.75rem 0 0;
+		color: var(--muted);
+	}
+
+	@media (max-width: 1080px) {
+		.inner {
+			padding: 4rem 1.5rem 3.5rem;
+		}
+	}
+	@media (max-width: 640px) {
+		.inner {
+			padding: 3rem 1rem 3rem;
+		}
+		.cards {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

@@ -1,0 +1,139 @@
+---
+const items = [
+	{
+		title: "We're not hiring right now",
+		copy: 'We don’t have any open positions at the moment. We only open a role when we can give the new teammate real ownership and proper support — so this page will sometimes be quiet, and that’s by design.',
+	},
+	{
+		title: 'Check back often',
+		copy: 'Bookmark this page and revisit it regularly. We post every new opening here first.',
+	},
+	{
+		title: 'Introduce yourself',
+		copy: 'Send a short introduction and your CV to hello@easyclinic.io — we’ll keep it on file for when the right role opens.',
+		href: 'mailto:hello@easyclinic.io',
+		linkLabel: 'hello@easyclinic.io',
+	},
+	{
+		title: 'Follow for updates',
+		copy: 'Follow EasyClinic on LinkedIn to be notified the moment a role goes live.',
+		href: 'https://www.linkedin.com/company/easy-clinic/',
+		linkLabel: 'Follow on LinkedIn',
+	},
+];
+---
+
+<section class="status">
+	<div class="panel">
+		<p class="eyebrow">Open roles</p>
+		<h2>No openings today — stay close</h2>
+		<p class="lede">
+			Roles can open at short notice. The best way not to miss one is to keep checking here and to say
+			hello now, so you’re already on our radar.
+		</p>
+		<ul class="cards" data-stagger>
+			{
+				items.map((item) => (
+					<li>
+						<h3>{item.title}</h3>
+						<p>{item.copy}</p>
+						{item.href && item.linkLabel && (
+							<a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+								{item.linkLabel}
+							</a>
+						)}
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+<style>
+	.status {
+		background: var(--brand-wash);
+	}
+	.panel {
+		background: var(--surface);
+		border-radius: 24px 24px 0 0;
+		padding: 5.5rem 1.5rem 4.5rem;
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.eyebrow {
+		margin: 0;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	h2 {
+		max-width: 22ch;
+		margin: 0.85rem auto 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-align: center;
+	}
+	.lede {
+		max-width: 54ch;
+		margin: 1.15rem auto 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+		text-align: center;
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1.25rem;
+		max-width: var(--page-max);
+		margin: 3rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	.cards li {
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.75rem;
+		background: var(--surface-tint);
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.25rem;
+		font-weight: 700;
+		line-height: 1.2;
+	}
+	.cards p {
+		margin: 0.75rem 0 0;
+		color: var(--muted);
+	}
+	.cards a {
+		display: inline-block;
+		margin-top: 1rem;
+		color: var(--brand-blue);
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.cards a:hover {
+		text-decoration: underline;
+	}
+
+	@media (max-width: 1080px) {
+		.panel {
+			padding: 4rem 1.5rem 3.5rem;
+		}
+		.cards {
+			grid-template-columns: 1fr;
+		}
+	}
+	@media (max-width: 640px) {
+		.panel {
+			padding: 3rem 1rem 3rem;
+		}
+	}
+</style>

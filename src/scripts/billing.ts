@@ -1,10 +1,9 @@
 // Keeps hero previews and plan cards on the same annual / quarterly price,
-// and swaps USD / INR from geo detection or a manual override.
+// and swaps USD / INR from geo/IP detection only (no manual override).
 
 type Period = 'annual' | 'quarterly';
 type Currency = 'usd' | 'inr';
 
-const STORAGE_CURRENCY = 'ec_currency';
 const STORAGE_REGION = 'ec_pricing_region';
 const STORAGE_REGION_EXPIRES = 'ec_pricing_region_expires';
 const REGION_CACHE_TTL_MS = 14 * 24 * 60 * 60 * 1000;
@@ -57,12 +56,9 @@ function saveCachedRegion(country: string) {
 	}
 }
 
-/** Immediate currency before IP returns: override → cached region → India TZ → USD. */
+/** Immediate currency before IP returns: cached region → India TZ/locale → USD. */
 export function resolveInitialCurrency(): Currency {
 	try {
-		const override = localStorage.getItem(STORAGE_CURRENCY);
-		if (isCurrency(override)) return override;
-
 		const region = localStorage.getItem(STORAGE_REGION);
 		if (region === 'IN') return 'inr';
 		if (region && region.length === 2) return 'usd';
@@ -101,10 +97,6 @@ function applyPrices(currency: Currency, period: Period) {
 
 	document.querySelectorAll<HTMLButtonElement>('[data-billing]').forEach((button) => {
 		button.setAttribute('aria-pressed', String(button.dataset.billing === period));
-	});
-
-	document.querySelectorAll<HTMLButtonElement>('[data-currency]').forEach((button) => {
-		button.setAttribute('aria-pressed', String(button.dataset.currency === currency));
 	});
 }
 
@@ -152,12 +144,11 @@ async function detectCountry(): Promise<string | null> {
 }
 
 /**
- * Wire billing + currency toggles, apply geo pricing.
+ * Wire billing toggle and apply geo-based currency pricing.
  * Safe to call once per page load from Plans.astro.
  */
 export function initBilling() {
 	const billingButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-billing]'));
-	const currencyButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-currency]'));
 
 	const currency = resolveInitialCurrency();
 	const period = currentPeriod();
@@ -170,30 +161,8 @@ export function initBilling() {
 		});
 	});
 
-	currencyButtons.forEach((button) => {
-		button.addEventListener('click', () => {
-			const next = button.dataset.currency;
-			if (!isCurrency(next)) return;
-			try {
-				localStorage.setItem(STORAGE_CURRENCY, next);
-			} catch {
-				/* ignore */
-			}
-			applyPrices(next, currentPeriod());
-		});
-	});
-
-	// Confirm region via IP when the user has not manually overridden currency.
+	// Confirm region via IP / geo (skip network when 14-day region cache is valid).
 	void (async () => {
-		let override: string | null = null;
-		try {
-			override = localStorage.getItem(STORAGE_CURRENCY);
-		} catch {
-			/* ignore */
-		}
-		if (isCurrency(override)) return;
-
-		// Valid 14-day region cache: skip network confirm entirely.
 		const cached = readCachedRegion();
 		if (cached) {
 			const next: Currency = cached === 'IN' ? 'inr' : 'usd';

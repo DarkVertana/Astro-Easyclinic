@@ -19,10 +19,6 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 				</button>
 				<button type="button" data-billing="quarterly" aria-pressed="false">Billed Quarterly</button>
 			</div>
-			<div class="currency" role="group" aria-label="Currency">
-				<button type="button" data-currency="inr" aria-pressed="false">INR</button>
-				<button type="button" data-currency="usd" aria-pressed="true">USD</button>
-			</div>
 		</div>
 
 		<ul class="board" data-stagger>
@@ -119,8 +115,7 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 		margin: 2rem auto 0;
 	}
 
-	.billing,
-	.currency {
+	.billing {
 		display: inline-flex;
 		flex-wrap: wrap;
 		justify-content: center;
@@ -130,11 +125,7 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 		padding: 0.25rem;
 		background: var(--surface);
 	}
-	.currency {
-		border-color: var(--border);
-	}
-	.billing button,
-	.currency button {
+	.billing button {
 		border: 0;
 		border-radius: 6px;
 		padding: 0.7rem 1.1rem;
@@ -146,23 +137,14 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 		line-height: 1.2;
 		cursor: pointer;
 	}
-	.currency button {
-		padding: 0.55rem 0.85rem;
-		font-size: 0.8125rem;
-		font-weight: 600;
-		color: var(--muted);
-	}
-	.billing button[aria-pressed='true'],
-	.currency button[aria-pressed='true'] {
+	.billing button[aria-pressed='true'] {
 		background: var(--brand-blue);
 		color: var(--surface);
 	}
-	.billing button:hover:not([aria-pressed='true']),
-	.currency button:hover:not([aria-pressed='true']) {
+	.billing button:hover:not([aria-pressed='true']) {
 		background: var(--brand-wash);
 	}
-	.billing button:focus-visible,
-	.currency button:focus-visible {
+	.billing button:focus-visible {
 		outline: 2px solid var(--brand-blue);
 		outline-offset: 2px;
 	}

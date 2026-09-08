@@ -22,30 +22,23 @@ import { SITE_TITLE } from '../consts';
 		{/* set before paint, so sections are only hidden when the observer can reveal them */}
 		<script is:inline>
 			document.documentElement.classList.add('js-reveal');
-			/* Geo currency hint before paint — India TZ / cached region → INR, else USD. */
+			/* Geo currency hint before paint — cached region / India TZ/locale → INR, else USD. */
 			(function () {
 				try {
-					var override = localStorage.getItem('ec_currency');
-					var currency = override === 'usd' || override === 'inr' ? override : null;
-					if (!currency) {
-						var region = localStorage.getItem('ec_pricing_region');
-						var tz = '';
-						try {
-							tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-						} catch (e) {}
-						var lang = (navigator.language || '').toLowerCase();
-						if (
-							region === 'IN' ||
-							tz === 'Asia/Kolkata' ||
-							tz === 'Asia/Calcutta' ||
-							lang === 'en-in' ||
-							lang === 'hi-in'
-						) {
-							currency = 'inr';
-						} else {
-							currency = 'usd';
-						}
-					}
+					var region = localStorage.getItem('ec_pricing_region');
+					var tz = '';
+					try {
+						tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+					} catch (e) {}
+					var lang = (navigator.language || '').toLowerCase();
+					var currency =
+						region === 'IN' ||
+						tz === 'Asia/Kolkata' ||
+						tz === 'Asia/Calcutta' ||
+						lang === 'en-in' ||
+						lang === 'hi-in'
+							? 'inr'
+							: 'usd';
 					document.documentElement.dataset.currency = currency;
 					document.documentElement.dataset.billing = 'annual';
 				} catch (e) {
@@ -74,12 +67,6 @@ import { SITE_TITLE } from '../consts';
 					document.querySelectorAll('[data-price]').forEach(function (el) {
 						var next = el.getAttribute('data-' + currency + '-' + period);
 						if (next) el.textContent = next;
-					});
-					document.querySelectorAll('[data-currency]').forEach(function (btn) {
-						btn.setAttribute(
-							'aria-pressed',
-							String(btn.getAttribute('data-currency') === currency)
-						);
 					});
 					document.documentElement.setAttribute('data-prices-ready', '');
 				})();

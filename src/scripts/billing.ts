@@ -6,6 +6,8 @@ type Currency = 'usd' | 'inr';
 
 const STORAGE_CURRENCY = 'ec_currency';
 const STORAGE_REGION = 'ec_pricing_region';
+const STORAGE_REGION_EXPIRES = 'ec_pricing_region_expires';
+const REGION_CACHE_TTL_MS = 14 * 24 * 60 * 60 * 1000;
 
 function isPeriod(value: string | undefined): value is Period {
 	return value === 'annual' || value === 'quarterly';
@@ -30,6 +32,28 @@ function weakIndiaLocale(): boolean {
 		return lang === 'en-in' || lang === 'hi-in' || lang.startsWith('hi');
 	} catch {
 		return false;
+	}
+}
+
+function readCachedRegion(): string | null {
+	try {
+		const region = localStorage.getItem(STORAGE_REGION);
+		if (!region || region.length !== 2) return null;
+		const expiresRaw = localStorage.getItem(STORAGE_REGION_EXPIRES);
+		const expires = expiresRaw ? Number(expiresRaw) : 0;
+		if (!expires || Number.isNaN(expires) || Date.now() >= expires) return null;
+		return region.toUpperCase();
+	} catch {
+		return null;
+	}
+}
+
+function saveCachedRegion(country: string) {
+	try {
+		localStorage.setItem(STORAGE_REGION, country);
+		localStorage.setItem(STORAGE_REGION_EXPIRES, String(Date.now() + REGION_CACHE_TTL_MS));
+	} catch {
+		/* ignore */
 	}
 }
 
@@ -84,25 +108,45 @@ function applyPrices(currency: Currency, period: Period) {
 	});
 }
 
+async function fetchCountryText(url: string, signal?: AbortSignal): Promise<string | null> {
+	try {
+		const res = await fetch(url, {
+			credentials: 'omit',
+			cache: 'no-store',
+			...(signal ? { signal } : {}),
+		});
+		if (!res.ok) return null;
+		const text = (await res.text()).trim().toUpperCase();
+		if (/^[A-Z]{2}$/.test(text)) return text;
+	} catch {
+		/* try next */
+	}
+	return null;
+}
+
 async function detectCountry(): Promise<string | null> {
-	const controllers = [AbortSignal.timeout?.(3500)].filter(Boolean) as AbortSignal[];
-	const signal = controllers[0];
+	const signal = AbortSignal.timeout?.(3500);
 
-	const endpoints = ['https://ipapi.co/country/', 'https://ipinfo.io/country'];
-
-	for (const url of endpoints) {
-		try {
-			const res = await fetch(url, {
-				credentials: 'omit',
-				cache: 'no-store',
-				...(signal ? { signal } : {}),
-			});
-			if (!res.ok) continue;
-			const text = (await res.text()).trim().toUpperCase();
-			if (/^[A-Z]{2}$/.test(text)) return text;
-		} catch {
-			/* try next */
+	// Prefer same-origin geo endpoint (CF / Vercel headers + server cache).
+	try {
+		const res = await fetch('/api/geo', {
+			credentials: 'omit',
+			cache: 'no-store',
+			...(signal ? { signal } : {}),
+		});
+		if (res.ok) {
+			const data = (await res.json()) as { country?: string | null };
+			const country = typeof data.country === 'string' ? data.country.trim().toUpperCase() : null;
+			if (country && /^[A-Z]{2}$/.test(country)) return country;
 		}
+	} catch {
+		/* fall through to public IP APIs */
+	}
+
+	// Last-resort browser fallbacks.
+	for (const url of ['https://ipapi.co/country/', 'https://ipinfo.io/country']) {
+		const country = await fetchCountryText(url, signal);
+		if (country) return country;
 	}
 	return null;
 }
@@ -149,14 +193,20 @@ export function initBilling() {
 		}
 		if (isCurrency(override)) return;
 
+		// Valid 14-day region cache: skip network confirm entirely.
+		const cached = readCachedRegion();
+		if (cached) {
+			const next: Currency = cached === 'IN' ? 'inr' : 'usd';
+			if (next !== currentCurrency()) {
+				applyPrices(next, currentPeriod());
+			}
+			return;
+		}
+
 		const country = await detectCountry();
 		if (!country) return;
 
-		try {
-			localStorage.setItem(STORAGE_REGION, country);
-		} catch {
-			/* ignore */
-		}
+		saveCachedRegion(country);
 
 		const next: Currency = country === 'IN' ? 'inr' : 'usd';
 		if (next !== currentCurrency()) {

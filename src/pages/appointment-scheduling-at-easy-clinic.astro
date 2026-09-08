@@ -1,0 +1,8 @@
+---
+import CapabilityPage from '../components/capabilities/CapabilityPage.astro';
+import { capabilityBySlug } from '../components/capabilities/data';
+
+const capability = capabilityBySlug['appointment-scheduling-at-easy-clinic'];
+---
+
+<CapabilityPage capability={capability} />

@@ -1,0 +1,23 @@
+---
+import Faq from '../Faq.astro';
+import SolutionCta from '../solutions/SolutionCta.astro';
+import Marketing from '../../layouts/Marketing.astro';
+import Hero from './Hero.astro';
+import Related from './Related.astro';
+import Sections from './Sections.astro';
+import type { Capability } from './data';
+
+interface Props {
+	capability: Capability;
+}
+
+const { capability } = Astro.props;
+---
+
+<Marketing title={capability.seoTitle} description={capability.seoDescription} mainClass="capability">
+	<Hero capability={capability} />
+	<Sections capability={capability} />
+	<Related capability={capability} />
+	<Faq items={capability.faqs} />
+	<SolutionCta title={capability.ctaTitle} lede={capability.ctaLede} />
+</Marketing>

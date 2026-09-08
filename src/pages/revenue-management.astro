@@ -1,0 +1,8 @@
+---
+import CapabilityPage from '../components/capabilities/CapabilityPage.astro';
+import { capabilityBySlug } from '../components/capabilities/data';
+
+const capability = capabilityBySlug['revenue-management'];
+---
+
+<CapabilityPage capability={capability} />

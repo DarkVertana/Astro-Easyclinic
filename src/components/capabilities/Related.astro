@@ -1,0 +1,114 @@
+---
+import { capabilities, type Capability } from './data';
+
+interface Props {
+	capability: Capability;
+}
+
+const { capability } = Astro.props;
+const others = capabilities.filter((item) => item.slug !== capability.slug);
+---
+
+<section class="related">
+	<div class="inner">
+		<p class="eyebrow">More capabilities</p>
+		<h2>Explore the rest of the platform</h2>
+		<p class="lede">Scheduling, engagement, analytics, payors, and revenue — same EasyClinic foundation.</p>
+		<ul data-stagger>
+			{
+				others.map((item) => (
+					<li>
+						<a href={item.href}>
+							<strong>{item.cardTitle}</strong>
+							<span>{item.cardCopy}</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+<style>
+	.related {
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 4.5rem 1.5rem 5rem;
+	}
+	.eyebrow {
+		margin: 0;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	h2 {
+		max-width: 18ch;
+		margin: 0.85rem 0 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+	}
+	.lede {
+		max-width: 52ch;
+		margin: 1.15rem 0 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+	}
+	ul {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+		margin: 2.5rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	a {
+		display: block;
+		height: 100%;
+		border: 1px solid var(--border);
+		border-radius: 16px;
+		padding: 1.35rem 1.4rem;
+		background: var(--surface-tint);
+		color: inherit;
+		text-decoration: none;
+	}
+	a:hover {
+		border-color: rgba(0, 128, 246, 35%);
+		background: var(--brand-wash);
+	}
+	strong {
+		display: block;
+		color: var(--navy);
+		font-size: 1.0625rem;
+		font-weight: 700;
+	}
+	span {
+		display: block;
+		margin-top: 0.45rem;
+		color: var(--muted);
+		font-size: 0.9375rem;
+	}
+
+	@media (max-width: 1080px) {
+		.inner {
+			padding: 3.5rem 1.5rem 4rem;
+		}
+		ul {
+			grid-template-columns: 1fr;
+		}
+	}
+	@media (max-width: 640px) {
+		.inner {
+			padding: 3rem 1rem 3.5rem;
+		}
+	}
+</style>

@@ -5,16 +5,27 @@ import { SITE_TITLE } from '../consts';
 
 const navLinks = [
 	{ href: '/curapilot', label: 'Cura AI' },
-	{ href: '/features', label: 'Features' },
 	{ href: '/solutions', label: 'Solutions' },
 	{ href: '/pricing', label: 'Pricing' },
 	{ href: '/about-us', label: 'About us' },
 	{ href: '/blogs', label: 'Resources' },
 ];
 
+const featureLinks = [
+	{ href: '/features', label: 'All features' },
+	{ href: '/appointment-scheduling-at-easy-clinic', label: 'Appointment scheduling' },
+	{ href: '/patient-engagement-at-easyclinic', label: 'Patient engagement' },
+	{ href: '/reports-and-dashboards', label: 'Reports & dashboards' },
+	{ href: '/payor-management', label: 'Payor management' },
+	{ href: '/revenue-management', label: 'Revenue management' },
+];
+
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 const subpath = pathname.match(/[^\/]+/g);
 const isActive = (href: string) => href === pathname || href === '/' + (subpath?.[0] || '');
+const featuresActive =
+	pathname === '/features' ||
+	featureLinks.some((link) => link.href !== '/features' && pathname === link.href);
 ---
 
 <header>
@@ -36,12 +47,38 @@ const isActive = (href: string) => href === pathname || href === '/' + (subpath?
 				/>
 			</a>
 			<div class="links">
+				<a href="/curapilot" class:list={['link', { active: isActive('/curapilot') }]}>
+					Cura AI
+				</a>
+				<details class="features">
+					<summary class:list={['link', { active: featuresActive }]}>
+						Features
+						<svg class="chevron" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true">
+							<path
+								d="M2.5 4.5 6 8l3.5-3.5"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.6"
+								stroke-linecap="round"
+								stroke-linejoin="round"></path>
+						</svg>
+					</summary>
+					<div class="flyout" role="menu">
+						{featureLinks.map((link) => (
+							<a href={link.href} role="menuitem" class:list={{ active: isActive(link.href) }}>
+								{link.label}
+							</a>
+						))}
+					</div>
+				</details>
 				{
-					navLinks.map((link) => (
-						<a href={link.href} class:list={['link', { active: isActive(link.href) }]}>
-							{link.label}
-						</a>
-					))
+					navLinks
+						.filter((link) => link.href !== '/curapilot')
+						.map((link) => (
+							<a href={link.href} class:list={['link', { active: isActive(link.href) }]}>
+								{link.label}
+							</a>
+						))
 				}
 			</div>
 			<div class="actions">
@@ -70,7 +107,18 @@ const isActive = (href: string) => href === pathname || href === '/' + (subpath?
 					</svg>
 				</summary>
 				<div class="drawer">
-					{navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+					<a href="/curapilot">Cura AI</a>
+					<p class="drawer-label">Features</p>
+					{featureLinks.map((link) => (
+						<a class="drawer-sub" href={link.href}>
+							{link.label}
+						</a>
+					))}
+					{navLinks
+						.filter((link) => link.href !== '/curapilot')
+						.map((link) => (
+							<a href={link.href}>{link.label}</a>
+						))}
 					<a class="btn btn-ghost" href="/contact-us#demo-form">Book a Demo</a>
 				</div>
 			</details>
@@ -80,7 +128,22 @@ const isActive = (href: string) => href === pathname || href === '/' + (subpath?
 
 <script>
 	const menu = document.querySelector<HTMLDetailsElement>('.menu');
+	const features = document.querySelector<HTMLDetailsElement>('.features');
 	const bar = document.querySelector('header');
+
+	if (features) {
+		features.querySelectorAll('.flyout a').forEach((link) =>
+			link.addEventListener('click', () => {
+				features.open = false;
+			})
+		);
+		document.addEventListener('click', (event) => {
+			if (!features.open) return;
+			if (event.target instanceof Node && !features.contains(event.target)) {
+				features.open = false;
+			}
+		});
+	}
 
 	if (menu && bar) {
 		// the sheet starts where the header ends, and the banner height varies with wrapping
@@ -175,8 +238,62 @@ const isActive = (href: string) => href === pathname || href === '/' + (subpath?
 	.link.active {
 		font-weight: 600;
 	}
+	.features {
+		position: relative;
+	}
+	.features > summary {
+		list-style: none;
+		cursor: pointer;
+	}
+	.features > summary::-webkit-details-marker {
+		display: none;
+	}
 	.chevron {
 		flex-shrink: 0;
+		transition: transform 0.18s ease;
+	}
+	.features[open] > summary .chevron {
+		transform: rotate(180deg);
+	}
+	.flyout {
+		position: absolute;
+		top: calc(100% + 0.85rem);
+		left: 0;
+		z-index: 30;
+		display: grid;
+		min-width: 15.5rem;
+		padding: 0.5rem;
+		border: 1px solid rgba(10, 37, 64, 10%);
+		border-radius: 14px;
+		background: var(--surface);
+		box-shadow: 0 16px 40px rgba(10, 37, 64, 12%);
+	}
+	.flyout a {
+		border-radius: 10px;
+		padding: 0.7rem 0.85rem;
+		color: var(--ink);
+		font-size: 0.9375rem;
+		font-weight: 500;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	.flyout a:hover,
+	.flyout a.active {
+		background: var(--brand-wash);
+		color: var(--brand-blue);
+	}
+	.drawer-label {
+		margin: 1.25rem 0 0.25rem;
+		padding: 0.5rem 0.25rem 0.15rem;
+		color: var(--muted);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	.drawer-sub {
+		padding-left: 0.85rem !important;
+		font-size: 1.0625rem !important;
 	}
 	.actions {
 		display: flex;

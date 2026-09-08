@@ -1,0 +1,33 @@
+---
+import PageHero from '../PageHero.astro';
+import type { Capability } from './data';
+
+interface Props {
+	capability: Capability;
+}
+
+const { capability } = Astro.props;
+---
+
+<PageHero
+	eyebrow={capability.eyebrow}
+	title={capability.title}
+	lede={capability.lede}
+	secondaryHref="/pricing"
+	secondaryLabel="View Pricing"
+	note={capability.note}
+>
+	<div class="card">
+		<p class="card-label">{capability.eyebrow}</p>
+		<ul class="rows">
+			{
+				capability.heroFacts.map((item) => (
+					<li class="fact">
+						<strong>{item.value}</strong>
+						<span>{item.label}</span>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</PageHero>

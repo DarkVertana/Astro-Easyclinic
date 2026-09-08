@@ -1,5 +1,5 @@
 ---
-import { plans } from './data';
+import { plans, priceAttrs } from './data';
 
 const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="m3.4 8.4 3 3 6.2-6.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 ---
@@ -12,45 +12,56 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 			Billed per doctor. A reception licence is included, and there are no binding contracts.
 		</p>
 
-		<div class="billing" role="group" aria-label="Billing period">
-			<button type="button" data-billing="annual" aria-pressed="true">
-				Billed Annually (Save 20%)
-			</button>
-			<button type="button" data-billing="quarterly" aria-pressed="false">Billed Quarterly</button>
+		<div class="toggles">
+			<div class="billing" role="group" aria-label="Billing period">
+				<button type="button" data-billing="annual" aria-pressed="true">
+					Billed Annually (Save 20%)
+				</button>
+				<button type="button" data-billing="quarterly" aria-pressed="false">Billed Quarterly</button>
+			</div>
+			<div class="currency" role="group" aria-label="Currency">
+				<button type="button" data-currency="inr" aria-pressed="false">INR</button>
+				<button type="button" data-currency="usd" aria-pressed="true">USD</button>
+			</div>
 		</div>
 
 		<ul class="board" data-stagger>
 			{
-				plans.map((plan) => (
-					<li class:list={['card', { featured: plan.featured }]} id={`plan-${plan.id}`}>
-						{plan.badge && <p class="ribbon">{plan.badge}</p>}
-						<h3>{plan.name}</h3>
-						<p class="audience">{plan.audience}</p>
-						<p class="price">
-							<span
-								class="amount"
-								data-price
-								data-annual={plan.price.annual}
-								data-quarterly={plan.price.quarterly}
-							>
-								{plan.price.annual}
-							</span>
-							<small>{plan.cadence}</small>
-						</p>
-						{plan.includesFrom && <p class="plus">{plan.includesFrom}</p>}
-						<ul class="features">
-							{plan.features.map((feature) => (
-								<li>
-									<span class="tick" set:html={check} />
-									{feature}
-								</li>
-							))}
-						</ul>
-						<a class:list={['btn', plan.featured || plan.id === 'enterprise' ? 'btn-solid' : 'btn-ghost']} href={plan.href}>
-							{plan.cta}
-						</a>
-					</li>
-				))
+				plans.map((plan) => {
+					const p = priceAttrs(plan.price);
+					return (
+						<li class:list={['card', { featured: plan.featured }]} id={`plan-${plan.id}`}>
+							{plan.badge && <p class="ribbon">{plan.badge}</p>}
+							<h3>{plan.name}</h3>
+							<p class="audience">{plan.audience}</p>
+							<p class="price">
+								<span
+									class="amount"
+									data-price
+									data-usd-annual={p.usdAnnual}
+									data-usd-quarterly={p.usdQuarterly}
+									data-inr-annual={p.inrAnnual}
+									data-inr-quarterly={p.inrQuarterly}
+								>
+									{p.usdAnnual}
+								</span>
+								<small>{plan.cadence}</small>
+							</p>
+							{plan.includesFrom && <p class="plus">{plan.includesFrom}</p>}
+							<ul class="features">
+								{plan.features.map((feature) => (
+									<li>
+										<span class="tick" set:html={check} />
+										{feature}
+									</li>
+								))}
+							</ul>
+							<a class:list={['btn', plan.featured || plan.id === 'enterprise' ? 'btn-solid' : 'btn-ghost']} href={plan.href}>
+								{plan.cta}
+							</a>
+						</li>
+					);
+				})
 			}
 		</ul>
 	</div>
@@ -99,18 +110,31 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 		font-size: 1.125rem;
 	}
 
-	.billing {
+	.toggles {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		gap: 0.75rem 1rem;
+		margin: 2rem auto 0;
+	}
+
+	.billing,
+	.currency {
 		display: inline-flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		gap: 0.25rem;
-		margin: 2rem auto 0;
 		border: 1.5px solid var(--brand-blue);
 		border-radius: 8px;
 		padding: 0.25rem;
 		background: var(--surface);
 	}
-	.billing button {
+	.currency {
+		border-color: var(--border);
+	}
+	.billing button,
+	.currency button {
 		border: 0;
 		border-radius: 6px;
 		padding: 0.7rem 1.1rem;
@@ -122,14 +146,23 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 		line-height: 1.2;
 		cursor: pointer;
 	}
-	.billing button[aria-pressed='true'] {
+	.currency button {
+		padding: 0.55rem 0.85rem;
+		font-size: 0.8125rem;
+		font-weight: 600;
+		color: var(--muted);
+	}
+	.billing button[aria-pressed='true'],
+	.currency button[aria-pressed='true'] {
 		background: var(--brand-blue);
 		color: var(--surface);
 	}
-	.billing button:hover:not([aria-pressed='true']) {
+	.billing button:hover:not([aria-pressed='true']),
+	.currency button:hover:not([aria-pressed='true']) {
 		background: var(--brand-wash);
 	}
-	.billing button:focus-visible {
+	.billing button:focus-visible,
+	.currency button:focus-visible {
 		outline: 2px solid var(--brand-blue);
 		outline-offset: 2px;
 	}
@@ -334,6 +367,7 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 		}
 		.billing {
 			display: flex;
+			width: 100%;
 		}
 		.billing button {
 			flex: 1 1 auto;

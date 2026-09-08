@@ -22,13 +22,68 @@ import { SITE_TITLE } from '../consts';
 		{/* set before paint, so sections are only hidden when the observer can reveal them */}
 		<script is:inline>
 			document.documentElement.classList.add('js-reveal');
+			/* Geo currency hint before paint — India TZ / cached region → INR, else USD. */
+			(function () {
+				try {
+					var override = localStorage.getItem('ec_currency');
+					var currency = override === 'usd' || override === 'inr' ? override : null;
+					if (!currency) {
+						var region = localStorage.getItem('ec_pricing_region');
+						var tz = '';
+						try {
+							tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+						} catch (e) {}
+						var lang = (navigator.language || '').toLowerCase();
+						if (
+							region === 'IN' ||
+							tz === 'Asia/Kolkata' ||
+							tz === 'Asia/Calcutta' ||
+							lang === 'en-in' ||
+							lang === 'hi-in'
+						) {
+							currency = 'inr';
+						} else {
+							currency = 'usd';
+						}
+					}
+					document.documentElement.dataset.currency = currency;
+					document.documentElement.dataset.billing = 'annual';
+				} catch (e) {
+					document.documentElement.dataset.currency = 'usd';
+					document.documentElement.dataset.billing = 'annual';
+				}
+			})();
 		</script>
+		<style is:inline>
+			/* Hide amounts until currency applied — prevents $→₹ flash. */
+			html.js-reveal:not([data-prices-ready]) [data-price] {
+				visibility: hidden;
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main class="pricing">
 			<Hero />
 			<Plans />
+			<!-- Apply currency to prices immediately after they exist (before deferred modules). -->
+			<script is:inline>
+				(function () {
+					var currency = document.documentElement.dataset.currency || 'usd';
+					var period = document.documentElement.dataset.billing || 'annual';
+					document.querySelectorAll('[data-price]').forEach(function (el) {
+						var next = el.getAttribute('data-' + currency + '-' + period);
+						if (next) el.textContent = next;
+					});
+					document.querySelectorAll('[data-currency]').forEach(function (btn) {
+						btn.setAttribute(
+							'aria-pressed',
+							String(btn.getAttribute('data-currency') === currency)
+						);
+					});
+					document.documentElement.setAttribute('data-prices-ready', '');
+				})();
+			</script>
 			<Compare />
 			<Testimonials />
 			<Faq items={pricingFaqs} />

@@ -4,11 +4,21 @@ export type PlanId = 'professional' | 'premium' | 'enterprise';
 
 export type BillingPeriod = 'annual' | 'quarterly';
 
+export type CurrencyCode = 'usd' | 'inr';
+
+/** Numeric amount or 'custom' for enterprise. */
+export type PriceAmount = number | 'custom';
+
+export type DualCurrencyPrice = {
+	usd: { annual: PriceAmount; quarterly: PriceAmount };
+	inr: { annual: PriceAmount; quarterly: PriceAmount };
+};
+
 export type Plan = {
 	id: PlanId;
 	name: string;
 	audience: string;
-	price: { annual: string; quarterly: string };
+	price: DualCurrencyPrice;
 	cadence: string;
 	includesFrom?: string;
 	features: string[];
@@ -18,12 +28,39 @@ export type Plan = {
 	badge?: string;
 };
 
+/**
+ * Format a plan amount for display.
+ * USD: `$79` · INR: `₹1,499` (Indian grouping via en-IN).
+ */
+export function formatPrice(amount: PriceAmount, currency: CurrencyCode): string {
+	if (amount === 'custom') return 'Custom';
+	if (currency === 'inr') {
+		return `₹${amount.toLocaleString('en-IN')}`;
+	}
+	return `$${amount.toLocaleString('en-US')}`;
+}
+
+/** Preformatted strings for data-* attributes and SSR defaults. */
+export function priceAttrs(price: DualCurrencyPrice) {
+	return {
+		usdAnnual: formatPrice(price.usd.annual, 'usd'),
+		usdQuarterly: formatPrice(price.usd.quarterly, 'usd'),
+		inrAnnual: formatPrice(price.inr.annual, 'inr'),
+		inrQuarterly: formatPrice(price.inr.quarterly, 'inr'),
+	};
+}
+
 export const plans: Plan[] = [
 	{
 		id: 'professional',
 		name: 'Professional',
 		audience: 'Best for GPs and physicians running an EMR day to day',
-		price: { annual: '$79', quarterly: '$99' },
+		price: {
+			usd: { annual: 79, quarterly: 99 },
+			// INR annual from GoodFirms / Nerdisa (billed annually).
+			// Quarterly not publicly listed — ~25% above annual to mirror USD ~20% annual savings.
+			inr: { annual: 1499, quarterly: 1875 },
+		},
 		cadence: 'per doctor / month',
 		features: [
 			'Patient Management',
@@ -44,7 +81,12 @@ export const plans: Plan[] = [
 		id: 'premium',
 		name: 'Premium',
 		audience: 'Best for specialists who need advanced EMR and telehealth',
-		price: { annual: '$99', quarterly: '$129' },
+		price: {
+			usd: { annual: 99, quarterly: 129 },
+			// INR annual from GoodFirms / Nerdisa (billed annually).
+			// Quarterly not publicly listed — ~25% above annual to mirror USD ~20% annual savings.
+			inr: { annual: 1999, quarterly: 2499 },
+		},
 		cadence: 'per doctor / month',
 		includesFrom: 'Everything in Professional, plus',
 		features: [
@@ -67,7 +109,10 @@ export const plans: Plan[] = [
 		id: 'enterprise',
 		name: 'Enterprise',
 		audience: 'Best for multi-location clinic chains, polyclinics & nursing homes',
-		price: { annual: 'Custom', quarterly: 'Custom' },
+		price: {
+			usd: { annual: 'custom', quarterly: 'custom' },
+			inr: { annual: 'custom', quarterly: 'custom' },
+		},
 		cadence: 'Talk to us',
 		includesFrom: 'Everything in Premium, plus',
 		features: [

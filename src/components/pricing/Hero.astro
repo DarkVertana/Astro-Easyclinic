@@ -1,6 +1,6 @@
 ---
 import { SITE_TITLE } from '../../consts';
-import { plans } from './data';
+import { plans, priceAttrs } from './data';
 
 const glance = {
 	professional: 'GPs and physicians',
@@ -29,31 +29,36 @@ const glance = {
 			<p class="stack-label">At a glance</p>
 			<ul>
 				{
-					plans.map((plan) => (
-						<li>
-							<a
-								class:list={['preview', { featured: plan.featured }]}
-								href={`#plan-${plan.id}`}
-							>
-								<span class="who">
-									{plan.featured && <span class="badge">Popular</span>}
-									<strong>{plan.name}</strong>
-									<small>{glance[plan.id]}</small>
-								</span>
-								<span class="cost">
-									<span
-										class="amount"
-										data-price
-										data-annual={plan.price.annual}
-										data-quarterly={plan.price.quarterly}
-									>
-										{plan.price.annual}
+					plans.map((plan) => {
+						const p = priceAttrs(plan.price);
+						return (
+							<li>
+								<a
+									class:list={['preview', { featured: plan.featured }]}
+									href={`#plan-${plan.id}`}
+								>
+									<span class="who">
+										{plan.featured && <span class="badge">Popular</span>}
+										<strong>{plan.name}</strong>
+										<small>{glance[plan.id]}</small>
 									</span>
-									<small>{plan.cadence}</small>
-								</span>
-							</a>
-						</li>
-					))
+									<span class="cost">
+										<span
+											class="amount"
+											data-price
+											data-usd-annual={p.usdAnnual}
+											data-usd-quarterly={p.usdQuarterly}
+											data-inr-annual={p.inrAnnual}
+											data-inr-quarterly={p.inrQuarterly}
+										>
+											{p.usdAnnual}
+										</span>
+										<small>{plan.cadence}</small>
+									</span>
+								</a>
+							</li>
+						);
+					})
 				}
 			</ul>
 		</div>

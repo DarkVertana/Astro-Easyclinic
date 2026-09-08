@@ -22,33 +22,43 @@ const mark = (on: boolean) =>
 			Enterprise is the full operating system for clinic chains.
 		</p>
 
-		<div class="ledger">
-			<div class="names">
-				<span class="corner">Modules</span>
-				{
-					columns.map((column) => (
-						<span class:list={['plan', { featured: column.featured }]}>{column.name}</span>
-					))
-				}
-			</div>
-
-			{
-				compareGroups.map((group) => (
-					<div class="group">
-						<p class="group-title">{group.heading}</p>
-						<ul>
-							{group.rows.map((entry) => (
-								<li class="row">
-									<span class="module">{entry.name}</span>
-									<span class:list={['cell', { featured: columns[0].featured }]} set:html={mark(entry.professional)} />
-									<span class:list={['cell', { featured: columns[1].featured }]} set:html={mark(entry.premium)} />
-									<span class:list={['cell', { featured: columns[2].featured }]} set:html={mark(entry.enterprise)} />
-								</li>
-							))}
-						</ul>
+		<div class="compare-table">
+			<p class="scroll-hint" aria-hidden="true">Swipe to compare →</p>
+			<div
+				class="scroller"
+				tabindex="0"
+				role="region"
+				aria-label="Compare plans table. Scroll horizontally to see all columns."
+			>
+				<div class="ledger">
+					<div class="names">
+						<span class="corner">Modules</span>
+						{
+							columns.map((column) => (
+								<span class:list={['plan', { featured: column.featured }]}>{column.name}</span>
+							))
+						}
 					</div>
-				))
-			}
+
+					{
+						compareGroups.map((group) => (
+							<div class="group">
+								<p class="group-title">{group.heading}</p>
+								<ul>
+									{group.rows.map((entry) => (
+										<li class="row">
+											<span class="module">{entry.name}</span>
+											<span class:list={['cell', { featured: columns[0].featured }]} set:html={mark(entry.professional)} />
+											<span class:list={['cell', { featured: columns[1].featured }]} set:html={mark(entry.premium)} />
+											<span class:list={['cell', { featured: columns[2].featured }]} set:html={mark(entry.enterprise)} />
+										</li>
+									))}
+								</ul>
+							</div>
+						))
+					}
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
@@ -58,6 +68,7 @@ const mark = (on: boolean) =>
 		color: var(--ink);
 		font-size: 16px;
 		line-height: 1.5;
+		overflow-x: clip;
 	}
 	.inner {
 		max-width: var(--page-max);
@@ -92,11 +103,37 @@ const mark = (on: boolean) =>
 		text-align: center;
 	}
 
-	.ledger {
+	.compare-table {
 		margin: 3rem auto 0;
+		width: 100%;
+		max-width: 100%;
+	}
+	.scroll-hint {
+		display: none;
+		margin: 0 0 0.5rem;
+		color: var(--muted);
+		font-size: 0.8125rem;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		text-align: right;
+	}
+	.scroller {
+		width: 100%;
+		max-width: 100%;
+		overflow-x: auto;
+		overflow-y: hidden;
+		overscroll-behavior-x: contain;
+		-webkit-overflow-scrolling: touch;
 		border: 1px solid var(--border);
 		border-radius: 20px;
-		overflow: hidden;
+		background: var(--surface);
+	}
+	.scroller:focus-visible {
+		outline: 2px solid var(--brand-blue);
+		outline-offset: 3px;
+	}
+	.ledger {
+		min-width: 36rem;
 		background: var(--surface);
 	}
 
@@ -198,12 +235,8 @@ const mark = (on: boolean) =>
 		.inner {
 			padding: 2.75rem 1rem 3.5rem;
 		}
-		.ledger {
-			overflow-x: auto;
-		}
-		.names,
-		.row {
-			min-width: 36rem;
+		.scroll-hint {
+			display: block;
 		}
 		.names {
 			top: 0;

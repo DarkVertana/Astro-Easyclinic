@@ -19,10 +19,8 @@ import { SITE_TITLE } from '../consts';
 			title={`Pricing — ${SITE_TITLE}`}
 			description="EasyClinic EMR and clinic management pricing — Professional, Premium, and Enterprise. Per doctor, reception included, no lock-in."
 		/>
-		{/* set before paint, so sections are only hidden when the observer can reveal them */}
+		{/* Geo currency hint before paint — cached region / India TZ/locale → INR, else USD. */}
 		<script is:inline>
-			document.documentElement.classList.add('js-reveal');
-			/* Geo currency hint before paint — cached region / India TZ/locale → INR, else USD. */
 			(function () {
 				try {
 					var region = localStorage.getItem('ec_pricing_region');
@@ -79,9 +77,23 @@ import { SITE_TITLE } from '../consts';
 	const [hero, ...rest] = sections;
 	hero?.classList.add('is-visible');
 
-	if (!('IntersectionObserver' in window)) {
+	const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	const canObserve = 'IntersectionObserver' in window && !reduceMotion;
+
+	if (!canObserve) {
 		rest.forEach((section) => section.classList.add('is-visible'));
 	} else {
+		/* Mark anything already near the viewport before enabling hide-until-reveal. */
+		const nearFold = window.innerHeight * 0.92;
+		rest.forEach((section) => {
+			if (section.getBoundingClientRect().top < nearFold) {
+				section.classList.add('is-visible');
+			}
+		});
+
+		/* Progressive enhance only after in-view sections are marked visible. */
+		document.documentElement.classList.add('js-reveal');
+
 		const observer = new IntersectionObserver(
 			(entries) => {
 				for (const entry of entries) {
@@ -90,9 +102,11 @@ import { SITE_TITLE } from '../consts';
 					observer.unobserve(entry.target);
 				}
 			},
-			{ rootMargin: '0px 0px -10% 0px', threshold: 0.06 }
+			{ rootMargin: '0px 0px -6% 0px', threshold: 0.04 }
 		);
-		rest.forEach((section) => observer.observe(section));
+		rest.forEach((section) => {
+			if (!section.classList.contains('is-visible')) observer.observe(section);
+		});
 	}
 </script>
 
@@ -106,39 +120,41 @@ import { SITE_TITLE } from '../consts';
 </style>
 
 <style is:global>
+	/* Default: sections stay visible. js-reveal is added only after IO-ready JS marks
+	   already-in-view sections, so first paint never leaves blank opacity gaps. */
 	@media (prefers-reduced-motion: no-preference) {
-		html.js-reveal main.pricing > section:first-child {
-			opacity: 1;
-			transform: none;
-		}
-		html.js-reveal main.pricing > section:not(:first-child) {
+		html.js-reveal main.pricing > section:not(.is-visible) {
 			opacity: 0;
-			transform: translateY(24px);
+			transform: translateY(16px);
 			transition:
-				opacity 0.7s ease,
-				transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+				opacity 0.55s ease,
+				transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 		}
 		html.js-reveal main.pricing > section.is-visible {
 			opacity: 1;
 			transform: none;
 		}
 
-		html.js-reveal main.pricing > section [data-stagger] > * {
+		html.js-reveal main.pricing > section:not(.is-visible) [data-stagger] > * {
 			opacity: 0;
-			transform: translateY(18px);
-			transition:
-				opacity 0.6s ease,
-				transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+			transform: translateY(12px);
 		}
 		html.js-reveal main.pricing > section.is-visible [data-stagger] > * {
 			opacity: 1;
 			transform: none;
+			transition:
+				opacity 0.5s ease,
+				transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 		}
 		html.js-reveal main.pricing > section.is-visible [data-stagger] > :nth-child(2) {
-			transition-delay: 0.09s;
+			transition-delay: 0.07s;
 		}
 		html.js-reveal main.pricing > section.is-visible [data-stagger] > :nth-child(3) {
-			transition-delay: 0.18s;
+			transition-delay: 0.14s;
 		}
+	}
+
+	main.pricing {
+		overflow-x: clip;
 	}
 </style>

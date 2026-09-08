@@ -278,6 +278,19 @@ const isActive = (href: string) => href === pathname || href === '/' + (subpath?
 		}
 	}
 
+	/* Tighten spacing so Login is not clipped around laptop widths (~1024px). */
+	@media (max-width: 1120px) and (min-width: 961px) {
+		nav {
+			gap: 1.25rem;
+			padding: 0 1rem;
+		}
+		.links {
+			gap: 0.75rem;
+		}
+		.btn {
+			padding: 0.7rem 0.95rem;
+		}
+	}
 	@media (max-width: 960px) {
 		.links {
 			display: none;

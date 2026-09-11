@@ -12,6 +12,7 @@ import type { ImageMetadata } from 'astro';
    once the India clinic photo is downloaded (see src/assets/geo-emr/README.md). */
 import indiaHero from '../../assets/geo-emr/india-hero.webp';
 import kenyaHero from '../../assets/geo-emr/kenya-hero.webp';
+import uaeHero from '../../assets/geo-emr/uae-hero.webp';
 
 export type FaqItem = {
 	question: string;
@@ -347,6 +348,9 @@ const india = createMarket({
    from Batch 2 §A. */
 
 const uae = createMarket({
+	enabled: true,
+	heroImage: uaeHero,
+	heroImageAlt: 'Modern hospital corridor representing clinic care in the UAE',
 	market: 'uae',
 	slug: 'emr-software-in-uae',
 	geo: 'UAE',

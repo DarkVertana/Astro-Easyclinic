@@ -13,6 +13,10 @@ import orthopedicPhoto from '../../assets/specialty-emr/orthopedic-hero.webp';
 import pediatricPhoto from '../../assets/specialty-emr/pediatric-hero.webp';
 import obgynPhoto from '../../assets/specialty-emr/obgyn-hero.webp';
 import cardiologyPhoto from '../../assets/specialty-emr/cardiology-hero.webp';
+import psychiatryPhoto from '../../assets/specialty-emr/psychiatry-hero.webp';
+import psychologyPhoto from '../../assets/specialty-emr/psychology-hero.webp';
+import ivfPhoto from '../../assets/specialty-emr/ivf-hero.webp';
+import entPhoto from '../../assets/specialty-emr/ent-hero.webp';
 import type { HeroIcon, Specialty } from './data';
 
 interface Props {
@@ -56,6 +60,22 @@ const photos: Record<string, { src: ImageMetadata; alt: string }> = {
 	'cardiology-emr': {
 		src: cardiologyPhoto,
 		alt: 'A clinician reviewing cardiac care with diagnostic context in clinic',
+	},
+	'psychiatry-emr': {
+		src: psychiatryPhoto,
+		alt: 'A clinician in a calm consultation setting for mental health care',
+	},
+	'psychology-emr': {
+		src: psychologyPhoto,
+		alt: 'A therapist consultation space ready for confidential sessions',
+	},
+	'ivf-emr': {
+		src: ivfPhoto,
+		alt: 'A modern clinical setting supporting fertility and IVF care coordination',
+	},
+	'ent-emr-software': {
+		src: entPhoto,
+		alt: 'An ENT clinician preparing for consults and procedures in clinic',
 	},
 };
 

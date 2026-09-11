@@ -8,14 +8,15 @@ const columns = [
 	{
 		heading: 'Product',
 		links: [
-			{ label: 'Overview', href: '/features' },
-			{ label: 'Scheduling', href: '/appointment-scheduling-at-easy-clinic' },
+			{ label: 'Features overview', href: '/features' },
+			{ label: 'Appointment scheduling', href: '/appointment-scheduling-at-easy-clinic' },
 			{ label: 'Patient engagement', href: '/patient-engagement-at-easyclinic' },
 			{ label: 'Reports and dashboards', href: '/reports-and-dashboards' },
 			{ label: 'Payor management', href: '/payor-management' },
 			{ label: 'Revenue management', href: '/revenue-management' },
 			{ label: 'Cura AI', href: '/curapilot' },
 			{ label: 'Easy Clinic AI', href: '/ai' },
+			{ label: 'Pricing', href: '/pricing' },
 		],
 	},
 	{
@@ -25,75 +26,27 @@ const columns = [
 			{ label: 'Polyclinic', href: '/solutions/polyclinic' },
 			{ label: 'Clinic chain', href: '/solutions/clinic-chain' },
 			{ label: 'Hospital OPD', href: '/solutions/hospital-opd' },
-			{ label: 'Dental EMR software', href: '/dental-emr-software' },
-			{ label: 'Dermatology EMR software', href: '/dermatology-emr-software' },
-			{ label: 'Ophthalmology EMR software', href: '/ophthalmology-emr' },
-			{ label: 'Orthopedic EMR software', href: '/orthopedic-emr' },
-			{ label: 'Pediatric EMR software', href: '/pediatric-emr' },
-			{ label: 'OB-GYN EMR software', href: '/obgyn-emr-software' },
-			{ label: 'Cardiology EMR software', href: '/cardiology-emr' },
-			{ label: 'Psychiatry EMR software', href: '/psychiatry-emr' },
-			{ label: 'Psychology EMR software', href: '/psychology-emr' },
-			{ label: 'IVF EMR software', href: '/ivf-emr' },
-			{ label: 'ENT EMR software', href: '/ent-emr-software' },
-			{ label: 'Neurology EMR software', href: '/neurology-emr' },
-			{ label: 'Gastroenterology EMR software', href: '/gastroenterology-emr' },
-			{ label: 'Urology EMR software', href: '/urology-emr' },
-			{ label: 'Physiotherapy EMR software', href: '/physiotherapy-emr' },
-			{ label: 'Pulmonology EMR software', href: '/pulmonology-emr' },
-			{ label: 'Oncology EMR software', href: '/oncology-emr' },
+			{ label: 'Dental EMR', href: '/dental-emr-software' },
+			{ label: 'Dermatology EMR', href: '/dermatology-emr-software' },
+			{ label: 'Pediatric EMR', href: '/pediatric-emr' },
+			{ label: 'Cardiology EMR', href: '/cardiology-emr' },
 			{ label: 'Mental health EMR', href: '/mental-health' },
-			{ label: 'Aesthetic EMR', href: '/aesthetic-emr-software' },
-			{ label: 'Allergy EMR', href: '/allergy-emr-software' },
-			{ label: 'Ayurveda EMR', href: '/ayurveda-emr-software' },
-			{ label: 'Alternative Medicine EMR', href: '/alternative-medicine' },
-			{ label: 'Cosmetology EMR', href: '/cosmetology-emr-software' },
-			{ label: 'Diabetology EMR', href: '/diabetology-emr-software' },
-			{ label: 'Endocrinology EMR', href: '/endocrinology-emr-software' },
-			{ label: 'Family Physician EMR', href: '/family-physician-emr' },
-			{ label: 'General Practitioner EMR', href: '/general-practitioner-emr' },
-			{ label: 'General Surgery EMR', href: '/general-surgery-emr' },
-			{ label: 'Hematology EMR', href: '/hematology-emr' },
-			{ label: 'Immunology EMR', href: '/immunology-emr' },
-			{ label: 'Nephrology EMR', href: '/nephrology-emr' },
-			{ label: 'Pathology EMR', href: '/pathology-emr' },
-			{ label: 'Radiology EMR', href: '/radiology-emr' },
-			{ label: 'Rheumatology EMR', href: '/rheumatology-emr' },
-			{ label: 'Sexology EMR', href: '/sexology-emr' },
-			{ label: 'Trichology EMR', href: '/trichology-emr-software' },
-			{ label: 'EMR software in India', href: '/emr-software-in-india' },
-				{ label: 'EMR software in Bangalore', href: '/emr-software-in-bangalore' },
-				{ label: 'EMR software in Chennai', href: '/emr-software-in-chennai' },
-				{ label: 'EMR software in Delhi NCR', href: '/emr-software-in-delhi-ncr' },
-				{ label: 'EMR software in Hyderabad', href: '/emr-software-in-hyderabad' },
-				{ label: 'EMR software in Mumbai', href: '/emr-software-in-mumbai' },
-				{ label: 'EMR software in Kenya', href: '/emr-software-in-kenya' },
-				{ label: 'Best clinic software Kenya', href: '/best-clinic-management-software-kenya' },
-				{ label: 'Best clinic software India', href: '/best-clinic-management-software-india' },
-				{ label: 'Best clinic software UAE', href: '/best-clinic-management-software-uae' },
-				{ label: 'Best clinic software Nigeria', href: '/best-clinic-management-software-nigeria' },
-				{ label: 'Best clinic software Ghana', href: '/best-clinic-management-software-ghana' },
-				{ label: 'Best clinic software South Africa', href: '/best-clinic-management-software-south-africa' },
-				{ label: 'Best clinic software Uganda', href: '/best-clinic-management-software-uganda' },
-				{ label: 'Best clinic software Tanzania', href: '/best-clinic-management-software-tanzania' },
-				{ label: 'Best clinic software Rwanda', href: '/best-clinic-management-software-rwanda' },
-				{ label: 'Best clinic software Ethiopia', href: '/best-clinic-management-software-ethiopia' },
-				{ label: 'More market comparisons', href: '/resources#comparisons' },
-				{ label: 'EasyClinic vs Practo', href: '/easyclinic-vs-practo' },
-				{ label: 'EasyClinic vs HealthPlix', href: '/easyclinic-vs-healthplix' },
-				{ label: 'EasyClinic vs KenyaEMR', href: '/easyclinic-vs-kenyaemr' },
-				{ label: 'EasyClinic EMR vs Traditional EMR', href: '/easyclinic-emr-vs-traditional-emr' },
-				{ label: 'EMR software in UAE', href: '/emr-software-in-uae' },
-				{ label: 'EMR software in Nigeria', href: '/emr-software-in-nigeria' },
-				{ label: 'EMR software in Uganda', href: '/emr-software-in-uganda' },
-				{ label: 'EMR software in Tanzania', href: '/emr-software-in-tanzania' },
-				{ label: 'EMR software in Rwanda', href: '/emr-software-in-rwanda' },
-				{ label: 'EMR software in Ghana', href: '/emr-software-in-ghana' },
-				{ label: 'EMR software in Ethiopia', href: '/emr-software-in-ethiopia' },
-				{ label: 'EMR software in South Africa', href: '/emr-software-in-south-africa' },
-				{ label: 'EMR software in Qatar', href: '/emr-software-in-qatar' },
-				{ label: 'EMR software in Mauritius', href: '/emr-software-in-mauritius' },
-				{ label: 'EMR software in Malaysia', href: '/emr-software-in-malaysia' },
+			{ label: 'All specialty EMR', href: '/resources#specialties' },
+		],
+	},
+	{
+		heading: 'Markets',
+		links: [
+			{ label: 'EMR in India', href: '/emr-software-in-india' },
+			{ label: 'EMR in Kenya', href: '/emr-software-in-kenya' },
+			{ label: 'EMR in UAE', href: '/emr-software-in-uae' },
+			{ label: 'EMR in Nigeria', href: '/emr-software-in-nigeria' },
+			{ label: 'EMR in Malaysia', href: '/emr-software-in-malaysia' },
+			{ label: 'Best clinic software India', href: '/best-clinic-management-software-india' },
+			{ label: 'Best clinic software Kenya', href: '/best-clinic-management-software-kenya' },
+			{ label: 'EasyClinic vs Practo', href: '/easyclinic-vs-practo' },
+			{ label: 'EasyClinic vs HealthPlix', href: '/easyclinic-vs-healthplix' },
+			{ label: 'All market comparisons', href: '/resources#comparisons' },
 		],
 	},
 	{
@@ -102,10 +55,8 @@ const columns = [
 			{ label: 'Resources hub', href: '/resources' },
 			{ label: 'Blog', href: '/blogs' },
 			{ label: 'Knowledgebase', href: '/knowledgebase' },
-			{ label: 'Case studies', href: '/testimonials' },
-			{ label: 'Market comparisons', href: '/resources#comparisons' },
+			{ label: 'Testimonials', href: '/testimonials' },
 			{ label: 'For doctors', href: '/doctors' },
-			{ label: 'Pricing', href: '/pricing' },
 			{ label: 'Partner with us', href: '/partner-with-ec' },
 		],
 	},
@@ -113,7 +64,7 @@ const columns = [
 		heading: 'Company',
 		links: [
 			{ label: 'About', href: '/about-us' },
-			{ label: 'Custom software development', href: '/custom-healthcare-software-development' },
+			{ label: 'Custom software', href: '/custom-healthcare-software-development' },
 			{ label: 'Careers', href: '/careers' },
 			{ label: 'Contact', href: '/contact-us' },
 			{ label: 'Book a demo', href: '/contact-us#demo-form' },
@@ -233,8 +184,8 @@ const year = new Date().getFullYear();
 
 	.grid {
 		display: grid;
-		grid-template-columns: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr));
-		gap: 2.5rem 2rem;
+		grid-template-columns: minmax(0, 1.4fr) repeat(5, minmax(0, 1fr));
+		gap: 2.5rem 1.5rem;
 		max-width: var(--page-max);
 		margin: 0 auto;
 	}
@@ -326,6 +277,15 @@ const year = new Date().getFullYear();
 		color: var(--brand-blue);
 	}
 
+	@media (max-width: 1280px) {
+		.grid {
+			grid-template-columns: minmax(0, 1.2fr) repeat(5, minmax(0, 1fr));
+			gap: 2rem 1.25rem;
+		}
+		.column h2 {
+			font-size: 0.9375rem;
+		}
+	}
 	@media (max-width: 1080px) {
 		.panel {
 			padding: 3rem 1.5rem 2rem;

@@ -17,6 +17,13 @@ import psychiatryPhoto from '../../assets/specialty-emr/psychiatry-hero.webp';
 import psychologyPhoto from '../../assets/specialty-emr/psychology-hero.webp';
 import ivfPhoto from '../../assets/specialty-emr/ivf-hero.webp';
 import entPhoto from '../../assets/specialty-emr/ent-hero.webp';
+import neurologyPhoto from '../../assets/specialty-emr/neurology-hero.webp';
+import gastroenterologyPhoto from '../../assets/specialty-emr/gastroenterology-hero.webp';
+import urologyPhoto from '../../assets/specialty-emr/urology-hero.webp';
+import physiotherapyPhoto from '../../assets/specialty-emr/physiotherapy-hero.webp';
+import pulmonologyPhoto from '../../assets/specialty-emr/pulmonology-hero.webp';
+import oncologyPhoto from '../../assets/specialty-emr/oncology-hero.webp';
+import mentalHealthPhoto from '../../assets/specialty-emr/mental-health-hero.webp';
 import type { HeroIcon, Specialty } from './data';
 
 interface Props {
@@ -76,6 +83,34 @@ const photos: Record<string, { src: ImageMetadata; alt: string }> = {
 	'ent-emr-software': {
 		src: entPhoto,
 		alt: 'An ENT clinician preparing for consults and procedures in clinic',
+	},
+	'neurology-emr': {
+		src: neurologyPhoto,
+		alt: 'A clinician reviewing neurological care in a modern clinic',
+	},
+	'gastroenterology-emr': {
+		src: gastroenterologyPhoto,
+		alt: 'A clinician preparing for gastroenterology consults in clinic',
+	},
+	'urology-emr': {
+		src: urologyPhoto,
+		alt: 'A clinician preparing for urology consults and procedures',
+	},
+	'physiotherapy-emr': {
+		src: physiotherapyPhoto,
+		alt: 'A clinician providing physiotherapy care in a clinic setting',
+	},
+	'pulmonology-emr': {
+		src: pulmonologyPhoto,
+		alt: 'A clinician providing respiratory care in a modern clinic',
+	},
+	'oncology-emr': {
+		src: oncologyPhoto,
+		alt: 'A clinician coordinating oncology care in a modern clinic',
+	},
+	'mental-health': {
+		src: mentalHealthPhoto,
+		alt: 'A calm consultation setting for mental health care',
 	},
 };
 

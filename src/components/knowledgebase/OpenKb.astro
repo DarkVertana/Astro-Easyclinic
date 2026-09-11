@@ -1,0 +1,126 @@
+---
+import { HELP_URL } from './links';
+---
+
+<section class="open">
+	<div class="inner">
+		<div class="panel">
+			<div class="copy">
+				<p class="eyebrow">The full library</p>
+				<h2>Open the knowledgebase</h2>
+				<p class="lede">
+					Search every guide in one place at help.easyclinic.io — or talk to support if you need a
+					human on the line.
+				</p>
+			</div>
+			<div class="actions">
+				<a class="btn btn-solid" href={HELP_URL} target="_blank" rel="noopener noreferrer">
+					Open knowledgebase
+				</a>
+				<a class="btn btn-ghost" href="/contact-us">Contact support</a>
+			</div>
+		</div>
+	</div>
+</section>
+<style>
+	.open {
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 1rem 1.5rem 5rem;
+	}
+	.panel {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		align-items: center;
+		gap: 2.5rem;
+		border: 1px solid var(--brand-wash-deep);
+		border-radius: 24px;
+		padding: 2.5rem 3rem;
+		background: var(--brand-wash);
+	}
+
+	.eyebrow {
+		margin: 0 0 0.6rem;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	h2 {
+		margin: 0;
+		color: var(--navy);
+		font-size: clamp(1.625rem, 2.6vw, 2.125rem);
+		font-weight: 700;
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+	}
+	.lede {
+		max-width: 52ch;
+		margin: 0.85rem 0 0;
+		color: var(--muted);
+		font-size: 1.0625rem;
+	}
+
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
+	.btn {
+		border-radius: 10px;
+		padding: 0.875rem 1.5rem;
+		font-weight: 600;
+		line-height: 1.2;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	.btn-solid {
+		border: 1.5px solid var(--brand-blue);
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+	.btn-solid:hover {
+		border-color: var(--brand-blue-dark);
+		background: var(--brand-blue-dark);
+	}
+	.btn-ghost {
+		border: 1.5px solid var(--brand-blue);
+		background: var(--surface);
+		color: var(--brand-blue);
+	}
+	.btn-ghost:hover {
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+
+	@media (max-width: 1080px) {
+		.inner {
+			padding: 0.5rem 1.5rem 4rem;
+		}
+		.panel {
+			grid-template-columns: 1fr;
+			gap: 1.75rem;
+			padding: 2.25rem 2rem;
+		}
+	}
+	@media (max-width: 640px) {
+		.inner {
+			padding: 0 1rem 3rem;
+		}
+		.panel {
+			border-radius: 20px;
+			padding: 1.75rem 1.25rem;
+		}
+		.btn {
+			flex: 1 1 auto;
+			text-align: center;
+		}
+	}
+</style>

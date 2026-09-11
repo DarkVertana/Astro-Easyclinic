@@ -4,9 +4,28 @@ interface Props {
 	title: string;
 	lede: string;
 	note?: string;
+	primaryHref?: string;
+	primaryLabel?: string;
+	primaryExternal?: boolean;
+	secondaryHref?: string;
+	secondaryLabel?: string;
+	secondaryExternal?: boolean;
 }
 
-const { eyebrow, title, lede, note } = Astro.props;
+const {
+	eyebrow,
+	title,
+	lede,
+	note,
+	primaryHref,
+	primaryLabel,
+	primaryExternal = false,
+	secondaryHref,
+	secondaryLabel,
+	secondaryExternal = false,
+} = Astro.props;
+
+const hasActions = Boolean(primaryHref || secondaryHref);
 ---
 
 <section class="hero">
@@ -16,6 +35,32 @@ const { eyebrow, title, lede, note } = Astro.props;
 			<h1>{title}</h1>
 			<p class="lede">{lede}</p>
 			{note && <p class="note">{note}</p>}
+			{
+				hasActions && (
+					<div class="actions">
+						{primaryHref && primaryLabel && (
+							<a
+								class="btn btn-solid"
+								href={primaryHref}
+								target={primaryExternal ? '_blank' : undefined}
+								rel={primaryExternal ? 'noopener noreferrer' : undefined}
+							>
+								{primaryLabel}
+							</a>
+						)}
+						{secondaryHref && secondaryLabel && (
+							<a
+								class="btn btn-ghost"
+								href={secondaryHref}
+								target={secondaryExternal ? '_blank' : undefined}
+								rel={secondaryExternal ? 'noopener noreferrer' : undefined}
+							>
+								{secondaryLabel}
+							</a>
+						)}
+					</div>
+				)
+			}
 		</div>
 		<div class="aside">
 			<slot />
@@ -54,7 +99,7 @@ const { eyebrow, title, lede, note } = Astro.props;
 	}
 	h1 {
 		margin: 0;
-		max-width: 14ch;
+		max-width: 16ch;
 		color: var(--navy);
 		font-size: clamp(2.25rem, 4.4vw, 3.25rem);
 		font-weight: 700;
@@ -71,6 +116,39 @@ const { eyebrow, title, lede, note } = Astro.props;
 		margin: 1.15rem 0 0;
 		color: var(--muted);
 		font-size: 0.9375rem;
+	}
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1.75rem;
+	}
+	.btn {
+		border-radius: 10px;
+		padding: 0.875rem 1.5rem;
+		font-weight: 600;
+		line-height: 1.2;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	.btn-solid {
+		border: 1.5px solid var(--brand-blue);
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+	.btn-solid:hover {
+		border-color: var(--brand-blue-dark);
+		background: var(--brand-blue-dark);
+		color: var(--surface);
+	}
+	.btn-ghost {
+		border: 1.5px solid var(--brand-blue);
+		background: var(--surface);
+		color: var(--brand-blue);
+	}
+	.btn-ghost:hover {
+		background: var(--brand-blue);
+		color: var(--surface);
 	}
 	.aside {
 		min-width: 0;
@@ -192,6 +270,10 @@ const { eyebrow, title, lede, note } = Astro.props;
 	@media (max-width: 720px) {
 		.inner {
 			padding: 2.75rem 1rem 3.25rem;
+		}
+		.btn {
+			flex: 1 1 auto;
+			text-align: center;
 		}
 	}
 </style>

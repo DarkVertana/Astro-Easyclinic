@@ -1,12 +1,38 @@
 ---
 import { Image } from 'astro:assets';
 import telehealth from '../assets/telehealth-call.jpg';
+
+interface Props {
+	title?: string;
+	lede?: string;
+	primaryHref?: string;
+	primaryLabel?: string;
+	primaryExternal?: boolean;
+	secondaryHref?: string;
+	secondaryLabel?: string;
+	secondaryExternal?: boolean;
+	hideNote?: boolean;
+	note?: string;
+}
+
+const {
+	title = 'Put EMR, billing, and care in one place',
+	lede = 'Join doctors using EasyClinic clinic management software to simplify scheduling, billing, and patient care.',
+	primaryHref = 'https://app.easyclinic.io/',
+	primaryLabel = 'Start for free',
+	primaryExternal = false,
+	secondaryHref = '/contact-us#demo-form',
+	secondaryLabel = 'Get a demo',
+	secondaryExternal = false,
+	hideNote = false,
+	note = 'Free trial · No lock-in contracts · Reception licence included',
+} = Astro.props;
 ---
 
 <section class="cta">
 	<div class="inner">
 		<div class="panel">
-			<div class="copy">
+			<div class:list={["copy", hideNote && "no-note"]}>
 				<svg class="dots" viewBox="0 0 120 120" aria-hidden="true">
 					{
 						Array.from({ length: 25 }, (_, i) => (
@@ -14,16 +40,27 @@ import telehealth from '../assets/telehealth-call.jpg';
 						))
 					}
 				</svg>
-				<h2>Put EMR, billing, and care in one place</h2>
-				<p class="lede">
-					Join doctors using EasyClinic clinic management software to simplify scheduling,
-					billing, and patient care.
-				</p>
+				<h2>{title}</h2>
+				<p class="lede">{lede}</p>
 				<div class="actions">
-					<a class="btn btn-solid" href="https://app.easyclinic.io/">Start for free</a>
-					<a class="btn btn-ghost" href="/contact-us#demo-form">Get a demo</a>
+					<a
+						class="btn btn-solid"
+						href={primaryHref}
+						target={primaryExternal ? '_blank' : undefined}
+						rel={primaryExternal ? 'noopener noreferrer' : undefined}
+					>
+						{primaryLabel}
+					</a>
+					<a
+						class="btn btn-ghost"
+						href={secondaryHref}
+						target={secondaryExternal ? '_blank' : undefined}
+						rel={secondaryExternal ? 'noopener noreferrer' : undefined}
+					>
+						{secondaryLabel}
+					</a>
 				</div>
-				<p class="note">Free trial · No lock-in contracts · Reception licence included</p>
+				{!hideNote && <p class="note">{note}</p>}
 			</div>
 
 			<figure class="media">
@@ -148,6 +185,10 @@ import telehealth from '../assets/telehealth-call.jpg';
 		color: rgba(255, 255, 255, 0.6);
 		font-size: 0.9375rem;
 		text-align: left;
+	}
+
+	.copy.no-note {
+		padding-bottom: 4.25rem;
 	}
 
 	.media {

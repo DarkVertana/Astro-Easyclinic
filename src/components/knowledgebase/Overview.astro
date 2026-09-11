@@ -1,0 +1,50 @@
+---
+import SectionHead from '../SectionHead.astro';
+---
+
+<section class="overview">
+	<div class="panel">
+		<SectionHead
+			eyebrow="Docs hub"
+			title="Official guides for EasyClinic clinic management software"
+			lede="Step-by-step articles and troubleshooting for every module — from first login to multi-location ops."
+		/>
+
+		<p class="body">
+			Use the knowledgebase when you can act on the answer yourself. Escalate to support for account,
+			billing, or urgent issues that need a person.
+		</p>
+	</div>
+</section>
+<style>
+	.overview {
+		background: var(--brand-wash);
+	}
+	.panel {
+		background: var(--surface);
+		border-radius: 24px 24px 0 0;
+		padding: 5.5rem 1.5rem 4.5rem;
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+
+	.body {
+		max-width: 56ch;
+		margin: 2rem auto 0;
+		color: var(--muted);
+		font-size: 1.0625rem;
+		text-align: center;
+	}
+
+	@media (max-width: 1080px) {
+		.panel {
+			padding: 4rem 1.5rem 3.5rem;
+		}
+	}
+	@media (max-width: 640px) {
+		.panel {
+			padding: 3rem 1rem 3rem;
+		}
+	}
+</style>

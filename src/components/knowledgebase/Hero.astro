@@ -1,0 +1,167 @@
+---
+import PageHero from '../PageHero.astro';
+import { HELP_URL } from './links';
+
+const facts = [
+	{ value: 'Searchable', label: 'Guides & how-tos' },
+	{ value: 'Module-wise', label: 'EMR to pharmacy' },
+	{ value: 'Human backup', label: 'Support when stuck' },
+];
+---
+
+<PageHero
+	eyebrow="Resources"
+	title="EasyClinic knowledgebase for day-to-day clinic workflows"
+	lede="Self-service guides for EMR, scheduling, billing, and clinic setup — searchable answers when you need them, without waiting on a ticket."
+	note="Full library at help.easyclinic.io"
+	primaryHref={HELP_URL}
+	primaryLabel="Open knowledgebase"
+	primaryExternal
+	secondaryHref="/contact-us"
+	secondaryLabel="Contact support"
+>
+	<div class="artifact">
+		<svg class="deco ring" viewBox="0 0 200 200" aria-hidden="true">
+			<circle cx="100" cy="100" r="88" fill="none" stroke="var(--brand-teal)" stroke-width="2" opacity="0.5"></circle>
+			<circle cx="100" cy="100" r="66" fill="none" stroke="var(--brand-blue)" stroke-width="2" opacity="0.35"></circle>
+		</svg>
+		<svg class="deco dots" viewBox="0 0 120 120" aria-hidden="true">
+			{
+				Array.from({ length: 25 }, (_, i) => (
+					<circle cx={8 + (i % 5) * 26} cy={8 + Math.floor(i / 5) * 26} r="3.5" fill="var(--brand-blue)" opacity="0.35" />
+				))
+			}
+		</svg>
+
+		<div class="card">
+			<p class="card-label">At a glance</p>
+			<ul class="rows">
+				{
+					facts.map((item) => (
+						<li class="fact">
+							<strong>{item.value}</strong>
+							<span>{item.label}</span>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<span class="float-chip" aria-hidden="true">
+			<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+				<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"></path>
+			</svg>
+		</span>
+
+		<p class="badge">
+			<strong>help.easyclinic.io</strong>
+			<span>Guides for every module</span>
+		</p>
+	</div>
+</PageHero>
+
+<style>
+	.artifact {
+		position: relative;
+	}
+	.card {
+		position: relative;
+		z-index: 1;
+	}
+
+	.deco {
+		position: absolute;
+		z-index: 0;
+	}
+	.ring {
+		top: -3rem;
+		right: -3rem;
+		width: 140px;
+		height: 140px;
+	}
+	.dots {
+		bottom: -2.5rem;
+		right: -1.75rem;
+		width: 105px;
+		height: 105px;
+	}
+
+	.float-chip {
+		position: absolute;
+		z-index: 2;
+		top: -1.35rem;
+		right: -1rem;
+		display: grid;
+		place-items: center;
+		width: 52px;
+		height: 52px;
+		border-radius: 16px;
+		background: var(--surface);
+		color: var(--brand-blue);
+		box-shadow: 0 12px 28px rgba(10, 37, 64, 16%);
+		animation: float 5.5s ease-in-out infinite;
+	}
+	@keyframes float {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-8px);
+		}
+	}
+
+	.badge {
+		position: absolute;
+		left: -1.25rem;
+		bottom: -1.5rem;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		gap: 0.1rem;
+		margin: 0;
+		border-radius: 14px;
+		padding: 0.8rem 1.1rem;
+		background: var(--surface);
+		box-shadow: 0 14px 32px rgba(10, 37, 64, 18%);
+	}
+	.badge strong {
+		color: var(--navy);
+		font-size: 1rem;
+		font-weight: 700;
+	}
+	.badge span {
+		color: var(--muted);
+		font-size: 0.8125rem;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.float-chip {
+			animation: none;
+		}
+	}
+	@media (max-width: 1080px) {
+		.artifact {
+			max-width: 520px;
+			margin: 0 auto;
+		}
+		.badge {
+			left: 0.75rem;
+			bottom: -1rem;
+		}
+		.float-chip {
+			right: 0.5rem;
+		}
+		.ring {
+			top: -1.5rem;
+			right: -1rem;
+			width: 110px;
+			height: 110px;
+		}
+		.dots {
+			right: -0.25rem;
+			bottom: -1.5rem;
+		}
+	}
+</style>

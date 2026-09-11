@@ -1,0 +1,58 @@
+---
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Categories from '../components/knowledgebase/Categories.astro';
+import FindSteps from '../components/knowledgebase/FindSteps.astro';
+import Hero from '../components/knowledgebase/Hero.astro';
+import OpenKb from '../components/knowledgebase/OpenKb.astro';
+import Overview from '../components/knowledgebase/Overview.astro';
+import Why from '../components/knowledgebase/Why.astro';
+import Marketing from '../layouts/Marketing.astro';
+import { HELP_URL } from '../components/knowledgebase/links';
+
+const knowledgebaseFaqs = [
+	{
+		question: 'Where is the full EasyClinic knowledgebase?',
+		answer:
+			'The complete library lives at help.easyclinic.io. This page is the marketing entry point with category shortcuts.',
+	},
+	{
+		question: 'Should I raise a ticket before searching?',
+		answer:
+			'Search first for setup and how-to questions. Tickets stay faster when reserved for account-specific or urgent problems.',
+	},
+	{
+		question: 'Does the knowledgebase cover Cura AI?',
+		answer:
+			'Yes — look under EMR & charts or search “Cura AI” for documentation and safety-check guides.',
+	},
+	{
+		question: 'Can clinic admins share articles with staff?',
+		answer: 'Yes. Share the article URL so every desk follows the same steps.',
+	},
+];
+---
+
+<Marketing
+	title="Knowledgebase — EasyClinic Help Guides"
+	description="Searchable EasyClinic knowledgebase: setup, EMR, appointments, billing, pharmacy, and troubleshooting guides for clinic management software. Open help.easyclinic.io."
+	mainClass="knowledgebase"
+>
+	<Hero />
+	<Overview />
+	<Categories />
+	<Why />
+	<FindSteps />
+	<Faq items={knowledgebaseFaqs} />
+	<OpenKb />
+	<Cta
+		title="Get unstuck in minutes"
+		lede="Open the knowledgebase, or talk to support if you need a human on the line."
+		primaryHref={HELP_URL}
+		primaryLabel="Open knowledgebase"
+		primaryExternal
+		secondaryHref="/contact-us"
+		secondaryLabel="Contact support"
+		hideNote
+	/>
+</Marketing>

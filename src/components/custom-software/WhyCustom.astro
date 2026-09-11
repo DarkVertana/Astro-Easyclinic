@@ -1,0 +1,156 @@
+---
+import SectionHead from '../SectionHead.astro';
+
+const icons: Record<string, string> = {
+	route: '<circle cx="6" cy="19" r="3"/><circle cx="18" cy="5" r="3"/><path d="M9 19h4a4 4 0 0 0 4-4V8"/>',
+	bolt: '<path d="M13 2 3 14h8l-1 8 10-12h-8l1-8Z"/>',
+	shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>',
+	link: '<path d="M10 13a5 5 0 0 0 7.07 0l2-2a5 5 0 0 0-7.07-7.07L10.8 5.2"/><path d="M14 11a5 5 0 0 0-7.07 0l-2 2a5 5 0 0 0 7.07 7.07l1.2-1.2"/>',
+};
+
+const cards = [
+	{
+		icon: 'route',
+		span: 'span-3',
+		accent: false,
+		title: 'Unique clinical path',
+		copy: 'Build around your visit types, forms, and handoffs.',
+	},
+	{
+		icon: 'bolt',
+		span: 'span-3',
+		accent: false,
+		title: 'Efficiency',
+		copy: 'Automate the busywork; keep clinicians on care.',
+	},
+	{
+		icon: 'shield',
+		span: 'span-3',
+		accent: false,
+		title: 'Security baseline',
+		copy: 'Role-based access, encryption, and audit logs from day one.',
+	},
+	{
+		icon: 'link',
+		span: 'span-3',
+		accent: true,
+		title: 'Integration',
+		copy: 'Stop silos between EMR, billing, lab, and insurance tools.',
+	},
+];
+---
+
+<section class="why">
+	<div class="inner">
+		<SectionHead
+			eyebrow="Why custom"
+			title="Why teams choose custom"
+		/>
+
+		<ul class="bento" data-stagger>
+			{
+				cards.map((item) => (
+					<li class:list={[item.span, item.accent && 'accent']}>
+						<span class="mi" aria-hidden="true">
+							<svg
+								viewBox="0 0 24 24"
+								width="19"
+								height="19"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.8"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								set:html={icons[item.icon]}
+							/>
+						</span>
+						<h3>{item.title}</h3>
+						<p>{item.copy}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+<style>
+	.why {
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 5rem 1.5rem 4.5rem;
+	}
+
+	.bento {
+		display: grid;
+		grid-template-columns: repeat(6, minmax(0, 1fr));
+		gap: 1.25rem;
+		margin: 3rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.bento li {
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.75rem;
+		background: var(--surface-tint);
+	}
+	.span-3 {
+		grid-column: span 3;
+	}
+	.accent {
+		border-color: var(--brand-wash-deep);
+		background: var(--brand-wash);
+	}
+
+	.mi {
+		display: grid;
+		place-items: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 12px;
+		background: var(--brand-wash);
+		color: var(--brand-blue);
+	}
+	.accent .mi {
+		background: var(--surface);
+		color: var(--brand-teal);
+	}
+
+	h3 {
+		margin: 1.15rem 0 0;
+		color: var(--navy);
+		font-size: 1.25rem;
+		font-weight: 700;
+		line-height: 1.2;
+	}
+	.bento p {
+		margin: 0.75rem 0 0;
+		color: var(--muted);
+	}
+
+	@media (max-width: 1080px) {
+		.inner {
+			padding: 4rem 1.5rem 3.5rem;
+		}
+		.span-3 {
+			grid-column: span 3;
+		}
+	}
+	@media (max-width: 640px) {
+		.inner {
+			padding: 3rem 1rem 3rem;
+		}
+		.bento {
+			grid-template-columns: 1fr;
+			margin-top: 2.25rem;
+		}
+		.span-3 {
+			grid-column: auto;
+		}
+	}
+</style>

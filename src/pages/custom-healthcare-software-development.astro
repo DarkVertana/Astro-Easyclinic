@@ -1,0 +1,57 @@
+---
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Hero from '../components/custom-software/Hero.astro';
+import Process from '../components/custom-software/Process.astro';
+import Security from '../components/custom-software/Security.astro';
+import WhatItMeans from '../components/custom-software/WhatItMeans.astro';
+import WhenToInvest from '../components/custom-software/WhenToInvest.astro';
+import WhyCustom from '../components/custom-software/WhyCustom.astro';
+import Marketing from '../layouts/Marketing.astro';
+
+const customFaqs = [
+	{
+		question: 'What is custom healthcare software development with EasyClinic?',
+		answer:
+			'Building on proven EMR and clinic management software so your unique workflows, integrations, and products ship faster than a from-scratch system.',
+	},
+	{
+		question: 'When is custom better than configuring the standard product?',
+		answer:
+			'When your workflow is unique, you need features a standard tool can’t offer, or the software is central to your business model. Simpler needs usually stay on configuration.',
+	},
+	{
+		question: 'Can you integrate labs, devices, insurance, and payments?',
+		answer:
+			'Yes. EasyClinic supports open API patterns and common healthcare standards so custom builds don’t leave the EMR as an island.',
+	},
+	{
+		question: 'How do we start?',
+		answer:
+			'Share your workflow and goals. We’ll propose a practical first version and timeline before heavy build spend.',
+	},
+];
+---
+
+<Marketing
+	title="Custom Healthcare Software Development — EasyClinic"
+	description="Custom EMR and clinic management software on EasyClinic — architecture, integrations, security, and ongoing support for clinics and health-tech teams."
+	mainClass="custom-software"
+>
+	<Hero />
+	<WhatItMeans />
+	<WhyCustom />
+	<WhenToInvest />
+	<Process />
+	<Security />
+	<Faq items={customFaqs} />
+	<Cta
+		title="Have a healthcare software project in mind?"
+		lede="Tell us the workflow. We’ll help scope a first version that is practical, secure, and built on EasyClinic."
+		primaryHref="/contact-us"
+		primaryLabel="Scope a project"
+		secondaryHref="/features"
+		secondaryLabel="See platform features"
+		hideNote
+	/>
+</Marketing>

@@ -1,0 +1,95 @@
+---
+import SectionHead from '../SectionHead.astro';
+
+const chips = [
+	{
+		title: 'Workflow fit',
+		copy: 'Dermatology, diagnostics, mental health, and chains don’t share one journey.',
+	},
+	{
+		title: 'Automation',
+		copy: 'Kill phone-tag, paper forms, and manual reminders that slow the floor.',
+	},
+	{
+		title: 'Connected stack',
+		copy: 'Labs, payors, CRM, devices, and payments talk to one EMR.',
+	},
+];
+---
+
+<section class="means">
+	<div class="panel">
+		<SectionHead
+			eyebrow="Definition"
+			title="Tailored EMR and clinic software — not a blank canvas"
+			lede="Custom development maps EasyClinic to how your team works: specialty flows, integrations, and growth paths a standard config can’t cover."
+		/>
+
+		<ul class="chips" data-stagger>
+			{
+				chips.map((item) => (
+					<li>
+						<h3>{item.title}</h3>
+						<p>{item.copy}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+<style>
+	.means {
+		background: var(--brand-wash);
+	}
+	.panel {
+		background: var(--surface);
+		border-radius: 24px 24px 0 0;
+		padding: 5.5rem 1.5rem 4.5rem;
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+
+	.chips {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.25rem;
+		max-width: var(--page-max);
+		margin: 3rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	.chips li {
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.5rem;
+		background: var(--surface-tint);
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.125rem;
+		font-weight: 700;
+		line-height: 1.25;
+	}
+	.chips p {
+		margin: 0.65rem 0 0;
+		color: var(--muted);
+		font-size: 0.9375rem;
+	}
+
+	@media (max-width: 1080px) {
+		.panel {
+			padding: 4rem 1.5rem 3.5rem;
+		}
+	}
+	@media (max-width: 640px) {
+		.panel {
+			padding: 3rem 1rem 3rem;
+		}
+		.chips {
+			grid-template-columns: 1fr;
+			margin-top: 2.25rem;
+		}
+	}
+</style>

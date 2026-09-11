@@ -1,0 +1,113 @@
+---
+import SectionHead from '../SectionHead.astro';
+
+const steps = [
+	{
+		label: 'Discover',
+		copy: 'Workflow, compliance needs, success metrics.',
+	},
+	{
+		label: 'Scope',
+		copy: 'Smallest useful first version on the EasyClinic core.',
+	},
+	{
+		label: 'Build & test',
+		copy: 'Clinical QA with your champions.',
+	},
+	{
+		label: 'Launch & support',
+		copy: 'Training, monitoring, iterative releases.',
+	},
+];
+---
+
+<section class="process">
+	<div class="inner">
+		<SectionHead
+			eyebrow="Process"
+			title="How we work"
+		/>
+
+		<ol class="steps" data-stagger>
+			{
+				steps.map((item) => (
+					<li>
+						<h3>{item.label}</h3>
+						<p>{item.copy}</p>
+					</li>
+				))
+			}
+		</ol>
+	</div>
+</section>
+<style>
+	.process {
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 5rem 1.5rem 4.5rem;
+	}
+
+	.steps {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1.25rem;
+		margin: 3rem 0 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: step;
+	}
+	.steps li {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.5rem;
+		background: var(--surface-tint);
+		counter-increment: step;
+	}
+	.steps li::before {
+		content: counter(step, decimal-leading-zero);
+		display: block;
+		margin-bottom: 0.85rem;
+		color: var(--brand-teal);
+		font-size: 0.8125rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.125rem;
+		font-weight: 700;
+		line-height: 1.25;
+	}
+	.steps p {
+		margin: 0.65rem 0 0;
+		color: var(--muted);
+		font-size: 0.9375rem;
+	}
+
+	@media (max-width: 1080px) {
+		.inner {
+			padding: 4rem 1.5rem 3.5rem;
+		}
+		.steps {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	@media (max-width: 640px) {
+		.inner {
+			padding: 3rem 1rem 3rem;
+		}
+		.steps {
+			grid-template-columns: 1fr;
+			margin-top: 2.25rem;
+		}
+	}
+</style>

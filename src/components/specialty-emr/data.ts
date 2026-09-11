@@ -1092,719 +1092,719 @@ const ent = createSpecialty({
 
 const neurology = createSpecialty({
 	enabled: true,
-	slug: 'neurology-emr',
+	slug: "neurology-emr",
 	specialty: 'Neurology',
 	specialtyAdj: 'neurology',
 	specialtyNoun: 'neurology clinic',
-	seoTitle: 'Neurology EMR Software — EasyClinic',
+	seoTitle: "Neurology EMR Software — EasyClinic",
 	seoDescription:
-		'Neurology EMR — consult templates, imaging and EEG file storage, chronic follow-ups, appointments, and billing for neuro clinics.',
-	eyebrow: 'Neurology',
-	title: 'Neurology EMR for consult notes, diagnostics, and long-term follow-ups',
-	lede: 'Neuro templates, imaging and EEG files, medication tracking, scheduling, and billing in one clinic management platform.',
+		"Neurology EMR — exam templates, diagnostic report storage, chronic condition tracking, medication plans, appointments, and billing.",
+	eyebrow: "Neurology",
+	title: "Neurology EMR for exam templates, reports, and long-term follow-up",
+	lede: "Document neurological exams, attach diagnostics, track chronic conditions and meds, and bill the visit — without after-hours chart catch-up.",
 	note: 'Built for neurology clinics, multi-neurologist centres, and hospital neuro OPD.',
 	heroFacts: [
-		{ value: 'Neuro templates', label: 'Faster consult notes' },
-		{ value: 'Diagnostics on chart', label: 'Imaging & EEG files' },
-		{ value: 'Chronic follow-ups', label: 'Recall that sticks' }
+		{ value: "Neuro templates", label: "Exam documentation" },
+		{ value: "Reports on chart", label: "Diagnostics attached" },
+		{ value: "Chronic follow-up", label: "Meds & plans" }
 	],
 	clinical: [
 		{
-			title: 'Neuro templates',
-			copy: 'Structured neurology consult templates for busy OPD days.',
+			title: "Neurological exam templates",
+			copy: "Structured notes for common neuro presentations.",
 		},
 		{
-			title: 'Imaging & EEG store',
-			copy: 'Attach scans and EEG reports to the patient chart.',
+			title: "Diagnostic report store",
+			copy: "Attach EEG, imaging, and lab reports to the chart.",
 		},
 		{
-			title: 'Med management',
-			copy: 'Track neuro medications and changes across visits.',
+			title: "Chronic condition tracking",
+			copy: "Follow epilepsy, Parkinson’s, headache, and other long courses.",
 		},
 		{
-			title: 'Specialty forms',
-			copy: 'Intake and exam templates tuned for neurology workflows.',
+			title: "Medication & treatment plans",
+			copy: "Track regimens and changes with clearer history.",
 		},
 		{
-			title: 'Trend visuals',
-			copy: 'Keep key measures easy to scan across follow-ups.',
+			title: "Visit summaries",
+			copy: "Key history and trends without digging.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Draft notes faster; clinician reviews and signs.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
 		'Reminders (WhatsApp/SMS/email)',
 		'Visit & procedure billing',
-		'Pharmacy / consumables inventory',
+		'Inventory',
 		'Teleconsult + online fees',
 		'Multi-doctor roles',
 		'Reports',
 	],
 	problems: [
 		{
-			title: 'Diagnostics orphaned from the chart',
-			copy: 'EEG and imaging sit outside the note the next neurologist needs.',
+			title: "Exam notes finished after the last patient",
+			copy: "Exam notes finished after the last patient.",
 		},
 		{
-			title: 'Chronic patients without recall',
-			copy: 'Long-term follow-ups slip without a plan on the chart.',
+			title: "Diagnostics living outside the chart",
+			copy: "Diagnostics living outside the chart.",
 		},
 		{
-			title: 'Evening documentation load',
-			copy: 'Busy OPD leaves note-writing for after hours.',
+			title: "Chronic follow-ups without a clear recall list",
+			copy: "Chronic follow-ups without a clear recall list.",
 		}
 	],
-	fit: ['Neurology clinics', 'Multi-neurologist centres', 'Hospital neurology OPD'],
+	fit: ["Neurologists", "Neuro clinics", "Hospital neurology OPD"],
 	faqs: [
 		{
-			question: 'Best EMR for neurology clinics?',
-			answer:
-				'Look for neuro templates, diagnostic file storage, chronic follow-ups, scheduling, and billing together; EasyClinic covers that workflow.',
+			question: "Best EMR for neurology clinics?",
+			answer: "One that covers specialty templates, diagnostics on the chart, chronic tracking, scheduling, and billing — EasyClinic is built for that workflow.",
 		},
 		{
-			question: 'Imaging and EEG storage?',
-			answer:
-				'Yes — attach diagnostics to the patient record.',
+			question: "AI EMR for neurology?",
+			answer: "Optional Cura AI assists documentation; you stay in charge.",
 		},
 		{
-			question: 'Chronic follow-up tracking?',
-			answer:
-				'Yes — keep longitudinal plans and recalls on the same chart.',
+			question: "Store neurological diagnostic reports?",
+			answer: "Yes — attach reports and imaging to the patient record.",
 		},
 		{
-			question: 'AI documentation for neuro notes?',
-			answer:
-				'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Chronic condition tracking?",
+			answer: "Yes — longitudinal visits, meds, and plans.",
+		},
+		{
+			question: "Medication plans?",
+			answer: "Yes — track treatment and medication plans on the chart.",
 		}
 	],
-	ctaTitle: 'See neurology EMR on your follow-up list',
+	ctaTitle: "See neurology EMR on your follow-up list",
 	ctaLede:
-		'Book a demo — we’ll walk neuro templates, diagnostics, follow-ups, and billing on your workflow.',
+		"Book a demo — we’ll walk exam templates, reports, and billing on your workflow.",
 });
 
 const gastroenterology = createSpecialty({
 	enabled: true,
-	slug: 'gastroenterology-emr',
+	slug: "gastroenterology-emr",
 	specialty: 'Gastroenterology',
 	specialtyAdj: 'gastroenterology',
 	specialtyNoun: 'GI clinic',
-	seoTitle: 'Gastroenterology EMR Software — EasyClinic',
+	seoTitle: "Gastroenterology EMR Software — EasyClinic",
 	seoDescription:
-		'Gastroenterology EMR — GI templates, endoscopy notes, imaging files, appointments, and billing for GI clinics.',
-	eyebrow: 'Gastroenterology',
-	title: 'Gastroenterology EMR for consults, endoscopy notes, and follow-through',
-	lede: 'GI templates, procedure notes, diagnostic file storage, scheduling, and billing in one clinic management system.',
+		"Gastroenterology EMR — GI templates, endoscopy/report storage, procedure notes, chronic GI tracking, appointments, and billing.",
+	eyebrow: "Gastroenterology",
+	title: "Gastroenterology EMR for procedures, endoscopy files, and chronic GI care",
+	lede: "Specialty GI templates, procedure documentation, endoscopy and lab files on the chart, scheduling, and billing in one clinic management platform.",
 	note: 'Built for GI clinics, endoscopy centres, and multi-doctor gastroenterology practices.',
 	heroFacts: [
-		{ value: 'GI templates', label: 'Faster consult notes' },
-		{ value: 'Endoscopy notes', label: 'Procedure docs on chart' },
-		{ value: 'Imaging on file', label: 'Reports with the visit' }
+		{ value: "GI templates", label: "Specialty documentation" },
+		{ value: "Procedure docs", label: "Scopes & interventions" },
+		{ value: "Reports on file", label: "Endoscopy & labs" }
 	],
 	clinical: [
 		{
-			title: 'GI templates',
-			copy: 'Structured gastroenterology consult templates for OPD volume.',
+			title: "GI specialty templates",
+			copy: "Notes tuned for gastroenterology visits.",
 		},
 		{
-			title: 'Endoscopy / procedure notes',
-			copy: 'Capture procedure detail while the visit is still fresh.',
+			title: "Procedure documentation",
+			copy: "Record scopes and interventions with the visit.",
 		},
 		{
-			title: 'Imaging & report store',
-			copy: 'Attach scopes and reports to the patient record.',
+			title: "Endoscopy & diagnostic store",
+			copy: "Keep reports attached to the patient.",
 		},
 		{
-			title: 'Specialty forms',
-			copy: 'Intake and exam templates tuned for GI workflows.',
+			title: "Chronic GI tracking",
+			copy: "IBD, liver disease, and long follow-ups on one timeline.",
 		},
 		{
-			title: 'Fast Rx',
-			copy: 'Share prescriptions via print or WhatsApp before the patient leaves.',
+			title: "Medication management",
+			copy: "Regimens visible beside the clinical history.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Faster documentation; clinician signs.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
 		'Reminders (WhatsApp/SMS/email)',
 		'Visit & procedure billing',
-		'Pharmacy / consumables inventory',
+		'Inventory',
 		'Teleconsult + online fees',
 		'Multi-doctor roles',
 		'Reports',
 	],
 	problems: [
 		{
-			title: 'Procedure notes after hours',
-			copy: 'Endoscopy lists push documentation to the end of the day.',
+			title: "Endoscopy reports off-chart",
+			copy: "Endoscopy reports off-chart.",
 		},
 		{
-			title: 'Reports off-chart',
-			copy: 'Scope files sit apart from the note the next clinician needs.',
+			title: "Procedure notes after hours",
+			copy: "Procedure notes after hours.",
 		},
 		{
-			title: 'Follow-ups unscheduled',
-			copy: 'Reviews slip without a plan tied to the chart.',
+			title: "Chronic GI patients without structured recall",
+			copy: "Chronic GI patients without structured recall.",
 		}
 	],
-	fit: ['GI clinics', 'Endoscopy centres', 'Multi-doctor gastroenterology practices'],
+	fit: ["Gastroenterologists", "GI clinics", "Endoscopy + OPD centres"],
 	faqs: [
 		{
-			question: 'Best EMR for gastroenterology clinics?',
-			answer:
-				'Look for GI templates, endoscopy notes, imaging storage, scheduling, and billing together; EasyClinic covers that workflow.',
+			question: "Best EMR for gastroenterology?",
+			answer: "Look for GI templates, procedure docs, endoscopy storage, chronic tracking, and billing together.",
 		},
 		{
-			question: 'Endoscopy documentation?',
-			answer:
-				'Yes — procedure notes stay with the visit and plan.',
+			question: "AI EMR?",
+			answer: "Optional Cura AI for notes; you review.",
 		},
 		{
-			question: 'Imaging and report storage?',
-			answer:
-				'Yes — attach files to the patient record.',
+			question: "Store endoscopy and diagnostic reports?",
+			answer: "Yes — on the patient record.",
 		},
 		{
-			question: 'AI documentation for GI notes?',
-			answer:
-				'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Procedure documentation?",
+			answer: "Yes.",
+		},
+		{
+			question: "Chronic GI tracking?",
+			answer: "Yes.",
 		}
 	],
-	ctaTitle: 'See gastroenterology EMR on your procedure list',
+	ctaTitle: "See gastroenterology EMR on a procedure day",
 	ctaLede:
-		'Book a demo — we’ll walk GI templates, endoscopy notes, and billing on your workflow.',
+		"Book a demo — templates, scopes, and billing on your flow.",
 });
 
 const urology = createSpecialty({
 	enabled: true,
-	slug: 'urology-emr',
+	slug: "urology-emr",
 	specialty: 'Urology',
 	specialtyAdj: 'urology',
 	specialtyNoun: 'urology clinic',
-	seoTitle: 'Urology EMR Software — EasyClinic',
+	seoTitle: "Urology EMR Software — EasyClinic",
 	seoDescription:
-		'Urology EMR — specialty forms, procedure notes, imaging files, appointments, and billing for urology clinics.',
-	eyebrow: 'Urology',
-	title: 'Urology EMR for consults, procedures, and imaging in one chart',
-	lede: 'Urology templates, procedure documentation, diagnostic file storage, scheduling, and billing — without a second system for OT paperwork.',
+		"Urology EMR — specialty templates, procedure and surgery notes, imaging/lab storage, appointments, and billing.",
+	eyebrow: "Urology",
+	title: "Urology EMR that keeps procedures, imaging, and follow-ups on one chart",
+	lede: "Specialty urology documentation, procedure tracking, imaging and labs on the record, scheduling, and billing — built for clinic and day-care workflows.",
 	note: 'Built for urology clinics, procedure centres, and multi-surgeon groups.',
 	heroFacts: [
-		{ value: 'Urology forms', label: 'Specialty-ready notes' },
-		{ value: 'Procedure docs', label: 'Notes that match the list' },
-		{ value: 'Imaging on chart', label: 'Reports with the visit' }
+		{ value: "Uro templates", label: "Specialty notes" },
+		{ value: "Procedure tracking", label: "Clinic & day-care" },
+		{ value: "Imaging on chart", label: "Labs & scans" }
 	],
 	clinical: [
 		{
-			title: 'Urology specialty forms',
-			copy: 'Intake and exam templates tuned for urology workflows.',
+			title: "Specialty urology templates",
+			copy: "Structured notes for common urology visits.",
 		},
 		{
-			title: 'Procedure documentation',
-			copy: 'Capture procedure detail while the visit is still fresh.',
+			title: "Procedure & surgery documentation",
+			copy: "Record interventions with the encounter.",
 		},
 		{
-			title: 'Imaging & report store',
-			copy: 'Attach diagnostics to the patient record.',
+			title: "Imaging & lab store",
+			copy: "Attach scans and results to the patient.",
 		},
 		{
-			title: 'Fast Rx',
-			copy: 'Share prescriptions via print or WhatsApp before the patient leaves.',
+			title: "Trend visuals",
+			copy: "Follow key parameters across visits.",
 		},
 		{
-			title: 'Visit summaries',
-			copy: 'Send clear aftercare notes with the visit.',
+			title: "Fast Rx",
+			copy: "30-second prescriptions via print/WhatsApp/SMS/email.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Documentation assist; clinician in charge.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
 		'Reminders (WhatsApp/SMS/email)',
 		'Visit & procedure billing',
-		'Pharmacy / consumables inventory',
+		'Inventory',
 		'Teleconsult + online fees',
 		'Multi-doctor roles',
 		'Reports',
 	],
 	problems: [
 		{
-			title: 'Procedure notes delayed',
-			copy: 'Busy lists push documentation to evening catch-up.',
+			title: "Imaging siloed from the chart",
+			copy: "Imaging siloed from the chart.",
 		},
 		{
-			title: 'Imaging off-chart',
-			copy: 'Reports sit outside the note the next surgeon needs.',
+			title: "Procedure notes delayed",
+			copy: "Procedure notes delayed.",
 		},
 		{
-			title: 'Follow-ups unscheduled',
-			copy: 'Reviews and scopes slip without a plan on the chart.',
+			title: "Follow-ups not tied to prior procedures",
+			copy: "Follow-ups not tied to prior procedures.",
 		}
 	],
-	fit: ['Urology clinics', 'Procedure-focused urology centres', 'Multi-surgeon urology groups'],
+	fit: ["Urologists", "Urology clinics", "Multi-surgeon uro centres"],
 	faqs: [
 		{
-			question: 'Best EMR for urology clinics?',
-			answer:
-				'Look for specialty forms, procedure notes, imaging storage, scheduling, and billing together; EasyClinic covers that workflow.',
+			question: "Best urology EMR?",
+			answer: "Templates, procedure docs, imaging/labs, scheduling, billing in one place.",
 		},
 		{
-			question: 'Procedure documentation?',
-			answer:
-				'Yes — procedure notes stay with the visit and plan.',
+			question: "AI EMR?",
+			answer: "Optional Cura AI; you sign.",
 		},
 		{
-			question: 'Imaging storage?',
-			answer:
-				'Yes — attach diagnostics to the patient record.',
+			question: "Store diagnostics and labs?",
+			answer: "Yes.",
 		},
 		{
-			question: 'AI documentation for urology notes?',
-			answer:
-				'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Procedure/surgery docs?",
+			answer: "Yes.",
+		},
+		{
+			question: "Imaging records?",
+			answer: "Yes — on the patient chart.",
 		}
 	],
-	ctaTitle: 'See urology EMR on your procedure day',
+	ctaTitle: "See urology EMR on your procedure list",
 	ctaLede:
-		'Book a demo — we’ll walk urology forms, procedure notes, and billing on your workflow.',
+		"Book a demo — charting, imaging, and billing together.",
 });
 
 const physiotherapy = createSpecialty({
 	enabled: true,
-	slug: 'physiotherapy-emr',
+	slug: "physiotherapy-emr",
 	specialty: 'Physiotherapy',
 	specialtyAdj: 'physiotherapy',
 	specialtyNoun: 'physio clinic',
-	seoTitle: 'Physiotherapy EMR Software — EasyClinic',
+	seoTitle: "Physiotherapy EMR Software — EasyClinic",
 	seoDescription:
-		'Physiotherapy EMR — session notes, treatment plans, appointments, billing, and progress tracking for physio clinics.',
-	eyebrow: 'Physiotherapy',
-	title: 'Physiotherapy EMR for session notes, plans, and progress tracking',
-	lede: 'Document sessions, track treatment plans, schedule visits, and bill from one clinic management platform built for physio workflows.',
+		"Physiotherapy EMR — session notes, treatment plans, progress tracking, exercise plans, appointments, and billing.",
+	eyebrow: "Physiotherapy",
+	title: "Physiotherapy EMR for sessions, goals, and progress you can show",
+	lede: "Track therapy sessions, goals, exercise plans, and billing in one clinic management system — so progress isn’t stuck in paper notebooks.",
 	note: 'Built for physio clinics, rehab centres, and multi-therapist practices.',
 	heroFacts: [
-		{ value: 'Session notes', label: 'Docs on the chart' },
-		{ value: 'Treatment plans', label: 'Multi-visit tracking' },
-		{ value: 'Progress on file', label: 'Outcomes you can see' }
+		{ value: "Session tracking", label: "Visit-by-visit notes" },
+		{ value: "Goals & progress", label: "Measurable plans" },
+		{ value: "Exercise plans", label: "Documented home/clinic" }
 	],
 	clinical: [
 		{
-			title: 'Session documentation',
-			copy: 'Capture physio sessions with templates that stay on the chart.',
+			title: "Session documentation",
+			copy: "Record each therapy visit clearly.",
 		},
 		{
-			title: 'Treatment / rehab plans',
-			copy: 'Track multi-visit plans against the original goal.',
+			title: "Goal setting & progress",
+			copy: "Track rehabilitation goals over time.",
 		},
 		{
-			title: 'Progress notes',
-			copy: 'Keep outcomes visible across the course of care.',
+			title: "Customizable treatment plans",
+			copy: "Plans that match your protocols.",
 		},
 		{
-			title: 'Specialty intake forms',
-			copy: 'Intake templates tuned for physiotherapy workflows.',
+			title: "Exercise plan docs",
+			copy: "Home and in-clinic exercises on the chart.",
 		},
 		{
-			title: 'Reminders',
-			copy: 'Cut no-shows with WhatsApp, SMS, and email reminders.',
+			title: "Physio intake forms",
+			copy: "History tailored to rehab.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Faster notes; therapist reviews.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
 		'Reminders (WhatsApp/SMS/email)',
 		'Visit & procedure billing',
-		'Pharmacy / consumables inventory',
+		'Inventory',
 		'Teleconsult + online fees',
 		'Multi-doctor roles',
 		'Reports',
 	],
 	problems: [
 		{
-			title: 'Notes fragmented',
-			copy: 'Session notes live in notebooks instead of the patient chart.',
+			title: "Progress only in paper notes",
+			copy: "Progress only in paper notes.",
 		},
 		{
-			title: 'Plans not tied to visits',
-			copy: 'Multi-session courses drift without status on the record.',
+			title: "Plans not visible to the next therapist",
+			copy: "Plans not visible to the next therapist.",
 		},
 		{
-			title: 'No-shows on therapy books',
-			copy: 'Busy calendars lose patients without reliable reminders.',
+			title: "No-shows without WhatsApp reminders",
+			copy: "No-shows without WhatsApp reminders.",
 		}
 	],
-	fit: ['Physio clinics', 'Rehab centres', 'Multi-therapist practices'],
+	fit: ["Physio clinics", "Multi-therapist centres", "Rehab + ortho companion clinics"],
 	faqs: [
 		{
-			question: 'Best EMR for physiotherapy clinics?',
-			answer:
-				'Look for session notes, treatment plans, progress tracking, scheduling, and billing together; EasyClinic covers that workflow.',
+			question: "Best physiotherapy EMR?",
+			answer: "Sessions, plans, progress, exercise docs, scheduling, billing together.",
 		},
 		{
-			question: 'Session notes supported?',
-			answer:
-				'Yes — structured session documentation stays on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional assist; you review.",
 		},
 		{
-			question: 'Treatment plan tracking?',
-			answer:
-				'Yes — multi-visit plans stay tied to the chart.',
+			question: "Track sessions and treatment plans?",
+			answer: "Yes.",
 		},
 		{
-			question: 'AI documentation for physio notes?',
-			answer:
-				'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Rehab progress tracking?",
+			answer: "Yes.",
+		},
+		{
+			question: "Document exercise plans?",
+			answer: "Yes.",
 		}
 	],
-	ctaTitle: 'See physiotherapy EMR on your therapy book',
+	ctaTitle: "See physiotherapy EMR on a therapy book",
 	ctaLede:
-		'Book a demo — we’ll walk session notes, plans, reminders, and billing on your workflow.',
+		"Book a demo — sessions, goals, and billing on your workflow.",
 });
 
 const pulmonology = createSpecialty({
 	enabled: true,
-	slug: 'pulmonology-emr',
+	slug: "pulmonology-emr",
 	specialty: 'Pulmonology',
 	specialtyAdj: 'pulmonology',
 	specialtyNoun: 'pulmonology clinic',
-	seoTitle: 'Pulmonology EMR Software — EasyClinic',
+	seoTitle: "Pulmonology EMR Software — EasyClinic",
 	seoDescription:
-		'Pulmonology EMR — respiratory templates, spirometry and imaging files, chronic follow-ups, appointments, and billing.',
-	eyebrow: 'Pulmonology',
-	title: 'Pulmonology EMR for respiratory notes, diagnostics, and chronic follow-ups',
-	lede: 'Pulmonary templates, spirometry and imaging storage, medication tracking, scheduling, and billing in one clinic management stack.',
+		"Pulmonology EMR — respiratory templates, spirometry and imaging storage, chronic lung tracking, appointments, and billing.",
+	eyebrow: "Pulmonology",
+	title: "Pulmonology EMR for spirometry, imaging, and chronic respiratory follow-up",
+	lede: "Specialty respiratory documentation, lung-function and imaging files on the chart, chronic condition tracking, scheduling, and billing in one platform.",
 	note: 'Built for pulmonology clinics, respiratory centres, and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Respiratory templates', label: 'Faster consult notes' },
-		{ value: 'Spirometry on chart', label: 'Diagnostics with the visit' },
-		{ value: 'Chronic follow-ups', label: 'Recall that sticks' }
+		{ value: "Resp templates", label: "Specialty notes" },
+		{ value: "Spirometry on file", label: "Lung function attached" },
+		{ value: "Chronic tracking", label: "Asthma, COPD, and more" }
 	],
 	clinical: [
 		{
-			title: 'Pulmonary templates',
-			copy: 'Structured respiratory consult templates for OPD volume.',
+			title: "Pulmonology templates",
+			copy: "Notes for respiratory visits.",
 		},
 		{
-			title: 'Spirometry & imaging store',
-			copy: 'Attach diagnostics to the patient chart.',
+			title: "Spirometry & diagnostics",
+			copy: "Store lung-function and related reports.",
 		},
 		{
-			title: 'Med management',
-			copy: 'Track respiratory medications across visits.',
+			title: "Imaging on chart",
+			copy: "Attach relevant scans to the record.",
 		},
 		{
-			title: 'Specialty forms',
-			copy: 'Intake and exam templates tuned for pulmonology.',
+			title: "Chronic respiratory tracking",
+			copy: "Longitudinal asthma/COPD and similar care.",
 		},
 		{
-			title: 'Trend visuals',
-			copy: 'Keep key measures easy to scan across follow-ups.',
+			title: "Treatment planning",
+			copy: "Plans beside history and results.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Documentation assist; clinician signs.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
 		'Reminders (WhatsApp/SMS/email)',
 		'Visit & procedure billing',
-		'Pharmacy / consumables inventory',
+		'Inventory',
 		'Teleconsult + online fees',
 		'Multi-doctor roles',
 		'Reports',
 	],
 	problems: [
 		{
-			title: 'Diagnostics siloed',
-			copy: 'Spirometry and imaging live outside the note.',
+			title: "Spirometry results off-system",
+			copy: "Spirometry results off-system.",
 		},
 		{
-			title: 'Chronic patients without recall',
-			copy: 'Asthma and COPD reviews slip without a plan.',
+			title: "Chronic patients without structured recall",
+			copy: "Chronic patients without structured recall.",
 		},
 		{
-			title: 'Evening documentation load',
-			copy: 'Busy OPD leaves notes for after hours.',
+			title: "Evening documentation load",
+			copy: "Evening documentation load.",
 		}
 	],
-	fit: ['Pulmonology clinics', 'Respiratory centres', 'Hospital pulmonology OPD'],
+	fit: ["Pulmonologists", "Chest clinics", "Hospital pulmonology OPD"],
 	faqs: [
 		{
-			question: 'Best EMR for pulmonology clinics?',
-			answer:
-				'Look for respiratory templates, diagnostic storage, chronic follow-ups, scheduling, and billing together; EasyClinic covers that workflow.',
+			question: "Best pulmonology EMR?",
+			answer: "Templates, spirometry/imaging storage, chronic tracking, ops modules.",
 		},
 		{
-			question: 'Spirometry and imaging storage?',
-			answer:
-				'Yes — attach diagnostics to the patient record.',
+			question: "AI EMR?",
+			answer: "Optional Cura AI.",
 		},
 		{
-			question: 'Chronic follow-up tracking?',
-			answer:
-				'Yes — keep longitudinal plans on the same chart.',
+			question: "Track spirometry?",
+			answer: "Yes — store results on the chart.",
 		},
 		{
-			question: 'AI documentation for pulmonary notes?',
-			answer:
-				'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Chronic respiratory tracking?",
+			answer: "Yes.",
+		},
+		{
+			question: "Store diagnostic/imaging reports?",
+			answer: "Yes.",
 		}
 	],
-	ctaTitle: 'See pulmonology EMR on your follow-up list',
+	ctaTitle: "See pulmonology EMR on your OPD flow",
 	ctaLede:
-		'Book a demo — we’ll walk respiratory templates, diagnostics, and billing on your workflow.',
+		"Book a demo — templates, lung tests, and billing.",
 });
 
 const oncology = createSpecialty({
 	enabled: true,
-	slug: 'oncology-emr',
+	slug: "oncology-emr",
 	specialty: 'Oncology',
 	specialtyAdj: 'oncology',
 	specialtyNoun: 'oncology clinic',
-	seoTitle: 'Oncology EMR Software — EasyClinic',
+	seoTitle: "Oncology EMR Software — EasyClinic",
 	seoDescription:
-		'Oncology EMR — treatment plans, visit notes, diagnostic files, appointments, and billing for oncology clinics.',
-	eyebrow: 'Oncology',
-	title: 'Oncology EMR for treatment plans, visit notes, and longitudinal care',
-	lede: 'Track treatment plans, visit documentation, diagnostics, scheduling, and billing in one clinic management platform for oncology OPD.',
+		"Oncology EMR — treatment protocols, chemo tracking, lab/diagnostic storage, long-term follow-up, appointments, and billing.",
+	eyebrow: "Oncology",
+	title: "Oncology EMR for protocols, treatment cycles, and long-term follow-up",
+	lede: "Track treatment plans and cycles, keep labs and diagnostics on the chart, schedule visits, and bill clearly — built for oncology clinic and day-care workflows.",
 	note: 'Built for oncology clinics, day-care centres, and multi-oncologist practices.',
 	heroFacts: [
-		{ value: 'Treatment plans', label: 'Courses on one timeline' },
-		{ value: 'Visit docs', label: 'Notes with the chart' },
-		{ value: 'Diagnostics on file', label: 'Reports with context' }
+		{ value: "Treatment plans", label: "Protocols on chart" },
+		{ value: "Cycle tracking", label: "Visits & regimens" },
+		{ value: "Labs on file", label: "Diagnostics attached" }
 	],
 	clinical: [
 		{
-			title: 'Treatment plan tracking',
-			copy: 'Keep courses and visit status visible on one timeline.',
+			title: "Oncology templates",
+			copy: "Intake and visit forms for cancer care.",
 		},
 		{
-			title: 'Visit documentation',
-			copy: 'Capture oncology visits without hunting menus.',
+			title: "Treatment / protocol planning",
+			copy: "Document regimens and changes.",
 		},
 		{
-			title: 'Diagnostics & report store',
-			copy: 'Attach labs and imaging to the patient record.',
+			title: "Chemo & cycle tracking",
+			copy: "Follow treatment cycles across visits.*",
 		},
 		{
-			title: 'Specialty forms',
-			copy: 'Intake and exam templates tuned for oncology workflows.',
+			title: "Lab & diagnostic store",
+			copy: "Results attached to the patient.",
 		},
 		{
-			title: 'Med management',
-			copy: 'Track medications and changes across visits.',
+			title: "Long-term follow-up",
+			copy: "Survivorship and monitoring visits organized.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Notes assist; oncologist reviews.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
 		'Reminders (WhatsApp/SMS/email)',
 		'Visit & procedure billing',
-		'Pharmacy / consumables inventory',
+		'Inventory',
 		'Teleconsult + online fees',
 		'Multi-doctor roles',
 		'Reports',
 	],
 	problems: [
 		{
-			title: 'Plans in spreadsheets',
-			copy: 'Treatment courses live outside the EMR and get out of sync.',
+			title: "Protocols in spreadsheets",
+			copy: "Protocols in spreadsheets.",
 		},
 		{
-			title: 'Reports detached',
-			copy: 'Labs and imaging never meet the visit note.',
+			title: "Labs not tied to the cycle day",
+			copy: "Labs not tied to the cycle day.",
 		},
 		{
-			title: 'Follow-ups missed',
-			copy: 'Reviews slip without reliable recalls.',
+			title: "Long-term follow-ups hard to recall",
+			copy: "Long-term follow-ups hard to recall.",
 		}
 	],
-	fit: ['Oncology clinics', 'Day-care oncology centres', 'Multi-oncologist practices'],
+	fit: ["Oncology clinics", "Day-care chemo centres", "Multi-oncologist practices"],
 	faqs: [
 		{
-			question: 'Best EMR for oncology clinics?',
-			answer:
-				'Look for treatment plans, visit docs, diagnostic storage, scheduling, and billing together; EasyClinic covers that workflow.',
+			question: "Best oncology EMR?",
+			answer: "Protocols, cycle tracking, labs on chart, scheduling, billing.",
 		},
 		{
-			question: 'Treatment plan tracking?',
-			answer:
-				'Yes — keep courses visible on one patient timeline.',
+			question: "AI EMR?",
+			answer: "Optional Cura AI.",
 		},
 		{
-			question: 'Diagnostics storage?',
-			answer:
-				'Yes — attach labs and imaging to the patient record.',
+			question: "Track chemotherapy protocols?",
+			answer: "Yes — treatment/cycle documentation on the chart; confirm depth for your protocol set in demo.",
 		},
 		{
-			question: 'AI documentation for oncology notes?',
-			answer:
-				'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Store labs/diagnostics?",
+			answer: "Yes.",
+		},
+		{
+			question: "Long-term patient tracking?",
+			answer: "Yes.",
 		}
 	],
-	ctaTitle: 'See oncology EMR on a treatment schedule',
+	ctaTitle: "See oncology EMR on a treatment calendar",
 	ctaLede:
-		'Book a demo — we’ll walk treatment plans, visit docs, and billing on your workflow.',
+		"Book a demo — plans, cycles, and billing.",
 });
 
 const mentalHealth = createSpecialty({
 	enabled: true,
-	slug: 'mental-health',
+	slug: "mental-health",
 	specialty: 'Mental Health',
 	specialtyAdj: 'mental health',
 	specialtyNoun: 'mental health clinic',
-	seoTitle: 'Mental Health EMR Software — EasyClinic',
+	seoTitle: "Mental Health EMR Software — EasyClinic",
 	seoDescription:
-		'Mental health EMR — session notes, treatment plans, telehealth, appointments, and privacy-minded access for mental health clinics.',
-	eyebrow: 'Mental Health',
-	title: 'Mental health EMR for session notes, plans, and confidential scheduling',
-	lede: 'Document sessions, manage treatment plans, run teleconsults, and keep role-based privacy tight — for psychiatry, psychology, and mixed mental-health clinics.',
+		"Mental health EMR — session notes, treatment plans, medication tracking, telehealth, and privacy-minded access for psychiatry, psychology, and counselling clinics.",
+	eyebrow: "Mental health",
+	title: "Mental health EMR for sessions, plans, meds, and tighter privacy",
+	lede: "One clinic management platform for mental health practices — progress notes, treatment plans, medication tracking, teleconsults, and role-based access.",
 	note: 'Built for mental health clinics; pairs with psychiatry and psychology specialty pages.',
 	heroFacts: [
-		{ value: 'Session notes', label: 'Structured documentation' },
-		{ value: 'Treatment plans', label: 'Continuity across visits' },
-		{ value: 'Confidential access', label: 'Role-aware records' }
+		{ value: "Session notes", label: "Progress documentation" },
+		{ value: "Meds & plans", label: "Tracked regimens" },
+		{ value: "Privacy-minded", label: "Role-based access" }
 	],
 	clinical: [
 		{
-			title: 'Session documentation',
-			copy: 'Capture therapy and psychiatry sessions on the chart.',
+			title: "Progress notes",
+			copy: "Structured session documentation.",
 		},
 		{
-			title: 'Treatment plans',
-			copy: 'Keep longitudinal plans visible across follow-ups.',
+			title: "Treatment plans",
+			copy: "Customizable plans across visits.",
 		},
 		{
-			title: 'Tight roles / privacy',
-			copy: 'Role-based access for sensitive notes.',
+			title: "Medication tracking",
+			copy: "Regimens and changes with history.",
 		},
 		{
-			title: 'Teleconsult',
-			copy: 'Run remote visits with the note on the same record.',
+			title: "Drug interaction checks",
+			copy: "Safety prompts where enabled.*",
 		},
 		{
-			title: 'Reminders',
-			copy: 'Cut no-shows with WhatsApp, SMS, and email.',
+			title: "Telehealth",
+			copy: "Video consults on the same book.",
 		},
 		{
-			title: 'Optional Cura AI (clinician-reviewed)',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
-			accent: true,
-		},
+			title: "Tight roles",
+			copy: "Limit who sees sensitive notes.",
+		}
 	],
 	ops: [
 		'Appointment scheduling',
 		'Reminders (WhatsApp/SMS/email)',
 		'Visit & procedure billing',
-		'Pharmacy / consumables inventory',
+		'Inventory',
 		'Teleconsult + online fees',
 		'Multi-doctor roles',
 		'Reports',
 	],
 	problems: [
 		{
-			title: 'Notes in unmanaged docs',
-			copy: 'Session notes live outside the patient chart.',
+			title: "Notes in unmanaged documents",
+			copy: "Notes in unmanaged documents.",
 		},
 		{
-			title: 'Privacy too loose across staff',
-			copy: 'Front-desk and clinical roles need different visibility.',
+			title: "Med changes hard to audit",
+			copy: "Med changes hard to audit.",
 		},
 		{
-			title: 'No-shows on therapy books',
-			copy: 'Busy calendars lose clients without reliable reminders.',
+			title: "Access too broad across staff",
+			copy: "Access too broad across staff.",
 		}
 	],
-	fit: ['Mental health clinics', 'Mixed psych practices', 'Therapy centres'],
+	fit: ["Psychiatry clinics", "Psychology / therapy centres", "Mixed mental-health practices"],
 	faqs: [
 		{
-			question: 'Best EMR for mental health clinics?',
-			answer:
-				'Look for session notes, treatment plans, telehealth, and role-based privacy together; EasyClinic covers that workflow.',
+			question: "Best mental health EMR?",
+			answer: "Sessions, plans, meds, telehealth, and strong access control together.",
 		},
 		{
-			question: 'Session notes supported?',
-			answer:
-				'Yes — structured session documentation stays on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional assist; clinician reviews before save.",
 		},
 		{
-			question: 'Privacy and roles?',
-			answer:
-				'Yes — role-aware access keeps sensitive records appropriately scoped.',
+			question: "Session/progress notes?",
+			answer: "Yes.",
 		},
 		{
-			question: 'Telehealth included?',
-			answer:
-				'Yes — teleconsults and notes run on the same clinic record.',
+			question: "Medication tracking?",
+			answer: "Yes.",
+		},
+		{
+			question: "Data privacy?",
+			answer: "Role-based access and audit-minded cloud controls; confirm your policy needs in demo.",
 		}
 	],
-	ctaTitle: 'See mental health EMR on a clinic day',
+	ctaTitle: "See mental health EMR on a clinic day",
 	ctaLede:
-		'Book a demo — we’ll walk session notes, privacy roles, telehealth, and billing on your workflow.',
+		"Book a demo — notes, privacy, and scheduling.",
 });
 
 const aesthetic = createSpecialty({
 	enabled: true,
-	slug: 'aesthetic-emr-software',
+	slug: "aesthetic-emr-software",
 	specialty: 'Aesthetic',
 	specialtyAdj: 'aesthetic',
 	specialtyNoun: 'aesthetic clinic',
-	seoTitle: 'Aesthetic EMR Software — EasyClinic',
-	seoDescription: 'Aesthetic EMR — before/after images, procedure plans, appointments, and billing for aesthetic clinics.',
-	eyebrow: 'Aesthetic',
-	title: 'Aesthetic EMR for before/after images, procedure plans',
-	lede: 'Document before/after images, procedure plans with scheduling and billing in one clinic management platform — built for aesthetic clinic workflows.',
+	seoTitle: "Aesthetic EMR Software — EasyClinic",
+	seoDescription:
+		"Aesthetic EMR — before/after images, procedure packages, consent forms, appointments, and billing for aesthetic clinics.",
+	eyebrow: "Aesthetics",
+	title: "Aesthetic EMR for before/after photos, packages, and consents",
+	lede: "Manage consults, before/after images, package billing, consents, scheduling, and follow-ups in one clinic management platform for aesthetic practices.",
 	note: 'Built for aesthetic clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Before & after image store', label: 'On the visit record' },
-		{ value: 'Procedure', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Before/after", label: "Images on chart" },
+		{ value: "Package billing", label: "Treatment packages" },
+		{ value: "Consents", label: "Procedure-ready" }
 	],
 	clinical: [
 		{
-			title: 'Before & after image store',
-			copy: 'Keep visit-dated photos on the chart so progress is visible.',
+			title: "Before & after image management",
+			copy: "Photos tied to the patient and visit.",
 		},
 		{
-			title: 'Procedure / session tracking',
-			copy: 'Support before/after images, procedure plans with structured documentation on the patient chart.',
+			title: "Procedure documentation",
+			copy: "Record aesthetic treatments clearly.",
 		},
 		{
-			title: 'Aesthetic intake forms',
-			copy: 'Intake and exam templates tuned for aesthetic workflows.',
+			title: "Package billing",
+			copy: "Bill packages without spreadsheet gymnastics.",
 		},
 		{
-			title: 'Point-and-click notes',
-			copy: 'Support before/after images, procedure plans with structured documentation on the patient chart.',
+			title: "Consent forms",
+			copy: "Capture consents with the workflow.",
 		},
 		{
-			title: 'Patient summaries',
-			copy: 'Send clear aftercare notes with the visit.',
+			title: "Specialty aesthetic forms",
+			copy: "Intake tuned for aesthetic clinics.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Faster notes; clinician reviews.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -1817,84 +1817,90 @@ const aesthetic = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Photos scattered across phones',
-			copy: 'Before/after shots sit in camera rolls instead of the chart.',
+			title: "Photos scattered on phones",
+			copy: "Photos scattered on phones.",
 		},
 		{
-			title: 'Session plans not tied to billing',
-			copy: 'Course counts drift from what was invoiced.',
+			title: "Package balances unclear",
+			copy: "Package balances unclear.",
 		},
 		{
-			title: 'Follow-ups lost between visits',
-			copy: 'Multi-session courses need scheduled recalls.',
-		},
+			title: "Consents missing at procedure time",
+			copy: "Consents missing at procedure time.",
+		}
 	],
-	fit: ['Aesthetic clinics', 'Derm + aesthetic practices', 'Multi-doctor aesthetic centres'],
+	fit: ["Aesthetic clinics", "Cosmetic derm companions", "Multi-chair aesthetic centres"],
 	faqs: [
 		{
-			question: 'Best EMR for aesthetic clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for before/after images, procedure plans; EasyClinic covers that workflow.',
+			question: "Best aesthetic EMR?",
+			answer: "Images, packages, consents, scheduling, billing together.",
 		},
 		{
-			question: 'Aesthetic documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional Cura AI.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Before/after photos?",
+			answer: "Yes — on the patient record.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
+			question: "Package billing?",
+			answer: "Yes.",
 		},
+		{
+			question: "Consent forms?",
+			answer: "Yes.",
+		}
 	],
-	ctaTitle: 'See aesthetic EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk before/after images, procedure plans and billing on your workflow.',
+	ctaTitle: "See aesthetic EMR on your procedure menu",
+	ctaLede:
+		"Book a demo — photos, packages, and billing.",
 });
 
 const allergy = createSpecialty({
 	enabled: true,
-	slug: 'allergy-emr-software',
+	slug: "allergy-emr-software",
 	specialty: 'Allergy',
 	specialtyAdj: 'allergy',
 	specialtyNoun: 'allergy clinic',
-	seoTitle: 'Allergy EMR Software — EasyClinic',
-	seoDescription: 'Allergy EMR — allergy testing notes, immunotherapy plans, appointments, and billing for allergy clinics.',
-	eyebrow: 'Allergy',
-	title: 'Allergy EMR for allergy testing notes, immunotherapy plans',
-	lede: 'Document allergy testing notes, immunotherapy plans with scheduling and billing in one clinic management platform — built for allergy clinic workflows.',
+	seoTitle: "Allergy EMR Software — EasyClinic",
+	seoDescription:
+		"Allergy EMR — skin/patch testing, immunotherapy schedules, long-term tracking, appointments, and billing for allergy clinics.",
+	eyebrow: "Allergy",
+	title: "Allergy EMR for tests, immunotherapy schedules, and long-term follow-up",
+	lede: "Track allergy tests, immunotherapy, visits, and billing in one specialty-aware clinic management system.",
 	note: 'Built for allergy clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Allergy test documentation', label: 'On the visit record' },
-		{ value: 'Immunotherapy', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Test tracking", label: "Skin/patch results" },
+		{ value: "Immunotherapy", label: "Schedule on chart" },
+		{ value: "Long-term care", label: "Follow-up ready" }
 	],
 	clinical: [
 		{
-			title: 'Allergy test documentation',
-			copy: 'Support allergy testing notes, immunotherapy plans with structured documentation on the patient chart.',
+			title: "Skin & patch testing",
+			copy: "Document and store test results.",
 		},
 		{
-			title: 'Immunotherapy / shot plans',
-			copy: 'Track multi-visit plans against the original goal.',
+			title: "Immunotherapy module",
+			copy: "Track schedules and doses across visits.",
 		},
 		{
-			title: 'Specialty allergy forms',
-			copy: 'Intake and exam templates tuned for allergy workflows.',
+			title: "Allergy intake forms",
+			copy: "History tailored to allergy clinics.",
 		},
 		{
-			title: 'Fast Rx',
-			copy: 'Share prescriptions via print or WhatsApp before the patient leaves.',
+			title: "Long-term patient tracking",
+			copy: "Chronic allergy care on one timeline.",
 		},
 		{
-			title: 'Visit summaries',
-			copy: 'Send clear aftercare notes with the visit.',
+			title: "Fast Rx",
+			copy: "Share prescriptions quickly.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Documentation assist.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -1907,84 +1913,90 @@ const allergy = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Test results off-chart',
-			copy: 'Allergy panels live outside the visit note.',
+			title: "Test results off-chart",
+			copy: "Test results off-chart.",
 		},
 		{
-			title: 'Shot schedules unmanaged',
-			copy: 'Immunotherapy courses drift without a plan.',
+			title: "Immunotherapy schedules in notebooks",
+			copy: "Immunotherapy schedules in notebooks.",
 		},
 		{
-			title: 'Evening documentation load',
-			copy: 'Busy OPD leaves notes for after hours.',
-		},
+			title: "Long-term patients without structured recall",
+			copy: "Long-term patients without structured recall.",
+		}
 	],
-	fit: ['Allergy clinics', 'Immunology + allergy practices', 'Multi-doctor allergy centres'],
+	fit: ["Allergy clinics", "Allergy + immunology practices", "Specialist OPD"],
 	faqs: [
 		{
-			question: 'Best EMR for allergy clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for allergy testing notes, immunotherapy plans; EasyClinic covers that workflow.',
+			question: "Best allergy EMR?",
+			answer: "Tests, immunotherapy tracking, long-term care, ops modules.",
 		},
 		{
-			question: 'Allergy documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Track allergy test results?",
+			answer: "Yes.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
+			question: "Immunotherapy schedules?",
+			answer: "Yes.",
 		},
+		{
+			question: "Long-term allergy patients?",
+			answer: "Yes.",
+		}
 	],
-	ctaTitle: 'See allergy EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk allergy testing notes, immunotherapy plans and billing on your workflow.',
+	ctaTitle: "See allergy EMR on an immunotherapy calendar",
+	ctaLede:
+		"Book a demo — tests, schedules, and billing.",
 });
 
 const ayurveda = createSpecialty({
 	enabled: true,
-	slug: 'ayurveda-emr-software',
+	slug: "ayurveda-emr-software",
 	specialty: 'Ayurveda',
 	specialtyAdj: 'Ayurveda',
 	specialtyNoun: 'Ayurveda clinic',
-	seoTitle: 'Ayurveda EMR Software — EasyClinic',
-	seoDescription: 'Ayurveda EMR — prakriti notes, therapy plans, herbal inventory, appointments, and billing for Ayurveda clinics.',
-	eyebrow: 'Ayurveda',
-	title: 'Ayurveda EMR for prakriti notes, therapy plans, herbal inventory',
-	lede: 'Document prakriti notes, therapy plans, herbal inventory with scheduling and billing in one clinic management platform — built for Ayurveda clinic workflows.',
+	seoTitle: "Ayurveda EMR Software — EasyClinic",
+	seoDescription:
+		"Ayurveda EMR — prakriti-aware intake, treatment plans, herbal/Rx workflows, appointments, and billing for Ayurveda clinics.",
+	eyebrow: "Ayurveda",
+	title: "Ayurveda EMR for intake, treatment plans, and clinic-floor ops",
+	lede: "Specialty-friendly Ayurveda documentation, treatment plans, prescriptions, scheduling, and billing in one clinic management system.",
 	note: 'Built for Ayurveda clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Ayurveda consult templates', label: 'On the visit record' },
-		{ value: 'Therapy', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Ayurveda forms", label: "Specialty intake" },
+		{ value: "Treatment plans", label: "Course of care" },
+		{ value: "Ops included", label: "Schedule & billing" }
 	],
 	clinical: [
 		{
-			title: 'Ayurveda consult templates',
-			copy: 'Intake and exam templates tuned for Ayurveda workflows.',
+			title: "Ayurveda-oriented intake",
+			copy: "Capture history the way your practice works.",
 		},
 		{
-			title: 'Therapy / panchakarma plans',
-			copy: 'Track multi-visit plans against the original goal.',
+			title: "Treatment plan tracking",
+			copy: "Follow courses of care across visits.",
 		},
 		{
-			title: 'Herbal inventory hooks',
-			copy: 'Support prakriti notes, therapy plans, herbal inventory with structured documentation on the patient chart.',
+			title: "Prescription workflows",
+			copy: "Share plans via print/WhatsApp/SMS/email.",
 		},
 		{
-			title: 'Specialty forms',
-			copy: 'Intake and exam templates tuned for Ayurveda workflows.',
+			title: "Visit summaries",
+			copy: "Prior care visible quickly.",
 		},
 		{
-			title: 'Visit summaries',
-			copy: 'Send clear aftercare notes with the visit.',
+			title: "Multi-practitioner roles",
+			copy: "Clinic staff access by role.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Documentation assist.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -1997,84 +2009,86 @@ const ayurveda = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Therapy plans in notebooks',
-			copy: 'Courses sit outside the EMR.',
+			title: "Intake on paper only",
+			copy: "Intake on paper only.",
 		},
 		{
-			title: 'Inventory detached from visits',
-			copy: 'Herbal stock isn’t tied to what was dispensed.',
+			title: "Plans not visible to the next practitioner",
+			copy: "Plans not visible to the next practitioner.",
 		},
 		{
-			title: 'Follow-ups missed',
-			copy: 'Review visits slip without reminders.',
-		},
+			title: "Billing after the fact",
+			copy: "Billing after the fact.",
+		}
 	],
-	fit: ['Ayurveda clinics', 'Panchakarma centres', 'Multi-practitioner Ayurveda practices'],
+	fit: ["Ayurveda clinics", "Panchakarma centres", "Multi-vaidya practices"],
 	faqs: [
 		{
-			question: 'Best EMR for Ayurveda clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for prakriti notes, therapy plans, herbal inventory; EasyClinic covers that workflow.',
+			question: "Best Ayurveda EMR?",
+			answer: "Specialty intake, plans, Rx, scheduling, billing.",
 		},
 		{
-			question: 'Ayurveda documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Long-term patient tracking?",
+			answer: "Yes.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
-		},
+			question: "Multi-practitioner clinics?",
+			answer: "Yes — role-based access.",
+		}
 	],
-	ctaTitle: 'See Ayurveda EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk prakriti notes, therapy plans, herbal inventory and billing on your workflow.',
+	ctaTitle: "See Ayurveda EMR on your OPD flow",
+	ctaLede:
+		"Book a demo — intake, plans, and billing.",
 });
 
 const alternativeMedicine = createSpecialty({
 	enabled: true,
-	slug: 'alternative-medicine',
+	slug: "alternative-medicine",
 	specialty: 'Alternative Medicine',
 	specialtyAdj: 'alternative medicine',
 	specialtyNoun: 'alternative medicine clinic',
-	seoTitle: 'Alternative Medicine EMR Software — EasyClinic',
-	seoDescription: 'Alternative Medicine EMR — holistic intake, therapy plans, visit tracking, appointments, and billing for alternative medicine clinics.',
-	eyebrow: 'Alternative Medicine',
-	title: 'Alternative Medicine EMR for holistic intake, therapy plans, visit tracking',
-	lede: 'Document holistic intake, therapy plans, visit tracking with scheduling and billing in one clinic management platform — built for alternative medicine clinic workflows.',
+	seoTitle: "Alternative Medicine EMR — EasyClinic",
+	seoDescription:
+		"Alternative medicine EMR — Ayurveda, homeopathy, and naturopathy-friendly prescriptions, multidisciplinary plans, appointments, and billing.",
+	eyebrow: "Alternative medicine",
+	title: "Alternative medicine EMR for holistic prescriptions and multi-modality plans",
+	lede: "Document visits, multidisciplinary treatment plans, and specialty prescriptions — with scheduling and billing in one clinic management platform.",
 	note: 'Built for alternative medicine clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Holistic intake forms', label: 'On the visit record' },
-		{ value: 'Therapy plan tracking', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Holistic Rx", label: "Modality-aware scripts" },
+		{ value: "Multi-modality plans", label: "Combined care paths" },
+		{ value: "Long-term tracking", label: "Follow-ups organized" }
 	],
 	clinical: [
 		{
-			title: 'Holistic intake forms',
-			copy: 'Intake and exam templates tuned for alternative medicine workflows.',
+			title: "Modality-aware documentation",
+			copy: "Forms that fit holistic practice styles.",
 		},
 		{
-			title: 'Therapy plan tracking',
-			copy: 'Track multi-visit plans against the original goal.',
+			title: "Ayurveda / homeopathy / naturopathy Rx",
+			copy: "Prescription workflows that match how you prescribe.*",
 		},
 		{
-			title: 'Visit documentation',
-			copy: 'Support holistic intake, therapy plans, visit tracking with structured documentation on the patient chart.',
+			title: "Multidisciplinary treatment management",
+			copy: "Plans across modalities on one chart.",
 		},
 		{
-			title: 'File / report store',
-			copy: 'Attach diagnostics and reports to the patient record.',
+			title: "Treatment history",
+			copy: "Longitudinal care without paper stacks.",
 		},
 		{
-			title: 'Reminders',
-			copy: 'Cut no-shows with WhatsApp, SMS, and email reminders.',
+			title: "Scheduling & billing",
+			copy: "Same ops spine as other EasyClinic clinics.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Notes assist; practitioner reviews.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -2087,84 +2101,90 @@ const alternativeMedicine = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Notes fragmented',
-			copy: 'Visit notes live across paper and personal drives.',
+			title: "Paper-only treatment histories",
+			copy: "Paper-only treatment histories.",
 		},
 		{
-			title: 'Plans not tied to visits',
-			copy: 'Therapy courses drift without status.',
+			title: "Modalities tracked in separate books",
+			copy: "Modalities tracked in separate books.",
 		},
 		{
-			title: 'No-shows',
-			copy: 'Busy books lose patients without reminders.',
-		},
+			title: "Billing disconnected from the plan",
+			copy: "Billing disconnected from the plan.",
+		}
 	],
-	fit: ['Alternative medicine clinics', 'Integrative practices', 'Multi-practitioner centres'],
+	fit: ["Ayurveda / homeopathy / naturopathy clinics", "Integrative centres", "Multi-practitioner holistic clinics"],
 	faqs: [
 		{
-			question: 'Best EMR for alternative medicine clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for holistic intake, therapy plans, visit tracking; EasyClinic covers that workflow.',
+			question: "Best EMR for alternative medicine?",
+			answer: "Modality-aware notes/Rx, long-term tracking, scheduling, billing.",
 		},
 		{
-			question: 'Alternative Medicine documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Ayurvedic/homeopathy/naturopathy prescriptions?",
+			answer: "Supported in specialty-friendly Rx workflows — confirm your modality templates in demo.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
+			question: "Long-term tracking?",
+			answer: "Yes.",
 		},
+		{
+			question: "Store treatment documents?",
+			answer: "Yes — on the patient record.",
+		}
 	],
-	ctaTitle: 'See alternative medicine EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk holistic intake, therapy plans, visit tracking and billing on your workflow.',
+	ctaTitle: "See alternative medicine EMR on your clinic day",
+	ctaLede:
+		"Book a demo — plans, Rx, and billing.",
 });
 
 const cosmetology = createSpecialty({
 	enabled: true,
-	slug: 'cosmetology-emr-software',
+	slug: "cosmetology-emr-software",
 	specialty: 'Cosmetology',
 	specialtyAdj: 'cosmetology',
 	specialtyNoun: 'cosmetology clinic',
-	seoTitle: 'Cosmetology EMR Software — EasyClinic',
-	seoDescription: 'Cosmetology EMR — cosmetic procedures, session photos, billing, appointments, and billing for cosmetology clinics.',
-	eyebrow: 'Cosmetology',
-	title: 'Cosmetology EMR for cosmetic procedures, session photos, billing',
-	lede: 'Document cosmetic procedures, session photos, billing with scheduling and billing in one clinic management platform — built for cosmetology clinic workflows.',
+	seoTitle: "Cosmetology EMR Software — EasyClinic",
+	seoDescription:
+		"Cosmetology EMR — treatment records, before/after images, package billing, appointments, and inventory for cosmetology clinics.",
+	eyebrow: "Cosmetology",
+	title: "Cosmetology EMR for treatments, photos, and package billing",
+	lede: "Run cosmetology consults, photo documentation, packages, scheduling, and billing without a patchwork of tools.",
 	note: 'Built for cosmetology clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Cosmetic procedure tracking', label: 'On the visit record' },
-		{ value: 'Before & after image store', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Treatment records", label: "Visit-linked" },
+		{ value: "Before/after", label: "Images on chart" },
+		{ value: "Packages", label: "Clear billing" }
 	],
 	clinical: [
 		{
-			title: 'Cosmetic procedure tracking',
-			copy: 'Support cosmetic procedures, session photos, billing with structured documentation on the patient chart.',
+			title: "Treatment documentation",
+			copy: "Record procedures and products used.",
 		},
 		{
-			title: 'Before & after image store',
-			copy: 'Keep visit-dated photos on the chart so progress is visible.',
+			title: "Before/after images",
+			copy: "Photos on the patient record.",
 		},
 		{
-			title: 'Specialty cosmetology forms',
-			copy: 'Intake and exam templates tuned for cosmetology workflows.',
+			title: "Package billing",
+			copy: "Track packages and balances.",
 		},
 		{
-			title: 'Fast Rx',
-			copy: 'Share prescriptions via print or WhatsApp before the patient leaves.',
+			title: "Inventory for consumables",
+			copy: "Supplies visibility where enabled.",
 		},
 		{
-			title: 'Patient summaries',
-			copy: 'Send clear aftercare notes with the visit.',
+			title: "Reminders",
+			copy: "WhatsApp/SMS/email follow-ups.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Faster notes.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -2177,84 +2197,86 @@ const cosmetology = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Photos off-chart',
-			copy: 'Before/after shots never reach the record.',
+			title: "Photos and notes disconnected",
+			copy: "Photos and notes disconnected.",
 		},
 		{
-			title: 'Session billing drift',
-			copy: 'Courses don’t match invoices.',
+			title: "Package balances unclear",
+			copy: "Package balances unclear.",
 		},
 		{
-			title: 'Follow-ups missed',
-			copy: 'Recalls slip between visits.',
-		},
+			title: "Stockouts mid-treatment",
+			copy: "Stockouts mid-treatment.",
+		}
 	],
-	fit: ['Cosmetology clinics', 'Aesthetic + cosmetology centres', 'Multi-doctor practices'],
+	fit: ["Cosmetology clinics", "Beauty + clinical hybrid centres", "Multi-chair cosmetology practices"],
 	faqs: [
 		{
-			question: 'Best EMR for cosmetology clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for cosmetic procedures, session photos, billing; EasyClinic covers that workflow.',
+			question: "Best cosmetology EMR?",
+			answer: "Treatments, photos, packages, scheduling, billing.",
 		},
 		{
-			question: 'Cosmetology documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "Before/after photos?",
+			answer: "Yes.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Package billing?",
+			answer: "Yes.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
-		},
+			question: "AI EMR?",
+			answer: "Optional.",
+		}
 	],
-	ctaTitle: 'See cosmetology EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk cosmetic procedures, session photos, billing and billing on your workflow.',
+	ctaTitle: "See cosmetology EMR on your service menu",
+	ctaLede:
+		"Book a demo — treatments, photos, and billing.",
 });
 
 const diabetology = createSpecialty({
 	enabled: true,
-	slug: 'diabetology-emr-software',
+	slug: "diabetology-emr-software",
 	specialty: 'Diabetology',
 	specialtyAdj: 'diabetology',
 	specialtyNoun: 'diabetes clinic',
-	seoTitle: 'Diabetology EMR Software — EasyClinic',
-	seoDescription: 'Diabetology EMR — glucose trends, med plans, chronic follow-ups, appointments, and billing for diabetes clinics.',
-	eyebrow: 'Diabetology',
-	title: 'Diabetology EMR for glucose trends, med plans, chronic follow-ups',
-	lede: 'Document glucose trends, med plans, chronic follow-ups with scheduling and billing in one clinic management platform — built for diabetes clinic workflows.',
+	seoTitle: "Diabetology EMR Software — EasyClinic",
+	seoDescription:
+		"Diabetology EMR — diabetes templates, labs/vitals trends, foot and eye exam tracking, appointments, and billing for diabetes clinics.",
+	eyebrow: "Diabetology",
+	title: "Diabetology EMR for labs, trends, and complication-aware follow-up",
+	lede: "Diabetes-specific forms, vitals and lab trends, foot/eye exam tracking, scheduling, and billing — built for high-volume diabetes OPD.",
 	note: 'Built for diabetes clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Diabetes visit templates', label: 'On the visit record' },
-		{ value: 'Glucose', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Diabetes forms", label: "Specialty intake" },
+		{ value: "Lab & vitals trends", label: "Graphs that help" },
+		{ value: "Foot/eye exams", label: "Complication checks" }
 	],
 	clinical: [
 		{
-			title: 'Diabetes visit templates',
-			copy: 'Intake and exam templates tuned for diabetology workflows.',
+			title: "Diabetes examination forms",
+			copy: "Capture diabetes visits in a few clicks.",
 		},
 		{
-			title: 'Glucose / lab trend hooks',
-			copy: 'Attach diagnostics and reports to the patient record.',
+			title: "Vitals & lab visualization",
+			copy: "Trends for glucose, labs, and key parameters.",
 		},
 		{
-			title: 'Med management',
-			copy: 'Track medications and changes across visits.',
+			title: "Foot & eye exam tracking",
+			copy: "Document complication screening.",
 		},
 		{
-			title: 'Specialty forms',
-			copy: 'Intake and exam templates tuned for diabetology workflows.',
+			title: "Medication & plan management",
+			copy: "Regimens beside the clinical timeline.",
 		},
 		{
-			title: 'Patient education summaries',
-			copy: 'Send clear aftercare notes with the visit.',
+			title: "Fast Rx share",
+			copy: "WhatsApp/SMS/email/print.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Documentation assist.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -2267,84 +2289,86 @@ const diabetology = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Labs siloed',
-			copy: 'Glucose and labs live outside the note.',
+			title: "Labs not trended for the next visit",
+			copy: "Labs not trended for the next visit.",
 		},
 		{
-			title: 'Chronic patients without recall',
-			copy: 'Reviews slip without a plan.',
+			title: "Foot/eye checks missed in the rush",
+			copy: "Foot/eye checks missed in the rush.",
 		},
 		{
-			title: 'Evening documentation load',
-			copy: 'Busy OPD leaves notes for after hours.',
-		},
+			title: "Evening charting after a full OPD",
+			copy: "Evening charting after a full OPD.",
+		}
 	],
-	fit: ['Diabetes clinics', 'Endocrine + diabetes practices', 'Multi-doctor diabetology centres'],
+	fit: ["Diabetologists", "Diabetes clinics", "Endocrine + diabetes centres"],
 	faqs: [
 		{
-			question: 'Best EMR for diabetology clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for glucose trends, med plans, chronic follow-ups; EasyClinic covers that workflow.',
+			question: "Best diabetes EMR?",
+			answer: "Specialty forms, trends, complication checks, ops modules.",
 		},
 		{
-			question: 'Diabetology documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Track labs and trends?",
+			answer: "Yes.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
-		},
+			question: "Foot/eye examination docs?",
+			answer: "Yes.",
+		}
 	],
-	ctaTitle: 'See diabetology EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk glucose trends, med plans, chronic follow-ups and billing on your workflow.',
+	ctaTitle: "See diabetology EMR on a busy OPD day",
+	ctaLede:
+		"Book a demo — trends, screening, and billing.",
 });
 
 const endocrinology = createSpecialty({
 	enabled: true,
-	slug: 'endocrinology-emr-software',
+	slug: "endocrinology-emr-software",
 	specialty: 'Endocrinology',
 	specialtyAdj: 'endocrinology',
 	specialtyNoun: 'endocrine clinic',
-	seoTitle: 'Endocrinology EMR Software — EasyClinic',
-	seoDescription: 'Endocrinology EMR — hormone labs, chronic plans, follow-ups, appointments, and billing for endocrine clinics.',
-	eyebrow: 'Endocrinology',
-	title: 'Endocrinology EMR for hormone labs, chronic plans, follow-ups',
-	lede: 'Document hormone labs, chronic plans, follow-ups with scheduling and billing in one clinic management platform — built for endocrine clinic workflows.',
+	seoTitle: "Endocrinology EMR Software — EasyClinic",
+	seoDescription:
+		"Endocrinology EMR — hormone and metabolic templates, lab trends, chronic endocrine follow-up, appointments, and billing.",
+	eyebrow: "Endocrinology",
+	title: "Endocrinology EMR for hormone care, lab trends, and long follow-ups",
+	lede: "Specialty endocrine documentation, lab visualization, medication plans, scheduling, and billing for endocrinology clinics.",
 	note: 'Built for endocrine clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Endocrine templates', label: 'On the visit record' },
-		{ value: 'Lab', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Endocrine templates", label: "Specialty notes" },
+		{ value: "Lab trends", label: "Hormones & metabolics" },
+		{ value: "Chronic follow-up", label: "Recall-ready" }
 	],
 	clinical: [
 		{
-			title: 'Endocrine templates',
-			copy: 'Intake and exam templates tuned for endocrinology workflows.',
+			title: "Endocrinology templates",
+			copy: "Notes for thyroid, metabolic, and related visits.",
 		},
 		{
-			title: 'Lab / hormone file store',
-			copy: 'Attach diagnostics and reports to the patient record.',
+			title: "Lab trend visuals",
+			copy: "Hormones and key labs across time.",
 		},
 		{
-			title: 'Med management',
-			copy: 'Track medications and changes across visits.',
+			title: "Medication management",
+			copy: "Titration history on the chart.",
 		},
 		{
-			title: 'Specialty forms',
-			copy: 'Intake and exam templates tuned for endocrinology workflows.',
+			title: "Chronic follow-up tracking",
+			copy: "Long courses without lost context.",
 		},
 		{
-			title: 'Trend visuals',
-			copy: 'Keep key measures easy to scan across follow-ups.',
+			title: "Fast Rx",
+			copy: "Share quickly to patients.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Notes assist.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -2357,84 +2381,86 @@ const endocrinology = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Labs detached',
-			copy: 'Hormone panels never meet the visit note.',
+			title: "Lab PDFs not trended",
+			copy: "Lab PDFs not trended.",
 		},
 		{
-			title: 'Chronic follow-ups unmanaged',
-			copy: 'Long-term plans drift.',
+			title: "Titration history hard to reconstruct",
+			copy: "Titration history hard to reconstruct.",
 		},
 		{
-			title: 'Documentation after hours',
-			copy: 'Busy OPD pushes notes later.',
-		},
+			title: "Recall lists in spreadsheets",
+			copy: "Recall lists in spreadsheets.",
+		}
 	],
-	fit: ['Endocrine clinics', 'Hormone / metabolic centres', 'Multi-doctor endocrinology practices'],
+	fit: ["Endocrinologists", "Endocrine clinics", "Hospital endocrine OPD"],
 	faqs: [
 		{
-			question: 'Best EMR for endocrinology clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for hormone labs, chronic plans, follow-ups; EasyClinic covers that workflow.',
+			question: "Best endocrinology EMR?",
+			answer: "Templates, lab trends, meds, chronic follow-up, billing.",
 		},
 		{
-			question: 'Endocrinology documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Lab parameter tracking?",
+			answer: "Yes — trends on the chart.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
-		},
+			question: "Chronic endocrine tracking?",
+			answer: "Yes.",
+		}
 	],
-	ctaTitle: 'See endocrinology EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk hormone labs, chronic plans, follow-ups and billing on your workflow.',
+	ctaTitle: "See endocrinology EMR on your follow-up list",
+	ctaLede:
+		"Book a demo — labs, meds, and billing.",
 });
 
 const familyPhysician = createSpecialty({
 	enabled: true,
-	slug: 'family-physician-emr',
+	slug: "family-physician-emr",
 	specialty: 'Family Physician',
 	specialtyAdj: 'family medicine',
 	specialtyNoun: 'family practice',
-	seoTitle: 'Family Physician EMR Software — EasyClinic',
-	seoDescription: 'Family Physician EMR — general consults, chronic care, family records, appointments, and billing for family practices.',
-	eyebrow: 'Family Physician',
-	title: 'Family Physician EMR for general consults, chronic care, family records',
-	lede: 'Document general consults, chronic care, family records with scheduling and billing in one clinic management platform — built for family practice workflows.',
+	seoTitle: "Family Physician EMR — EasyClinic",
+	seoDescription:
+		"Family physician EMR — whole-family charts, chronic disease templates, preventive care, appointments, and billing for family medicine clinics.",
+	eyebrow: "Family medicine",
+	title: "Family physician EMR for whole-person care and chronic follow-up",
+	lede: "Fast charts for everyday family medicine — chronic disease templates, preventive care tracking, scheduling, and billing in one light clinic management stack.",
 	note: 'Built for family practices and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Family practice templates', label: 'On the visit record' },
-		{ value: 'Chronic care plans', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Family charts", label: "Continuity of care" },
+		{ value: "Chronic templates", label: "HTN, DM, and more" },
+		{ value: "Preventive care", label: "Vaccines & checks" }
 	],
 	clinical: [
 		{
-			title: 'Family practice templates',
-			copy: 'Intake and exam templates tuned for family medicine workflows.',
+			title: "Family-medicine templates",
+			copy: "Common conditions documented quickly.",
 		},
 		{
-			title: 'Chronic care plans',
-			copy: 'Track multi-visit plans against the original goal.',
+			title: "Chronic disease management",
+			copy: "Hypertension, diabetes, respiratory, and similar.",
 		},
 		{
-			title: 'Fast Rx',
-			copy: 'Share prescriptions via print or WhatsApp before the patient leaves.',
+			title: "Preventive care & vaccines",
+			copy: "Track preventive visits.",
 		},
 		{
-			title: 'Visit summaries',
-			copy: 'Send clear aftercare notes with the visit.',
+			title: "Complete history at a glance",
+			copy: "Prior visits without hunting.",
 		},
 		{
-			title: 'Reminders',
-			copy: 'Cut no-shows with WhatsApp, SMS, and email reminders.',
+			title: "WhatsApp reminders",
+			copy: "Cut no-shows.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Faster notes.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -2447,84 +2473,90 @@ const familyPhysician = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Fragmented family records',
-			copy: 'Household members aren’t easy to see together.',
+			title: "Family history fragmented across paper",
+			copy: "Family history fragmented across paper.",
 		},
 		{
-			title: 'Chronic recalls missed',
-			copy: 'Hypertension and diabetes reviews slip.',
+			title: "Chronic recalls manual",
+			copy: "Chronic recalls manual.",
 		},
 		{
-			title: 'Evening catch-up',
-			copy: 'Notes spill past the last patient.',
-		},
+			title: "Preventive care not scheduled systematically",
+			copy: "Preventive care not scheduled systematically.",
+		}
 	],
-	fit: ['Family physicians', 'GP + family clinics', 'Multi-doctor family practices'],
+	fit: ["Family physicians", "Neighbourhood clinics", "Small multi-doctor family practices"],
 	faqs: [
 		{
-			question: 'Best EMR for family medicine clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for general consults, chronic care, family records; EasyClinic covers that workflow.',
+			question: "Best family physician EMR?",
+			answer: "Fast charts, chronic + preventive tracking, scheduling, billing.",
 		},
 		{
-			question: 'Family Physician documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Full patient history?",
+			answer: "Yes.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
+			question: "Chronic disease management?",
+			answer: "Yes.",
 		},
+		{
+			question: "Vaccinations/preventive care?",
+			answer: "Yes.",
+		}
 	],
-	ctaTitle: 'See family medicine EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk general consults, chronic care, family records and billing on your workflow.',
+	ctaTitle: "See family physician EMR on a clinic day",
+	ctaLede:
+		"Book a demo — continuity, chronic care, and billing.",
 });
 
 const generalPractitioner = createSpecialty({
 	enabled: true,
-	slug: 'general-practitioner-emr',
+	slug: "general-practitioner-emr",
 	specialty: 'General Practitioner',
 	specialtyAdj: 'GP',
 	specialtyNoun: 'GP clinic',
-	seoTitle: 'General Practitioner EMR Software — EasyClinic',
-	seoDescription: 'General Practitioner EMR — fast OPD notes, Rx, billing, appointments, and billing for GP clinics.',
-	eyebrow: 'General Practitioner',
-	title: 'General Practitioner EMR for fast OPD notes, Rx, billing',
-	lede: 'Document fast OPD notes, Rx, billing with scheduling and billing in one clinic management platform — built for GP clinic workflows.',
+	seoTitle: "General Practitioner EMR — EasyClinic",
+	seoDescription:
+		"GP EMR — fast charts, chronic disease and preventive care tracking, appointments, billing, and WhatsApp reminders for general practice.",
+	eyebrow: "General practice",
+	title: "GP EMR that finishes with the consult — charts, chronic care, billing",
+	lede: "Practice management software sized for GPs: thirty-second prescriptions, chronic and preventive tracking, a calendar you trust, and a till that closes clean.",
 	note: 'Built for GP clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'GP visit templates', label: 'On the visit record' },
-		{ value: 'Fast Rx', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Fast charts", label: "OPD speed" },
+		{ value: "Chronic + preventive", label: "Longitudinal care" },
+		{ value: "Simple billing", label: "Till that reconciles" }
 	],
 	clinical: [
 		{
-			title: 'GP visit templates',
-			copy: 'Intake and exam templates tuned for GP workflows.',
+			title: "GP-ready EMR",
+			copy: "Point-and-click notes for high-volume OPD.",
 		},
 		{
-			title: 'Fast Rx',
-			copy: 'Share prescriptions via print or WhatsApp before the patient leaves.',
+			title: "Chronic disease tracking",
+			copy: "Follow common long-term conditions.",
 		},
 		{
-			title: 'Point-and-click notes',
-			copy: 'Support fast OPD notes, Rx, billing with structured documentation on the patient chart.',
+			title: "Preventive care",
+			copy: "Vaccines and checks on the timeline.",
 		},
 		{
-			title: 'Visit summaries',
-			copy: 'Send clear aftercare notes with the visit.',
+			title: "Reminders",
+			copy: "WhatsApp/SMS/email.",
 		},
 		{
-			title: 'Reminders',
-			copy: 'Cut no-shows with WhatsApp, SMS, and email reminders.',
+			title: "Telehealth",
+			copy: "When patients can’t come in.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Documentation assist.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -2537,84 +2569,90 @@ const generalPractitioner = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'High-volume OPD queues',
-			copy: 'Busy GP days need faster charts.',
+			title: "Evening catch-up charts",
+			copy: "Evening catch-up charts.",
 		},
 		{
-			title: 'Billing after the visit',
-			copy: 'Fees drift from what was done.',
+			title: "Chronic patients without recall",
+			copy: "Chronic patients without recall.",
 		},
 		{
-			title: 'No-shows',
-			copy: 'Reminders aren’t reliable.',
-		},
+			title: "Billing after the fact",
+			copy: "Billing after the fact.",
+		}
 	],
-	fit: ['Solo GPs', 'GP polyclinics', 'Multi-doctor GP centres'],
+	fit: ["GPs", "Solo clinics", "Small GP group practices"],
 	faqs: [
 		{
-			question: 'Best EMR for GP clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for fast OPD notes, Rx, billing; EasyClinic covers that workflow.',
+			question: "Best GP EMR?",
+			answer: "Speed, chronic/preventive tracking, scheduling, billing — without hospital bloat.",
 		},
 		{
-			question: 'General Practitioner documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Complete history?",
+			answer: "Yes.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
+			question: "Chronic disease management?",
+			answer: "Yes.",
 		},
+		{
+			question: "Vaccinations/preventive?",
+			answer: "Yes.",
+		}
 	],
-	ctaTitle: 'See GP EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk fast OPD notes, Rx, billing and billing on your workflow.',
+	ctaTitle: "See GP EMR on your OPD list",
+	ctaLede:
+		"Book a demo — speed first, then depth.",
 });
 
 const generalSurgery = createSpecialty({
 	enabled: true,
-	slug: 'general-surgery-emr',
+	slug: "general-surgery-emr",
 	specialty: 'General Surgery',
 	specialtyAdj: 'general surgery',
 	specialtyNoun: 'surgery clinic',
-	seoTitle: 'General Surgery EMR Software — EasyClinic',
-	seoDescription: 'General Surgery EMR — procedure notes, pre-op forms, follow-ups, appointments, and billing for surgery clinics.',
-	eyebrow: 'General Surgery',
-	title: 'General Surgery EMR for procedure notes, pre-op forms, follow-ups',
-	lede: 'Document procedure notes, pre-op forms, follow-ups with scheduling and billing in one clinic management platform — built for surgery clinic workflows.',
+	seoTitle: "General Surgery EMR Software — EasyClinic",
+	seoDescription:
+		"General surgery EMR — pre-op assessments, procedure documentation, post-op follow-ups, imaging/labs, appointments, and billing.",
+	eyebrow: "General surgery",
+	title: "General surgery EMR for pre-op, procedure notes, and post-op follow-up",
+	lede: "Document pre-operative assessments, procedures, and post-op visits with imaging/labs on the chart — plus scheduling and billing.",
 	note: 'Built for surgery clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Surgery', label: 'On the visit record' },
-		{ value: 'Pre-op intake forms', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Pre-op docs", label: "Assessments on chart" },
+		{ value: "Procedure notes", label: "Operative documentation" },
+		{ value: "Post-op follow-up", label: "Recall-ready" }
 	],
 	clinical: [
 		{
-			title: 'Surgery / procedure notes',
-			copy: 'Support procedure notes, pre-op forms, follow-ups with structured documentation on the patient chart.',
+			title: "Pre-operative assessments",
+			copy: "Structured pre-op documentation.",
 		},
 		{
-			title: 'Pre-op intake forms',
-			copy: 'Intake and exam templates tuned for general surgery workflows.',
+			title: "Surgical procedure documentation",
+			copy: "Operative notes with the encounter.",
 		},
 		{
-			title: 'Imaging store',
-			copy: 'Attach diagnostics and reports to the patient record.',
+			title: "Post-operative follow-up",
+			copy: "Track recovery visits.",
 		},
 		{
-			title: 'Follow-up plans',
-			copy: 'Track multi-visit plans against the original goal.',
+			title: "Imaging & labs on chart",
+			copy: "Results attached to the patient.",
 		},
 		{
-			title: 'Fast Rx',
-			copy: 'Share prescriptions via print or WhatsApp before the patient leaves.',
+			title: "Fast Rx & summaries",
+			copy: "Less after-hours paperwork.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Notes assist.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -2627,84 +2665,90 @@ const generalSurgery = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Procedure notes delayed',
-			copy: 'OT lists push documentation later.',
+			title: "Pre-op checklists on paper",
+			copy: "Pre-op checklists on paper.",
 		},
 		{
-			title: 'Imaging off-chart',
-			copy: 'Scans sit apart from the note.',
+			title: "Op notes delayed",
+			copy: "Op notes delayed.",
 		},
 		{
-			title: 'Follow-ups unscheduled',
-			copy: 'Reviews slip without a plan.',
-		},
+			title: "Post-op follow-ups unmanaged",
+			copy: "Post-op follow-ups unmanaged.",
+		}
 	],
-	fit: ['General surgery clinics', 'Day-care surgery centres', 'Multi-surgeon groups'],
+	fit: ["General surgeons", "Surgery clinics", "Day-care surgical centres"],
 	faqs: [
 		{
-			question: 'Best EMR for general surgery clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for procedure notes, pre-op forms, follow-ups; EasyClinic covers that workflow.',
+			question: "Best surgery EMR?",
+			answer: "Pre-op, procedure docs, post-op tracking, imaging/labs, billing.",
 		},
 		{
-			question: 'General Surgery documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Pre-operative assessments?",
+			answer: "Yes.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
+			question: "Procedure documentation?",
+			answer: "Yes.",
 		},
+		{
+			question: "Post-op care/follow-ups?",
+			answer: "Yes.",
+		}
 	],
-	ctaTitle: 'See general surgery EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk procedure notes, pre-op forms, follow-ups and billing on your workflow.',
+	ctaTitle: "See general surgery EMR on an OT week",
+	ctaLede:
+		"Book a demo — pre-op to post-op on one chart.",
 });
 
 const hematology = createSpecialty({
 	enabled: true,
-	slug: 'hematology-emr',
+	slug: "hematology-emr",
 	specialty: 'Hematology',
 	specialtyAdj: 'hematology',
 	specialtyNoun: 'hematology clinic',
-	seoTitle: 'Hematology EMR Software — EasyClinic',
-	seoDescription: 'Hematology EMR — lab trends, infusion visits, chronic follow-ups, appointments, and billing for hematology clinics.',
-	eyebrow: 'Hematology',
-	title: 'Hematology EMR for lab trends, infusion visits, chronic follow-ups',
-	lede: 'Document lab trends, infusion visits, chronic follow-ups with scheduling and billing in one clinic management platform — built for hematology clinic workflows.',
+	seoTitle: "Hematology EMR Software — EasyClinic",
+	seoDescription:
+		"Hematology EMR — specialty templates, lab trend tracking, treatment plans, appointments, and billing for blood disorder clinics.",
+	eyebrow: "Hematology",
+	title: "Hematology EMR for lab trends, treatment plans, and long follow-up",
+	lede: "Specialty hematology documentation, lab visualization, treatment plans, scheduling, and billing for hematology clinics and OPD.",
 	note: 'Built for hematology clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Hematology templates', label: 'On the visit record' },
-		{ value: 'Lab', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Heme templates", label: "Specialty notes" },
+		{ value: "Lab trends", label: "Counts & markers" },
+		{ value: "Treatment plans", label: "Longitudinal care" }
 	],
 	clinical: [
 		{
-			title: 'Hematology templates',
-			copy: 'Intake and exam templates tuned for hematology workflows.',
+			title: "Hematology templates",
+			copy: "Notes for common hematology visits.",
 		},
 		{
-			title: 'Lab / report store',
-			copy: 'Attach diagnostics and reports to the patient record.',
+			title: "Lab trend tracking",
+			copy: "Counts and key markers over time.",
 		},
 		{
-			title: 'Infusion / visit tracking',
-			copy: 'Support lab trends, infusion visits, chronic follow-ups with structured documentation on the patient chart.',
+			title: "Treatment plan management",
+			copy: "Plans beside the lab timeline.",
 		},
 		{
-			title: 'Med management',
-			copy: 'Track medications and changes across visits.',
+			title: "Diagnostic report store",
+			copy: "Attach reports to the chart.",
 		},
 		{
-			title: 'Trend visuals',
-			copy: 'Keep key measures easy to scan across follow-ups.',
+			title: "Chronic follow-up",
+			copy: "Recall for long courses.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Documentation assist.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -2717,84 +2761,86 @@ const hematology = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Labs siloed',
-			copy: 'Bloodwork never meets the visit note.',
+			title: "Lab trends rebuilt from PDFs each visit",
+			copy: "Lab trends rebuilt from PDFs each visit.",
 		},
 		{
-			title: 'Chronic recalls missed',
-			copy: 'Long-term patients slip.',
+			title: "Treatment changes hard to audit",
+			copy: "Treatment changes hard to audit.",
 		},
 		{
-			title: 'Documentation load',
-			copy: 'Busy days leave notes unfinished.',
-		},
+			title: "Missed chronic recalls",
+			copy: "Missed chronic recalls.",
+		}
 	],
-	fit: ['Hematology clinics', 'Infusion centres', 'Multi-doctor hematology practices'],
+	fit: ["Hematologists", "Hematology clinics", "Hospital hematology OPD"],
 	faqs: [
 		{
-			question: 'Best EMR for hematology clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for lab trends, infusion visits, chronic follow-ups; EasyClinic covers that workflow.',
+			question: "Best hematology EMR?",
+			answer: "Templates, lab trends, plans, scheduling, billing.",
 		},
 		{
-			question: 'Hematology documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Track lab parameters?",
+			answer: "Yes.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
-		},
+			question: "Long-term patient tracking?",
+			answer: "Yes.",
+		}
 	],
-	ctaTitle: 'See hematology EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk lab trends, infusion visits, chronic follow-ups and billing on your workflow.',
+	ctaTitle: "See hematology EMR on your follow-up list",
+	ctaLede:
+		"Book a demo — labs, plans, and billing.",
 });
 
 const immunology = createSpecialty({
 	enabled: true,
-	slug: 'immunology-emr',
+	slug: "immunology-emr",
 	specialty: 'Immunology',
 	specialtyAdj: 'immunology',
 	specialtyNoun: 'immunology clinic',
-	seoTitle: 'Immunology EMR Software — EasyClinic',
-	seoDescription: 'Immunology EMR — immune workups, therapy plans, labs, appointments, and billing for immunology clinics.',
-	eyebrow: 'Immunology',
-	title: 'Immunology EMR for immune workups, therapy plans, labs',
-	lede: 'Document immune workups, therapy plans, labs with scheduling and billing in one clinic management platform — built for immunology clinic workflows.',
+	seoTitle: "Immunology EMR Software — EasyClinic",
+	seoDescription:
+		"Immunology EMR — allergy/sensitivity tracking, immunization logs, autoimmune monitoring, appointments, and billing.",
+	eyebrow: "Immunology",
+	title: "Immunology EMR for sensitivities, immunizations, and autoimmune follow-up",
+	lede: "Track allergies and sensitivities, immunizations, autoimmune monitoring, visits, and billing in one specialty-aware platform.",
 	note: 'Built for immunology clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Immunology templates', label: 'On the visit record' },
-		{ value: 'Lab', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Sensitivities", label: "Allergy tracking" },
+		{ value: "Immunizations", label: "Schedules on chart" },
+		{ value: "Autoimmune watch", label: "Longitudinal monitoring" }
 	],
 	clinical: [
 		{
-			title: 'Immunology templates',
-			copy: 'Intake and exam templates tuned for immunology workflows.',
+			title: "Allergy & sensitivity management",
+			copy: "Document reactions and triggers.",
 		},
 		{
-			title: 'Lab / report store',
-			copy: 'Attach diagnostics and reports to the patient record.',
+			title: "Immunization tracking",
+			copy: "Vaccines and schedules.",
 		},
 		{
-			title: 'Therapy plan tracking',
-			copy: 'Track multi-visit plans against the original goal.',
+			title: "Autoimmune disease monitoring",
+			copy: "Follow long courses with clearer history.",
 		},
 		{
-			title: 'Specialty forms',
-			copy: 'Intake and exam templates tuned for immunology workflows.',
+			title: "Immunology intake forms",
+			copy: "Specialty-ready history.",
 		},
 		{
-			title: 'Visit summaries',
-			copy: 'Send clear aftercare notes with the visit.',
+			title: "Lab/report store",
+			copy: "Results on the patient record.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Notes assist.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -2807,84 +2853,86 @@ const immunology = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Workups fragmented',
-			copy: 'Labs and notes live in different places.',
+			title: "Sensitivity lists outdated",
+			copy: "Sensitivity lists outdated.",
 		},
 		{
-			title: 'Therapy plans unmanaged',
-			copy: 'Courses drift without status.',
+			title: "Immunization history incomplete",
+			copy: "Immunization history incomplete.",
 		},
 		{
-			title: 'Follow-ups missed',
-			copy: 'Recalls aren’t reliable.',
-		},
+			title: "Autoimmune follow-ups unscheduled",
+			copy: "Autoimmune follow-ups unscheduled.",
+		}
 	],
-	fit: ['Immunology clinics', 'Allergy + immunology practices', 'Multi-doctor centres'],
+	fit: ["Immunologists", "Allergy-immunology clinics", "Specialty OPD"],
 	faqs: [
 		{
-			question: 'Best EMR for immunology clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for immune workups, therapy plans, labs; EasyClinic covers that workflow.',
+			question: "Best immunology EMR?",
+			answer: "Sensitivities, immunizations, autoimmune monitoring, ops modules.",
 		},
 		{
-			question: 'Immunology documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Track immunizations?",
+			answer: "Yes.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
-		},
+			question: "Autoimmune monitoring?",
+			answer: "Yes.",
+		}
 	],
-	ctaTitle: 'See immunology EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk immune workups, therapy plans, labs and billing on your workflow.',
+	ctaTitle: "See immunology EMR on your clinic day",
+	ctaLede:
+		"Book a demo — sensitivities, vaccines, and billing.",
 });
 
 const nephrology = createSpecialty({
 	enabled: true,
-	slug: 'nephrology-emr',
+	slug: "nephrology-emr",
 	specialty: 'Nephrology',
 	specialtyAdj: 'nephrology',
 	specialtyNoun: 'nephrology clinic',
-	seoTitle: 'Nephrology EMR Software — EasyClinic',
-	seoDescription: 'Nephrology EMR — renal labs, dialysis visit hooks, chronic plans, appointments, and billing for nephrology clinics.',
-	eyebrow: 'Nephrology',
-	title: 'Nephrology EMR for renal labs, dialysis visit hooks, chronic plans',
-	lede: 'Document renal labs, dialysis visit hooks, chronic plans with scheduling and billing in one clinic management platform — built for nephrology clinic workflows.',
+	seoTitle: "Nephrology EMR Software — EasyClinic",
+	seoDescription:
+		"Nephrology EMR — renal templates, lab parameter trends, CKD tracking, dialysis session docs, appointments, and billing.",
+	eyebrow: "Nephrology",
+	title: "Nephrology EMR for renal labs, CKD follow-up, and dialysis sessions",
+	lede: "Nephrology templates, renal lab trends, CKD tracking, dialysis session documentation, scheduling, and billing in one clinic management stack.",
 	note: 'Built for nephrology clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Nephrology templates', label: 'On the visit record' },
-		{ value: 'Lab', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Renal templates", label: "Specialty notes" },
+		{ value: "Lab trends", label: "Renal parameters" },
+		{ value: "Dialysis sessions", label: "Visit-linked docs" }
 	],
 	clinical: [
 		{
-			title: 'Nephrology templates',
-			copy: 'Intake and exam templates tuned for nephrology workflows.',
+			title: "Nephrology templates",
+			copy: "Structured kidney-care documentation.",
 		},
 		{
-			title: 'Lab / trend store',
-			copy: 'Attach diagnostics and reports to the patient record.',
+			title: "Renal lab trends",
+			copy: "Follow key parameters across visits.",
 		},
 		{
-			title: 'Chronic care plans',
-			copy: 'Track multi-visit plans against the original goal.',
+			title: "CKD patient tracking",
+			copy: "Longitudinal chronic kidney care.",
 		},
 		{
-			title: 'Med management',
-			copy: 'Track medications and changes across visits.',
+			title: "Dialysis session documentation",
+			copy: "Record sessions on the chart.*",
 		},
 		{
-			title: 'Specialty forms',
-			copy: 'Intake and exam templates tuned for nephrology workflows.',
+			title: "Medication management",
+			copy: "Regimens with clinical context.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Documentation assist.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -2897,84 +2945,90 @@ const nephrology = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Labs off-chart',
-			copy: 'Renal panels sit outside the note.',
+			title: "Labs not trended for CKD visits",
+			copy: "Labs not trended for CKD visits.",
 		},
 		{
-			title: 'Chronic follow-ups unmanaged',
-			copy: 'CKD reviews slip.',
+			title: "Dialysis notes in separate books",
+			copy: "Dialysis notes in separate books.",
 		},
 		{
-			title: 'Evening documentation',
-			copy: 'Busy OPD pushes notes later.',
-		},
+			title: "Medication changes hard to reconstruct",
+			copy: "Medication changes hard to reconstruct.",
+		}
 	],
-	fit: ['Nephrology clinics', 'Dialysis-adjacent OPD', 'Multi-doctor nephrology practices'],
+	fit: ["Nephrologists", "Kidney clinics", "Dialysis + nephrology centres"],
 	faqs: [
 		{
-			question: 'Best EMR for nephrology clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for renal labs, dialysis visit hooks, chronic plans; EasyClinic covers that workflow.',
+			question: "Best nephrology EMR?",
+			answer: "Templates, renal labs, CKD tracking, dialysis docs, billing.",
 		},
 		{
-			question: 'Nephrology documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Track renal lab parameters?",
+			answer: "Yes.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
+			question: "CKD tracking?",
+			answer: "Yes.",
 		},
+		{
+			question: "Dialysis session tracking?",
+			answer: "Yes — confirm session workflow depth for your unit in demo.",
+		}
 	],
-	ctaTitle: 'See nephrology EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk renal labs, dialysis visit hooks, chronic plans and billing on your workflow.',
+	ctaTitle: "See nephrology EMR on a dialysis week",
+	ctaLede:
+		"Book a demo — labs, sessions, and billing.",
 });
 
 const pathology = createSpecialty({
 	enabled: true,
-	slug: 'pathology-emr',
+	slug: "pathology-emr",
 	specialty: 'Pathology',
 	specialtyAdj: 'pathology',
 	specialtyNoun: 'pathology lab / clinic',
-	seoTitle: 'Pathology EMR Software — EasyClinic',
-	seoDescription: 'Pathology EMR — sample tracking, reports, referring doctor workflows, appointments, and billing for pathology lab / clinics.',
-	eyebrow: 'Pathology',
-	title: 'Pathology EMR for sample tracking, reports, referring doctor workflows',
-	lede: 'Document sample tracking, reports, referring doctor workflows with scheduling and billing in one clinic management platform — built for pathology lab / clinic workflows.',
+	seoTitle: "Pathology EMR Software — EasyClinic",
+	seoDescription:
+		"Pathology EMR — test catalogs, sample tracking, workflow automation, report generation, and high-volume lab ops.",
+	eyebrow: "Pathology",
+	title: "Pathology EMR for samples, workflows, and reports that keep up",
+	lede: "Test catalogs and packages, sample tracking, workflow automation, and reporting — for pathology labs that can’t afford lost specimens or slow turnaround.",
 	note: 'Built for pathology lab / clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Sample', label: 'On the visit record' },
-		{ value: 'Report store', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Test catalog", label: "Packages ready" },
+		{ value: "Sample tracking", label: "Chain of custody" },
+		{ value: "Reports", label: "Faster turnaround" }
 	],
 	clinical: [
 		{
-			title: 'Sample / accession notes',
-			copy: 'Support sample tracking, reports, referring doctor workflows with structured documentation on the patient chart.',
+			title: "Test catalog & packages",
+			copy: "Define tests and bundles clearly.",
 		},
 		{
-			title: 'Report store',
-			copy: 'Attach diagnostics and reports to the patient record.',
+			title: "Sample tracking",
+			copy: "Follow specimens through the workflow.",
 		},
 		{
-			title: 'Referring doctor hooks',
-			copy: 'Support sample tracking, reports, referring doctor workflows with structured documentation on the patient chart.',
+			title: "Workflow automation",
+			copy: "Reduce manual handoff friction.",
 		},
 		{
-			title: 'Specialty forms',
-			copy: 'Intake and exam templates tuned for pathology workflows.',
+			title: "Report generation",
+			copy: "Produce reports without a second system.*",
 		},
 		{
-			title: 'Visit / case summaries',
-			copy: 'Send clear aftercare notes with the visit.',
+			title: "High-volume ops",
+			copy: "Built for busy lab days.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Assist where documentation helps; pathologist reviews.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -2987,84 +3041,90 @@ const pathology = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Reports hard to find',
-			copy: 'Results live outside a clean patient timeline.',
+			title: "Samples hard to locate mid-flow",
+			copy: "Samples hard to locate mid-flow.",
 		},
 		{
-			title: 'Referring loops messy',
-			copy: 'Clinicians don’t get clean handoffs.',
+			title: "Reports delayed by handoffs",
+			copy: "Reports delayed by handoffs.",
 		},
 		{
-			title: 'Billing after the report',
-			copy: 'Charges drift from completed work.',
-		},
+			title: "Packages billed inconsistently",
+			copy: "Packages billed inconsistently.",
+		}
 	],
-	fit: ['Pathology labs', 'Diagnostic centres', 'Clinic-attached pathology units'],
+	fit: ["Pathology labs", "Diagnostic centres", "Hospital lab OPD interfaces"],
 	faqs: [
 		{
-			question: 'Best EMR for pathology clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for sample tracking, reports, referring doctor workflows; EasyClinic covers that workflow.',
+			question: "Best pathology EMR/LIS-style clinic software?",
+			answer: "Catalog, sample tracking, workflows, reporting, billing.",
 		},
 		{
-			question: 'Pathology documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI assist?",
+			answer: "Optional; confirm use-cases in demo.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Sample and test workflows?",
+			answer: "Yes.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
+			question: "Automated report generation?",
+			answer: "Supported in-product workflows — confirm templates in demo.",
 		},
+		{
+			question: "High volume?",
+			answer: "Yes — designed for busy labs.",
+		}
 	],
-	ctaTitle: 'See pathology EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk sample tracking, reports, referring doctor workflows and billing on your workflow.',
+	ctaTitle: "See pathology workflows on your test menu",
+	ctaLede:
+		"Book a demo — samples to report.",
 });
 
 const radiology = createSpecialty({
 	enabled: true,
-	slug: 'radiology-emr',
+	slug: "radiology-emr",
 	specialty: 'Radiology',
 	specialtyAdj: 'radiology',
 	specialtyNoun: 'radiology centre',
-	seoTitle: 'Radiology EMR Software — EasyClinic',
-	seoDescription: 'Radiology EMR — imaging orders, reports, scheduling, appointments, and billing for radiology centres.',
-	eyebrow: 'Radiology',
-	title: 'Radiology EMR for imaging orders, reports, scheduling',
-	lede: 'Document imaging orders, reports, scheduling with scheduling and billing in one clinic management platform — built for radiology centre workflows.',
+	seoTitle: "Radiology EMR Software — EasyClinic",
+	seoDescription:
+		"Radiology EMR — order management, imaging workflow, reporting templates, patient records, appointments, and billing for imaging centres.",
+	eyebrow: "Radiology",
+	title: "Radiology EMR for orders, imaging workflow, and reporting templates",
+	lede: "Manage imaging orders, reporting templates, patient records, scheduling, and billing for radiology clinics and diagnostic centres.",
 	note: 'Built for radiology centres and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Imaging order notes', label: 'On the visit record' },
-		{ value: 'Report', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Orders", label: "Imaging requests" },
+		{ value: "Reporting templates", label: "Faster reads" },
+		{ value: "High volume", label: "Busy centre ready" }
 	],
 	clinical: [
 		{
-			title: 'Imaging order notes',
-			copy: 'Attach diagnostics and reports to the patient record.',
+			title: "Order management",
+			copy: "Track imaging requests cleanly.",
 		},
 		{
-			title: 'Report / file store',
-			copy: 'Attach diagnostics and reports to the patient record.',
+			title: "Imaging workflow",
+			copy: "Keep studies moving through the centre.",
 		},
 		{
-			title: 'Scheduling for modalities',
-			copy: 'Support imaging orders, reports, scheduling with structured documentation on the patient chart.',
+			title: "Reporting templates",
+			copy: "Standardize radiology reports.",
 		},
 		{
-			title: 'Referring doctor hooks',
-			copy: 'Support imaging orders, reports, scheduling with structured documentation on the patient chart.',
+			title: "Diagnostic record store",
+			copy: "Reports attached to the patient.",
 		},
 		{
-			title: 'Visit summaries',
-			copy: 'Send clear aftercare notes with the visit.',
+			title: "Scheduling & billing",
+			copy: "Ops beside clinical flow.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Assist documentation where useful; radiologist reviews.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -3077,84 +3137,90 @@ const radiology = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Reports off-system',
-			copy: 'Films and PDFs never reach a clean chart.',
+			title: "Orders stuck between desk and modality",
+			copy: "Orders stuck between desk and modality.",
 		},
 		{
-			title: 'Scheduling chaos',
-			copy: 'Modalities and slots aren’t tied to the record.',
+			title: "Reports inconsistent",
+			copy: "Reports inconsistent.",
 		},
 		{
-			title: 'Referring loops slow',
-			copy: 'Clinicians wait on scattered reports.',
-		},
+			title: "Billing delayed after reads",
+			copy: "Billing delayed after reads.",
+		}
 	],
-	fit: ['Radiology centres', 'Diagnostic imaging clinics', 'Hospital radiology OPD'],
+	fit: ["Radiology clinics", "Imaging centres", "Hospital radiology OPD counters"],
 	faqs: [
 		{
-			question: 'Best EMR for radiology clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for imaging orders, reports, scheduling; EasyClinic covers that workflow.',
+			question: "Best radiology EMR?",
+			answer: "Orders, workflow, reporting templates, records, billing.",
 		},
 		{
-			question: 'Radiology documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI assist?",
+			answer: "Optional; confirm scope in demo.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Store imaging reports?",
+			answer: "Yes.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
+			question: "Reporting templates?",
+			answer: "Yes.",
 		},
+		{
+			question: "High patient volume?",
+			answer: "Yes.",
+		}
 	],
-	ctaTitle: 'See radiology EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk imaging orders, reports, scheduling and billing on your workflow.',
+	ctaTitle: "See radiology EMR on your order list",
+	ctaLede:
+		"Book a demo — orders to report to bill.",
 });
 
 const rheumatology = createSpecialty({
 	enabled: true,
-	slug: 'rheumatology-emr',
+	slug: "rheumatology-emr",
 	specialty: 'Rheumatology',
 	specialtyAdj: 'rheumatology',
 	specialtyNoun: 'rheumatology clinic',
-	seoTitle: 'Rheumatology EMR Software — EasyClinic',
-	seoDescription: 'Rheumatology EMR — chronic joint care, labs, infusion follow-ups, appointments, and billing for rheumatology clinics.',
-	eyebrow: 'Rheumatology',
-	title: 'Rheumatology EMR for chronic joint care, labs, infusion follow-ups',
-	lede: 'Document chronic joint care, labs, infusion follow-ups with scheduling and billing in one clinic management platform — built for rheumatology clinic workflows.',
+	seoTitle: "Rheumatology EMR Software — EasyClinic",
+	seoDescription:
+		"Rheumatology EMR — joint/disease templates, labs and imaging on chart, long-term treatment plans, appointments, and billing.",
+	eyebrow: "Rheumatology",
+	title: "Rheumatology EMR for long disease courses, labs, and treatment plans",
+	lede: "Specialty rheumatology documentation, lab/imaging storage, chronic treatment plans, scheduling, and billing for rheumatology clinics.",
 	note: 'Built for rheumatology clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Rheumatology templates', label: 'On the visit record' },
-		{ value: 'Lab', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Rheum templates", label: "Specialty notes" },
+		{ value: "Labs & imaging", label: "On the chart" },
+		{ value: "Long courses", label: "Treatment plans" }
 	],
 	clinical: [
 		{
-			title: 'Rheumatology templates',
-			copy: 'Intake and exam templates tuned for rheumatology workflows.',
+			title: "Rheumatology templates",
+			copy: "Notes for inflammatory and autoimmune visits.",
 		},
 		{
-			title: 'Lab / imaging store',
-			copy: 'Attach diagnostics and reports to the patient record.',
+			title: "Lab & imaging store",
+			copy: "Results attached to the patient.",
 		},
 		{
-			title: 'Chronic care plans',
-			copy: 'Track multi-visit plans against the original goal.',
+			title: "Long-term treatment plans",
+			copy: "DMARD and related plans with history.*",
 		},
 		{
-			title: 'Med management',
-			copy: 'Track medications and changes across visits.',
+			title: "Trend visuals",
+			copy: "Follow key parameters over time.",
 		},
 		{
-			title: 'Specialty forms',
-			copy: 'Intake and exam templates tuned for rheumatology workflows.',
+			title: "Fast Rx",
+			copy: "Share updates quickly.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Documentation assist.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -3167,84 +3233,86 @@ const rheumatology = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Chronic plans unmanaged',
-			copy: 'Long-term arthritis care drifts.',
+			title: "Disease activity history hard to reconstruct",
+			copy: "Disease activity history hard to reconstruct.",
 		},
 		{
-			title: 'Labs detached',
-			copy: 'Panels don’t meet the visit note.',
+			title: "Labs/PDFs rebuilt each visit",
+			copy: "Labs/PDFs rebuilt each visit.",
 		},
 		{
-			title: 'Infusion follow-ups missed',
-			copy: 'Recalls aren’t reliable.',
-		},
+			title: "Therapy changes poorly audited",
+			copy: "Therapy changes poorly audited.",
+		}
 	],
-	fit: ['Rheumatology clinics', 'Infusion-capable centres', 'Multi-doctor rheumatology practices'],
+	fit: ["Rheumatologists", "Rheumatology clinics", "Hospital rheum OPD"],
 	faqs: [
 		{
-			question: 'Best EMR for rheumatology clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for chronic joint care, labs, infusion follow-ups; EasyClinic covers that workflow.',
+			question: "Best rheumatology EMR?",
+			answer: "Templates, labs/imaging, long-term plans, billing.",
 		},
 		{
-			question: 'Rheumatology documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Chronic disease tracking?",
+			answer: "Yes.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
-		},
+			question: "Lab/imaging on chart?",
+			answer: "Yes.",
+		}
 	],
-	ctaTitle: 'See rheumatology EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk chronic joint care, labs, infusion follow-ups and billing on your workflow.',
+	ctaTitle: "See rheumatology EMR on your follow-up list",
+	ctaLede:
+		"Book a demo — courses of care without the paper chase.",
 });
 
 const sexology = createSpecialty({
 	enabled: true,
-	slug: 'sexology-emr',
+	slug: "sexology-emr",
 	specialty: 'Sexology',
 	specialtyAdj: 'sexology',
 	specialtyNoun: 'sexology clinic',
-	seoTitle: 'Sexology EMR Software — EasyClinic',
-	seoDescription: 'Sexology EMR — confidential notes, treatment plans, privacy, appointments, and billing for sexology clinics.',
-	eyebrow: 'Sexology',
-	title: 'Sexology EMR for confidential notes, treatment plans, privacy',
-	lede: 'Document confidential notes, treatment plans, privacy with scheduling and billing in one clinic management platform — built for sexology clinic workflows.',
+	seoTitle: "Sexology EMR Software — EasyClinic",
+	seoDescription:
+		"Sexology EMR — confidential session notes, counselling tracking, medication management, telehealth, and role-based privacy.",
+	eyebrow: "Sexology",
+	title: "Sexology EMR with confidential notes, sessions, and tighter access",
+	lede: "Document clinical and counselling sessions, track medications, run teleconsults, and keep access role-scoped — built for privacy-sensitive sexology practice.",
 	note: 'Built for sexology clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Confidential session notes', label: 'On the visit record' },
-		{ value: 'Treatment plans', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Confidential notes", label: "Role-scoped" },
+		{ value: "Sessions", label: "Therapy tracking" },
+		{ value: "Telehealth", label: "Same calendar" }
 	],
 	clinical: [
 		{
-			title: 'Confidential session notes',
-			copy: 'Support confidential notes, treatment plans, privacy with structured documentation on the patient chart.',
+			title: "Clinical documentation",
+			copy: "Specialty-aware visit notes.",
 		},
 		{
-			title: 'Treatment plans',
-			copy: 'Track multi-visit plans against the original goal.',
+			title: "Counselling / therapy session tracking",
+			copy: "Session history on the chart.",
 		},
 		{
-			title: 'Tight roles / privacy',
-			copy: 'Role-based access so sensitive notes stay appropriately scoped.',
+			title: "Medication tracking",
+			copy: "Regimens with clearer audit trail.",
 		},
 		{
-			title: 'Specialty intake forms',
-			copy: 'Intake and exam templates tuned for sexology workflows.',
+			title: "Privacy-minded access",
+			copy: "Role-based controls for sensitive records.",
 		},
 		{
-			title: 'Teleconsult',
-			copy: 'Run remote visits with the note on the same record.',
+			title: "Telehealth",
+			copy: "Video visits when preferred.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Assist only with clinician review.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -3257,84 +3325,90 @@ const sexology = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Notes too exposed',
-			copy: 'Sensitive records need tighter roles.',
+			title: "Sensitive notes in unmanaged files",
+			copy: "Sensitive notes in unmanaged files.",
 		},
 		{
-			title: 'Plans fragmented',
-			copy: 'Care plans live outside the chart.',
+			title: "Session history incomplete",
+			copy: "Session history incomplete.",
 		},
 		{
-			title: 'No-shows',
-			copy: 'Reminders aren’t reliable for private visits.',
-		},
+			title: "Access too broad for staff roles",
+			copy: "Access too broad for staff roles.",
+		}
 	],
-	fit: ['Sexology clinics', 'Sexual health practices', 'Confidential specialty centres'],
+	fit: ["Sexologists", "Sexual health clinics", "Counselling + clinical hybrid practices"],
 	faqs: [
 		{
-			question: 'Best EMR for sexology clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for confidential notes, treatment plans, privacy; EasyClinic covers that workflow.',
+			question: "Best sexology EMR?",
+			answer: "Confidential notes, sessions, meds, telehealth, strong access control.",
 		},
 		{
-			question: 'Sexology documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional; always clinician-reviewed.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Is patient data secure?",
+			answer: "Cloud controls + role-based access; confirm your policy needs in demo.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
+			question: "Therapy/counselling sessions?",
+			answer: "Yes.",
 		},
+		{
+			question: "Medication tracking?",
+			answer: "Yes.",
+		}
 	],
-	ctaTitle: 'See sexology EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk confidential notes, treatment plans, privacy and billing on your workflow.',
+	ctaTitle: "See sexology EMR with privacy settings on",
+	ctaLede:
+		"Book a demo — notes, access, and scheduling.",
 });
 
 const trichology = createSpecialty({
 	enabled: true,
-	slug: 'trichology-emr-software',
+	slug: "trichology-emr-software",
 	specialty: 'Trichology',
 	specialtyAdj: 'trichology',
 	specialtyNoun: 'trichology clinic',
-	seoTitle: 'Trichology EMR Software — EasyClinic',
-	seoDescription: 'Trichology EMR — hair consults, photo progress, procedure plans, appointments, and billing for trichology clinics.',
-	eyebrow: 'Trichology',
-	title: 'Trichology EMR for hair consults, photo progress, procedure plans',
-	lede: 'Document hair consults, photo progress, procedure plans with scheduling and billing in one clinic management platform — built for trichology clinic workflows.',
+	seoTitle: "Trichology EMR Software — EasyClinic",
+	seoDescription:
+		"Trichology EMR — scalp/hair consult notes, before/after images, treatment plans, appointments, and billing for trichology clinics.",
+	eyebrow: "Trichology",
+	title: "Trichology EMR for scalp consults, photo progress, and treatment plans",
+	lede: "Document hair and scalp visits, store progress images, track treatment plans, schedule follow-ups, and bill packages — without a blog-shaped page of AI hype.",
 	note: 'Built for trichology clinics and multi-doctor practices.',
 	heroFacts: [
-		{ value: 'Trichology consult templates', label: 'On the visit record' },
-		{ value: 'Before & after photo store', label: 'Tied to the chart' },
-		{ value: 'Cura AI', label: 'Optional documentation assist' }
+		{ value: "Consult notes", label: "Trichology forms" },
+		{ value: "Progress photos", label: "Before/after on chart" },
+		{ value: "Treatment plans", label: "Course tracking" }
 	],
 	clinical: [
 		{
-			title: 'Trichology consult templates',
-			copy: 'Intake and exam templates tuned for trichology workflows.',
+			title: "Trichology documentation",
+			copy: "Notes for hair-loss and scalp visits.",
 		},
 		{
-			title: 'Before & after photo store',
-			copy: 'Keep visit-dated photos on the chart so progress is visible.',
+			title: "Progress image store",
+			copy: "Comparable photos on the patient record.",
 		},
 		{
-			title: 'Procedure / session plans',
-			copy: 'Track multi-visit plans against the original goal.',
+			title: "Treatment plan tracking",
+			copy: "Follow regimens across visits.",
 		},
 		{
-			title: 'Specialty forms',
-			copy: 'Intake and exam templates tuned for trichology workflows.',
+			title: "Package / procedure billing",
+			copy: "Clear commercial follow-through.",
 		},
 		{
-			title: 'Patient summaries',
-			copy: 'Send clear aftercare notes with the visit.',
+			title: "Reminders",
+			copy: "WhatsApp/SMS/email for follow-ups.",
 		},
 		{
-			title: 'Optional Cura AI',
-			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			title: "Optional Cura AI",
+			copy: "Notes assist; clinician reviews.",
 			accent: true,
-		},
+		}
 	],
 	ops: [
 		'Appointment scheduling',
@@ -3347,39 +3421,40 @@ const trichology = createSpecialty({
 	],
 	problems: [
 		{
-			title: 'Photos off-chart',
-			copy: 'Progress shots sit in phones.',
+			title: "Progress photos on personal phones",
+			copy: "Progress photos on personal phones.",
 		},
 		{
-			title: 'Session plans unmanaged',
-			copy: 'Courses drift from billing.',
+			title: "Plans not comparable visit to visit",
+			copy: "Plans not comparable visit to visit.",
 		},
 		{
-			title: 'Follow-ups missed',
-			copy: 'Recalls slip between visits.',
-		},
+			title: "Follow-ups missed after procedures",
+			copy: "Follow-ups missed after procedures.",
+		}
 	],
-	fit: ['Trichology clinics', 'Hair + scalp centres', 'Multi-doctor trichology practices'],
+	fit: ["Trichology clinics", "Hair restoration centres", "Derm + trichology practices"],
 	faqs: [
 		{
-			question: 'Best EMR for trichology clinics?',
-			answer: 'Look for documentation, scheduling, and billing together for hair consults, photo progress, procedure plans; EasyClinic covers that workflow.',
+			question: "Best trichology EMR?",
+			answer: "Notes, progress photos, plans, scheduling, billing.",
 		},
 		{
-			question: 'Trichology documentation supported?',
-			answer: 'Yes — specialty-ready templates stay on the patient record.',
+			question: "AI EMR?",
+			answer: "Optional — not a substitute for clinical judgment.",
 		},
 		{
-			question: 'AI documentation?',
-			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+			question: "Before/after scalp images?",
+			answer: "Yes — on the chart.",
 		},
 		{
-			question: 'Appointments and billing included?',
-			answer: 'Yes — scheduling, reminders, and invoicing run on the same record.',
-		},
+			question: "Long-term treatment tracking?",
+			answer: "Yes.",
+		}
 	],
-	ctaTitle: 'See trichology EMR on your clinic workflow',
-	ctaLede: 'Book a demo — we’ll walk hair consults, photo progress, procedure plans and billing on your workflow.',
+	ctaTitle: "See trichology EMR on a follow-up day",
+	ctaLede:
+		"Book a demo — photos, plans, and billing.",
 });
 
 const specialties: Specialty[] = [

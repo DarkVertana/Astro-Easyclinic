@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    { "source": "/privacy-policy", "destination": "/privacy", "permanent": true },
+    { "source": "/privacy-policy/", "destination": "/privacy", "permanent": true },
+    { "source": "/terms-of-service", "destination": "/terms", "permanent": true },
+    { "source": "/terms-of-service/", "destination": "/terms", "permanent": true },
+    { "source": "/doctors", "destination": "/", "permanent": true },
+    { "source": "/doctors/", "destination": "/", "permanent": true },
+    { "source": "/curapilot-ai", "destination": "/curapilot", "permanent": true },
+    { "source": "/curapilot-ai/", "destination": "/curapilot", "permanent": true },
+    { "source": "/new-emr-software-in-mauritius", "destination": "/emr-software-in-mauritius", "permanent": true },
+    { "source": "/new-emr-software-in-mauritius/", "destination": "/emr-software-in-mauritius", "permanent": true },
+    { "source": "/new-emr-software-in-maldives", "destination": "/emr-software-in-maldives", "permanent": true },
+    { "source": "/new-emr-software-in-maldives/", "destination": "/emr-software-in-maldives", "permanent": true },
+    { "source": "/endocrinology", "destination": "/endocrinology-emr-software", "permanent": true },
+    { "source": "/endocrinology/", "destination": "/endocrinology-emr-software", "permanent": true },
+    { "source": "/hematology", "destination": "/hematology-emr", "permanent": true },
+    { "source": "/hematology/", "destination": "/hematology-emr", "permanent": true },
+    { "source": "/rheumatology", "destination": "/rheumatology-emr", "permanent": true },
+    { "source": "/rheumatology/", "destination": "/rheumatology-emr", "permanent": true },
+    { "source": "/gastroenterology", "destination": "/gastroenterology-emr", "permanent": true },
+    { "source": "/gastroenterology/", "destination": "/gastroenterology-emr", "permanent": true },
+    { "source": "/pediatric", "destination": "/pediatric-emr", "permanent": true },
+    { "source": "/pediatric/", "destination": "/pediatric-emr", "permanent": true }
+  ]
+}

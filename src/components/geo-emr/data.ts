@@ -11,6 +11,7 @@ import type { ImageMetadata } from 'astro';
    India photo hero (webp)
    once the India clinic photo is downloaded (see src/assets/geo-emr/README.md). */
 import indiaHero from '../../assets/geo-emr/india-hero.webp';
+import kenyaHero from '../../assets/geo-emr/kenya-hero.webp';
 
 export type FaqItem = {
 	question: string;
@@ -498,6 +499,9 @@ const nigeria = createMarket({
 });
 
 const kenya = createMarket({
+	enabled: true,
+	heroImage: kenyaHero,
+	heroImageAlt: 'Clinician providing care in a modern clinic setting',
 	market: 'kenya',
 	slug: 'emr-software-in-kenya',
 	geo: 'Kenya',

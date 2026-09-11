@@ -1,0 +1,43 @@
+---
+/* Country/city EMR factory route. The param sits inside the path segment so the live
+   slug stays `/emr-software-in-india`. Only `enabled` markets in data.ts get a page. */
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Benefits from '../components/geo-emr/Benefits.astro';
+import Compliance from '../components/geo-emr/Compliance.astro';
+import Hero from '../components/geo-emr/Hero.astro';
+import Modules from '../components/geo-emr/Modules.astro';
+import WhoItsFor from '../components/geo-emr/WhoItsFor.astro';
+import WhySwitch from '../components/geo-emr/WhySwitch.astro';
+import { geoMarketByParam, liveGeoMarkets } from '../components/geo-emr/data';
+import Marketing from '../layouts/Marketing.astro';
+
+export function getStaticPaths() {
+	return liveGeoMarkets.map((entry) => ({ params: { market: entry.market } }));
+}
+
+const param = Astro.params.market as string;
+const market = geoMarketByParam[param];
+
+if (!market) {
+	throw new Error(`Unknown geo market: ${param}`);
+}
+---
+
+<Marketing title={market.seoTitle} description={market.seoDescription} mainClass="geo-emr">
+	<Hero market={market} />
+	<WhoItsFor market={market} />
+	<Modules market={market} />
+	<WhySwitch market={market} />
+	<Benefits market={market} />
+	<Compliance market={market} />
+	<Faq items={market.faqs} />
+	<Cta
+		title={market.ctaTitle}
+		lede={market.ctaLede}
+		primaryHref="/contact-us#demo-form"
+		primaryLabel="Book a free demo"
+		secondaryHref="/pricing"
+		secondaryLabel="See pricing"
+	/>
+</Marketing>

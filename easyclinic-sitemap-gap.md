@@ -1,5 +1,32 @@
 # EasyClinic sitemap gap — live vs Astro
 
+## Remaining after 5edd55b
+
+Re-diff: 2026-09-11 22:29 IST  
+Commit under test: `5edd55b` (*Ship long-tail market comparisons, resources hub, and persona landings*)  
+Sources: live `sitemap.xml` → nested ThinkRank + `page-sitemap.xml` (118 page URLs) + 4 in-scope comparison posts; Astro `src/pages` + enabled `geo-emr` / `market-comparison` / solutions + `vercel.json` redirects. Noise ignored: embeds, thank-you, newsletter, jarico, kenyademo, siliconindia.
+
+| Set | Count |
+|---|---:|
+| Live in-scope (pages + vs posts) | **122** |
+| Covered by Astro route or redirect | **116** |
+| LIVE_ONLY (raw) | **6** (noise only) |
+| **LIVE_ONLY (actionable)** | **0** |
+
+**Actionable list:** none — **gap closed for marketing pages.**
+
+Remaining LIVE_ONLY are noise only:
+- `/demo-form-embed`
+- `/jarico`
+- `/kenyademo`
+- `/newsletter`
+- `/siliconindia`
+- `/thank-you`
+
+---
+
+## Prior snapshot (pre-5edd55b / bf66c2b)
+
 Generated: 2026-09-11 (Asia/Kolkata)  
 Repo: `DarkVertana/Astro-Easyclinic` @ `bf66c2b` (main, clean)  
 Sources: `https://www.easyclinic.io/sitemap.xml` → nested ThinkRank sitemaps + `page-sitemap.xml` (115 page URLs; richer than ThinkRank `sitemap-pages.xml` @ 100). Comparison posts pulled from post sitemaps where slug matches competitor/`vs` landings.

@@ -561,6 +561,262 @@ const kenya = createMarket({
 	],
 });
 
+
+/* Long-tail country markets — same factory shell, local pay/compliance honest notes.
+   Built to cover live sitemap slugs after priority geos. */
+type LongTailMarket = {
+	market: string;
+	geo: string;
+	geoAdj: string;
+	localPay: string;
+	complianceMeta: string;
+	complianceNote: string;
+	complianceBullets: string[];
+};
+
+const LONG_TAIL: LongTailMarket[] = [
+	{
+		market: 'uganda',
+		geo: 'Uganda',
+		geoAdj: 'Ugandan',
+		localPay: 'Mobile money, cards, cash',
+		complianceMeta: 'Local compliance — confirm status in demo',
+		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceBullets: [
+			'Role-based access, encryption, audit logs',
+			'Mobile-money-friendly billing workflows',
+			'WhatsApp / SMS patient reminders',
+			'Facility and tax rules: confirm by plan in demo',
+		],
+	},
+	{
+		market: 'tanzania',
+		geo: 'Tanzania',
+		geoAdj: 'Tanzanian',
+		localPay: 'Mobile money, cards, cash',
+		complianceMeta: 'Local compliance — confirm status in demo',
+		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceBullets: [
+			'Role-based access, encryption, audit logs',
+			'Mobile-money-friendly billing workflows',
+			'WhatsApp / SMS patient reminders',
+			'Facility and tax rules: confirm by plan in demo',
+		],
+	},
+	{
+		market: 'rwanda',
+		geo: 'Rwanda',
+		geoAdj: 'Rwandan',
+		localPay: 'Mobile money, cards, cash',
+		complianceMeta: 'Local compliance — confirm status in demo',
+		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceBullets: [
+			'Role-based access, encryption, audit logs',
+			'Mobile-money-friendly billing workflows',
+			'WhatsApp / SMS patient reminders',
+			'Facility and tax rules: confirm by plan in demo',
+		],
+	},
+	{
+		market: 'ghana',
+		geo: 'Ghana',
+		geoAdj: 'Ghanaian',
+		localPay: 'Mobile money, cards, cash',
+		complianceMeta: 'Local compliance — confirm status in demo',
+		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceBullets: [
+			'Role-based access, encryption, audit logs',
+			'Mobile-money-friendly billing workflows',
+			'WhatsApp / SMS patient reminders',
+			'Facility and tax rules: confirm by plan in demo',
+		],
+	},
+	{
+		market: 'ethiopia',
+		geo: 'Ethiopia',
+		geoAdj: 'Ethiopian',
+		localPay: 'Cards, transfers, cash',
+		complianceMeta: 'Local compliance — confirm status in demo',
+		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceBullets: [
+			'Role-based access, encryption, audit logs',
+			'Billing and collections workflows for private clinics',
+			'WhatsApp / SMS patient reminders',
+			'Facility and tax rules: confirm by plan in demo',
+		],
+	},
+	{
+		market: 'somalia',
+		geo: 'Somalia',
+		geoAdj: 'Somali',
+		localPay: 'Mobile money, cards, cash',
+		complianceMeta: 'Local compliance — confirm status in demo',
+		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceBullets: [
+			'Role-based access, encryption, audit logs',
+			'Mobile-money-friendly billing workflows',
+			'WhatsApp / SMS patient reminders',
+			'Facility and tax rules: confirm by plan in demo',
+		],
+	},
+	{
+		market: 'south-africa',
+		geo: 'South Africa',
+		geoAdj: 'South African',
+		localPay: 'Cards, EFT, cash',
+		complianceMeta: 'Local compliance — confirm status in demo',
+		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceBullets: [
+			'Role-based access, encryption, audit logs',
+			'Private-clinic billing and collections workflows',
+			'WhatsApp / SMS / email patient reminders',
+			'Facility and tax rules: confirm by plan in demo',
+		],
+	},
+	{
+		market: 'qatar',
+		geo: 'Qatar',
+		geoAdj: 'Qatari',
+		localPay: 'Cards, local gateways',
+		complianceMeta: 'Local compliance — confirm status in demo',
+		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceBullets: [
+			'Role-based access, encryption, audit logs',
+			'Private-clinic billing with local payment rails',
+			'SMS / WhatsApp patient reminders',
+			'Facility and tax rules: confirm by plan in demo',
+		],
+	},
+	{
+		market: 'mauritius',
+		geo: 'Mauritius',
+		geoAdj: 'Mauritian',
+		localPay: 'Cards, local e-pay, cash',
+		complianceMeta: 'Local compliance — confirm status in demo',
+		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceBullets: [
+			'Role-based access, encryption, audit logs',
+			'Private-clinic billing workflows',
+			'WhatsApp / SMS / email patient reminders',
+			'Facility and tax rules: confirm by plan in demo',
+		],
+	},
+	{
+		market: 'maldives',
+		geo: 'Maldives',
+		geoAdj: 'Maldivian',
+		localPay: 'Cards, cash, online links',
+		complianceMeta: 'Local compliance — confirm status in demo',
+		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceBullets: [
+			'Role-based access, encryption, audit logs',
+			'Private-clinic billing workflows',
+			'WhatsApp / SMS patient reminders',
+			'Facility and tax rules: confirm by plan in demo',
+		],
+	},
+	{
+		market: 'seychelles',
+		geo: 'Seychelles',
+		geoAdj: 'Seychellois',
+		localPay: 'Cards, cash',
+		complianceMeta: 'Local compliance — confirm status in demo',
+		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceBullets: [
+			'Role-based access, encryption, audit logs',
+			'Private-clinic billing workflows',
+			'SMS / email patient reminders',
+			'Facility and tax rules: confirm by plan in demo',
+		],
+	},
+	{
+		market: 'fiji',
+		geo: 'Fiji',
+		geoAdj: 'Fijian',
+		localPay: 'Cards, cash',
+		complianceMeta: 'Local compliance — confirm status in demo',
+		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceBullets: [
+			'Role-based access, encryption, audit logs',
+			'Private-clinic billing workflows',
+			'SMS / email patient reminders',
+			'Facility and tax rules: confirm by plan in demo',
+		],
+	},
+	{
+		market: 'suriname',
+		geo: 'Suriname',
+		geoAdj: 'Surinamese',
+		localPay: 'Cards, transfers, cash',
+		complianceMeta: 'Local compliance — confirm status in demo',
+		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceBullets: [
+			'Role-based access, encryption, audit logs',
+			'Private-clinic billing workflows',
+			'WhatsApp / SMS patient reminders',
+			'Facility and tax rules: confirm by plan in demo',
+		],
+	},
+	{
+		market: 'trinidad-and-tobago',
+		geo: 'Trinidad and Tobago',
+		geoAdj: 'Trinidad and Tobago',
+		localPay: 'Cards, transfers, cash',
+		complianceMeta: 'Local compliance — confirm status in demo',
+		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceBullets: [
+			'Role-based access, encryption, audit logs',
+			'Private-clinic billing workflows',
+			'WhatsApp / SMS / email patient reminders',
+			'Facility and tax rules: confirm by plan in demo',
+		],
+	},
+];
+
+const longTailMarket = (row: LongTailMarket): GeoMarket =>
+	createMarket({
+		enabled: true,
+		market: row.market,
+		slug: `emr-software-in-${row.market}`,
+		geo: row.geo,
+		geoAdj: row.geoAdj,
+		localPay: row.localPay,
+		localChannels: 'WhatsApp, SMS, email',
+		complianceMeta: row.complianceMeta,
+		complianceNote: row.complianceNote,
+		seoDescription: `Cloud EMR and clinic management software in ${row.geo} — appointments, billing, pharmacy, and analytics for solo doctors, polyclinics, and clinic chains. ${row.complianceMeta}. Book a free demo.`,
+		title: `Clinic management & EMR software for modern clinics in ${row.geo}`,
+		lede: `Cloud EMR, appointments, billing, pharmacy, inventory, and analytics — for solo doctors, polyclinics, and clinic chains across ${row.geo}.`,
+		heroFacts: [
+			{ value: 'Cloud EMR', label: 'Charts that finish with the visit' },
+			{ value: 'WhatsApp reminders', label: 'Fewer no-shows' },
+			{ value: 'Cura AI', label: 'Optional documentation assist' },
+		],
+		heroImage: kenya.heroImage,
+		heroImageAlt: `A clinician providing care in a modern clinic in ${row.geo}`,
+		complianceBullets: row.complianceBullets,
+		faqs: [
+			{
+				question: `What does it cost in ${row.geo}?`,
+				answer: 'Plans scale by doctors and locations. See Pricing, or book a demo for a quote.',
+			},
+			{
+				question: 'Are you locally compliant?',
+				answer: 'We discuss current controls and the roadmap in the demo — no checkbox claim.',
+			},
+			{
+				question: 'Can we run multiple locations?',
+				answer: 'Yes — shared records and central reporting.',
+			},
+			{ question: 'Do you send WhatsApp reminders?', answer: 'Yes.' },
+			{
+				question: 'Do you have pharmacy and lab modules?',
+				answer: 'Yes — optional modules you can add as you grow.',
+			},
+		],
+	});
+
+
 /* India cities inherit the India fill; only the geo noun changes (pack §3 cheat sheet).
    Staged until each city page is signed off. */
 const INDIA_CITIES = ['Bangalore', 'Chennai', 'Delhi NCR', 'Hyderabad', 'Mumbai'];
@@ -599,6 +855,7 @@ export const geoMarkets: GeoMarket[] = [
 	uae,
 	malaysia,
 	nigeria,
+	...LONG_TAIL.map(longTailMarket),
 	...INDIA_CITIES.map(cityMarket),
 ];
 

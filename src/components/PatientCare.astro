@@ -6,16 +6,16 @@ import { SITE_TITLE } from '../consts';
 
 const points = [
 	{
-		title: 'Care without boundaries',
-		copy: 'Video visits without new apps, one click for doctor and patient',
+		title: 'Cura AI in the consult',
+		copy: 'Optional AI documentation and clinical assist — listen, draft notes, keep the doctor in control. See CuraPilot for the pilot story.',
 	},
 	{
-		title: 'Seamless patient portal',
-		copy: 'Patients book, reschedule, and open records; WhatsApp, SMS, and email cut no-shows',
+		title: 'Telehealth without new apps',
+		copy: 'Video visits that land on the same chart as in-clinic care — one click for doctor and patient.',
 	},
 	{
-		title: 'Feedback that drives care',
-		copy: 'Post-visit feedback lands beside your reports while gaps are still small',
+		title: 'WhatsApp, SMS, and email',
+		copy: 'Reminders, follow-ups, and visit summaries that patients actually open — fewer no-shows, tighter retention.',
 	},
 ];
 ---
@@ -113,10 +113,10 @@ const points = [
 		</div>
 
 		<div class="copy">
-			<h2>Patient care that stays connected after the visit</h2>
+			<h2>AI-assisted care that stays connected after the visit</h2>
 			<p class="lede">
-				From telehealth to the patient portal and feedback, {SITE_TITLE} keeps people linked to your
-				practice without extra apps.
+				From Cura AI documentation to telehealth and WhatsApp engagement, {SITE_TITLE} keeps
+				clinicians and patients linked without extra apps.
 			</p>
 			<div class="points">
 				{
@@ -130,6 +130,9 @@ const points = [
 					))
 				}
 			</div>
+			<p class="cura-link">
+				<a href="/curapilot">See the AI clinical pilot →</a>
+			</p>
 		</div>
 	</div>
 </section>
@@ -278,6 +281,17 @@ const points = [
 	}
 	.points {
 		margin-top: 3rem;
+	}
+	.cura-link {
+		margin: 1.75rem 0 0;
+	}
+	.cura-link a {
+		color: var(--brand-blue);
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.cura-link a:hover {
+		text-decoration: underline;
 	}
 	details {
 		position: relative;

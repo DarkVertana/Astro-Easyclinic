@@ -2,26 +2,40 @@
 import CapterraLogo from '../assets/ratings/capterra.svg';
 import GoogleLogo from '../assets/ratings/google.svg';
 
-// Widget contents are illustrative product UI, not live data.
+// Curated home chips — not the full WP feature wall.
+const chips = [
+	'General & Specialist EMR',
+	'AI Automation',
+	'Appointment Scheduling',
+	'Billing & Payments',
+	'Pharmacy & Inventory',
+	'Teleconsultation',
+	'WhatsApp / SMS / Email',
+	'Multi-Location',
+	'Reports & BI',
+	'Security & Role Access',
+];
+
+// Capability cards map live areas into the existing Astro widgets.
 const features = [
 	{
-		title: 'Scheduling',
-		copy: 'Book visits, cut no-shows, keep the day on track',
+		title: 'Clinic Management',
+		copy: 'Scheduling, front desk, and multi-location control in one day view',
 		widget: 'scheduling',
 	},
 	{
 		title: 'EMR',
-		copy: 'Charts, vitals, and history in one patient view',
+		copy: 'Charts, history, and 30-second prescriptions — tuned by specialty',
 		widget: 'emr',
 	},
 	{
-		title: 'Billing',
-		copy: 'Faster collections with fewer payment errors',
+		title: 'Billing & Pharmacy',
+		copy: 'Collections, inventory, and dispensary with fewer gaps',
 		widget: 'billing',
 	},
 	{
-		title: 'Engagement',
-		copy: 'Grow the panel with outreach that patients answer',
+		title: 'AI & Reporting',
+		copy: 'Automation, BI dashboards, and outreach that patients answer',
 		widget: 'growth',
 	},
 ];
@@ -39,7 +53,14 @@ const features = [
 				4.8 <span class="star">&#9733;</span> on Google
 			</span>
 		</div>
-		<h2>Clinic software that covers the whole day</h2>
+		<h2>Clinic software features that drive smarter care</h2>
+		<p class="lede">
+			Pick the modules your clinic needs — from solo practices to chains with 100+ locations.
+		</p>
+
+		<ul class="chips" data-stagger>
+			{chips.map((chip) => <li>{chip}</li>)}
+		</ul>
 
 		<ul class="cards" data-stagger>
 			{
@@ -219,6 +240,33 @@ const features = [
 		letter-spacing: -0.02em;
 		text-align: center;
 	}
+	.lede {
+		max-width: 52ch;
+		margin: 1rem auto 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+		text-align: center;
+	}
+	.chips {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.625rem;
+		max-width: 920px;
+		margin: 2rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	.chips li {
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		padding: 0.5rem 0.95rem;
+		background: var(--brand-wash);
+		color: var(--navy);
+		font-size: 0.875rem;
+		font-weight: 600;
+		line-height: 1.2;
+	}
 
 	/* cards */
 	.cards {
@@ -226,7 +274,7 @@ const features = [
 		grid-template-columns: repeat(4, minmax(0, 1fr));
 		gap: 1rem;
 		max-width: var(--page-max);
-		margin: 3.25rem auto 0;
+		margin: 2.5rem auto 0;
 		padding: 0;
 		list-style: none;
 	}

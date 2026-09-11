@@ -1,0 +1,173 @@
+---
+import SectionHead from './SectionHead.astro';
+import { SITE_TITLE } from '../consts';
+
+const types = [
+	{
+		title: 'Solo Practice',
+		copy: 'Physicians and specialists running their own clinic, with or without a front desk.',
+		href: '/solutions/doctor-clinic',
+	},
+	{
+		title: 'Specialist Poly Clinic',
+		copy: 'Multi-doctor OPD or polyclinic setups, with optional pharmacy and lab.',
+		href: '/solutions/polyclinic',
+	},
+	{
+		title: 'Clinic Chains',
+		copy: 'Multi-location networks that need central control and shared records.',
+		href: '/solutions/clinic-chain',
+	},
+	{
+		title: 'NGO Clinic',
+		copy: 'Non-profit and mission-driven teams running fixed or mobile clinics.',
+		href: '/ngo-landing-page',
+	},
+];
+---
+
+<section class="clinic-types" id="clinic-types">
+	<div class="inner">
+		<SectionHead
+			eyebrow="What is Easy Clinic?"
+			title="One platform that fits how you practice"
+			lede={`${SITE_TITLE} brings appointments, EMR, billing, pharmacy, inventory, and WhatsApp patient engagement together — used by 5,000+ doctors across 18 countries since 2003.`}
+		/>
+
+		<ul class="cards" data-stagger>
+			{
+				types.map((item) => (
+					<li>
+						<a href={item.href}>
+							<h3>{item.title}</h3>
+							<p>{item.copy}</p>
+							<span class="more">Explore →</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+
+		<p class="ai-note">
+			Building with AI? See the clinical pilot on
+			<a href="/curapilot">CuraPilot</a>
+			or explore
+			<a href="/ai">AI at Easy Clinic</a>.
+		</p>
+
+		<p class="explore">
+			<a href="/resources#specialties">Browse specialties</a>
+			<span aria-hidden="true">·</span>
+			<a href="/emr-software-in-india">India</a>
+			<span aria-hidden="true">·</span>
+			<a href="/emr-software-in-kenya">Kenya</a>
+			<span aria-hidden="true">·</span>
+			<a href="/emr-software-in-uae">UAE</a>
+			<span aria-hidden="true">·</span>
+			<a href="/emr-software-in-nigeria">Nigeria</a>
+			<span aria-hidden="true">·</span>
+			<a href="/resources#comparisons">More markets</a>
+		</p>
+	</div>
+</section>
+<style>
+	.clinic-types {
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 4.5rem 1.5rem 5rem;
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1rem;
+		margin: 2.75rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.cards a {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.5rem;
+		background: var(--surface-tint);
+		color: inherit;
+		text-decoration: none;
+		transition:
+			border-color 0.2s ease,
+			box-shadow 0.2s ease,
+			transform 0.2s ease;
+	}
+	.cards a:hover {
+		border-color: var(--brand-blue);
+		box-shadow: 0 12px 28px rgba(10, 37, 64, 8%);
+		transform: translateY(-2px);
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.1875rem;
+		font-weight: 700;
+		line-height: 1.2;
+	}
+	.cards p {
+		flex: 1;
+		margin: 0.75rem 0 0;
+		color: var(--muted);
+		font-size: 0.975rem;
+	}
+	.more {
+		margin-top: 1.25rem;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+	}
+	.ai-note,
+	.explore {
+		margin: 2rem 0 0;
+		color: var(--muted);
+		font-size: 0.975rem;
+		text-align: center;
+	}
+	.ai-note a,
+	.explore a {
+		color: var(--brand-blue);
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.ai-note a:hover,
+	.explore a:hover {
+		text-decoration: underline;
+	}
+	.explore {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.5rem 0.75rem;
+		margin-top: 0.85rem;
+	}
+
+	@media (max-width: 1080px) {
+		.inner {
+			padding: 3.5rem 1.5rem 4rem;
+		}
+		.cards {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	@media (max-width: 640px) {
+		.inner {
+			padding: 2.75rem 1rem 3.25rem;
+		}
+		.cards {
+			grid-template-columns: minmax(0, 1fr);
+		}
+	}
+</style>

@@ -13,6 +13,8 @@ import type { ImageMetadata } from 'astro';
 import indiaHero from '../../assets/geo-emr/india-hero.webp';
 import kenyaHero from '../../assets/geo-emr/kenya-hero.webp';
 import uaeHero from '../../assets/geo-emr/uae-hero.webp';
+import nigeriaHero from '../../assets/geo-emr/nigeria-hero.webp';
+import malaysiaHero from '../../assets/geo-emr/malaysia-hero.webp';
 
 export type FaqItem = {
 	question: string;
@@ -405,6 +407,9 @@ const uae = createMarket({
 });
 
 const malaysia = createMarket({
+	enabled: true,
+	heroImage: malaysiaHero,
+	heroImageAlt: 'Clinician consulting with a patient in a modern Malaysian clinic',
 	market: 'malaysia',
 	slug: 'emr-software-in-malaysia',
 	geo: 'Malaysia',
@@ -451,6 +456,9 @@ const malaysia = createMarket({
 });
 
 const nigeria = createMarket({
+	enabled: true,
+	heroImage: nigeriaHero,
+	heroImageAlt: 'Healthcare team collaborating in a modern clinic setting',
 	market: 'nigeria',
 	slug: 'emr-software-in-nigeria',
 	geo: 'Nigeria',

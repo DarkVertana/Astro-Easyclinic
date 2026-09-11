@@ -1,0 +1,37 @@
+---
+/* Specialty EMR factory route. Live specialty slugs are mixed (`dental-emr-software`,
+   `cardiology-emr`, …), so each enabled specialty gets its own file at its exact live
+   path and shares the sections in components/specialty-emr/. */
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Clinical from '../components/specialty-emr/Clinical.astro';
+import Fit from '../components/specialty-emr/Fit.astro';
+import Hero from '../components/specialty-emr/Hero.astro';
+import Ops from '../components/specialty-emr/Ops.astro';
+import Problems from '../components/specialty-emr/Problems.astro';
+import { getSpecialty } from '../components/specialty-emr/data';
+import Marketing from '../layouts/Marketing.astro';
+
+const specialty = getSpecialty('dental-emr-software');
+---
+
+<Marketing
+	title={specialty.seoTitle}
+	description={specialty.seoDescription}
+	mainClass="specialty-emr"
+>
+	<Hero specialty={specialty} />
+	<Clinical specialty={specialty} />
+	<Ops specialty={specialty} />
+	<Problems specialty={specialty} />
+	<Fit specialty={specialty} />
+	<Faq items={specialty.faqs} />
+	<Cta
+		title={specialty.ctaTitle}
+		lede={specialty.ctaLede}
+		primaryHref="/contact-us#demo-form"
+		primaryLabel="Book a free demo"
+		secondaryHref="/pricing"
+		secondaryLabel="See pricing"
+	/>
+</Marketing>

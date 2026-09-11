@@ -1,0 +1,153 @@
+---
+import SectionHead from '../SectionHead.astro';
+import type { Specialty } from './data';
+
+interface Props {
+	specialty: Specialty;
+}
+
+const { specialty } = Astro.props;
+
+const marks = {
+	tool: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/>',
+	spark: '<path d="M12 3v4"/><path d="M12 17v4"/><path d="m5.6 5.6 2.9 2.9"/><path d="m15.5 15.5 2.9 2.9"/><path d="M3 12h4"/><path d="M17 12h4"/><path d="m5.6 18.4 2.9-2.9"/><path d="m15.5 8.5 2.9-2.9"/>',
+};
+---
+
+<section class="clinical">
+	<div class="panel">
+		<SectionHead
+			eyebrow={specialty.clinicalEyebrow}
+			title={specialty.clinicalTitle}
+			lede={specialty.clinicalLede}
+		/>
+
+		<ul class="bento" data-stagger>
+			{
+				specialty.clinical.map((item) => (
+					<li class:list={[item.accent && 'accent']}>
+						<span class="mi" aria-hidden="true">
+							<svg
+								viewBox="0 0 24 24"
+								width="19"
+								height="19"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.8"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								set:html={item.accent ? marks.spark : marks.tool}
+							/>
+						</span>
+						<h3>{item.title}</h3>
+						{item.copy && <p>{item.copy}</p>}
+					</li>
+				))
+			}
+		</ul>
+
+		<p class="links">
+			<a href="/features">Explore all features</a>
+			<span aria-hidden="true">·</span>
+			<a href="/curapilot">Meet Cura AI</a>
+			<span aria-hidden="true">·</span>
+			<a href="/pricing">View pricing</a>
+		</p>
+	</div>
+</section>
+<style>
+	.clinical {
+		background: var(--brand-wash);
+	}
+	.panel {
+		background: var(--surface);
+		border-radius: 24px 24px 0 0;
+		padding: 5.5rem 1.5rem 4.5rem;
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+
+	.bento {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.25rem;
+		max-width: var(--page-max);
+		margin: 3rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	.bento li {
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.5rem;
+		background: var(--surface-tint);
+	}
+	.accent {
+		border-color: var(--brand-wash-deep);
+		background: var(--brand-wash);
+	}
+
+	.mi {
+		display: grid;
+		place-items: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 12px;
+		background: var(--brand-wash);
+		color: var(--brand-blue);
+	}
+	.accent .mi {
+		background: var(--surface);
+		color: var(--brand-teal);
+	}
+
+	h3 {
+		margin: 1.15rem 0 0;
+		color: var(--navy);
+		font-size: 1.0625rem;
+		font-weight: 700;
+		line-height: 1.25;
+	}
+	.bento p {
+		margin: 0.6rem 0 0;
+		color: var(--muted);
+		font-size: 0.9375rem;
+	}
+
+	.links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.75rem;
+		margin: 2.75rem 0 0;
+		color: var(--muted);
+		font-size: 0.9375rem;
+	}
+	.links a {
+		color: var(--brand-blue);
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.links a:hover {
+		text-decoration: underline;
+	}
+
+	@media (max-width: 1080px) {
+		.panel {
+			padding: 4rem 1.5rem 3.5rem;
+		}
+		.bento {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	@media (max-width: 640px) {
+		.panel {
+			padding: 3rem 1rem 3rem;
+		}
+		.bento {
+			grid-template-columns: 1fr;
+			margin-top: 2.25rem;
+		}
+	}
+</style>

@@ -1,0 +1,218 @@
+---
+/* Photo hero, same pattern as about/contact/pricing: photo + deco rings/dots,
+   float chips, and a figcaption badge. The facts that used to fill the right
+   slot move under the lede. Each live specialty brings its own photo below;
+   staged specialties only ship a route once that entry exists. */
+import { Image } from 'astro:assets';
+import HeroFacts from '../HeroFacts.astro';
+import PageHero from '../PageHero.astro';
+import dentalPhoto from '../../assets/specialty-emr/dental-hero.webp';
+import type { HeroIcon, Specialty } from './data';
+
+interface Props {
+	specialty: Specialty;
+}
+
+const { specialty } = Astro.props;
+
+const icons: Record<HeroIcon, string> = {
+	tooth: '<path d="M12 5.2c1.6-1.4 3.2-2 4.6-1.6 2 .6 3 2.7 2.7 5.3-.2 1.6-.7 2.7-1.1 4.3-.4 1.5-.6 3-.9 4.5-.3 1.5-.8 2.3-1.7 2.3-1 0-1.4-.9-1.8-2.6-.4-1.7-.6-3.4-1.8-3.4s-1.4 1.7-1.8 3.4c-.4 1.7-.8 2.6-1.8 2.6-.9 0-1.4-.8-1.7-2.3-.3-1.5-.5-3-.9-4.5-.4-1.6-.9-2.7-1.1-4.3C4.4 6.3 5.4 4.2 7.4 3.6c1.4-.4 3 .2 4.6 1.6Z"/>',
+	stethoscope:
+		'<path d="M5 3v5a4 4 0 0 0 8 0V3"/><path d="M5 3H3.5"/><path d="M13 3h1.5"/><path d="M9 12v3a5 5 0 0 0 10 0v-1.2"/><circle cx="19" cy="11" r="2.2"/>',
+};
+
+/* Keyed by live slug so each specialty gets a photo that matches its practice. */
+const photos: Record<string, { src: ImageMetadata; alt: string }> = {
+	'dental-emr-software': {
+		src: dentalPhoto,
+		alt: 'A dentist reviewing a patient chart in EasyClinic between appointments',
+	},
+};
+
+const photo = photos[specialty.slug];
+
+if (!photo) {
+	throw new Error(`Specialty hero has no photo: ${specialty.slug}`);
+}
+---
+
+<PageHero
+	eyebrow={specialty.eyebrow}
+	title={specialty.title}
+	lede={specialty.lede}
+	note={specialty.note}
+	primaryHref="/contact-us#demo-form"
+	primaryLabel="Book a free demo"
+	secondaryHref="/features"
+	secondaryLabel="See features"
+>
+	{/* facts move out of the right slot now that the photo takes it over */}
+	<HeroFacts slot="under-lede" facts={specialty.heroFacts} />
+
+	<figure class="photo">
+		{/* abstract accents behind the photo */}
+		<svg class="deco ring" viewBox="0 0 200 200" aria-hidden="true">
+			<circle cx="100" cy="100" r="88" fill="none" stroke="var(--brand-teal)" stroke-width="2" opacity="0.5"></circle>
+			<circle cx="100" cy="100" r="66" fill="none" stroke="var(--brand-blue)" stroke-width="2" opacity="0.35"></circle>
+		</svg>
+		<svg class="deco dots" viewBox="0 0 120 120" aria-hidden="true">
+			{
+				Array.from({ length: 25 }, (_, i) => (
+					<circle cx={8 + (i % 5) * 26} cy={8 + Math.floor(i / 5) * 26} r="3.5" fill="var(--brand-blue)" opacity="0.35" />
+				))
+			}
+		</svg>
+
+		<Image src={photo.src} alt={photo.alt} densities={[1, 1.5]} loading="eager" />
+
+		{/* floating icon chips */}
+		<span class="chip chip-specialty" aria-hidden="true">
+			<svg
+				viewBox="0 0 24 24"
+				width="22"
+				height="22"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="1.8"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				set:html={icons[specialty.heroIcon]}
+			/>
+		</span>
+		<span class="chip chip-calendar" aria-hidden="true">
+			<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<rect x="3" y="4" width="18" height="17" rx="2"></rect>
+				<path d="M16 2v4M8 2v4M3 10h18"></path>
+			</svg>
+		</span>
+
+		<figcaption class="badge">
+			<strong>{specialty.heroBadge.value}</strong>
+			<span>{specialty.heroBadge.label}</span>
+		</figcaption>
+	</figure>
+</PageHero>
+
+<style>
+	.photo {
+		position: relative;
+		width: fit-content;
+		max-width: 100%;
+		margin: 0 auto;
+	}
+	.photo :global(img) {
+		position: relative;
+		z-index: 1;
+		display: block;
+		width: 100%;
+		max-width: 480px;
+		height: auto;
+		border-radius: 20px;
+		box-shadow: 0 20px 48px rgba(10, 37, 64, 14%);
+	}
+
+	/* abstract accents */
+	.deco {
+		position: absolute;
+		z-index: 0;
+	}
+	.ring {
+		top: -3rem;
+		right: -3rem;
+		width: 140px;
+		height: 140px;
+	}
+	.dots {
+		bottom: -2.5rem;
+		right: -1.75rem;
+		width: 105px;
+		height: 105px;
+	}
+
+	/* floating icon chips */
+	.chip {
+		position: absolute;
+		z-index: 2;
+		display: grid;
+		place-items: center;
+		width: 52px;
+		height: 52px;
+		border-radius: 16px;
+		background: var(--surface);
+		box-shadow: 0 12px 28px rgba(10, 37, 64, 16%);
+		animation: float 5.5s ease-in-out infinite;
+	}
+	.chip-specialty {
+		top: -1.35rem;
+		right: -1rem;
+		color: var(--brand-blue);
+	}
+	.chip-calendar {
+		top: 42%;
+		left: -1.75rem;
+		color: var(--brand-teal);
+		animation-delay: 1.4s;
+	}
+	@keyframes float {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-8px);
+		}
+	}
+
+	.badge {
+		position: absolute;
+		left: -1.25rem;
+		bottom: 1.5rem;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		gap: 0.1rem;
+		max-width: 17rem;
+		margin: 0;
+		border-radius: 14px;
+		padding: 0.8rem 1.1rem;
+		background: var(--surface);
+		box-shadow: 0 14px 32px rgba(10, 37, 64, 18%);
+	}
+	.badge strong {
+		color: var(--navy);
+		font-size: 1rem;
+		font-weight: 700;
+	}
+	.badge span {
+		color: var(--muted);
+		font-size: 0.8125rem;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.chip {
+			animation: none;
+		}
+	}
+	@media (max-width: 1080px) {
+		.badge {
+			left: 0.75rem;
+			bottom: 0.75rem;
+		}
+		.chip-specialty {
+			right: 0.5rem;
+		}
+		.chip-calendar {
+			left: 0.75rem;
+		}
+		.ring {
+			top: -1.5rem;
+			right: -1rem;
+			width: 110px;
+			height: 110px;
+		}
+		.dots {
+			right: -0.25rem;
+			bottom: -1.25rem;
+		}
+	}
+</style>

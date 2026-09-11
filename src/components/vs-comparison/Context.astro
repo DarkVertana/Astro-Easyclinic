@@ -1,0 +1,36 @@
+---
+import SectionHead from '../SectionHead.astro';
+import type { VsPageData } from './types';
+
+interface Props {
+	data: VsPageData['context'];
+}
+
+const { data } = Astro.props;
+---
+
+<section class="context">
+	<div class="inner">
+		<SectionHead eyebrow={data.eyebrow} title={data.title} lede={data.lede} />
+		{data.body && <p class="body">{data.body}</p>}
+	</div>
+</section>
+
+<style>
+	.context {
+		background: var(--brand-wash);
+		padding: 5rem 1.5rem;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+	}
+	.body {
+		max-width: 62ch;
+		margin: 2rem auto 0;
+		color: var(--muted);
+		font-size: 1.0625rem;
+		line-height: 1.65;
+		text-align: center;
+	}
+</style>

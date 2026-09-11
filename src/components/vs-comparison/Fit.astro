@@ -1,0 +1,69 @@
+---
+import SectionHead from '../SectionHead.astro';
+import type { VsPageData } from './types';
+
+interface Props {
+	data: VsPageData['fit'];
+}
+
+const { data } = Astro.props;
+---
+
+<section class="fit">
+	<div class="panel">
+		<SectionHead tone="dark" title={data.title} lede={data.lede} />
+		<div class="cols" data-stagger>
+			<article>
+				<h3>{data.easyclinic.title}</h3>
+				<p>{data.easyclinic.copy}</p>
+			</article>
+			<article>
+				<h3>{data.competitor.title}</h3>
+				<p>{data.competitor.copy}</p>
+			</article>
+		</div>
+	</div>
+</section>
+
+<style>
+	.fit {
+		background: var(--surface);
+	}
+	.panel {
+		background: var(--navy);
+		border-radius: 24px 24px 0 0;
+		padding: 5.5rem 1.5rem 5rem;
+		color: var(--surface);
+	}
+	.cols {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+		max-width: 1040px;
+		margin: 3rem auto 0;
+	}
+	article {
+		border: 1px solid rgba(255, 255, 255, 9%);
+		border-radius: 18px;
+		padding: 1.5rem 1.55rem 1.65rem;
+		background: rgba(255, 255, 255, 5%);
+	}
+	h3 {
+		margin: 0;
+		color: var(--surface);
+		font-size: 1.125rem;
+		font-weight: 700;
+		letter-spacing: -0.01em;
+	}
+	p {
+		margin: 0.7rem 0 0;
+		color: rgba(255, 255, 255, 0.78);
+		font-size: 0.9875rem;
+		line-height: 1.6;
+	}
+	@media (max-width: 800px) {
+		.cols {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

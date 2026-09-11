@@ -1,0 +1,32 @@
+---
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Context from '../components/vs-comparison/Context.astro';
+import DiffTable from '../components/vs-comparison/DiffTable.astro';
+import Fit from '../components/vs-comparison/Fit.astro';
+import Hero from '../components/vs-comparison/Hero.astro';
+import Verdict from '../components/vs-comparison/Verdict.astro';
+import WorkflowTests from '../components/vs-comparison/WorkflowTests.astro';
+import { healthplix } from '../components/vs-comparison/data/healthplix';
+import Marketing from '../layouts/Marketing.astro';
+
+const page = healthplix;
+---
+
+<Marketing title={page.meta.title} description={page.meta.description} mainClass="vs-comparison">
+	<Hero data={page.hero} />
+	<Context data={page.context} />
+	<WorkflowTests data={page.tests} />
+	<DiffTable data={page.table} />
+	<Fit data={page.fit} />
+	<Verdict verdict={page.verdict} related={page.related} />
+	<Faq items={page.faqs} />
+	<Cta
+		title={page.cta.title}
+		lede={page.cta.lede}
+		primaryHref="/contact-us#demo-form"
+		primaryLabel="Book a free demo"
+		secondaryHref="/pricing"
+		secondaryLabel="See pricing"
+	/>
+</Marketing>

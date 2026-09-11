@@ -569,6 +569,7 @@ const cityMarket = (city: string): GeoMarket => {
 	const market = city.toLowerCase().replace(/\s+/g, '-');
 
 	return createMarket({
+		enabled: true,
 		market,
 		slug: `emr-software-in-${market}`,
 		geo: city,

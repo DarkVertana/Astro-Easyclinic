@@ -4,7 +4,7 @@ const DURATION = 280;
 const EASING = 'cubic-bezier(0.22, 1, 0.36, 1)';
 
 type Options = {
-	/** close the open sibling when another opens — the tab-like behaviour */
+	/** close the open sibling when another opens, the tab-like behaviour */
 	exclusive?: boolean;
 };
 

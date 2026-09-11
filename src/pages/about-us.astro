@@ -1,18 +1,18 @@
 ---
 import Cta from '../components/Cta.astro';
 import Testimonials from '../components/Testimonials.astro';
+import Clients from '../components/about/Clients.astro';
 import Hero from '../components/about/Hero.astro';
 import Stats from '../components/about/Stats.astro';
 import Story from '../components/about/Story.astro';
 import Team from '../components/about/Team.astro';
 import Values from '../components/about/Values.astro';
 import Marketing from '../layouts/Marketing.astro';
-import { SITE_TITLE } from '../consts';
 ---
 
 <Marketing
-	title={`About us — ${SITE_TITLE}`}
-	description="EasyClinic clinic management software since 2003 — 5,000+ doctors, 18 countries. Practical EMR built for real practices."
+	title="About Easy Clinic | Simplifying Healthcare Solutions"
+	description="Established in 2003, Easy Clinic serves 5,000+ doctors across 18 countries with user-friendly clinic software, unmatched support and fair pricing. Meet the team."
 	mainClass="about"
 >
 	<Hero />
@@ -21,5 +21,6 @@ import { SITE_TITLE } from '../consts';
 	<Stats />
 	<Team />
 	<Testimonials moreHref="/testimonials" />
+	<Clients />
 	<Cta />
 </Marketing>

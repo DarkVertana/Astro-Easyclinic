@@ -1,16 +1,26 @@
 ---
+import SectionHead from '../SectionHead.astro';
 import { plans, priceAttrs } from './data';
 
 const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="m3.4 8.4 3 3 6.2-6.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+// one icon per plan, same chip language as the about page
+const planIcons: Record<string, string> = {
+	professional: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>',
+	premium:
+		'<path d="M4 2a2 2 0 0 0-2 2v5a6 6 0 0 0 12 0V4a2 2 0 0 0-2-2"/><path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/>',
+	enterprise:
+		'<rect x="2" y="8" width="9" height="13" rx="1"/><path d="M11 21h9a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-8a1 1 0 0 0-1 1v4"/><path d="M6 12h.01M6 16h.01M15.5 7h.01M15.5 11h.01M15.5 15h.01"/>',
+};
 ---
 
 <section class="plans" id="plans">
 	<div class="panel">
-		<p class="eyebrow">Choose a plan</p>
-		<h2>Built for how you practise</h2>
-		<p class="lede">
-			Billed per doctor. A reception licence is included, and there are no binding contracts.
-		</p>
+		<SectionHead
+			eyebrow="Choose a plan"
+			title="Built for how you practise"
+			lede="Billed per doctor. A reception licence is included, and there are no binding contracts."
+		/>
 
 		<div class="toggles">
 			<div class="billing" role="group" aria-label="Billing period">
@@ -28,6 +38,19 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 					return (
 						<li class:list={['card', { featured: plan.featured }]} id={`plan-${plan.id}`}>
 							{plan.badge && <p class="ribbon">{plan.badge}</p>}
+							<span class="chip" aria-hidden="true">
+								<svg
+									viewBox="0 0 24 24"
+									width="20"
+									height="20"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									set:html={planIcons[plan.id]}
+								/>
+							</span>
 							<h3>{plan.name}</h3>
 							<p class="audience">{plan.audience}</p>
 							<p class="price">
@@ -60,6 +83,17 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 				})
 			}
 		</ul>
+
+		<div class="helper">
+			<div class="helper-copy">
+				<h3>Not sure which plan is right for you?</h3>
+				<p>Tell us how your clinic runs and we will point you to the smallest plan that fits.</p>
+			</div>
+			<div class="helper-actions">
+				<a class="btn btn-solid" href="/contact-us#demo-form">Book a Demo</a>
+				<a class="btn btn-ghost" href="/contact-us">Talk to us</a>
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -82,30 +116,6 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 		text-align: center;
 	}
 
-	.eyebrow {
-		margin: 0;
-		color: var(--brand-blue);
-		font-size: 0.875rem;
-		font-weight: 600;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-	h2 {
-		max-width: 20ch;
-		margin: 0.85rem auto 0;
-		color: var(--navy);
-		font-size: clamp(1.875rem, 3.4vw, 3rem);
-		font-weight: 700;
-		line-height: 1.1;
-		letter-spacing: -0.02em;
-	}
-	.lede {
-		max-width: 48ch;
-		margin: 1rem auto 0;
-		color: var(--muted);
-		font-size: 1.125rem;
-	}
-
 	.toggles {
 		display: flex;
 		flex-wrap: wrap;
@@ -121,13 +131,13 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 		justify-content: center;
 		gap: 0.25rem;
 		border: 1.5px solid var(--brand-blue);
-		border-radius: 8px;
+		border-radius: 999px;
 		padding: 0.25rem;
 		background: var(--surface);
 	}
 	.billing button {
 		border: 0;
-		border-radius: 6px;
+		border-radius: 999px;
 		padding: 0.7rem 1.1rem;
 		background: transparent;
 		color: var(--navy);
@@ -162,6 +172,7 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 	}
 
 	.card {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		border: 1px solid var(--border);
@@ -169,9 +180,17 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 		padding: 1.75rem 1.6rem 1.6rem;
 		background: var(--surface);
 		box-shadow: 0 10px 28px rgba(10, 37, 64, 6%);
+		transition:
+			transform 0.2s ease,
+			border-color 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+	.card:not(.featured):hover {
+		border-color: var(--brand-blue);
+		box-shadow: 0 18px 40px rgba(10, 37, 64, 10%);
+		transform: translateY(-4px);
 	}
 	.card.featured {
-		position: relative;
 		z-index: 1;
 		transform: translateY(-18px);
 		border-color: transparent;
@@ -181,16 +200,35 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 	}
 
 	.ribbon {
+		position: absolute;
+		top: -0.85rem;
+		left: 1.6rem;
 		width: fit-content;
-		margin: 0 0 1rem;
+		margin: 0;
 		border-radius: 999px;
-		padding: 0.28rem 0.7rem;
+		padding: 0.32rem 0.8rem;
 		background: var(--brand-teal);
 		color: var(--surface);
 		font-size: 0.75rem;
 		font-weight: 700;
 		letter-spacing: 0.02em;
 		line-height: 1.3;
+		box-shadow: 0 8px 18px rgba(4, 189, 175, 35%);
+	}
+
+	.chip {
+		display: grid;
+		place-items: center;
+		width: 44px;
+		height: 44px;
+		margin-bottom: 1.1rem;
+		border-radius: 12px;
+		background: var(--brand-wash);
+		color: var(--brand-blue);
+	}
+	.featured .chip {
+		background: rgba(255, 255, 255, 12%);
+		color: var(--brand-teal);
 	}
 
 	h3 {
@@ -318,13 +356,58 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 		color: var(--navy);
 	}
 	.featured .btn-solid:hover {
-		border-color: var(--brand-wash);
+		border-color: var(--brand-teal);
+		background: var(--brand-teal);
+		color: var(--surface);
+	}
+
+	/* "not sure" helper strip */
+	.helper {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.25rem 2rem;
+		max-width: var(--page-max);
+		margin: 3rem auto 0;
+		border: 1px solid var(--brand-wash-deep);
+		border-radius: 20px;
+		padding: 1.75rem 2rem;
 		background: var(--brand-wash);
+		text-align: left;
+	}
+	.helper-copy h3 {
+		margin: 0;
 		color: var(--navy);
+		font-size: 1.25rem;
+		font-weight: 700;
+	}
+	.helper-copy p {
+		max-width: 52ch;
+		margin: 0.4rem 0 0;
+		color: var(--muted);
+	}
+	.helper-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		flex-shrink: 0;
+	}
+	.helper .btn {
+		margin-top: 0;
+	}
+	.helper .btn-ghost {
+		background: var(--surface);
+	}
+	.helper .btn-ghost:hover {
+		background: var(--brand-blue);
 	}
 
 	@media (prefers-reduced-motion: reduce) {
 		.card.featured {
+			transform: none;
+		}
+		.card:not(.featured):hover {
 			transform: none;
 		}
 	}
@@ -341,6 +424,14 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 		.card.featured {
 			transform: none;
 			order: -1;
+			margin-top: 0.85rem;
+		}
+		.helper {
+			justify-content: center;
+			text-align: center;
+		}
+		.helper-copy p {
+			margin-inline: auto;
 		}
 	}
 	@media (max-width: 640px) {
@@ -358,6 +449,15 @@ const check = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true
 		}
 		h3 {
 			font-size: 1.125rem;
+		}
+		.helper {
+			padding: 1.5rem 1.25rem;
+		}
+		.helper-actions {
+			width: 100%;
+		}
+		.helper .btn {
+			flex: 1 1 auto;
 		}
 	}
 </style>

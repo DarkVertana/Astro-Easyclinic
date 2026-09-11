@@ -23,7 +23,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Marketing title={`${post.data.title} — ${SITE_TITLE}`} description={post.data.description} mainClass="blog-post">
+<Marketing title={`${post.data.title}, ${SITE_TITLE}`} description={post.data.description} mainClass="blog-post">
 	<section class="hero">
 		<div class="inner">
 			<p class="eyebrow">

@@ -1,46 +1,94 @@
 ---
+import SectionHead from '../SectionHead.astro';
 import { proofStats } from './data';
+
+const studyFacts = [
+	'The AI Consult copilot at Penda Health, Nairobi',
+	'Deployed with OpenAI inside the everyday clinical workflow',
+	'Studied across 39,849 real patient visits',
+	'Peer-reviewed follow-ups in Nature Health and Nature Medicine',
+];
 ---
 
 <section class="proof">
 	<div class="panel">
-		<p class="eyebrow">Peer-reviewed evidence · Nature Health</p>
-		<h2>Measured across 39,849 patient visits</h2>
-		<p class="lede">
-			Penda Health, Nairobi — one of the world’s earliest deployments of AI-assisted clinical decision
-			support, developed with OpenAI and Easy Clinic. Approved by the Kenya Ministry of Health, Kenya
-			Digital Health Agency, and AMREF Ethics Committee.
-		</p>
+		<SectionHead
+			tone="dark"
+			eyebrow="The evidence"
+			title="Proven in a clinic, not a demo"
+			lede="Most vendors show you a brochure. EasyClinic built the platform behind one of the largest real-world studies of clinical AI."
+		/>
 
-		<ul class="metrics" data-stagger>
-			{
-				proofStats.map((item) => (
-					<li>
-						<strong>{item.stat}</strong>
-						<small>{item.label}</small>
-					</li>
-				))
-			}
-		</ul>
+		<div class="evidence">
+			<div class="study">
+				<p class="study-label">The study</p>
+				<ul>
+					{
+						studyFacts.map((fact) => (
+							<li>
+								<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+									<path d="M20 6 9 17l-5-5"></path>
+								</svg>
+								{fact}
+							</li>
+						))
+					}
+				</ul>
+				<a
+					class="source"
+					href="https://openai.com/index/ai-clinical-copilot-penda-health/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Read OpenAI's account of the pilot
+					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M7 17 17 7"></path>
+						<path d="M8 7h9v9"></path>
+					</svg>
+				</a>
+			</div>
+
+			<ul class="stats" data-stagger>
+				{
+					proofStats.map((item) => (
+						<li>
+							<strong>{item.stat}</strong>
+							<span>{item.label}</span>
+						</li>
+					))
+				}
+			</ul>
+		</div>
 
 		<figure class="quote">
 			<blockquote>
-				“Easy Clinic has been a true innovation partner for nearly a decade. Together we implemented
-				one of the world’s early deployments of an AI-assisted clinical decision support system
-				developed in collaboration with OpenAI.”
+				“Easy Clinic has been a true innovation partner for nearly a decade. Together we
+				implemented one of the world's early deployments of an AI-assisted clinical decision
+				support system developed in collaboration with OpenAI.”
 			</blockquote>
 			<figcaption>
-				<strong>Dr. Robert Korom</strong>
-				<small>Chief Medical Officer, Penda Health</small>
+				<strong>Dr Robert Korom</strong>
+				<span>Chief Medical Officer, Penda Health</span>
 			</figcaption>
 		</figure>
 
-		<ul class="aside">
-			<li><strong>15</strong> clinics</li>
-			<li><strong>108</strong> physicians</li>
-			<li><strong>10%</strong> fewer unnecessary investigations</li>
-			<li><strong>99.97%</strong> uptime over 9 years</li>
-		</ul>
+		<div class="poc">
+			<div class="poc-copy">
+				<h3>Your data. Your baseline. Your results.</h3>
+				<p>
+					The Easy Clinic proof of concept gives you real evidence before a real commitment. We
+					come to you, map your processes, deploy CuraPilot, and measure what changes, in 90 days
+					or less.
+				</p>
+			</div>
+			<a class="btn" href="/contact-us#demo-form">
+				Start a conversation
+				<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M5 12h14"></path>
+					<path d="m12 5 7 7-7 7"></path>
+				</svg>
+			</a>
+		</div>
 	</div>
 </section>
 <style>
@@ -50,127 +98,218 @@ import { proofStats } from './data';
 	.panel {
 		background: var(--navy);
 		border-radius: 24px 24px 0 0;
-		padding: 5.5rem 1.5rem 5rem;
+		padding: 5.5rem 1.5rem;
 		color: var(--surface);
 		font-size: 16px;
 		line-height: 1.5;
 	}
-	.eyebrow {
-		margin: 0;
-		color: var(--brand-teal);
-		font-size: 0.875rem;
-		font-weight: 600;
-		letter-spacing: 0.08em;
-		text-align: center;
-		text-transform: uppercase;
-	}
-	h2 {
-		max-width: 18ch;
-		margin: 0.85rem auto 0;
-		color: var(--surface);
-		font-size: clamp(1.875rem, 3.4vw, 3rem);
-		font-weight: 700;
-		line-height: 1.1;
-		letter-spacing: -0.02em;
-		text-align: center;
-	}
-	.lede {
-		max-width: 58ch;
-		margin: 1.15rem auto 0;
-		color: rgba(255, 255, 255, 72%);
-		font-size: 1.0625rem;
-		text-align: center;
-	}
-	.metrics {
+
+	.evidence {
 		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
 		gap: 1rem;
 		max-width: var(--page-max);
 		margin: 3rem auto 0;
+	}
+
+	.study {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid rgba(255, 255, 255, 9%);
+		border-radius: 18px;
+		padding: 1.75rem;
+		background: rgba(255, 255, 255, 5%);
+	}
+	.study-label {
+		margin: 0 0 1.15rem;
+		color: var(--brand-teal);
+		font-size: 0.8125rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	.study ul {
+		display: grid;
+		gap: 0.85rem;
+		margin: 0;
 		padding: 0;
 		list-style: none;
-		text-align: center;
+		flex: 1 1 auto;
 	}
-	.metrics li {
-		border: 1px solid rgba(255, 255, 255, 8%);
-		border-radius: 16px;
-		padding: 1.25rem 0.75rem;
-		background: rgba(255, 255, 255, 6%);
+	.study li {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.65rem;
+		color: rgba(255, 255, 255, 0.85);
+		font-size: 0.9875rem;
+		line-height: 1.5;
 	}
-	.metrics strong {
+	.study li svg {
+		flex-shrink: 0;
+		margin-top: 0.2rem;
+		color: var(--brand-teal);
+	}
+	.source {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		margin-top: 1.5rem;
+		color: var(--brand-teal);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.source:hover {
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.stats {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.stats li {
+		border: 1px solid rgba(255, 255, 255, 9%);
+		border-radius: 18px;
+		padding: 1.35rem 1.35rem;
+		background: rgba(255, 255, 255, 5%);
+		transition:
+			background 0.2s ease,
+			transform 0.2s ease;
+	}
+	.stats li:hover {
+		background: rgba(255, 255, 255, 9%);
+		transform: translateY(-3px);
+	}
+	.stats strong {
 		display: block;
-		font-size: 2rem;
+		color: var(--surface);
+		font-size: 1.75rem;
 		font-weight: 700;
-		letter-spacing: -0.03em;
-		line-height: 1.1;
+		letter-spacing: -0.02em;
+		line-height: 1.15;
 	}
-	.metrics small {
+	.stats span {
 		display: block;
-		margin-top: 0.4rem;
-		color: rgba(255, 255, 255, 72%);
+		margin-top: 0.3rem;
+		color: rgba(255, 255, 255, 0.66);
 		font-size: 0.875rem;
 	}
+
 	.quote {
 		max-width: 760px;
 		margin: 3rem auto 0;
-		border-radius: 20px;
-		padding: 2rem;
-		background: rgba(255, 255, 255, 6%);
+		text-align: center;
 	}
-	blockquote {
-		border: 0;
-		padding: 0;
+	.quote blockquote {
 		margin: 0;
-		color: rgba(255, 255, 255, 92%);
-		font-size: 1.125rem;
-		line-height: 1.55;
+		border: none;
+		padding: 0;
+		color: var(--surface);
+		font-size: clamp(1.125rem, 2vw, 1.375rem);
+		font-weight: 500;
+		line-height: 1.5;
+		letter-spacing: -0.01em;
 	}
-	figcaption {
-		display: flex;
-		flex-direction: column;
-		gap: 0.15rem;
-		margin-top: 1.25rem;
-	}
-	figcaption strong {
-		font-size: 0.9375rem;
-	}
-	figcaption small {
-		color: rgba(255, 255, 255, 62%);
-		font-size: 0.8125rem;
-	}
-	.aside {
+	.quote figcaption {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		gap: 0.75rem 1.75rem;
-		max-width: var(--page-max);
-		margin: 2rem auto 0;
-		padding: 0;
-		list-style: none;
-		color: rgba(255, 255, 255, 78%);
+		gap: 0.25rem 0.75rem;
+		margin-top: 1.25rem;
+	}
+	.quote figcaption strong {
+		font-size: 0.9875rem;
+		font-weight: 700;
+	}
+	.quote figcaption span {
+		color: rgba(255, 255, 255, 0.62);
 		font-size: 0.9375rem;
 	}
-	.aside strong {
+
+	/* proof-of-concept offer card */
+	.poc {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.5rem 2.5rem;
+		max-width: var(--page-max);
+		margin: 3rem auto 0;
+		border-radius: 18px;
+		padding: 2rem 2.25rem;
+		background: var(--surface);
+		color: var(--ink);
+	}
+	.poc h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.25rem;
+		font-weight: 700;
+	}
+	.poc p {
+		max-width: 58ch;
+		margin: 0.5rem 0 0;
+		color: var(--muted);
+	}
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.55rem;
+		flex-shrink: 0;
+		border: 1.5px solid var(--brand-blue);
+		border-radius: 10px;
+		padding: 0.875rem 1.375rem;
+		background: var(--brand-blue);
 		color: var(--surface);
+		font-weight: 600;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	.btn:hover {
+		border-color: var(--brand-blue-dark);
+		background: var(--brand-blue-dark);
+	}
+	.btn svg {
+		transition: transform 0.2s ease;
+	}
+	.btn:hover svg {
+		transform: translateX(3px);
 	}
 
 	@media (max-width: 1080px) {
 		.panel {
-			padding: 4rem 1.5rem 3.5rem;
+			padding: 4rem 1.25rem;
 		}
-		.metrics {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+		.evidence {
+			grid-template-columns: 1fr;
+		}
+		.poc {
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 1.75rem;
 		}
 	}
 	@media (max-width: 640px) {
 		.panel {
-			padding: 3rem 1rem 3rem;
+			padding: 3rem 1rem;
 		}
-		.metrics {
-			grid-template-columns: 1fr 1fr;
+		.evidence {
+			margin-top: 2.25rem;
 		}
-		blockquote {
-			font-size: 1rem;
+		.stats {
+			grid-template-columns: 1fr;
+		}
+		.quote {
+			padding: 1.5rem 1.25rem;
+		}
+		.btn {
+			width: 100%;
+			justify-content: center;
 		}
 	}
 </style>

@@ -1,31 +1,398 @@
 ---
-import PageHero from '../PageHero.astro';
-
-const facts = [
-	{ value: '39,849', label: 'Visits reviewed' },
-	{ value: 'Peer-reviewed', label: 'Published study' },
-	{ value: 'Advisory', label: 'Doctor in charge' },
+// standard wash split hero; the visual is the CuraPilot clinical-alert mock
+// from easyclinic.io/curapilot
+const checks = [
+	{ label: 'Cross-visit analysis complete', done: true },
+	{ label: 'Drug interaction check passed', done: true },
+	{ label: 'Generating protocol recommendation', done: false },
 ];
+
+const tags = ['Clinical', 'Operational', 'Financial'];
 ---
 
-<PageHero
-	eyebrow="Cura AI"
-	title="AI EMR copilot built into your clinic systems"
-	lede="CuraPilot sits on your EMR and hospital systems — sharper clinical decisions, tighter operations, and revenue you can trace."
-	secondaryHref="/pricing"
-	secondaryLabel="View Pricing"
->
-	<div class="card">
-		<p class="card-label">CuraPilot</p>
-		<ul class="rows">
-			{
-				facts.map((item) => (
-					<li class="fact">
-						<strong>{item.value}</strong>
-						<span>{item.label}</span>
-					</li>
-				))
-			}
-		</ul>
+<section class="hero">
+	<div class="inner">
+		<div class="copy">
+			<p class="eyebrow">Cura AI</p>
+			<h1>The AI copilot built into your healthcare organisation</h1>
+			<p class="lede">
+				CuraPilot is the AI intelligence layer that sits on top of your existing EMR and hospital
+				information system. It makes every clinician sharper, every operation tighter, and every
+				unit of revenue traceable.
+			</p>
+			<ul class="points">
+				{
+					tags.map((tag) => (
+						<li>
+							<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="m12 3 1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3L12 3Z"></path>
+							</svg>
+							<span>{tag} intelligence</span>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<figure class="visual">
+			{/* abstract accents behind the mock */}
+			<svg class="deco ring" viewBox="0 0 200 200" aria-hidden="true">
+				<circle cx="100" cy="100" r="88" fill="none" stroke="var(--brand-teal)" stroke-width="2" opacity="0.5"></circle>
+				<circle cx="100" cy="100" r="66" fill="none" stroke="var(--brand-blue)" stroke-width="2" opacity="0.35"></circle>
+			</svg>
+			<svg class="deco dots" viewBox="0 0 120 120" aria-hidden="true">
+				{
+					Array.from({ length: 25 }, (_, i) => (
+						<circle cx={8 + (i % 5) * 26} cy={8 + Math.floor(i / 5) * 26} r="3.5" fill="var(--brand-blue)" opacity="0.35" />
+					))
+				}
+			</svg>
+
+			<div class="card" aria-hidden="true">
+				<div class="card-head">
+					<p class="card-label">
+						<span class="beacon"></span>
+						CuraPilot · Clinical alert
+					</p>
+					<span class="priority">High priority</span>
+				</div>
+				<p class="card-title">Longitudinal pattern detected</p>
+				<p class="card-body">
+					Recurring symptoms across 8 encounters suggest an undiagnosed condition requiring
+					investigation.
+				</p>
+				<ul class="signals">
+					<li>Fatigue (8x)</li>
+					<li>Weight gain (6x)</li>
+					<li>Headaches (5x)</li>
+					<li>Blurred vision (3x)</li>
+				</ul>
+				<p class="advice">
+					Order comprehensive metabolic panel + thyroid function tests. Refer to endocrinology.
+				</p>
+				<ul class="checks">
+					{
+						checks.map((check) => (
+							<li class:list={[{ pending: !check.done }]}>
+								{check.done ? (
+									<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M20 6 9 17l-5-5"></path>
+									</svg>
+								) : (
+									<span class="spinner"></span>
+								)}
+								{check.label}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<span class="float-chip" aria-hidden="true">
+				<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+					<path d="m12 3 1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3L12 3Z"></path>
+				</svg>
+			</span>
+
+			<figcaption class="badge">
+				<strong>Clinician decides</strong>
+				<span>Advisory by design</span>
+			</figcaption>
+		</figure>
 	</div>
-</PageHero>
+</section>
+<style>
+	.hero {
+		background: var(--brand-wash);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+		overflow: hidden;
+	}
+	.hero p {
+		margin-bottom: 0;
+	}
+	.inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.85fr);
+		align-items: center;
+		gap: 4rem;
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 4.5rem 1.5rem 5.5rem;
+	}
+
+	.eyebrow {
+		margin: 0 0 0.85rem;
+		color: var(--brand-blue);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	h1 {
+		margin: 0;
+		max-width: 16ch;
+		color: var(--navy);
+		font-size: clamp(2.25rem, 4.4vw, 3.25rem);
+		font-weight: 700;
+		line-height: 1.08;
+		letter-spacing: -0.02em;
+	}
+	.lede {
+		margin: 1.35rem 0 0;
+		max-width: 48ch;
+		color: var(--muted);
+		font-size: 1.125rem;
+	}
+
+	.points {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem;
+		margin: 2rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.points li {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		padding: 0.45rem 0.95rem;
+		background: var(--surface);
+		color: var(--navy);
+		font-size: 0.875rem;
+		font-weight: 500;
+	}
+	.points svg {
+		flex-shrink: 0;
+		color: var(--brand-teal);
+	}
+
+	.visual {
+		position: relative;
+		width: 100%;
+		max-width: 430px;
+		margin: 0 auto;
+	}
+	.deco {
+		position: absolute;
+		z-index: 0;
+	}
+	.ring {
+		top: -3rem;
+		right: -3rem;
+		width: 140px;
+		height: 140px;
+	}
+	.dots {
+		bottom: -2.25rem;
+		right: -1.75rem;
+		width: 105px;
+		height: 105px;
+	}
+
+	.card {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.5rem 1.6rem;
+		background: var(--surface);
+		box-shadow: 0 20px 48px rgba(10, 37, 64, 14%);
+	}
+	.card-head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem 1rem;
+		padding-right: 2.25rem;
+	}
+	.card-label {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 0;
+		color: var(--muted);
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	.beacon {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: var(--brand-red);
+	}
+	.priority {
+		border-radius: 999px;
+		padding: 0.25rem 0.7rem;
+		background: #fde4e4;
+		color: #c22f38;
+		font-size: 0.75rem;
+		font-weight: 700;
+		white-space: nowrap;
+	}
+	.card-title {
+		margin: 1rem 0 0;
+		color: var(--navy);
+		font-size: 1.125rem;
+		font-weight: 700;
+	}
+	.card-body {
+		margin: 0.4rem 0 0 !important;
+		color: var(--muted);
+		font-size: 0.9375rem;
+	}
+	.signals {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin: 0.85rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.signals li {
+		border-radius: 999px;
+		padding: 0.25rem 0.7rem;
+		background: var(--brand-wash);
+		color: var(--navy);
+		font-size: 0.8125rem;
+		font-weight: 500;
+	}
+	.advice {
+		margin: 0.95rem 0 0 !important;
+		border-left: 3px solid var(--brand-teal);
+		border-radius: 0 10px 10px 0;
+		padding: 0.7rem 0.9rem;
+		background: var(--surface-tint);
+		color: var(--navy);
+		font-size: 0.9375rem;
+		font-weight: 500;
+	}
+	.checks {
+		display: grid;
+		gap: 0.45rem;
+		margin: 1rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.checks li {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--muted);
+		font-size: 0.8438rem;
+	}
+	.checks svg {
+		color: #067a6f;
+	}
+	.checks .pending {
+		opacity: 0.8;
+	}
+	.spinner {
+		width: 12px;
+		height: 12px;
+		border: 2px solid var(--brand-wash-deep);
+		border-top-color: var(--brand-blue);
+		border-radius: 50%;
+		animation: spin 1.1s linear infinite;
+	}
+	@keyframes spin {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	.float-chip {
+		position: absolute;
+		z-index: 2;
+		top: -1.25rem;
+		right: -1.1rem;
+		display: grid;
+		place-items: center;
+		width: 52px;
+		height: 52px;
+		border-radius: 16px;
+		background: var(--surface);
+		color: var(--brand-teal);
+		box-shadow: 0 12px 28px rgba(10, 37, 64, 16%);
+		animation: float 5.5s ease-in-out infinite;
+	}
+	@keyframes float {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-8px);
+		}
+	}
+
+	.badge {
+		position: absolute;
+		left: -1.25rem;
+		bottom: -1.1rem;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		gap: 0.1rem;
+		border-radius: 14px;
+		padding: 0.8rem 1.1rem;
+		background: var(--surface);
+		box-shadow: 0 14px 32px rgba(10, 37, 64, 18%);
+	}
+	.badge strong {
+		color: var(--navy);
+		font-size: 1rem;
+		font-weight: 700;
+	}
+	.badge span {
+		color: var(--muted);
+		font-size: 0.8125rem;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.float-chip {
+			animation: none;
+		}
+		.spinner {
+			animation: none;
+		}
+	}
+	@media (max-width: 1080px) {
+		.inner {
+			grid-template-columns: 1fr;
+			gap: 2.5rem;
+			padding: 3.5rem 1.5rem 4.5rem;
+		}
+		h1,
+		.lede {
+			max-width: none;
+		}
+		.badge {
+			left: 0.75rem;
+			bottom: 0.75rem;
+		}
+		.ring {
+			top: -1.5rem;
+			right: -1rem;
+			width: 110px;
+			height: 110px;
+		}
+		.dots {
+			right: -0.25rem;
+			bottom: -1.25rem;
+		}
+	}
+	@media (max-width: 720px) {
+		.inner {
+			padding: 2.75rem 1rem 3.25rem;
+		}
+	}
+</style>

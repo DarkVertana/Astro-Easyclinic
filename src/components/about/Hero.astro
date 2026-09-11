@@ -1,31 +1,174 @@
 ---
+import { Image } from 'astro:assets';
+import heroPhoto from '../../assets/about/hero.png';
 import PageHero from '../PageHero.astro';
-
-const facts = [
-	{ value: '2003', label: 'Founded' },
-	{ value: '5,000+', label: 'Doctors' },
-	{ value: '18', label: 'Countries' },
-];
 ---
 
 <PageHero
 	eyebrow="About us"
-	title="Clinic management software, built since 2003"
-	lede="EasyClinic started as doctor practice software for clinics tired of paper. Two decades on, thousands of practices still choose it because it is usable and priced to keep."
-	secondaryHref="/testimonials"
-	secondaryLabel="Customer stories"
+	title="Commitment to Streamline Your Clinic Operations"
+	lede="Established in 2003, Easy Clinic serves thousands of practitioners across 18 countries with user-friendly healthcare software, unmatched support, and pricing clinics can keep."
 >
-	<div class="card">
-		<p class="card-label">At a glance</p>
-		<ul class="rows">
+	<figure class="photo">
+		{/* abstract accents behind the photo */}
+		<svg class="deco ring" viewBox="0 0 200 200" aria-hidden="true">
+			<circle cx="100" cy="100" r="88" fill="none" stroke="var(--brand-teal)" stroke-width="2" opacity="0.5"></circle>
+			<circle cx="100" cy="100" r="66" fill="none" stroke="var(--brand-blue)" stroke-width="2" opacity="0.35"></circle>
+		</svg>
+		<svg class="deco dots" viewBox="0 0 120 120" aria-hidden="true">
 			{
-				facts.map((item) => (
-					<li class="fact">
-						<strong>{item.value}</strong>
-						<span>{item.label}</span>
-					</li>
+				Array.from({ length: 25 }, (_, i) => (
+					<circle cx={8 + (i % 5) * 26} cy={8 + Math.floor(i / 5) * 26} r="3.5" fill="var(--brand-blue)" opacity="0.35" />
 				))
 			}
-		</ul>
-	</div>
+		</svg>
+
+		<Image
+			src={heroPhoto}
+			alt="A clinician working in the Easy Clinic EMR on a laptop"
+			width={603}
+			height={613}
+			densities={[1, 1.5]}
+			loading="eager"
+		/>
+
+		{/* floating icon chips */}
+		<span class="chip chip-heart" aria-hidden="true">
+			<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M19.5 13.1 12 20.5l-7.5-7.4A5 5 0 1 1 12 6.4a5 5 0 1 1 7.5 6.7Z"></path>
+				<path d="M7.5 12h2l1-1.7 2 3.4 1-1.7h2.5"></path>
+			</svg>
+		</span>
+		<span class="chip chip-calendar" aria-hidden="true">
+			<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<rect x="3" y="4" width="18" height="17" rx="2"></rect>
+				<path d="M16 2v4M8 2v4M3 10h18"></path>
+			</svg>
+		</span>
+		<figcaption class="badge">
+			<strong>Since 2003</strong>
+			<span>5,000+ doctors · 18 countries</span>
+		</figcaption>
+	</figure>
 </PageHero>
+
+<style>
+	.photo {
+		position: relative;
+		width: fit-content;
+		margin: 0 auto;
+	}
+	.photo :global(img) {
+		position: relative;
+		z-index: 1;
+		display: block;
+		width: 100%;
+		max-width: 480px;
+		height: auto;
+		border-radius: 20px;
+		box-shadow: 0 20px 48px rgba(10, 37, 64, 14%);
+	}
+
+	/* abstract accents */
+	.deco {
+		position: absolute;
+		z-index: 0;
+	}
+	.ring {
+		top: -3.25rem;
+		right: -3.25rem;
+		width: 150px;
+		height: 150px;
+	}
+	.dots {
+		bottom: -2.5rem;
+		right: -2rem;
+		width: 110px;
+		height: 110px;
+	}
+
+	/* floating icon chips */
+	.chip {
+		position: absolute;
+		z-index: 2;
+		display: grid;
+		place-items: center;
+		width: 52px;
+		height: 52px;
+		border-radius: 16px;
+		background: var(--surface);
+		box-shadow: 0 12px 28px rgba(10, 37, 64, 16%);
+		animation: float 5.5s ease-in-out infinite;
+	}
+	.chip-heart {
+		top: 2rem;
+		right: -1.5rem;
+		color: var(--brand-red);
+	}
+	.chip-calendar {
+		top: 42%;
+		left: -1.75rem;
+		color: var(--brand-blue);
+		animation-delay: 1.4s;
+	}
+	@keyframes float {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-8px);
+		}
+	}
+
+	.badge {
+		position: absolute;
+		left: -1.25rem;
+		bottom: 1.5rem;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		gap: 0.1rem;
+		border-radius: 14px;
+		padding: 0.8rem 1.1rem;
+		background: var(--surface);
+		box-shadow: 0 14px 32px rgba(10, 37, 64, 18%);
+	}
+	.badge strong {
+		color: var(--navy);
+		font-size: 1rem;
+		font-weight: 700;
+	}
+	.badge span {
+		color: var(--muted);
+		font-size: 0.8125rem;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.chip {
+			animation: none;
+		}
+	}
+	@media (max-width: 1080px) {
+		.badge {
+			left: 0.75rem;
+			bottom: 0.75rem;
+		}
+		.chip-heart {
+			right: 0.75rem;
+		}
+		.chip-calendar {
+			left: 0.75rem;
+		}
+		.ring {
+			top: -1.5rem;
+			right: -1rem;
+			width: 110px;
+			height: 110px;
+		}
+		.dots {
+			right: -0.25rem;
+			bottom: -1.25rem;
+		}
+	}
+</style>

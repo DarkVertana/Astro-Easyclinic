@@ -1,289 +1,227 @@
 ---
+import { Image } from 'astro:assets';
+import SectionHead from '../SectionHead.astro';
+import clinical from '../../assets/curapilot/clinical.webp';
+import financial from '../../assets/curapilot/financial.webp';
+import operational from '../../assets/inventory-dashboard.webp';
 import { capabilityGroups } from './data';
+
+const groupImages = {
+	clinical: { src: clinical, alt: 'A clinician working on a laptop with a stethoscope beside it' },
+	operations: { src: operational, alt: 'Easy Clinic inventory and pharmacy dashboards' },
+	revenue: { src: financial, alt: 'Billing paperwork with a calculator' },
+} as const;
 ---
 
-<section class="caps">
+<section class="capabilities">
 	<div class="inner">
-		<div class="copy">
-			<p class="eyebrow">Capabilities</p>
-			<h2>Eleven AI capabilities on one EMR layer</h2>
-			<p class="lede">
-				CuraPilot is not one button. Clinical, operational, and financial intelligence from the same
-				EMR data, in real time.
-			</p>
+		<SectionHead
+			eyebrow="What it does"
+			title="One intelligence layer, working everywhere your clinic does"
+			lede="CuraPilot is not a chatbot bolted onto the side of your software. Its capabilities read from the same live record and feed each other: the prescription informs the claim, the claim informs the ledger, the ledger informs the reorder."
+		/>
 
-			<div class="tabs" role="tablist" aria-label="CuraPilot capability groups">
-				{
-					capabilityGroups.map((group, index) => (
-						<button
-							type="button"
-							role="tab"
-							aria-selected={index === 0 ? 'true' : 'false'}
-							data-cap-tab={group.id}
-						>
-							{group.label}
-						</button>
-					))
-				}
-			</div>
-
+		<div class="groups">
 			{
 				capabilityGroups.map((group, index) => (
-					<div
-						class="points"
-						data-cap-panel={group.id}
-						hidden={index !== 0}
-					>
-						{group.items.map((item, itemIndex) => (
-							<details open={itemIndex === 0}>
-								<summary>{item.title}</summary>
-								<div class="body" data-accordion-body>
-									<p>{item.copy}</p>
-								</div>
-							</details>
-						))}
+					<div class="group">
+						<div class="intro">
+							<p class="index">{String(index + 1).padStart(2, '0')}</p>
+							<h3>{group.label}</h3>
+							<p class="blurb">{group.blurb}</p>
+							{groupImages[group.id as keyof typeof groupImages] && (
+								<Image
+									class="group-img"
+									src={groupImages[group.id as keyof typeof groupImages].src}
+									alt={groupImages[group.id as keyof typeof groupImages].alt}
+									width={640}
+									height={440}
+									densities={[1, 1.5]}
+								/>
+							)}
+						</div>
+						<ul class="items" data-stagger>
+							{group.items.map((item) => (
+								<li>
+									<span class="chip" aria-hidden="true">
+										<svg
+											viewBox="0 0 24 24"
+											width="20"
+											height="20"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="1.8"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											set:html={item.icon}
+										/>
+									</span>
+									<div class="body">
+										<h4>{item.title}</h4>
+										<p>{item.copy}</p>
+									</div>
+								</li>
+							))}
+						</ul>
 					</div>
 				))
 			}
 		</div>
-
-		<div class="stack" aria-hidden="true">
-			<p class="stack-label">Always on</p>
-			<ul>
-				<li class="preview featured">
-					<span class="badge">Just now</span>
-					<strong>Protocol recommendation</strong>
-					<small>Metabolic panel + thyroid function. Refer endocrinology.</small>
-				</li>
-				<li class="preview">
-					<strong>Supply forecast</strong>
-					<small>Paracetamol 500mg — reorder in 12 days</small>
-				</li>
-				<li class="preview">
-					<strong>Claim pre-check</strong>
-					<small>Payer rules matched before submission</small>
-				</li>
-			</ul>
-		</div>
 	</div>
 </section>
-
-<script>
-	import { initAccordion } from '../../scripts/accordion';
-
-	const tabs = document.querySelectorAll<HTMLButtonElement>('[data-cap-tab]');
-	const panels = document.querySelectorAll<HTMLElement>('[data-cap-panel]');
-
-	const bindPanel = (panel: HTMLElement) => {
-		initAccordion(`[data-cap-panel="${panel.dataset.capPanel}"] details`);
-	};
-
-	panels.forEach((panel) => bindPanel(panel));
-
-	tabs.forEach((tab) => {
-		tab.addEventListener('click', () => {
-			const id = tab.dataset.capTab;
-			tabs.forEach((other) => other.setAttribute('aria-selected', other === tab ? 'true' : 'false'));
-			panels.forEach((panel) => {
-				panel.hidden = panel.dataset.capPanel !== id;
-			});
-		});
-	});
-</script>
 <style>
-	.caps {
+	.capabilities {
 		background: var(--surface);
 		color: var(--ink);
 		font-size: 16px;
 		line-height: 1.5;
 	}
 	.inner {
-		display: grid;
-		grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.8fr);
-		align-items: start;
-		gap: 4.5rem;
 		max-width: var(--page-max);
 		margin: 0 auto;
-		padding: 2rem 1.5rem 6rem;
+		padding: 5.5rem 1.5rem;
 	}
 
-	.eyebrow {
-		margin: 0 0 0.75rem;
-		color: var(--brand-blue);
-		font-size: 0.875rem;
-		font-weight: 600;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
+	.groups {
+		max-width: 1100px;
+		margin: 1.5rem auto 0;
 	}
-	h2 {
-		margin: 0;
-		max-width: 16ch;
-		color: var(--navy);
-		font-size: clamp(1.875rem, 3.4vw, 3rem);
-		font-weight: 700;
-		line-height: 1.1;
-		letter-spacing: -0.02em;
-	}
-	.lede {
-		margin: 1.25rem 0 0;
-		max-width: 46ch;
-		color: var(--muted);
-		font-size: 1.125rem;
-	}
-
-	.tabs {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-		margin-top: 2rem;
-	}
-	.tabs button {
-		border: 1.5px solid var(--border);
-		border-radius: 999px;
-		padding: 0.55rem 1rem;
-		background: var(--surface);
-		color: var(--navy);
-		font-family: inherit;
-		font-size: 0.9375rem;
-		font-weight: 600;
-		cursor: pointer;
-	}
-	.tabs button:hover {
-		border-color: var(--brand-blue);
-		color: var(--brand-blue);
-	}
-	.tabs button[aria-selected='true'] {
-		border-color: var(--navy);
-		background: var(--navy);
-		color: var(--surface);
-	}
-
-	.points {
-		margin-top: 1.5rem;
-	}
-	details {
-		position: relative;
-		border-bottom: 1px solid var(--border);
-		padding: 1.25rem 0;
-	}
-	details[open]::after {
-		content: '';
-		position: absolute;
-		bottom: -1px;
-		left: 0;
-		width: 40%;
-		height: 2px;
-		background: var(--navy);
-		animation: track 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-	}
-	@keyframes track {
-		from {
-			width: 0;
-		}
-	}
-	summary {
-		color: var(--navy);
-		font-size: 1.125rem;
-		font-weight: 600;
-		cursor: pointer;
-		list-style: none;
-	}
-	summary:hover {
-		color: var(--brand-blue);
-	}
-	summary::-webkit-details-marker {
-		display: none;
-	}
-	.body {
-		overflow: hidden;
-	}
-	.body p {
-		margin: 0.75rem 0 0;
-		max-width: 46ch;
-		color: var(--muted);
-	}
-
-	.stack {
-		margin-top: 5.5rem;
-	}
-	.stack-label {
-		margin: 0 0 0.85rem 0.15rem;
-		color: var(--navy);
-		font-size: 0.8125rem;
-		font-weight: 600;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-	}
-	.stack ul {
+	.group {
 		display: grid;
-		gap: 0.75rem;
+		grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.7fr);
+		gap: 2rem 4rem;
+		border-top: 1px solid var(--border);
+		padding: 3rem 0;
+	}
+	.group:first-child {
+		border-top: 0;
+		padding-top: 2.5rem;
+	}
+	.group:last-child {
+		padding-bottom: 0;
+	}
+
+	.intro {
+		position: sticky;
+		top: 2rem;
+		align-self: start;
+	}
+	.index {
+		margin: 0;
+		color: var(--brand-teal);
+		font-size: 0.875rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+	}
+	.intro h3 {
+		margin: 0.5rem 0 0;
+		color: var(--navy);
+		font-size: 1.5rem;
+		font-weight: 700;
+		line-height: 1.2;
+		letter-spacing: -0.01em;
+	}
+	.blurb {
+		margin: 0.75rem 0 0;
+		max-width: 30ch;
+		color: var(--muted);
+		font-size: 1rem;
+	}
+	.intro :global(img.group-img) {
+		display: block;
+		width: 100%;
+		max-width: 340px;
+		height: auto;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		margin-top: 1.5rem;
+		border-radius: 16px;
+		box-shadow: 0 16px 36px rgba(10, 37, 64, 12%);
+	}
+
+	.items {
 		margin: 0;
 		padding: 0;
 		list-style: none;
 	}
-	.preview {
+	.items li {
 		display: flex;
-		flex-direction: column;
-		gap: 0.2rem;
-		border: 1px solid rgba(10, 37, 64, 10%);
+		align-items: flex-start;
+		gap: 1.15rem;
 		border-radius: 16px;
-		padding: 1.1rem 1.25rem;
-		background: var(--surface);
-		box-shadow: 0 12px 32px rgba(10, 37, 64, 8%);
+		margin-inline: -1rem;
+		padding: 1.15rem 1rem;
+		transition: background 0.2s ease;
 	}
-	.preview.featured {
-		border-color: transparent;
-		background: var(--navy);
+	.items li + li {
+		border-top: 1px solid var(--border);
 	}
-	.preview.featured strong {
+	.items li:hover {
+		background: var(--brand-wash);
+	}
+	.chip {
+		display: grid;
+		place-items: center;
+		flex-shrink: 0;
+		width: 42px;
+		height: 42px;
+		border-radius: 12px;
+		background: var(--brand-wash);
+		color: var(--brand-blue);
+		transition:
+			background 0.2s ease,
+			color 0.2s ease;
+	}
+	.items li:hover .chip {
+		background: var(--brand-blue);
 		color: var(--surface);
 	}
-	.preview.featured small {
-		color: rgba(255, 255, 255, 0.72);
-	}
-	.badge {
-		width: fit-content;
-		margin-bottom: 0.25rem;
-		border-radius: 999px;
-		padding: 0.15rem 0.55rem;
-		background: var(--brand-teal);
-		color: var(--surface);
-		font-size: 0.6875rem;
-		font-weight: 700;
-	}
-	.preview strong {
+	h4 {
+		margin: 0.15rem 0 0;
 		color: var(--navy);
 		font-size: 1.0625rem;
 		font-weight: 700;
+		transition: color 0.2s ease;
 	}
-	.preview small {
+	.items li:hover h4 {
+		color: var(--brand-blue);
+	}
+	.body p {
+		margin: 0.35rem 0 0;
 		color: var(--muted);
-		font-size: 0.8125rem;
-		line-height: 1.4;
+		font-size: 0.9375rem;
 	}
 
-	@media (prefers-reduced-motion: reduce) {
-		details[open]::after {
-			animation: none;
-		}
-	}
 	@media (max-width: 1080px) {
 		.inner {
+			padding: 4rem 1.5rem;
+		}
+		.group {
 			grid-template-columns: 1fr;
-			gap: 2.5rem;
-			padding: 1rem 1.5rem 4.5rem;
+			gap: 1.5rem;
+			padding: 2.5rem 0;
 		}
-		.stack {
-			margin-top: 0;
+		.intro {
+			position: static;
 		}
-		h2,
-		.lede {
+		.blurb {
 			max-width: none;
 		}
+		.intro :global(img.group-img) {
+			max-width: 420px;
+		}
 	}
-	@media (max-width: 720px) {
+	@media (max-width: 640px) {
 		.inner {
-			padding: 0.5rem 1rem 3.5rem;
+			padding: 3rem 1rem;
+		}
+		.items li {
+			margin-inline: 0;
+			padding: 1rem 0;
+			border-radius: 0;
+		}
+		.items li:hover {
+			background: transparent;
 		}
 	}
 </style>

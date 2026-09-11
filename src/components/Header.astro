@@ -1,24 +1,60 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../assets/footer-logo-img-1.png';
+import telehealth from '../assets/telehealth-call.jpg';
 import { SITE_TITLE } from '../consts';
 
-const navLinks = [
-	{ href: '/curapilot', label: 'Cura AI' },
-	{ href: '/solutions', label: 'Solutions' },
-	{ href: '/pricing', label: 'Pricing' },
-	{ href: '/about-us', label: 'About us' },
-	{ href: '/blogs', label: 'Resources' },
+// small stroke icons for the flyout rows (24×24, currentColor)
+const icons: Record<string, string> = {
+	user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>',
+	users:
+		'<circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/><path d="M16 3.6a4 4 0 0 1 0 8.8"/><path d="M19 15.1c1.9.9 3 2.8 3 5.9"/>',
+	buildings:
+		'<rect x="2" y="8" width="9" height="13" rx="1"/><path d="M11 21h9a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-8a1 1 0 0 0-1 1v4"/><path d="M6 12h.01M6 16h.01M15.5 7h.01M15.5 11h.01M15.5 15h.01"/>',
+	hospital:
+		'<path d="M3 21h18"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/><path d="M12 7v4"/><path d="M10 9h4"/><path d="M9.5 21v-4h5v4"/>',
+	grid: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+	chat: '<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.4Z"/>',
+	chart: '<path d="M3 3v18h18"/><path d="M7 16v-5"/><path d="M12 16V8"/><path d="M17 16v-8"/>',
+	claim:
+		'<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/>',
+	wallet:
+		'<path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/>',
+	calendar: '<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+	document:
+		'<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 13h8"/><path d="M8 17h8"/>',
+	book: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>',
+	star: '<path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1Z"/>',
+};
+
+// mirrors the menu published on easyclinic.io, mapped onto this repo's routes
+const featureGroups = [
+	{
+		heading: 'Features by clinic type',
+		links: [
+			{ href: '/solutions/doctor-clinic', label: 'Individual Doctor & Specialist Clinic', icon: 'user' },
+			{ href: '/solutions/polyclinic', label: 'Group Practice & Polyclinic', icon: 'users' },
+			{ href: '/solutions/clinic-chain', label: 'Multi-Location Clinic Chain', icon: 'buildings' },
+			{ href: '/solutions/hospital-opd', label: 'Hospital OPD & Nursing Home', icon: 'hospital' },
+			{ href: '/features', label: 'All features', icon: 'grid' },
+		],
+	},
+	{
+		heading: 'Features by modules',
+		links: [
+			{ href: '/patient-engagement-at-easyclinic', label: 'Patient Engagement', icon: 'chat' },
+			{ href: '/reports-and-dashboards', label: 'Reports and Dashboards', icon: 'chart' },
+			{ href: '/payor-management', label: 'Payor Management', icon: 'claim' },
+			{ href: '/revenue-management', label: 'Revenue Management', icon: 'wallet' },
+			{ href: '/appointment-scheduling-at-easy-clinic', label: 'Appointment Scheduling', icon: 'calendar' },
+		],
+	},
 ];
 
-const featureLinks = [
-	{ href: '/features', label: 'All features' },
-	{ href: '/ai', label: 'Easy Clinic AI' },
-	{ href: '/appointment-scheduling-at-easy-clinic', label: 'Appointment scheduling' },
-	{ href: '/patient-engagement-at-easyclinic', label: 'Patient engagement' },
-	{ href: '/reports-and-dashboards', label: 'Reports & dashboards' },
-	{ href: '/payor-management', label: 'Payor management' },
-	{ href: '/revenue-management', label: 'Revenue management' },
+const resourceLinks = [
+	{ href: '/blogs', label: 'Blogs', external: false, icon: 'document' },
+	{ href: 'https://help.easyclinic.io/', label: 'Knowledgebase', external: true, icon: 'book' },
+	{ href: '/testimonials', label: 'Testimonials', external: false, icon: 'star' },
 ];
 
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
@@ -26,7 +62,11 @@ const subpath = pathname.match(/[^\/]+/g);
 const isActive = (href: string) => href === pathname || href === '/' + (subpath?.[0] || '');
 const featuresActive =
 	pathname === '/features' ||
-	featureLinks.some((link) => link.href !== '/features' && pathname === link.href);
+	pathname.startsWith('/solutions') ||
+	featureGroups.some((group) =>
+		group.links.some((link) => link.href !== '/features' && pathname === link.href)
+	);
+const resourcesActive = resourceLinks.some((link) => !link.external && isActive(link.href));
 ---
 
 <header>
@@ -51,7 +91,7 @@ const featuresActive =
 				<a href="/curapilot" class:list={['link', { active: isActive('/curapilot') }]}>
 					Cura AI
 				</a>
-				<details class="features">
+				<details class="dropdown has-mega">
 					<summary class:list={['link', { active: featuresActive }]}>
 						Features
 						<svg class="chevron" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true">
@@ -64,23 +104,95 @@ const featuresActive =
 								stroke-linejoin="round"></path>
 						</svg>
 					</summary>
-					<div class="flyout" role="menu">
-						{featureLinks.map((link) => (
-							<a href={link.href} role="menuitem" class:list={{ active: isActive(link.href) }}>
-								{link.label}
-							</a>
-						))}
+					<div class="flyout mega" role="menu">
+						{
+							featureGroups.map((group) => (
+								<div class="group">
+									<p class="group-head">{group.heading}</p>
+									{group.links.map((link) => (
+										<a href={link.href} role="menuitem" class:list={{ active: isActive(link.href) }}>
+											<span class="mi" aria-hidden="true">
+												<svg
+													viewBox="0 0 24 24"
+													width="17"
+													height="17"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="1.8"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													set:html={icons[link.icon]}
+												/>
+											</span>
+											{link.label}
+										</a>
+									))}
+								</div>
+							))
+						}
+						<a class="promo" href="/contact-us#demo-form">
+							<Image
+								class="promo-bg"
+								src={telehealth}
+								alt=""
+								width={320}
+								height={420}
+								densities={[1, 2]}
+								loading="lazy"
+							/>
+							<span class="promo-shade" aria-hidden="true"></span>
+							<span class="promo-title">See EasyClinic live</span>
+							<span class="promo-text">A free 30-minute demo on your own workflows.</span>
+						</a>
 					</div>
 				</details>
-				{
-					navLinks
-						.filter((link) => link.href !== '/curapilot')
-						.map((link) => (
-							<a href={link.href} class:list={['link', { active: isActive(link.href) }]}>
-								{link.label}
-							</a>
-						))
-				}
+				<a href="/pricing" class:list={['link', { active: isActive('/pricing') }]}>Pricing</a>
+				<a href="/about-us" class:list={['link', { active: isActive('/about-us') }]}>About us</a>
+				<details class="dropdown">
+					<summary class:list={['link', { active: resourcesActive }]}>
+						Resources
+						<svg class="chevron" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true">
+							<path
+								d="M2.5 4.5 6 8l3.5-3.5"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.6"
+								stroke-linecap="round"
+								stroke-linejoin="round"></path>
+						</svg>
+					</summary>
+					<div class="flyout" role="menu">
+						{
+							resourceLinks.map((link) => (
+								<a
+									href={link.href}
+									role="menuitem"
+									class:list={{ active: !link.external && isActive(link.href) }}
+									target={link.external ? '_blank' : undefined}
+									rel={link.external ? 'noopener noreferrer' : undefined}
+								>
+									<span class="mi" aria-hidden="true">
+										<svg
+											viewBox="0 0 24 24"
+											width="17"
+											height="17"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="1.8"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											set:html={icons[link.icon]}
+										/>
+									</span>
+									{link.label}
+								</a>
+							))
+						}
+					</div>
+				</details>
+				<a href="/contact-us" class:list={['link', { active: isActive('/contact-us') }]}>
+					Contact us
+				</a>
 			</div>
 			<div class="actions">
 				<a class="btn btn-ghost" href="/contact-us#demo-form">Book a Demo</a>
@@ -109,17 +221,34 @@ const featuresActive =
 				</summary>
 				<div class="drawer">
 					<a href="/curapilot">Cura AI</a>
-					<p class="drawer-label">Features</p>
-					{featureLinks.map((link) => (
-						<a class="drawer-sub" href={link.href}>
-							{link.label}
-						</a>
-					))}
-					{navLinks
-						.filter((link) => link.href !== '/curapilot')
-						.map((link) => (
-							<a href={link.href}>{link.label}</a>
-						))}
+					{
+						featureGroups.map((group) => (
+							<>
+								<p class="drawer-label">{group.heading}</p>
+								{group.links.map((link) => (
+									<a class="drawer-sub" href={link.href}>
+										{link.label}
+									</a>
+								))}
+							</>
+						))
+					}
+					<a href="/pricing">Pricing</a>
+					<a href="/about-us">About us</a>
+					<p class="drawer-label">Resources</p>
+					{
+						resourceLinks.map((link) => (
+							<a
+								class="drawer-sub"
+								href={link.href}
+								target={link.external ? '_blank' : undefined}
+								rel={link.external ? 'noopener noreferrer' : undefined}
+							>
+								{link.label}
+							</a>
+						))
+					}
+					<a href="/contact-us">Contact us</a>
 					<a class="btn btn-ghost" href="/contact-us#demo-form">Book a Demo</a>
 				</div>
 			</details>
@@ -129,22 +258,31 @@ const featuresActive =
 
 <script>
 	const menu = document.querySelector<HTMLDetailsElement>('.menu');
-	const features = document.querySelector<HTMLDetailsElement>('.features');
+	const dropdowns = Array.from(document.querySelectorAll<HTMLDetailsElement>('details.dropdown'));
 	const bar = document.querySelector('header');
 
-	if (features) {
-		features.querySelectorAll('.flyout a').forEach((link) =>
+	for (const dropdown of dropdowns) {
+		dropdown.querySelectorAll('.flyout a').forEach((link) =>
 			link.addEventListener('click', () => {
-				features.open = false;
+				dropdown.open = false;
 			})
 		);
-		document.addEventListener('click', (event) => {
-			if (!features.open) return;
-			if (event.target instanceof Node && !features.contains(event.target)) {
-				features.open = false;
+		// only one flyout stays open at a time
+		dropdown.addEventListener('toggle', () => {
+			if (!dropdown.open) return;
+			for (const other of dropdowns) {
+				if (other !== dropdown) other.open = false;
 			}
 		});
 	}
+	document.addEventListener('click', (event) => {
+		for (const dropdown of dropdowns) {
+			if (!dropdown.open) continue;
+			if (event.target instanceof Node && !dropdown.contains(event.target)) {
+				dropdown.open = false;
+			}
+		}
+	});
 
 	if (menu && bar) {
 		// the sheet starts where the header ends, and the banner height varies with wrapping
@@ -199,6 +337,8 @@ const featuresActive =
 		font-size: 1rem;
 	}
 	nav {
+		/* positioning context for the mega panel, so it centers under the bar */
+		position: relative;
 		display: flex;
 		align-items: center;
 		gap: 3rem;
@@ -222,7 +362,8 @@ const featuresActive =
 		display: flex;
 		align-items: center;
 		gap: 1.25rem;
-		margin-right: auto;
+		/* centers the link group between the brand and the action buttons */
+		margin-inline: auto;
 	}
 	.link {
 		display: inline-flex;
@@ -239,21 +380,25 @@ const featuresActive =
 	.link.active {
 		font-weight: 600;
 	}
-	.features {
+	.dropdown {
 		position: relative;
 	}
-	.features > summary {
+	/* the mega panel positions against the nav, not its trigger */
+	.dropdown.has-mega {
+		position: static;
+	}
+	.dropdown > summary {
 		list-style: none;
 		cursor: pointer;
 	}
-	.features > summary::-webkit-details-marker {
+	.dropdown > summary::-webkit-details-marker {
 		display: none;
 	}
 	.chevron {
 		flex-shrink: 0;
 		transition: transform 0.18s ease;
 	}
-	.features[open] > summary .chevron {
+	.dropdown[open] > summary .chevron {
 		transform: rotate(180deg);
 	}
 	.flyout {
@@ -269,9 +414,38 @@ const featuresActive =
 		background: var(--surface);
 		box-shadow: 0 16px 40px rgba(10, 37, 64, 12%);
 	}
+	.flyout.mega {
+		display: flex;
+		gap: 1.5rem;
+		padding: 1rem 1.25rem;
+		/* the wide panel centers on its trigger so the promo card stays on-screen */
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	.group {
+		display: grid;
+		align-content: start;
+		min-width: 16rem;
+	}
+	.group + .group {
+		border-left: 1px solid var(--border);
+		padding-left: 1.5rem;
+	}
+	.group-head {
+		margin: 0.35rem 0 0.5rem;
+		padding: 0 0.85rem;
+		color: var(--muted);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
 	.flyout a {
+		display: flex;
+		align-items: center;
+		gap: 0.7rem;
 		border-radius: 10px;
-		padding: 0.7rem 0.85rem;
+		padding: 0.55rem 0.85rem;
 		color: var(--ink);
 		font-size: 0.9375rem;
 		font-weight: 500;
@@ -282,6 +456,84 @@ const featuresActive =
 	.flyout a.active {
 		background: var(--brand-wash);
 		color: var(--brand-blue);
+	}
+	.mi {
+		display: grid;
+		place-items: center;
+		flex-shrink: 0;
+		width: 30px;
+		height: 30px;
+		border-radius: 9px;
+		background: var(--brand-wash);
+		color: var(--brand-blue);
+	}
+	.flyout a:hover .mi,
+	.flyout a.active .mi {
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+
+	/* right-side promo card in the Features mega menu
+	   (.flyout a.promo so it out-specifies the generic .flyout a row styles) */
+	.flyout a.promo {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+		gap: 0.55rem;
+		overflow: hidden;
+		width: 14.5rem;
+		margin-left: 0.25rem;
+		border-radius: 12px;
+		padding: 1.15rem 1.15rem 1.25rem;
+		background: var(--navy);
+		color: var(--surface);
+		white-space: normal;
+	}
+	.flyout a.promo:hover {
+		background: var(--navy);
+		color: var(--surface);
+	}
+	.promo > :global(img.promo-bg) {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.35s ease;
+	}
+	.promo:hover > :global(img.promo-bg) {
+		transform: scale(1.05);
+	}
+	/* navy wash keeps the copy readable over the photo */
+	.promo-shade {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		background: linear-gradient(
+			175deg,
+			rgba(10, 37, 64, 42%) 0%,
+			rgba(10, 37, 64, 82%) 48%,
+			rgba(0, 111, 212, 92%) 100%
+		);
+	}
+	.promo-title,
+	.promo-text {
+		position: relative;
+		z-index: 2;
+	}
+	.promo-title {
+		font-size: 1.0313rem;
+		font-weight: 700;
+		line-height: 1.25;
+	}
+	.promo-text {
+		color: #c6d4e3;
+		font-size: 0.8438rem;
+		font-weight: 400;
+		line-height: 1.5;
 	}
 	.drawer-label {
 		margin: 1.25rem 0 0.25rem;
@@ -333,7 +585,7 @@ const featuresActive =
 		position: relative;
 		flex-shrink: 0;
 	}
-	.menu summary {
+	.menu > summary {
 		display: grid;
 		place-items: center;
 		width: 44px;
@@ -344,7 +596,7 @@ const featuresActive =
 		cursor: pointer;
 		list-style: none;
 	}
-	.menu summary::-webkit-details-marker {
+	.menu > summary::-webkit-details-marker {
 		display: none;
 	}
 	.menu .cross,
@@ -396,8 +648,9 @@ const featuresActive =
 		}
 	}
 
-	/* Tighten spacing so Login is not clipped around laptop widths (~1024px). */
-	@media (max-width: 1120px) and (min-width: 961px) {
+	/* Tighten spacing so Login is not clipped around laptop widths (~1024px),
+	   and keep the wider mega panel on-screen. */
+	@media (max-width: 1220px) and (min-width: 961px) {
 		nav {
 			gap: 1.25rem;
 			padding: 0 1rem;
@@ -407,6 +660,9 @@ const featuresActive =
 		}
 		.btn {
 			padding: 0.7rem 0.95rem;
+		}
+		.promo {
+			display: none !important;
 		}
 	}
 	@media (max-width: 960px) {
@@ -420,7 +676,7 @@ const featuresActive =
 			display: block;
 		}
 		/* the toggle sits above the sheet it opens */
-		.menu[open] summary {
+		.menu[open] > summary {
 			position: relative;
 			z-index: 50;
 		}

@@ -1,4 +1,5 @@
 ---
+import SectionHead from '../SectionHead.astro';
 import { compareGroups, plans } from './data';
 
 const columns = plans.map((plan) => ({
@@ -15,12 +16,11 @@ const mark = (on: boolean) =>
 
 <section class="compare" id="compare">
 	<div class="inner">
-		<p class="eyebrow">What's included</p>
-		<h2>Compare every module</h2>
-		<p class="lede">
-			Professional covers day-to-day clinic work. Premium adds specialist and multi-location tools.
-			Enterprise is the full operating system for clinic chains.
-		</p>
+		<SectionHead
+			eyebrow="What's included"
+			title="Compare every module"
+			lede="Professional covers day-to-day clinic work. Premium adds specialist and multi-location tools. Enterprise is the full operating system for clinic chains."
+		/>
 
 		<div class="compare-table">
 			<p class="scroll-hint" aria-hidden="true">Swipe to compare →</p>
@@ -74,33 +74,6 @@ const mark = (on: boolean) =>
 		max-width: var(--page-max);
 		margin: 0 auto;
 		padding: 4.5rem 1.5rem 5.5rem;
-	}
-
-	.eyebrow {
-		margin: 0;
-		color: var(--brand-blue);
-		font-size: 0.875rem;
-		font-weight: 600;
-		letter-spacing: 0.08em;
-		text-align: center;
-		text-transform: uppercase;
-	}
-	h2 {
-		max-width: 18ch;
-		margin: 0.85rem auto 0;
-		color: var(--navy);
-		font-size: clamp(1.875rem, 3.4vw, 3rem);
-		font-weight: 700;
-		line-height: 1.1;
-		letter-spacing: -0.02em;
-		text-align: center;
-	}
-	.lede {
-		max-width: 54ch;
-		margin: 1rem auto 0;
-		color: var(--muted);
-		font-size: 1.125rem;
-		text-align: center;
 	}
 
 	.compare-table {

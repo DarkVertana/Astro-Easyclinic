@@ -44,7 +44,7 @@ export const capabilities: Capability[] = [
 			'Walk-ins, timed slots, reminders, waiting room, and multi-location books on one calendar.',
 		eyebrow: 'Scheduling',
 		title: 'Appointment & resource scheduling that keeps the floor moving',
-		lede: 'One book for doctors, rooms, and teleconsults — with reminders that cut no-shows and a waiting room that stays honest.',
+		lede: 'One book for doctors, rooms, and teleconsults, with reminders that cut no-shows and a waiting room that stays honest.',
 		note: 'Walk-ins, fixed slots, and follow-ups in the same day view.',
 		heroFacts: [
 			{ value: 'One calendar', label: 'Doctors, rooms, slots' },
@@ -55,7 +55,7 @@ export const capabilities: Capability[] = [
 			{
 				eyebrow: 'Day control',
 				title: 'Centralized appointment management',
-				lede: 'View, book, and adjust the day from one dashboard — so reception keeps pace when the clinic gets busy.',
+				lede: 'View, book, and adjust the day from one dashboard, so reception keeps pace when the clinic gets busy.',
 				items: [
 					{
 						title: 'Single dashboard view',
@@ -78,7 +78,7 @@ export const capabilities: Capability[] = [
 			{
 				eyebrow: 'Attendance',
 				title: 'Automated reminders that reduce no-shows',
-				lede: 'Reach patients on the channel they actually read — and know who acknowledged.',
+				lede: 'Reach patients on the channel they actually read, and know who acknowledged.',
 				items: [
 					{
 						title: 'Multi-channel reminders',
@@ -90,7 +90,7 @@ export const capabilities: Capability[] = [
 					},
 					{
 						title: 'Acknowledgment tracking',
-						copy: 'See who confirmed so reception can chase the right gaps — not every name on the list.',
+						copy: 'See who confirmed so reception can chase the right gaps, not every name on the list.',
 					},
 				],
 			},
@@ -120,7 +120,7 @@ export const capabilities: Capability[] = [
 				items: [
 					{
 						title: 'Online appointment booking',
-						copy: 'Patients pick available slots from your portal or app — front desk stops retyping the same call.',
+						copy: 'Patients pick available slots from your portal or app, front desk stops retyping the same call.',
 					},
 					{
 						title: 'Pre-visit onboarding',
@@ -139,7 +139,7 @@ export const capabilities: Capability[] = [
 				items: [
 					{
 						title: 'Built-in video & chat',
-						copy: 'Doctors and patients join from a browser on computer or phone — no extra apps to install.',
+						copy: 'Doctors and patients join from a browser on computer or phone, no extra apps to install.',
 					},
 					{
 						title: 'Online fee collection',
@@ -189,15 +189,15 @@ export const capabilities: Capability[] = [
 			{
 				question: 'Is online self-booking included?',
 				answer:
-					'Patients can book, complete intake forms, and check in digitally — reducing phone tag and counter queues.',
+					'Patients can book, complete intake forms, and check in digitally, reducing phone tag and counter queues.',
 			},
 		],
 		ctaTitle: 'See scheduling on your clinic calendar',
 		ctaLede:
 			'Book a demo and we will map slots, reminders, and waiting-room flow to how your front desk already works.',
-		seoTitle: 'Appointment Scheduling Software for Clinics — EasyClinic',
+		seoTitle: 'Appointment Scheduling Software for Clinics | EasyClinic',
 		seoDescription:
-			'Clinic appointment scheduling with walk-ins, reminders, waiting room, self-booking, teleconsults, and multi-location calendars — built into EasyClinic EMR.',
+			'Clinic appointment scheduling with walk-ins, reminders, waiting room, self-booking, teleconsults, and multi-location calendars, built into EasyClinic EMR.',
 	},
 	{
 		slug: 'patient-engagement-at-easyclinic',
@@ -205,10 +205,10 @@ export const capabilities: Capability[] = [
 		navLabel: 'Patient engagement',
 		cardTitle: 'Patient engagement',
 		cardCopy:
-			'Portal, mobile app, WhatsApp outreach, feedback, and loyalty — without a second stack.',
+			'Portal, mobile app, WhatsApp outreach, feedback, and loyalty, without a second stack.',
 		eyebrow: 'Engagement',
 		title: 'Patient engagement that stays beside the EMR',
-		lede: 'Portal and app access, enrollment links, teleconsults, feedback, and personalized WhatsApp / SMS — so retention is a workflow, not a campaign afterthought.',
+		lede: 'Portal and app access, enrollment links, teleconsults, feedback, and personalized WhatsApp / SMS, so retention is a workflow, not a campaign afterthought.',
 		heroFacts: [
 			{ value: 'Portal & app', label: 'Records & booking' },
 			{ value: 'WhatsApp', label: 'Rx, reminders, forms' },
@@ -222,7 +222,7 @@ export const capabilities: Capability[] = [
 				items: [
 					{
 						title: 'Self-serve appointments',
-						copy: 'Patients book or join a walk-in queue online — fewer missed calls and clearer day lists.',
+						copy: 'Patients book or join a walk-in queue online, fewer missed calls and clearer day lists.',
 					},
 					{
 						title: 'Records & plans',
@@ -241,7 +241,7 @@ export const capabilities: Capability[] = [
 			{
 				eyebrow: 'Onboarding',
 				title: 'Custom forms and enrollment links',
-				lede: 'Registration that starts on the patient’s phone — not a clipboard at the desk.',
+				lede: 'Registration that starts on the patient’s phone, not a clipboard at the desk.',
 				items: [
 					{
 						title: 'Clinic-specific forms',
@@ -268,7 +268,7 @@ export const capabilities: Capability[] = [
 				items: [
 					{
 						title: 'Browser-based video',
-						copy: 'No third-party meeting app — doctors and patients join from phone or computer.',
+						copy: 'No third-party meeting app, doctors and patients join from phone or computer.',
 					},
 					{
 						title: 'Fee collection built in',
@@ -283,7 +283,7 @@ export const capabilities: Capability[] = [
 			{
 				eyebrow: 'Feedback',
 				title: 'Patient feedback you can act on',
-				lede: 'Surveys, ratings, and forms that surface what to fix — and what to celebrate.',
+				lede: 'Surveys, ratings, and forms that surface what to fix, and what to celebrate.',
 				items: [
 					{
 						title: 'Structured insights',
@@ -295,14 +295,14 @@ export const capabilities: Capability[] = [
 					},
 					{
 						title: 'Trust & loyalty',
-						copy: 'Closing the loop on feedback shows patients their voice matters — and they come back.',
+						copy: 'Closing the loop on feedback shows patients their voice matters, and they come back.',
 					},
 				],
 			},
 			{
 				eyebrow: 'Outreach',
 				title: 'Personalized communication at clinic scale',
-				lede: 'WhatsApp, email, SMS, and notifications tuned to preferences — automated without sounding robotic.',
+				lede: 'WhatsApp, email, SMS, and notifications tuned to preferences, automated without sounding robotic.',
 				items: [
 					{
 						title: 'Channel preference',
@@ -321,7 +321,7 @@ export const capabilities: Capability[] = [
 			{
 				eyebrow: 'Loyalty',
 				title: 'Rewards that encourage regular care',
-				lede: 'Discounts, points, and offers for adherence and return visits — tied to the same patient record.',
+				lede: 'Discounts, points, and offers for adherence and return visits, tied to the same patient record.',
 				items: [
 					{
 						title: 'Encourage follow-ups',
@@ -358,9 +358,9 @@ export const capabilities: Capability[] = [
 		ctaTitle: 'Engage patients without another vendor stack',
 		ctaLede:
 			'See portal, WhatsApp, feedback, and teleconsult workflows on a demo tailored to your clinic.',
-		seoTitle: 'Patient Engagement Software for Clinics — EasyClinic',
+		seoTitle: 'Patient Engagement Software for Clinics | EasyClinic',
 		seoDescription:
-			'Patient engagement for clinics — portal and app, WhatsApp forms, teleconsults, feedback, and loyalty programs built into EasyClinic EMR.',
+			'Patient engagement for clinics, portal and app, WhatsApp forms, teleconsults, feedback, and loyalty programs built into EasyClinic EMR.',
 	},
 	{
 		slug: 'reports-and-dashboards',
@@ -370,8 +370,8 @@ export const capabilities: Capability[] = [
 		cardCopy:
 			'Real-time clinic KPIs, automated reports, and data-warehouse paths for Power BI when you outgrow PDFs.',
 		eyebrow: 'Analytics',
-		title: 'Reports and dashboards that answer the day — not last month',
-		lede: 'Real-time visualization, 100+ clinical and financial views, and optional ETL into a warehouse for Power BI — so leadership decides while the clinic is still open.',
+		title: 'Reports and dashboards that answer the day, not last month',
+		lede: 'Real-time visualization, 100+ clinical and financial views, and optional ETL into a warehouse for Power BI, so leadership decides while the clinic is still open.',
 		heroFacts: [
 			{ value: '100+ views', label: 'Clinical & finance' },
 			{ value: 'Real-time', label: 'KPIs while open' },
@@ -385,7 +385,7 @@ export const capabilities: Capability[] = [
 				items: [
 					{
 						title: 'Customizable dashboards',
-						copy: 'Pin the KPIs that matter — outcomes, utilization, revenue — and drop the noise.',
+						copy: 'Pin the KPIs that matter, outcomes, utilization, revenue, and drop the noise.',
 					},
 					{
 						title: 'Automated reporting',
@@ -393,7 +393,7 @@ export const capabilities: Capability[] = [
 					},
 					{
 						title: 'Role-aware access',
-						copy: 'Give doctors, managers, and HQ the views they need — nothing more.',
+						copy: 'Give doctors, managers, and HQ the views they need, nothing more.',
 					},
 				],
 			},
@@ -438,7 +438,7 @@ export const capabilities: Capability[] = [
 			{
 				eyebrow: 'Operations',
 				title: 'Efficiency that scales with the network',
-				lede: 'Automate compilation so staff stay with patients — and add sites without rebuilding analytics.',
+				lede: 'Automate compilation so staff stay with patients, and add sites without rebuilding analytics.',
 				items: [
 					{
 						title: 'Less manual compilation',
@@ -454,7 +454,7 @@ export const capabilities: Capability[] = [
 					},
 					{
 						title: 'Built to grow',
-						copy: 'Add clinics and users as the network expands — same reporting foundation.',
+						copy: 'Add clinics and users as the network expands, same reporting foundation.',
 					},
 				],
 			},
@@ -463,7 +463,7 @@ export const capabilities: Capability[] = [
 			{
 				question: 'How many dashboards does EasyClinic include?',
 				answer:
-					'EasyClinic ships with a large library of graphical dashboards and detailed reports covering clinical, administrative, inventory, and financial data — over 100 views in typical deployments.',
+					'EasyClinic ships with a large library of graphical dashboards and detailed reports covering clinical, administrative, inventory, and financial data, over 100 views in typical deployments.',
 			},
 			{
 				question: 'Can we connect EasyClinic data to Power BI?',
@@ -479,7 +479,7 @@ export const capabilities: Capability[] = [
 		ctaTitle: 'See your clinic KPIs on a live dashboard',
 		ctaLede:
 			'Book a demo and we will walk through the reports your managers and doctors ask for every week.',
-		seoTitle: 'Clinic Reports & Dashboards Software — EasyClinic',
+		seoTitle: 'Clinic Reports & Dashboards Software | EasyClinic',
 		seoDescription:
 			'Clinic reports and dashboards with real-time KPIs, 100+ views, automated reporting, and Power BI–ready data warehouse options in EasyClinic.',
 	},
@@ -492,7 +492,7 @@ export const capabilities: Capability[] = [
 			'Onboard insurers and corporates, encode coverage rules, and submit cleaner claims from the visit.',
 		eyebrow: 'Payors',
 		title: 'Payor management that keeps claims clean',
-		lede: 'Onboard insurers, corporates, and TPAs once — then apply coverage, subscription categories, and patient links automatically so billing stops guessing.',
+		lede: 'Onboard insurers, corporates, and TPAs once, then apply coverage, subscription categories, and patient links automatically so billing stops guessing.',
 		heroFacts: [
 			{ value: 'Fast setup', label: 'Payors in minutes' },
 			{ value: 'Coverage rules', label: 'Fewer rejections' },
@@ -502,7 +502,7 @@ export const capabilities: Capability[] = [
 			{
 				eyebrow: 'Setup',
 				title: 'Add payors in minutes, not spreadsheets',
-				lede: 'Create payor profiles with rates, contract terms, and covered services — then reuse them on every visit.',
+				lede: 'Create payor profiles with rates, contract terms, and covered services, then reuse them on every visit.',
 				items: [
 					{
 						title: 'Quick payor onboarding',
@@ -525,7 +525,7 @@ export const capabilities: Capability[] = [
 				items: [
 					{
 						title: 'Rule-based billing',
-						copy: 'Pre-defined contracts drive invoice lines — cutting inconsistency before submission.',
+						copy: 'Pre-defined contracts drive invoice lines, cutting inconsistency before submission.',
 					},
 					{
 						title: 'Faster reimbursement cycles',
@@ -552,7 +552,7 @@ export const capabilities: Capability[] = [
 					},
 					{
 						title: 'Clinic-shaped configuration',
-						copy: 'Tune categories to your specialties and patient mix — not a one-size hospital template.',
+						copy: 'Tune categories to your specialties and patient mix, not a one-size hospital template.',
 					},
 				],
 			},
@@ -567,7 +567,7 @@ export const capabilities: Capability[] = [
 					},
 					{
 						title: 'Billing transparency',
-						copy: 'Staff see what a patient’s plan covers at the point of care — fewer awkward surprises.',
+						copy: 'Staff see what a patient’s plan covers at the point of care, fewer awkward surprises.',
 					},
 					{
 						title: 'Rejection avoidance',
@@ -578,7 +578,7 @@ export const capabilities: Capability[] = [
 			{
 				eyebrow: 'Patients',
 				title: 'Link patients to the right payor from registration',
-				lede: 'Correct plan association from day one — with easy updates when coverage changes.',
+				lede: 'Correct plan association from day one, with easy updates when coverage changes.',
 				items: [
 					{
 						title: 'Automatic patient–payor linking',
@@ -590,7 +590,7 @@ export const capabilities: Capability[] = [
 					},
 					{
 						title: 'Real-time association updates',
-						copy: 'Change a patient’s plan when life or employer coverage shifts — without rebuilding the chart.',
+						copy: 'Change a patient’s plan when life or employer coverage shifts, without rebuilding the chart.',
 					},
 				],
 			},
@@ -615,9 +615,9 @@ export const capabilities: Capability[] = [
 		ctaTitle: 'Cleaner claims start at the visit',
 		ctaLede:
 			'Book a demo of EasyClinic payor management on your insurers, corporates, and TPA mix.',
-		seoTitle: 'Insurance & Payor Management for Clinics — EasyClinic',
+		seoTitle: 'Insurance & Payor Management for Clinics | EasyClinic',
 		seoDescription:
-			'Clinic payor management for insurers, corporates, and TPAs — fast onboarding, coverage rules, automated invoicing, and patient–plan linking in EasyClinic.',
+			'Clinic payor management for insurers, corporates, and TPAs, fast onboarding, coverage rules, automated invoicing, and patient–plan linking in EasyClinic.',
 	},
 	{
 		slug: 'revenue-management',
@@ -628,7 +628,7 @@ export const capabilities: Capability[] = [
 			'Orders to invoices, dynamic price lists, cash registers, payors, and financial dashboards in one loop.',
 		eyebrow: 'Revenue',
 		title: 'Revenue management that closes the till cleanly',
-		lede: 'Automate order-to-invoice, apply payor and price-list rules, control cash registers, and watch financial dashboards — so cash flow keeps up with care.',
+		lede: 'Automate order-to-invoice, apply payor and price-list rules, control cash registers, and watch financial dashboards, so cash flow keeps up with care.',
 		heroFacts: [
 			{ value: 'Order → invoice', label: 'Less rekeying' },
 			{ value: 'Dynamic prices', label: 'Payor & location lists' },
@@ -650,7 +650,7 @@ export const capabilities: Capability[] = [
 					},
 					{
 						title: 'Orders–inventory sync',
-						copy: 'Product usage reflects in stock and on the invoice together — fewer leakage gaps.',
+						copy: 'Product usage reflects in stock and on the invoice together, fewer leakage gaps.',
 					},
 					{
 						title: 'Faster reimbursement',
@@ -673,7 +673,7 @@ export const capabilities: Capability[] = [
 					},
 					{
 						title: 'Coverage at the point of care',
-						copy: 'Validate what is billable before the claim — not after a denial.',
+						copy: 'Validate what is billable before the claim, not after a denial.',
 					},
 					{
 						title: 'Patient–plan linking',
@@ -684,7 +684,7 @@ export const capabilities: Capability[] = [
 			{
 				eyebrow: 'Pricing',
 				title: 'Dynamic price lists for every segment',
-				lede: 'Context-based pricelists for customers, payors, and locations — with discounts you can measure.',
+				lede: 'Context-based pricelists for customers, payors, and locations, with discounts you can measure.',
 				items: [
 					{
 						title: 'Targeted discounts & offers',
@@ -759,9 +759,9 @@ export const capabilities: Capability[] = [
 		ctaTitle: 'Tighten revenue without slowing the front desk',
 		ctaLede:
 			'Book a demo of EasyClinic revenue management on your price lists, payors, and day-close workflow.',
-		seoTitle: 'Clinic Revenue Management Software — EasyClinic',
+		seoTitle: 'Clinic Revenue Management Software | EasyClinic',
 		seoDescription:
-			'Clinic revenue management — order-to-invoice automation, payor claims, dynamic pricing, cash registers, and financial dashboards in EasyClinic.',
+			'Clinic revenue management, order-to-invoice automation, payor claims, dynamic pricing, cash registers, and financial dashboards in EasyClinic.',
 	},
 ];
 

@@ -1,19 +1,32 @@
 ---
+import SectionHead from '../SectionHead.astro';
 import { problems } from './data';
 ---
 
 <section class="problems">
 	<div class="panel">
-		<p class="eyebrow">The problem</p>
-		<h2>Three leaks hiding inside clinic operations</h2>
-		<p class="lede">
-			Better outcomes need connection — clinical, operational, and financial data working as one
-			layer on the EMR.
-		</p>
+		<SectionHead
+			eyebrow="Why AI, why now"
+			title="Three leaks hiding inside clinic operations"
+			lede="Better outcomes rarely come from bigger budgets. They come from clinical, operational and financial data working as one layer on the EMR."
+		/>
 		<ul class="cards" data-stagger>
 			{
 				problems.map((item) => (
-					<li>
+					<li class="card">
+						<span class="chip" aria-hidden="true">
+							<svg
+								viewBox="0 0 24 24"
+								width="20"
+								height="20"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.8"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								set:html={item.icon}
+							/>
+						</span>
 						<p class="kicker">{item.kicker}</p>
 						<h3>{item.title}</h3>
 						<p>{item.copy}</p>
@@ -39,32 +52,6 @@ import { problems } from './data';
 		font-size: 16px;
 		line-height: 1.5;
 	}
-	.eyebrow {
-		margin: 0;
-		color: var(--brand-blue);
-		font-size: 0.875rem;
-		font-weight: 600;
-		letter-spacing: 0.08em;
-		text-align: center;
-		text-transform: uppercase;
-	}
-	h2 {
-		max-width: 18ch;
-		margin: 0.85rem auto 0;
-		color: var(--navy);
-		font-size: clamp(1.875rem, 3.4vw, 3rem);
-		font-weight: 700;
-		line-height: 1.1;
-		letter-spacing: -0.02em;
-		text-align: center;
-	}
-	.lede {
-		max-width: 52ch;
-		margin: 1.15rem auto 0;
-		color: var(--muted);
-		font-size: 1.125rem;
-		text-align: center;
-	}
 	.cards {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -74,46 +61,73 @@ import { problems } from './data';
 		padding: 0;
 		list-style: none;
 	}
-	.cards li {
+	.card {
 		display: flex;
 		flex-direction: column;
 		border: 1px solid var(--border);
 		border-radius: 20px;
 		padding: 1.75rem;
 		background: var(--surface-tint);
+		transition:
+			transform 0.2s ease,
+			border-color 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+	.card:hover {
+		border-color: var(--brand-blue);
+		box-shadow: 0 16px 36px rgba(10, 37, 64, 10%);
+		transform: translateY(-4px);
+	}
+	.chip {
+		display: grid;
+		place-items: center;
+		width: 44px;
+		height: 44px;
+		margin-bottom: 1.1rem;
+		border-radius: 12px;
+		background: var(--brand-wash);
+		color: var(--brand-blue);
+		transition:
+			background 0.2s ease,
+			color 0.2s ease;
+	}
+	.card:hover .chip {
+		background: var(--brand-blue);
+		color: var(--surface);
 	}
 	.kicker {
-		margin: 0 0 0.65rem;
+		margin: 0;
 		color: var(--brand-blue);
 		font-size: 0.75rem;
-		font-weight: 600;
-		letter-spacing: 0.08em;
+		font-weight: 700;
+		letter-spacing: 0.07em;
 		text-transform: uppercase;
 	}
 	h3 {
-		margin: 0;
+		margin: 0.35rem 0 0;
 		color: var(--navy);
-		font-size: 1.25rem;
+		font-size: 1.1875rem;
 		font-weight: 700;
-		line-height: 1.2;
+		line-height: 1.25;
 	}
-	.cards p {
-		margin: 0.75rem 0 0;
+	.card > p:not(.kicker):not(.stat) {
+		margin: 0.6rem 0 0;
 		color: var(--muted);
+		font-size: 0.9875rem;
 	}
 	.stat {
 		display: flex;
-		flex-direction: column;
-		gap: 0.15rem;
-		margin-top: auto;
-		padding-top: 1.5rem;
+		align-items: baseline;
+		gap: 0.55rem;
+		margin: 1.25rem 0 0;
+		border-top: 1px solid var(--border);
+		padding-top: 1.15rem;
 	}
 	.stat strong {
-		color: var(--navy);
-		font-size: 2rem;
+		color: var(--brand-blue);
+		font-size: 1.75rem;
 		font-weight: 700;
-		letter-spacing: -0.03em;
-		line-height: 1;
+		letter-spacing: -0.02em;
 	}
 	.stat small {
 		color: var(--muted);
@@ -126,11 +140,15 @@ import { problems } from './data';
 		}
 		.cards {
 			grid-template-columns: 1fr;
+			max-width: 30rem;
 		}
 	}
 	@media (max-width: 640px) {
 		.panel {
 			padding: 3rem 1rem 3rem;
+		}
+		.cards {
+			margin-top: 2.25rem;
 		}
 	}
 </style>

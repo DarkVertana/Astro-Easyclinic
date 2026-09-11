@@ -1,52 +1,117 @@
+---
+import { Image } from 'astro:assets';
+import telehealth from '../assets/telehealth-call.jpg';
+---
+
 <section class="cta">
 	<div class="inner">
-		<h2>Put EMR, billing, and care in one place</h2>
-		<p class="lede">
-			Join doctors using EasyClinic clinic management software to simplify scheduling, billing, and
-			patient care.
-		</p>
-		<div class="actions">
-			<a class="btn btn-solid" href="https://app.easyclinic.io/">Start for free</a>
-			<a class="btn btn-ghost" href="/contact-us#demo-form">Get a demo</a>
+		<div class="panel">
+			<div class="copy">
+				<svg class="dots" viewBox="0 0 120 120" aria-hidden="true">
+					{
+						Array.from({ length: 25 }, (_, i) => (
+							<circle cx={8 + (i % 5) * 26} cy={8 + Math.floor(i / 5) * 26} r="3.5" fill="#ffffff" opacity="0.14" />
+						))
+					}
+				</svg>
+				<h2>Put EMR, billing, and care in one place</h2>
+				<p class="lede">
+					Join doctors using EasyClinic clinic management software to simplify scheduling,
+					billing, and patient care.
+				</p>
+				<div class="actions">
+					<a class="btn btn-solid" href="https://app.easyclinic.io/">Start for free</a>
+					<a class="btn btn-ghost" href="/contact-us#demo-form">Get a demo</a>
+				</div>
+				<p class="note">Free trial · No lock-in contracts · Reception licence included</p>
+			</div>
+
+			<figure class="media">
+				<Image
+					src={telehealth}
+					alt="A doctor on a telehealth consultation in Easy Clinic"
+					width={760}
+					height={640}
+					densities={[1, 1.5]}
+				/>
+				<figcaption class="badge">
+					<span class="mark" aria-hidden="true">
+						<svg viewBox="0 0 138 138" width="20" height="20" role="img">
+							<path fill="#FF9D28" d="M3.4 51h88.4V17.9L3.4 51z"></path>
+							<path fill="#68C5ED" d="M91.8 17.9v117L133.6 2.3 91.8 17.9z"></path>
+							<path fill="#044D80" d="M91.8 51H58.4l33.4 83.8V51z"></path>
+							<path fill="#E54747" d="M3.4 51 67 72.5 58.4 51H3.4z"></path>
+						</svg>
+					</span>
+					<span class="badge-copy">
+						<strong>Rated 4.9 on Capterra</strong>
+						<small>by doctors who use it daily</small>
+					</span>
+				</figcaption>
+			</figure>
 		</div>
 	</div>
 </section>
 <style>
 	.cta {
 		background: var(--surface);
-		color: var(--ink);
+		color: var(--surface);
 		font-size: 16px;
 		line-height: 1.5;
 	}
 	.inner {
 		max-width: var(--page-max);
 		margin: 0 auto;
-		padding: 5rem 1.5rem 7rem;
-		text-align: center;
+		padding: 2rem 1.5rem 5.5rem;
+	}
+	.panel {
+		display: grid;
+		grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+		overflow: hidden;
+		border-radius: 28px;
+		background: var(--navy);
 	}
 
+	.copy {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 4.25rem 3rem 6rem 3.5rem;
+		text-align: left;
+	}
+	.dots {
+		position: absolute;
+		top: 1.5rem;
+		right: 1.75rem;
+		width: 95px;
+		height: 95px;
+		pointer-events: none;
+	}
 	h2 {
+		position: relative;
 		max-width: 18ch;
-		margin: 0 auto;
-		color: var(--navy);
-		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		margin: 0;
+		color: var(--surface);
+		font-size: clamp(1.875rem, 3.2vw, 2.625rem);
 		font-weight: 700;
-		line-height: 1.1;
+		line-height: 1.12;
 		letter-spacing: -0.02em;
 	}
 	.lede {
-		max-width: 50ch;
-		margin: 1.25rem auto 0;
-		color: var(--muted);
+		position: relative;
+		max-width: 44ch;
+		margin: 1.15rem 0 0;
+		color: rgba(255, 255, 255, 0.78);
 		font-size: 1.125rem;
 	}
 
 	.actions {
+		position: relative;
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
 		gap: 1rem;
-		margin-top: 2.5rem;
+		margin-top: 2.25rem;
 	}
 	.btn {
 		border-radius: 10px;
@@ -57,36 +122,130 @@
 		white-space: nowrap;
 	}
 	.btn-solid {
-		border: 1.5px solid var(--brand-blue);
-		background: var(--brand-blue);
-		color: var(--surface);
+		border: 1.5px solid var(--surface);
+		background: var(--surface);
+		color: var(--navy);
 	}
 	.btn-solid:hover {
-		border-color: var(--brand-blue-dark);
-		background: var(--brand-blue-dark);
-	}
-	.btn-ghost {
-		border: 1.5px solid var(--brand-blue);
-		color: var(--brand-blue);
-	}
-	.btn-ghost:hover {
-		background: var(--brand-blue);
+		border-color: var(--brand-teal);
+		background: var(--brand-teal);
 		color: var(--surface);
 	}
+	.btn-ghost {
+		border: 1.5px solid rgba(255, 255, 255, 0.55);
+		color: var(--surface);
+	}
+	.btn-ghost:hover {
+		border-color: var(--surface);
+		background: rgba(255, 255, 255, 0.1);
+	}
+	/* pinned to the panel's bottom-left corner */
 	.note {
-		margin: 1.25rem 0 0;
-		color: var(--muted);
+		position: absolute;
+		left: 3.5rem;
+		bottom: 1.75rem;
+		margin: 0;
+		color: rgba(255, 255, 255, 0.6);
 		font-size: 0.9375rem;
+		text-align: left;
+	}
+
+	.media {
+		position: relative;
+		margin: 0;
+		min-height: 320px;
+	}
+	.media :global(img) {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	.badge {
+		position: absolute;
+		left: 1.5rem;
+		bottom: 1.5rem;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		border-radius: 14px;
+		padding: 0.7rem 1rem;
+		background: var(--surface);
+		box-shadow: 0 14px 32px rgba(10, 37, 64, 24%);
+	}
+	.mark {
+		display: grid;
+		place-items: center;
+		width: 34px;
+		height: 34px;
+		border-radius: 10px;
+		background: var(--brand-wash);
+	}
+	.badge-copy {
+		display: flex;
+		flex-direction: column;
+		gap: 0.05rem;
+	}
+	.badge strong {
+		color: var(--navy);
+		font-size: 0.9375rem;
+		font-weight: 700;
+	}
+	.badge small {
+		color: var(--muted);
+		font-size: 0.8125rem;
 	}
 
 	@media (max-width: 1080px) {
 		.inner {
-			padding: 3.5rem 1.5rem 4.5rem;
+			padding: 1.5rem 1.5rem 4rem;
+		}
+		.copy {
+			padding: 3rem 2rem 5rem;
+		}
+		.note {
+			left: 2rem;
+			bottom: 1.5rem;
+		}
+	}
+	@media (max-width: 900px) {
+		.panel {
+			grid-template-columns: 1fr;
+		}
+		/* photo becomes a banner above the copy */
+		.media {
+			order: -1;
+			min-height: 230px;
+		}
+		.copy {
+			text-align: center;
+		}
+		h2,
+		.lede {
+			margin-inline: auto;
+		}
+		.dots {
+			display: none;
+		}
+		.note {
+			position: static;
+			margin-top: 2rem;
+			text-align: center;
+		}
+		.copy {
+			padding-bottom: 3rem;
 		}
 	}
 	@media (max-width: 720px) {
 		.inner {
-			padding: 2.5rem 1rem 3.5rem;
+			padding: 1rem 1rem 3rem;
+		}
+		.panel {
+			border-radius: 20px;
+		}
+		.copy {
+			padding: 2.5rem 1.25rem;
 		}
 		h2 {
 			max-width: 16ch;

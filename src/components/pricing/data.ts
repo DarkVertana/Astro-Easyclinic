@@ -58,7 +58,7 @@ export const plans: Plan[] = [
 		price: {
 			usd: { annual: 79, quarterly: 99 },
 			// INR annual from GoodFirms / Nerdisa (billed annually).
-			// Quarterly not publicly listed — ~25% above annual to mirror USD ~20% annual savings.
+			// Quarterly not publicly listed, ~25% above annual to mirror USD ~20% annual savings.
 			inr: { annual: 1499, quarterly: 1875 },
 		},
 		cadence: 'per doctor / month',
@@ -84,7 +84,7 @@ export const plans: Plan[] = [
 		price: {
 			usd: { annual: 99, quarterly: 129 },
 			// INR annual from GoodFirms / Nerdisa (billed annually).
-			// Quarterly not publicly listed — ~25% above annual to mirror USD ~20% annual savings.
+			// Quarterly not publicly listed, ~25% above annual to mirror USD ~20% annual savings.
 			inr: { annual: 1999, quarterly: 2499 },
 		},
 		cadence: 'per doctor / month',
@@ -220,12 +220,12 @@ export type PricingFaq = {
 export const pricingFaqs: PricingFaq[] = [
 	{
 		question: `How much time will it take to learn ${SITE_TITLE}?`,
-		answer: `${SITE_TITLE} is intuitive and simple to use. We train you at times that suit your clinic, and our support team walks you from beginner to expert in under an hour. A new way of working takes a little practice — this is the four-day plan we use:`,
+		answer: `${SITE_TITLE} is intuitive and simple to use. We train you at times that suit your clinic, and our support team walks you from beginner to expert in under an hour. A new way of working takes a little practice, this is the four-day plan we use:`,
 		list: [
-			'Day 1 — Basic training, 40 minutes',
-			'Day 2 — EMR scenario training, 40 minutes',
-			'Day 3 — Practice exercises, 20 minutes',
-			'Day 4 — Road to expertise, 20 minutes',
+			'Day 1, Basic training, 40 minutes',
+			'Day 2, EMR scenario training, 40 minutes',
+			'Day 3, Practice exercises, 20 minutes',
+			'Day 4, Road to expertise, 20 minutes',
 		],
 	},
 	{
@@ -252,6 +252,6 @@ export const pricingFaqs: PricingFaq[] = [
 	},
 	{
 		question: 'Why pay for an EMR when there are free alternatives?',
-		answer: `It costs real money to build, secure, and support clinical software. Free products usually recoup that cost from your data. Doctors spend years earning patients' trust — handing those records to a "free" EMR is a poor trade. On ${SITE_TITLE} you pay for the product, so the data stays yours.`,
+		answer: `It costs real money to build, secure, and support clinical software. Free products usually recoup that cost from your data. Doctors spend years earning patients' trust, handing those records to a "free" EMR is a poor trade. On ${SITE_TITLE} you pay for the product, so the data stays yours.`,
 	},
 ];

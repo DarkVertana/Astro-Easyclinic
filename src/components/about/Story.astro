@@ -1,30 +1,75 @@
 ---
+import { Image } from 'astro:assets';
+import SectionHead from '../SectionHead.astro';
+import americares from '../../assets/about/partners/americares.jpg';
+import cimas from '../../assets/about/partners/cimas.jpg';
+import northStar from '../../assets/about/partners/north-star-alliance.jpg';
+import penda from '../../assets/about/partners/penda-health.jpg';
+import qualitas from '../../assets/about/partners/qualitas-health.jpg';
+import who from '../../assets/about/partners/who.jpg';
+
 const pillars = [
 	{
 		title: 'Vision',
-		copy: 'To be the leading provider of innovative healthcare management solutions — changing how clinics operate and raising the quality of patient care globally.',
+		kind: 'light',
+		icon: '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',
+		copy: 'To be the leading provider of innovative healthcare management solutions, changing how clinics operate and raising the quality of patient care globally.',
 	},
 	{
 		title: 'Mission',
-		copy: 'Give healthcare organisations EMR and clinic tools that are advanced and actually usable — streamline operations, improve outcomes, and grow a smarter care ecosystem with AI.',
+		kind: 'dark',
+		icon: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+		copy: 'To empower healthcare organisations with advanced, intuitive software that streamlines operations and improves patient outcomes, using AI to build a smarter, more connected care ecosystem.',
 	},
+];
+
+// organisations shown on the live about page under this heading
+const partners = [
+	{ image: americares, name: 'AmeriCares' },
+	{ image: penda, name: 'Penda Health' },
+	{ image: cimas, name: 'Cimas' },
+	{ image: qualitas, name: 'Qualitas Health' },
+	{ image: who, name: 'World Health Organization' },
+	{ image: northStar, name: 'North Star Alliance' },
 ];
 ---
 
 <section class="story">
 	<div class="panel">
-		<p class="eyebrow">Why we exist</p>
-		<h2>A clinic software team that still answers</h2>
-		<p class="lede">
-			Known for usable EMR and clinic software, plus support that shows up. Same brief since 2003:
-			solid product, fair pricing, people on the phone.
-		</p>
-		<ul data-stagger>
+		<SectionHead
+			eyebrow="Who we are"
+			title="Empowering Healthcare Organisations Worldwide"
+			lede="Two decades of building for clinics, hospitals and health networks, from solo practices to global health organisations."
+		/>
+		<ul class="pillars content" data-stagger>
 			{
 				pillars.map((item) => (
-					<li>
+					<li class:list={['card', item.kind]}>
+						<span class="chip" aria-hidden="true">
+							<svg
+								viewBox="0 0 24 24"
+								width="20"
+								height="20"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.8"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								set:html={item.icon}
+							/>
+						</span>
 						<h3>{item.title}</h3>
 						<p>{item.copy}</p>
+					</li>
+				))
+			}
+		</ul>
+		<p class="partners-label">In the company of organisations like</p>
+		<ul class="partners" data-stagger>
+			{
+				partners.map((partner) => (
+					<li>
+						<Image src={partner.image} alt={partner.name} width={200} height={84} densities={[1, 2]} />
 					</li>
 				))
 			}
@@ -38,51 +83,53 @@ const pillars = [
 	.panel {
 		background: var(--surface);
 		border-radius: 24px 24px 0 0;
-		padding: 5.5rem 1.5rem 2rem;
+		padding: 5.5rem 1.5rem 2.75rem;
 		color: var(--ink);
 		font-size: 16px;
 		line-height: 1.5;
 	}
-	.eyebrow {
-		margin: 0;
-		color: var(--brand-blue);
-		font-size: 0.875rem;
-		font-weight: 600;
-		letter-spacing: 0.08em;
-		text-align: center;
-		text-transform: uppercase;
+	.content {
+		margin-top: 3rem;
 	}
-	h2 {
-		max-width: 18ch;
-		margin: 0.85rem auto 0;
-		color: var(--navy);
-		font-size: clamp(1.875rem, 3.4vw, 3rem);
-		font-weight: 700;
-		line-height: 1.1;
-		letter-spacing: -0.02em;
-		text-align: center;
-	}
-	.lede {
-		max-width: 54ch;
-		margin: 1.15rem auto 0;
-		color: var(--muted);
-		font-size: 1.125rem;
-		text-align: center;
-	}
-	ul {
+	.pillars {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 1.25rem;
 		max-width: var(--page-max);
-		margin: 3rem auto 0;
+		margin-inline: auto;
 		padding: 0;
 		list-style: none;
 	}
-	li {
+	.card {
 		border: 1px solid var(--border);
 		border-radius: 20px;
-		padding: 1.75rem;
+		padding: 2rem;
 		background: var(--surface-tint);
+		transition:
+			transform 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+	.card:hover {
+		box-shadow: 0 16px 36px rgba(10, 37, 64, 10%);
+		transform: translateY(-4px);
+	}
+	.card.dark {
+		border-color: transparent;
+		background: var(--navy);
+	}
+	.chip {
+		display: grid;
+		place-items: center;
+		width: 44px;
+		height: 44px;
+		margin-bottom: 1.1rem;
+		border-radius: 12px;
+		background: var(--brand-wash);
+		color: var(--brand-blue);
+	}
+	.card.dark .chip {
+		background: rgba(255, 255, 255, 12%);
+		color: var(--brand-teal);
 	}
 	h3 {
 		margin: 0;
@@ -90,21 +137,71 @@ const pillars = [
 		font-size: 1.25rem;
 		font-weight: 700;
 	}
-	li p {
+	.card.dark h3 {
+		color: var(--surface);
+	}
+	.card p {
 		margin: 0.75rem 0 0;
 		color: var(--muted);
 	}
+	.card.dark p {
+		color: rgba(255, 255, 255, 0.78);
+	}
+	.partners-label {
+		margin: 3.5rem 0 0;
+		color: var(--muted);
+		font-size: 0.8125rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	.partners {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 1.25rem 2.75rem;
+		max-width: var(--page-max);
+		margin: 1.5rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	.partners :global(img) {
+		display: block;
+		width: auto;
+		height: 52px;
+		object-fit: contain;
+		filter: grayscale(1);
+		opacity: 0.7;
+		transition:
+			filter 0.2s ease,
+			opacity 0.2s ease;
+	}
+	.partners li:hover :global(img) {
+		filter: none;
+		opacity: 1;
+	}
 	@media (max-width: 1080px) {
 		.panel {
-			padding: 4rem 1.5rem 1.5rem;
+			padding: 4rem 1.5rem 2rem;
 		}
-		ul {
+		.pillars {
 			grid-template-columns: 1fr;
 		}
 	}
 	@media (max-width: 640px) {
 		.panel {
-			padding: 3rem 1rem 1rem;
+			padding: 3rem 1rem 1.5rem;
+		}
+		.content {
+			margin-top: 2.25rem;
+		}
+		.partners {
+			gap: 1rem 1.5rem;
+		}
+		.partners :global(img) {
+			height: 40px;
 		}
 	}
 </style>

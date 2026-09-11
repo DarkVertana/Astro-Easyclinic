@@ -44,7 +44,7 @@ export const solutions: Solution[] = [
 		eyebrow: 'Doctor clinic',
 		title: 'EMR for individual doctor clinics',
 		lede: 'Practice management software that stays light: thirty-second prescriptions, a day calendar you trust, and a till that balances before you leave.',
-		note: 'Priced for solo clinics — not only hospitals.',
+		note: 'Priced for solo clinics, not only hospitals.',
 		heroFacts: [
 			{ value: 'Solo-ready', label: 'Day-one EMR' },
 			{ value: 'Telehealth', label: 'When patients stay home' },
@@ -71,7 +71,7 @@ export const solutions: Solution[] = [
 		fitEyebrow: 'Who it’s for',
 		fitTitle: 'Built for the consulting room, not the ward',
 		fitLede:
-			'Solo physicians and small practices that need fast EMR, a trustworthy calendar, and simple billing — without hospital-only complexity.',
+			'Solo physicians and small practices that need fast EMR, a trustworthy calendar, and simple billing, without hospital-only complexity.',
 		fit: [
 			'GPs and single-specialty clinics',
 			'One or two doctors sharing a desk',
@@ -80,11 +80,11 @@ export const solutions: Solution[] = [
 		modulesEyebrow: 'Modules',
 		modulesTitle: 'What a doctor clinic runs on',
 		modulesLede:
-			'Start with EMR, appointments, and billing. Add reception, a second doctor, or another site later — same clinic management software.',
+			'Start with EMR, appointments, and billing. Add reception, a second doctor, or another site later, same clinic management software.',
 		modules: [
 			{
 				title: 'EMR',
-				copy: 'Fast, flexible charts and Rx — including specialist forms when you need them.',
+				copy: 'Fast, flexible charts and Rx, including specialist forms when you need them.',
 			},
 			{
 				title: 'Scheduling',
@@ -100,7 +100,7 @@ export const solutions: Solution[] = [
 			},
 			{
 				title: 'Reports',
-				copy: 'Dashboards for visits, revenue, and follow-ups — sized for a single practice.',
+				copy: 'Dashboards for visits, revenue, and follow-ups, sized for a single practice.',
 			},
 			{
 				title: 'Cura AI',
@@ -111,7 +111,7 @@ export const solutions: Solution[] = [
 			{
 				question: 'Is EasyClinic overkill for a solo doctor clinic?',
 				answer:
-					'No. Use only the modules you need — EMR, scheduling, and billing — without hospital-only features in your way.',
+					'No. Use only the modules you need, EMR, scheduling, and billing, without hospital-only features in your way.',
 			},
 			{
 				question: 'Can I try doctor practice software before I pay?',
@@ -126,9 +126,9 @@ export const solutions: Solution[] = [
 		],
 		ctaTitle: 'Run your clinic on one EMR',
 		ctaLede: 'See EasyClinic doctor clinic software on your specialties and schedule.',
-		seoTitle: 'Doctor Clinic Software & EMR — EasyClinic',
+		seoTitle: 'Doctor Clinic Software & EMR | EasyClinic',
 		seoDescription:
-			'EMR and doctor clinic software for individual practices — fast charts, scheduling, billing, and WhatsApp reminders. Start simple, grow without switching.',
+			'EMR and doctor clinic software for individual practices, fast charts, scheduling, billing, and WhatsApp reminders. Start simple, grow without switching.',
 	},
 	{
 		slug: 'polyclinic',
@@ -136,10 +136,10 @@ export const solutions: Solution[] = [
 		navLabel: 'Polyclinic',
 		cardTitle: 'Polyclinic',
 		cardCopy:
-			'Multi-specialty coordination — shared records, rooms, and till across doctors.',
+			'Multi-specialty coordination, shared records, rooms, and till across doctors.',
 		eyebrow: 'Polyclinic',
 		title: 'EMR for multi-specialty polyclinics',
-		lede: 'Clinic management software that keeps specialties aligned — one patient record, shared rooms and slots, and a till that still closes cleanly.',
+		lede: 'Clinic management software that keeps specialties aligned, one patient record, shared rooms and slots, and a till that still closes cleanly.',
 		heroFacts: [
 			{ value: 'Multi-specialty', label: 'One patient timeline' },
 			{ value: 'Shared rooms', label: 'One book for the floor' },
@@ -174,11 +174,11 @@ export const solutions: Solution[] = [
 		],
 		modulesEyebrow: 'Modules',
 		modulesTitle: 'What the polyclinic shares',
-		modulesLede: 'Coordination is the product — not another login per department.',
+		modulesLede: 'Coordination is the product, not another login per department.',
 		modules: [
 			{
 				title: 'Specialty EMR',
-				copy: 'Templates and workflows per doctor — still one patient timeline.',
+				copy: 'Templates and workflows per doctor, still one patient timeline.',
 			},
 			{
 				title: 'Resource scheduling',
@@ -198,7 +198,7 @@ export const solutions: Solution[] = [
 			},
 			{
 				title: 'Access control',
-				copy: 'Roles so each specialty sees what it should — and nothing more.',
+				copy: 'Roles so each specialty sees what it should, and nothing more.',
 			},
 			{
 				title: 'Cura AI',
@@ -214,7 +214,7 @@ export const solutions: Solution[] = [
 			{
 				question: 'Does polyclinic software include pharmacy and lab?',
 				answer:
-					'Yes on Premium/Enterprise-style setups — dispensing and lab reporting sit beside the visit.',
+					'Yes on Premium/Enterprise-style setups, dispensing and lab reporting sit beside the visit.',
 			},
 			{
 				question: 'How do we control who sees what?',
@@ -223,9 +223,9 @@ export const solutions: Solution[] = [
 		],
 		ctaTitle: 'Coordinate the polyclinic without the chaos',
 		ctaLede: 'Book a demo of EasyClinic polyclinic management software on your specialty mix.',
-		seoTitle: 'Polyclinic Management Software & EMR — EasyClinic',
+		seoTitle: 'Polyclinic Management Software & EMR | EasyClinic',
 		seoDescription:
-			'Polyclinic management software for multi-specialty clinics — shared EMR, scheduling, billing, pharmacy, and lab in one coordinated system.',
+			'Polyclinic management software for multi-specialty clinics, shared EMR, scheduling, billing, pharmacy, and lab in one coordinated system.',
 	},
 	{
 		slug: 'clinic-chain',
@@ -245,7 +245,7 @@ export const solutions: Solution[] = [
 		problemsEyebrow: 'The friction',
 		problemsTitle: 'What breaks when clinics multiply',
 		problemsLede:
-			'Each new location should feel like the brand — not a separate database, till, and stockroom HQ cannot see.',
+			'Each new location should feel like the brand, not a separate database, till, and stockroom HQ cannot see.',
 		problems: [
 			{
 				title: 'Every branch invents its own process',
@@ -271,7 +271,7 @@ export const solutions: Solution[] = [
 		],
 		modulesEyebrow: 'Modules',
 		modulesTitle: 'What the chain runs centrally',
-		modulesLede: 'Add sites for growth — not for another spreadsheet stack.',
+		modulesLede: 'Add sites for growth, not for another spreadsheet stack.',
 		modules: [
 			{
 				title: 'Multi-location EMR',
@@ -311,7 +311,7 @@ export const solutions: Solution[] = [
 			{
 				question: 'How do we standardise care across cities?',
 				answer:
-					'Clinical SOP tracking and shared templates — visible to leadership, usable at the desk.',
+					'Clinical SOP tracking and shared templates, visible to leadership, usable at the desk.',
 			},
 			{
 				question: 'Is clinic chain software only for huge networks?',
@@ -321,9 +321,9 @@ export const solutions: Solution[] = [
 		],
 		ctaTitle: 'Run the chain from one clinic platform',
 		ctaLede: 'See EasyClinic clinic chain software on your locations and SOPs.',
-		seoTitle: 'Clinic Chain Software & Multi-Location EMR — EasyClinic',
+		seoTitle: 'Clinic Chain Software & Multi-Location EMR | EasyClinic',
 		seoDescription:
-			'Clinic chain software for multi-location practices — central EMR, SOPs, inventory, billing, and KPIs across every site.',
+			'Clinic chain software for multi-location practices, central EMR, SOPs, inventory, billing, and KPIs across every site.',
 	},
 	{
 		slug: 'hospital-opd',
@@ -334,7 +334,7 @@ export const solutions: Solution[] = [
 			'High-volume outpatient EMR, pharmacy, lab, and payor workflows in one system.',
 		eyebrow: 'Hospital OPD',
 		title: 'EMR for hospital OPD and nursing homes',
-		lede: 'Clinic and OPD management software for busy outpatient floors — throughput, pharmacy, lab, and claims without losing the chart.',
+		lede: 'Clinic and OPD management software for busy outpatient floors, throughput, pharmacy, lab, and claims without losing the chart.',
 		heroFacts: [
 			{ value: 'High volume', label: 'OPD built for queues' },
 			{ value: 'Payors', label: 'Claims before denial' },
@@ -370,7 +370,7 @@ export const solutions: Solution[] = [
 		modulesEyebrow: 'Modules',
 		modulesTitle: 'What the OPD floor needs',
 		modulesLede:
-			'Built for OPD and nursing-home throughput — not a stripped GP toy, not an immovable HIS project.',
+			'Built for OPD and nursing-home throughput, not a stripped GP toy, not an immovable HIS project.',
 		modules: [
 			{
 				title: 'High-volume EMR',
@@ -413,14 +413,14 @@ export const solutions: Solution[] = [
 			},
 			{
 				question: 'Does it support insurance billing?',
-				answer: 'Yes — payor and claim-oriented workflows on Enterprise-style plans.',
+				answer: 'Yes, payor and claim-oriented workflows on Enterprise-style plans.',
 			},
 		],
 		ctaTitle: 'Steady the OPD with one EMR',
 		ctaLede: 'Book a demo of EasyClinic hospital OPD software on your volumes and specialties.',
-		seoTitle: 'Hospital OPD & Nursing Home Software — EasyClinic',
+		seoTitle: 'Hospital OPD & Nursing Home Software | EasyClinic',
 		seoDescription:
-			'Hospital OPD and nursing home software — high-volume EMR, scheduling, billing, pharmacy, lab, and payor management in one system.',
+			'Hospital OPD and nursing home software, high-volume EMR, scheduling, billing, pharmacy, lab, and payor management in one system.',
 	},
 ];
 
@@ -434,18 +434,18 @@ export const solutionSlugs = solutions.map((s) => s.slug);
 export const indexCopy = {
 	eyebrow: 'Solutions',
 	title: 'Clinic software shaped to how you practise',
-	lede: 'One EMR and clinic management platform — tuned for solo doctors, multi-specialty polyclinics, chains, and hospital OPD.',
+	lede: 'One EMR and clinic management platform, tuned for solo doctors, multi-specialty polyclinics, chains, and hospital OPD.',
 	note: 'Used by 5,000+ doctors across 200 cities.',
 	sectionTitle: 'Pick the setup that matches your clinic',
 	sectionLede:
 		'Same EasyClinic foundation. Different emphasis for how patients, staff, and revenue move through your day.',
 	fitTitle: 'Not sure which page fits?',
-	fitLede: 'Start with how many doctors and sites you run — we’ll match EMR modules on the demo.',
+	fitLede: 'Start with how many doctors and sites you run, we’ll match EMR modules on the demo.',
 	ctaTitle: 'See EasyClinic on your workflow',
 	ctaLede: 'Book a demo and we’ll map EMR, scheduling, and billing to your clinic type.',
-	seoTitle: 'Solutions — EasyClinic',
+	seoTitle: 'Solutions | EasyClinic',
 	seoDescription:
-		'EasyClinic clinic management software for doctor clinics, polyclinics, clinic chains, and hospital OPD — EMR, scheduling, billing, and Cura AI.',
+		'EasyClinic clinic management software for doctor clinics, polyclinics, clinic chains, and hospital OPD, EMR, scheduling, billing, and Cura AI.',
 	heroFacts: [
 		{ value: '4 setups', label: 'Clinic to hospital OPD' },
 		{ value: 'One EMR', label: 'Shared foundation' },

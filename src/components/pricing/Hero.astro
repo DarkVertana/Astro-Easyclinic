@@ -1,67 +1,57 @@
 ---
+import { Image } from 'astro:assets';
+import doctor from '../../assets/pricing-hero.webp';
 import { SITE_TITLE } from '../../consts';
-import { plans, priceAttrs } from './data';
-
-const glance = {
-	professional: 'GPs and physicians',
-	premium: 'Specialists',
-	enterprise: 'Clinic chains',
-};
 ---
 
 <section class="hero">
 	<div class="inner">
 		<div class="copy">
 			<p class="eyebrow">Pricing</p>
-			<h1>Clinic management plans priced per doctor</h1>
+			<h1>Easy Plans. Easy Pricing. No&nbsp;Surprises.</h1>
 			<p class="lede">
 				One price per doctor, reception included, no lock-in. Start with the EMR you need and grow{' '}
 				{SITE_TITLE} as the practice grows.
 			</p>
-			<div class="cta">
-				<a class="btn btn-solid" href="/contact-us#demo-form">Book a Demo</a>
-				<a class="btn btn-ghost" href="https://app.easyclinic.io/">Login</a>
-			</div>
 			<p class="proof">Used by 5,000+ doctors across 200 cities.</p>
 		</div>
 
-		<div class="stack">
-			<p class="stack-label">At a glance</p>
-			<ul>
+		<figure class="visual">
+			{/* abstract accents behind the screenshot */}
+			<svg class="deco ring" viewBox="0 0 200 200" aria-hidden="true">
+				<circle cx="100" cy="100" r="88" fill="none" stroke="var(--brand-teal)" stroke-width="2" opacity="0.5"></circle>
+				<circle cx="100" cy="100" r="66" fill="none" stroke="var(--brand-blue)" stroke-width="2" opacity="0.35"></circle>
+			</svg>
+			<svg class="deco dots" viewBox="0 0 120 120" aria-hidden="true">
 				{
-					plans.map((plan) => {
-						const p = priceAttrs(plan.price);
-						return (
-							<li>
-								<a
-									class:list={['preview', { featured: plan.featured }]}
-									href={`#plan-${plan.id}`}
-								>
-									<span class="who">
-										{plan.featured && <span class="badge">Popular</span>}
-										<strong>{plan.name}</strong>
-										<small>{glance[plan.id]}</small>
-									</span>
-									<span class="cost">
-										<span
-											class="amount"
-											data-price
-											data-usd-annual={p.usdAnnual}
-											data-usd-quarterly={p.usdQuarterly}
-											data-inr-annual={p.inrAnnual}
-											data-inr-quarterly={p.inrQuarterly}
-										>
-											{p.usdAnnual}
-										</span>
-										<small>{plan.cadence}</small>
-									</span>
-								</a>
-							</li>
-						);
-					})
+					Array.from({ length: 25 }, (_, i) => (
+						<circle cx={8 + (i % 5) * 26} cy={8 + Math.floor(i / 5) * 26} r="3.5" fill="var(--brand-blue)" opacity="0.35" />
+					))
 				}
-			</ul>
-		</div>
+			</svg>
+
+			<Image
+				src={doctor}
+				alt="A doctor checking Easy Clinic on their phone"
+				width={1040}
+				height={693}
+				densities={[1, 1.5]}
+				loading="eager"
+			/>
+
+			<span class="chip chip-wallet" aria-hidden="true">
+				<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+					<path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+					<path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+				</svg>
+			</span>
+
+			<figcaption class="badge">
+				<strong>No lock-in contracts</strong>
+				<span>Reception licence included free</span>
+			</figcaption>
+		</figure>
 	</div>
 </section>
 <style>
@@ -105,138 +95,104 @@ const glance = {
 		color: var(--muted);
 		font-size: 1.125rem;
 	}
-	.cta {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-		margin-top: 2rem;
-	}
-	.btn {
-		border-radius: 8px;
-		padding: 0.875rem 1.375rem;
-		font-weight: 600;
-		line-height: 1.2;
-		text-decoration: none;
-		white-space: nowrap;
-	}
-	.btn-solid {
-		border: 1.5px solid var(--brand-blue);
-		background: var(--brand-blue);
-		color: var(--surface);
-	}
-	.btn-solid:hover {
-		border-color: var(--brand-blue-dark);
-		background: var(--brand-blue-dark);
-	}
-	.btn-ghost {
-		border: 1.5px solid var(--brand-blue);
-		color: var(--brand-blue);
-	}
-	.btn-ghost:hover {
-		background: var(--brand-blue);
-		color: var(--surface);
-	}
 	.proof {
 		margin: 2rem 0 0;
 		color: var(--muted);
 		font-size: 0.9375rem;
 	}
 
-	.stack {
-		min-width: 0;
-	}
-	.stack-label {
-		margin: 0 0 0.85rem 0.15rem;
-		color: var(--navy);
-		font-size: 0.8125rem;
-		font-weight: 600;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-	}
-	.stack ul {
-		display: grid;
-		gap: 0.75rem;
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	.preview {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) auto;
-		align-items: center;
-		gap: 1rem;
-		border: 1px solid rgba(10, 37, 64, 10%);
-		border-radius: 16px;
-		padding: 1.1rem 1.25rem;
-		background: var(--surface);
-		box-shadow: 0 12px 32px rgba(10, 37, 64, 8%);
-		color: inherit;
-		text-decoration: none;
-	}
-	.preview:hover {
-		border-color: var(--brand-blue);
-	}
-	.preview.featured {
-		border-color: transparent;
-		background: var(--navy);
-		box-shadow: 0 16px 36px rgba(10, 37, 64, 22%);
-	}
-	.preview.featured .who strong,
-	.preview.featured .amount {
-		color: var(--surface);
-	}
-	.preview.featured .who small,
-	.preview.featured .cost small {
-		color: rgba(255, 255, 255, 0.72);
-	}
-	.who {
-		display: flex;
-		flex-direction: column;
-		gap: 0.12rem;
-		min-width: 0;
-	}
-	.badge {
+	.visual {
+		position: relative;
 		width: fit-content;
-		margin-bottom: 0.25rem;
-		border-radius: 999px;
-		padding: 0.15rem 0.55rem;
-		background: var(--brand-teal);
-		color: var(--surface);
-		font-size: 0.6875rem;
-		font-weight: 700;
-		letter-spacing: 0.02em;
-		line-height: 1.4;
+		max-width: 100%;
+		margin: 0 auto;
 	}
-	.who strong {
-		color: var(--navy);
-		font-size: 1.0625rem;
-		font-weight: 700;
-	}
-	.who small,
-	.cost small {
-		color: var(--muted);
-		font-size: 0.8125rem;
-		line-height: 1.35;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-	.cost {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-		text-align: right;
-		line-height: 1.15;
-		flex-shrink: 0;
-	}
-	.amount {
-		color: var(--navy);
-		font-size: 1.5rem;
-		font-weight: 700;
-		letter-spacing: -0.03em;
-		white-space: nowrap;
+	.visual :global(img) {
+		position: relative;
+		z-index: 1;
+		display: block;
+		width: 100%;
+		max-width: 520px;
+		height: auto;
+		border-radius: 20px;
+		box-shadow: 0 20px 48px rgba(10, 37, 64, 14%);
 	}
 
+	.deco {
+		position: absolute;
+		z-index: 0;
+	}
+	.ring {
+		top: -3rem;
+		right: -3rem;
+		width: 140px;
+		height: 140px;
+	}
+	.dots {
+		bottom: -2.25rem;
+		right: -1.75rem;
+		width: 105px;
+		height: 105px;
+	}
+
+	.chip {
+		position: absolute;
+		z-index: 2;
+		top: 1.75rem;
+		right: 0.9rem;
+		display: grid;
+		place-items: center;
+		width: 52px;
+		height: 52px;
+		border-radius: 16px;
+		background: var(--surface);
+		color: var(--brand-blue);
+		box-shadow: 0 12px 28px rgba(10, 37, 64, 16%);
+		animation: float 5.5s ease-in-out infinite;
+	}
+	@keyframes float {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-8px);
+		}
+	}
+
+	.badge {
+		position: absolute;
+		left: -1.25rem;
+		bottom: 1.5rem;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		gap: 0.1rem;
+		border-radius: 14px;
+		padding: 0.8rem 1.1rem;
+		background: var(--surface);
+		box-shadow: 0 14px 32px rgba(10, 37, 64, 18%);
+	}
+	.badge strong {
+		color: var(--navy);
+		font-size: 1rem;
+		font-weight: 700;
+	}
+	.badge span {
+		color: var(--muted);
+		font-size: 0.8125rem;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.chip {
+			animation: none;
+		}
+	}
+	@media (min-width: 1260px) {
+		.chip {
+			right: -1.5rem;
+		}
+	}
 	@media (max-width: 1080px) {
 		.inner {
 			grid-template-columns: 1fr;
@@ -247,14 +203,27 @@ const glance = {
 		.lede {
 			max-width: none;
 		}
+		.badge {
+			left: 0.75rem;
+			bottom: 0.75rem;
+		}
+		.chip {
+			right: 0.75rem;
+		}
+		.ring {
+			top: -1.5rem;
+			right: -1rem;
+			width: 110px;
+			height: 110px;
+		}
+		.dots {
+			right: -0.25rem;
+			bottom: -1.25rem;
+		}
 	}
 	@media (max-width: 720px) {
 		.inner {
 			padding: 2.75rem 1rem 3.25rem;
-		}
-		.btn {
-			flex: 1 1 auto;
-			text-align: center;
 		}
 	}
 </style>

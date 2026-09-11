@@ -1,15 +1,24 @@
 ---
+import SectionHead from '../SectionHead.astro';
+
+// counters from the live about page, labels tightened
 const stats = [
-	{ value: '23+', label: 'Years of industry expertise' },
-	{ value: '5,000+', label: 'Doctors using EasyClinic' },
-	{ value: '18', label: 'Countries served' },
-	{ value: '200+', label: 'Cities with live clinics' },
+	{ value: '20+', label: 'Years of industry expertise' },
+	{ value: '92%', label: 'Customers with us for over 5 years' },
+	{ value: '500+', label: 'Custom workflows built for clients' },
+	{ value: '98%', label: 'Support & training satisfaction' },
 ];
 ---
 
 <section class="stats">
 	<div class="panel">
-		<ul data-stagger>
+		<SectionHead
+			tone="dark"
+			eyebrow="The experience"
+			title="Dedicated to Crafting <br>the Ultimate Experience"
+			lede="Relentless innovation and user-centric design, measured by the people who stay with us."
+		/>
+		<ul class="content" data-stagger>
 			{
 				stats.map((item) => (
 					<li>
@@ -28,45 +37,64 @@ const stats = [
 	.panel {
 		background: var(--navy);
 		border-radius: 24px 24px 0 0;
-		padding: 3.5rem 1.5rem;
+		padding: 5.5rem 1.5rem;
 		color: var(--surface);
 		font-size: 16px;
 		line-height: 1.5;
 	}
-	ul {
+	.content {
 		display: grid;
 		grid-template-columns: repeat(4, minmax(0, 1fr));
 		gap: 1.5rem;
 		max-width: var(--page-max);
-		margin: 0 auto;
+		margin: 3rem auto 0;
 		padding: 0;
 		list-style: none;
 		text-align: center;
 	}
+	.content li {
+		border-radius: 18px;
+		padding: 1.75rem 1.25rem;
+		background: rgba(255, 255, 255, 5%);
+		border: 1px solid rgba(255, 255, 255, 9%);
+		transition:
+			background 0.2s ease,
+			transform 0.2s ease;
+	}
+	.content li:hover {
+		background: rgba(255, 255, 255, 9%);
+		transform: translateY(-3px);
+	}
 	strong {
 		display: block;
-		font-size: 2.25rem;
+		color: var(--surface);
+		font-size: 2.5rem;
 		font-weight: 700;
 		letter-spacing: -0.03em;
 		line-height: 1.1;
 	}
 	small {
 		display: block;
-		margin-top: 0.4rem;
+		max-width: 22ch;
+		margin: 0.5rem auto 0;
 		color: rgba(255, 255, 255, 0.72);
 		font-size: 0.9375rem;
 	}
 	@media (max-width: 1080px) {
 		.panel {
-			padding: 2.5rem 1.25rem;
+			padding: 4rem 1.25rem;
 		}
-		ul {
+		.content {
 			grid-template-columns: 1fr 1fr;
 		}
 	}
 	@media (max-width: 640px) {
 		.panel {
-			padding: 2rem 1rem;
+			padding: 3rem 1rem;
+		}
+		.content {
+			margin-top: 2.25rem;
+			gap: 1.75rem;
 		}
 	}
 </style>

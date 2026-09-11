@@ -3,23 +3,10 @@ interface Props {
 	eyebrow: string;
 	title: string;
 	lede: string;
-	primaryHref?: string;
-	primaryLabel?: string;
-	secondaryHref?: string;
-	secondaryLabel?: string;
 	note?: string;
 }
 
-const {
-	eyebrow,
-	title,
-	lede,
-	primaryHref = '/contact-us#demo-form',
-	primaryLabel = 'Book a Demo',
-	secondaryHref,
-	secondaryLabel,
-	note,
-} = Astro.props;
+const { eyebrow, title, lede, note } = Astro.props;
 ---
 
 <section class="hero">
@@ -28,16 +15,6 @@ const {
 			<p class="eyebrow">{eyebrow}</p>
 			<h1>{title}</h1>
 			<p class="lede">{lede}</p>
-			<div class="cta">
-				<a class="btn btn-solid" href={primaryHref}>{primaryLabel}</a>
-				{
-					secondaryHref && secondaryLabel && (
-						<a class="btn btn-ghost" href={secondaryHref}>
-							{secondaryLabel}
-						</a>
-					)
-				}
-			</div>
 			{note && <p class="note">{note}</p>}
 		</div>
 		<div class="aside">
@@ -66,8 +43,9 @@ const {
 		margin: 0 auto;
 		padding: 4.5rem 1.5rem 5.5rem;
 	}
+	/* type scale mirrors the pricing hero so section 1 reads the same site-wide */
 	.eyebrow {
-		margin: 0 0 0.75rem;
+		margin: 0 0 0.85rem;
 		color: var(--brand-blue);
 		font-size: 0.875rem;
 		font-weight: 600;
@@ -76,49 +54,18 @@ const {
 	}
 	h1 {
 		margin: 0;
-		max-width: 16ch;
+		max-width: 14ch;
 		color: var(--navy);
-		font-size: clamp(2.125rem, 4vw, 2.75rem);
+		font-size: clamp(2.25rem, 4.4vw, 3.25rem);
 		font-weight: 700;
-		line-height: 1.1;
+		line-height: 1.08;
 		letter-spacing: -0.02em;
 	}
 	.lede {
-		margin: 1rem 0 0;
-		max-width: 46ch;
+		margin: 1.35rem 0 0;
+		max-width: 44ch;
 		color: var(--muted);
-		font-size: 1.0625rem;
-	}
-	.cta {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-		margin-top: 1.5rem;
-	}
-	.btn {
-		border-radius: 8px;
-		padding: 0.875rem 1.375rem;
-		font-weight: 600;
-		line-height: 1.2;
-		text-decoration: none;
-		white-space: nowrap;
-	}
-	.btn-solid {
-		border: 1.5px solid var(--brand-blue);
-		background: var(--brand-blue);
-		color: var(--surface);
-	}
-	.btn-solid:hover {
-		border-color: var(--brand-blue-dark);
-		background: var(--brand-blue-dark);
-	}
-	.btn-ghost {
-		border: 1.5px solid var(--brand-blue);
-		color: var(--brand-blue);
-	}
-	.btn-ghost:hover {
-		background: var(--brand-blue);
-		color: var(--surface);
+		font-size: 1.125rem;
 	}
 	.note {
 		margin: 1.15rem 0 0;
@@ -245,10 +192,6 @@ const {
 	@media (max-width: 720px) {
 		.inner {
 			padding: 2.75rem 1rem 3.25rem;
-		}
-		.btn {
-			flex: 1 1 auto;
-			text-align: center;
 		}
 	}
 </style>

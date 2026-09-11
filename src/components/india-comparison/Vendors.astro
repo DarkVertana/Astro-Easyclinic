@@ -1,0 +1,90 @@
+---
+import SectionHead from '../SectionHead.astro';
+
+const vendors = [
+	{
+		title: 'Practo Ray',
+		copy: 'Hard to beat for a solo or small clinic that wants patients to find them — Practo Ray plugs into India’s largest patient discovery marketplace, SMS reminders are known to cut missed visits, and Practo markets ABDM compliance on AWS. EasyClinic makes more sense when you want to run the whole clinic in one place: records, video visits, billing, insurance claims, pharmacy, and lab with Cura AI built in, rather than pairing Ray with a separate Consult product.',
+	},
+	{
+		title: 'HealthPlix',
+		copy: 'One of India’s larger doctor-facing platforms, genuinely built around AI — H.A.L.O, fast prescriptions, regional languages (Hindi, Bengali, and more), speciality modules, online consult, and an ABHA patient app with online/offline records. For a single specialist it is a strong AI EMR. EasyClinic pulls ahead when you need the whole clinic: WhatsApp messaging, pharmacy and lab, multi-branch visibility, and insurance claims in one login.',
+	},
+	{
+		title: 'MocDoc',
+		copy: 'Real depth on clinic-to-hospital operations — scheduling with hospital and combo views, drag-and-drop rescheduling, no-show handling, waiting lists, and reach across clinics, labs, and pharmacies with deep medical coding. If you want that operational breadth plus a stronger AI layer and patient messaging in any language, EasyClinic adds Cura AI across notes and diagnosis with WhatsApp-first engagement.',
+	},
+	{
+		title: 'DocEngage',
+		copy: 'Leans on healthcare CRM and telehealth — fits hospitals, chains, homecare, and IVF, with HIPAA-oriented security messaging and a patient app. For a clinic team, EasyClinic sits closer to the doctor’s chair: Cura AI, WhatsApp messaging, and multilingual prescriptions that match day-to-day OPD rhythm rather than a CRM-heavy hospital setup.',
+	},
+	{
+		title: 'Clinicea',
+		copy: 'Global cloud EMR with strong templates and India presence. EasyClinic’s India case is more local: UPI-friendly billing, WhatsApp and SMS reminders, transparent rupee pricing, specialty EMR depth, and ABHA/ABDM on the roadmap inside the same clinic OS — ask in demo for current depth.',
+	},
+];
+---
+
+<section class="vendors">
+	<div class="inner">
+		<SectionHead
+			eyebrow="Head to head"
+			title="How EasyClinic compares, vendor by vendor"
+			lede="Short takes grounded in each vendor’s public positioning. Full demos beat feature matrices."
+		/>
+		<ul class="grid" data-stagger>
+			{
+				vendors.map((v) => (
+					<li>
+						<h3>EasyClinic vs {v.title}</h3>
+						<p>{v.copy}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+
+<style>
+	.vendors {
+		background: var(--brand-wash);
+		padding: 5rem 1.5rem;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+		max-width: 1040px;
+		margin: 2.75rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	.grid li {
+		border: 1px solid rgba(10, 37, 64, 8%);
+		border-radius: 18px;
+		padding: 1.5rem 1.55rem 1.6rem;
+		background: var(--surface);
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.125rem;
+		font-weight: 700;
+		letter-spacing: -0.01em;
+	}
+	p {
+		margin: 0.75rem 0 0;
+		color: var(--muted);
+		font-size: 0.9875rem;
+		line-height: 1.6;
+	}
+	@media (max-width: 800px) {
+		.grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

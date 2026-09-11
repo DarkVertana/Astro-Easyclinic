@@ -1,0 +1,29 @@
+---
+import Cta from '../components/Cta.astro';
+import Comparisons from '../components/resources/Comparisons.astro';
+import Hero from '../components/resources/Hero.astro';
+import HubCards from '../components/resources/HubCards.astro';
+import Specialties from '../components/resources/Specialties.astro';
+import { HELP_URL } from '../components/knowledgebase/links';
+import Marketing from '../layouts/Marketing.astro';
+---
+
+<Marketing
+	title="Resources — EasyClinic Guides, Blog & Help"
+	description="EasyClinic resources for clinic teams — blog, knowledgebase, testimonials, comparisons, and help docs for EMR and clinic management software."
+	mainClass="resources"
+>
+	<Hero />
+	<HubCards />
+	<Comparisons />
+	<Specialties />
+	<Cta
+		title="Need a walkthrough on your clinic type?"
+		lede="Book a demo — or open the knowledgebase if you already have access."
+		primaryHref="/contact-us#demo-form"
+		primaryLabel="Book a free demo"
+		secondaryHref={HELP_URL}
+		secondaryLabel="Open knowledgebase"
+		secondaryExternal
+	/>
+</Marketing>

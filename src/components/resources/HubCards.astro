@@ -1,0 +1,133 @@
+---
+import SectionHead from '../SectionHead.astro';
+import { HELP_URL } from '../knowledgebase/links';
+
+const cards = [
+	{
+		title: 'Knowledgebase',
+		copy: 'Step-by-step setup, EMR, billing, pharmacy how-tos.',
+		href: '/knowledgebase',
+		external: false,
+		hint: 'Also opens help.easyclinic.io',
+	},
+	{
+		title: 'Blog',
+		copy: 'Practical clinic ops and product stories.',
+		href: '/blogs',
+	},
+	{
+		title: 'Testimonials',
+		copy: 'What clinics say after go-live.',
+		href: '/testimonials',
+	},
+	{
+		title: 'Comparisons',
+		copy: 'EasyClinic vs alternatives by market.',
+		href: '#comparisons',
+	},
+	{
+		title: 'Features',
+		copy: 'Module-level product depth.',
+		href: '/features',
+	},
+	{
+		title: 'Contact / demo',
+		copy: 'Talk to a human about your workflow.',
+		href: '/contact-us',
+	},
+];
+---
+
+<section class="hub">
+	<div class="inner">
+		<SectionHead
+			title="Start with the job you have today"
+			lede="Stuck in-product? Knowledgebase first. Choosing software? Comparisons. Convincing the team? Testimonials and a demo."
+		/>
+		<ul class="bento" data-stagger>
+			{
+				cards.map((card) => (
+					<li>
+						<a href={card.href}>
+							<strong>{card.title}</strong>
+							<p>{card.copy}</p>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+		<p class="kb-note">
+			Full help library:{' '}
+			<a href={HELP_URL} target="_blank" rel="noopener noreferrer">help.easyclinic.io</a>
+		</p>
+	</div>
+</section>
+
+<style>
+	.hub {
+		background: var(--surface);
+		padding: 5rem 1.5rem 3rem;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+	}
+	.bento {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		max-width: 1040px;
+		margin: 2.75rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	a {
+		display: grid;
+		gap: 0.55rem;
+		height: 100%;
+		border: 1px solid rgba(10, 37, 64, 8%);
+		border-radius: 18px;
+		padding: 1.45rem 1.5rem 1.55rem;
+		background: var(--brand-wash);
+		color: inherit;
+		text-decoration: none;
+	}
+	a:hover {
+		border-color: rgba(14, 116, 144, 35%);
+	}
+	strong {
+		color: var(--navy);
+		font-size: 1.125rem;
+		font-weight: 700;
+	}
+	p {
+		margin: 0;
+		color: var(--muted);
+		font-size: 0.975rem;
+		line-height: 1.55;
+	}
+	.kb-note {
+		margin: 1.5rem 0 0;
+		text-align: center;
+		color: var(--muted);
+		font-size: 0.9375rem;
+	}
+	.kb-note a {
+		display: inline;
+		padding: 0;
+		border: 0;
+		background: none;
+		color: var(--brand-blue);
+		font-weight: 650;
+	}
+	@media (max-width: 860px) {
+		.bento {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	@media (max-width: 560px) {
+		.bento {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

@@ -1,0 +1,48 @@
+---
+/* Long-tail market comparison factory. Static kenya/india/… pages stay as-is;
+   this route only prerenders the liveMarketComparisons list. */
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Context from '../components/market-comparison/Context.astro';
+import Hero from '../components/market-comparison/Hero.astro';
+import Shortlist from '../components/market-comparison/Shortlist.astro';
+import SwitchCost from '../components/market-comparison/SwitchCost.astro';
+import Vendors from '../components/market-comparison/Vendors.astro';
+import Verdict from '../components/market-comparison/Verdict.astro';
+import Wins from '../components/market-comparison/Wins.astro';
+import {
+	liveMarketComparisons,
+	marketComparisonByParam,
+} from '../components/market-comparison/data';
+import Marketing from '../layouts/Marketing.astro';
+
+export function getStaticPaths() {
+	return liveMarketComparisons.map((entry) => ({ params: { market: entry.market } }));
+}
+
+const param = Astro.params.market as string;
+const page = marketComparisonByParam[param];
+
+if (!page) {
+	throw new Error(`Unknown market comparison: ${param}`);
+}
+---
+
+<Marketing title={page.meta.title} description={page.meta.description} mainClass="market-comparison">
+	<Hero data={page} />
+	<Context data={page} />
+	<Shortlist data={page} />
+	<Vendors data={page} />
+	<Wins data={page} />
+	<SwitchCost data={page} />
+	<Verdict data={page} />
+	<Faq items={page.faqs} />
+	<Cta
+		title={page.cta.title}
+		lede={page.cta.lede}
+		primaryHref="/contact-us#demo-form"
+		primaryLabel="Book a free demo"
+		secondaryHref="/pricing"
+		secondaryLabel="See pricing"
+	/>
+</Marketing>

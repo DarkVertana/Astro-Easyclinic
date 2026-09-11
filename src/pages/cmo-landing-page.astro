@@ -1,0 +1,30 @@
+---
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import ClinicTypes from '../components/persona/ClinicTypes.astro';
+import Hero from '../components/persona/Hero.astro';
+import NextSection from '../components/persona/NextSection.astro';
+import NotForYou from '../components/persona/NotForYou.astro';
+import Outcomes from '../components/persona/Outcomes.astro';
+import { cmo } from '../components/persona/data';
+import Marketing from '../layouts/Marketing.astro';
+
+const page = cmo;
+---
+
+<Marketing title={page.meta.title} description={page.meta.description} mainClass="persona">
+	<Hero data={page} />
+	<Outcomes data={page} />
+	<ClinicTypes data={page} />
+	<NotForYou data={page} />
+	<NextSection data={page} />
+	<Faq items={page.faqs} />
+	<Cta
+		title={page.cta.title}
+		lede={page.cta.lede}
+		primaryHref="/contact-us#demo-form"
+		primaryLabel="Book a free demo"
+		secondaryHref={page.cta.secondaryHref ?? '/pricing'}
+		secondaryLabel={page.cta.secondaryLabel ?? 'See pricing'}
+	/>
+</Marketing>

@@ -21,16 +21,6 @@
       "permanent": true
     },
     {
-      "source": "/doctors",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/doctors/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
       "source": "/curapilot-ai",
       "destination": "/curapilot",
       "permanent": true

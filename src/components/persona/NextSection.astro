@@ -1,0 +1,52 @@
+---
+import SectionHead from '../SectionHead.astro';
+import type { PersonaPage } from './types';
+
+interface Props {
+	data: PersonaPage;
+}
+
+const { data } = Astro.props;
+const block = data.nextSection;
+---
+
+{
+	block && (
+		<section class="next">
+			<div class="inner">
+				<SectionHead title={block.title} lede={block.lede} />
+				<p class="links">
+					<a href="/resources">Resources hub</a>
+					<a href="/resources#comparisons">Market comparisons</a>
+					<a href="/features">Features</a>
+				</p>
+			</div>
+		</section>
+	)
+}
+
+<style>
+	.next {
+		background: var(--surface);
+		padding: 4rem 1.5rem 1rem;
+	}
+	.inner {
+		max-width: 720px;
+		margin: 0 auto;
+	}
+	.links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.85rem 1.25rem;
+		margin: 1.75rem 0 0;
+	}
+	a {
+		color: var(--brand-blue);
+		font-weight: 650;
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+</style>

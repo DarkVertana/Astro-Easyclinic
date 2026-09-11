@@ -1,0 +1,15 @@
+---
+import PageHero from '../PageHero.astro';
+import { HELP_URL } from '../knowledgebase/links';
+---
+
+<PageHero
+	eyebrow="Resources"
+	title="Resources for running a modern clinic"
+	lede="Guides, stories, comparisons, and help docs — so your team can learn the product and the practice, not dig through a support queue."
+	primaryHref={HELP_URL}
+	primaryLabel="Open knowledgebase"
+	primaryExternal
+	secondaryHref="/blogs"
+	secondaryLabel="Browse blog"
+/>

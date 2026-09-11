@@ -1,0 +1,67 @@
+---
+import SectionHead from '../SectionHead.astro';
+
+const specialties = [
+	{ label: 'Dental', href: '/dental-emr-software' },
+	{ label: 'Dermatology', href: '/dermatology-emr-software' },
+	{ label: 'Ophthalmology', href: '/ophthalmology-emr' },
+	{ label: 'Orthopedic', href: '/orthopedic-emr' },
+	{ label: 'Pediatric', href: '/pediatric-emr' },
+	{ label: 'OB-GYN', href: '/obgyn-emr-software' },
+	{ label: 'Cardiology', href: '/cardiology-emr' },
+	{ label: 'Psychiatry', href: '/psychiatry-emr' },
+	{ label: 'IVF', href: '/ivf-emr' },
+	{ label: 'Physiotherapy', href: '/physiotherapy-emr' },
+	{ label: 'Mental health', href: '/mental-health' },
+	{ label: 'For doctors hub', href: '/doctors' },
+];
+---
+
+<section class="specs">
+	<div class="inner">
+		<SectionHead
+			eyebrow="Specialties"
+			title="Specialty EMR starting points"
+			lede="Deep clinical pages when the specialty — not the country — is the buying trigger."
+		/>
+		<ul class="row">
+			{specialties.map((s) => <li><a href={s.href}>{s.label}</a></li>)}
+		</ul>
+	</div>
+</section>
+
+<style>
+	.specs {
+		background: var(--surface);
+		padding: 4.5rem 1.5rem 2rem;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+	}
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.65rem;
+		max-width: 920px;
+		margin: 2rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	a {
+		display: inline-block;
+		border: 1px solid rgba(10, 37, 64, 10%);
+		border-radius: 999px;
+		padding: 0.65rem 1rem;
+		background: var(--brand-wash);
+		color: var(--navy);
+		font-size: 0.9rem;
+		font-weight: 650;
+		text-decoration: none;
+	}
+	a:hover {
+		border-color: rgba(14, 116, 144, 35%);
+		color: var(--brand-blue);
+	}
+</style>

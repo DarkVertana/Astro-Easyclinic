@@ -1,0 +1,78 @@
+---
+import SectionHead from '../SectionHead.astro';
+import type { PersonaPage } from './types';
+
+interface Props {
+	data: PersonaPage;
+}
+
+const { data } = Astro.props;
+---
+
+<section class="outcomes">
+	<div class="inner">
+		<SectionHead
+			eyebrow="Outcomes"
+			title={data.outcomes.title ?? 'What changes for your role'}
+			lede="Role-specific results — not a feature laundry list."
+		/>
+		<ul class="grid" data-stagger>
+			{
+				data.outcomes.items.map((item) => (
+					<li>
+						<h3>{item.title}</h3>
+						<p>{item.copy}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+
+<style>
+	.outcomes {
+		background: var(--surface);
+		padding: 5rem 1.5rem;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		max-width: 1040px;
+		margin: 2.75rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	.grid li {
+		border: 1px solid rgba(10, 37, 64, 8%);
+		border-radius: 18px;
+		padding: 1.35rem 1.4rem 1.5rem;
+		background: var(--brand-wash);
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.0625rem;
+		font-weight: 700;
+	}
+	p {
+		margin: 0.65rem 0 0;
+		color: var(--muted);
+		font-size: 0.9625rem;
+		line-height: 1.55;
+	}
+	@media (max-width: 900px) {
+		.grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	@media (max-width: 620px) {
+		.grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

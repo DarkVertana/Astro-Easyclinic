@@ -1,0 +1,28 @@
+---
+import HeroFacts from '../HeroFacts.astro';
+import PageHero from '../PageHero.astro';
+import type { PersonaPage } from './types';
+
+interface Props {
+	data: PersonaPage;
+}
+
+const { data } = Astro.props;
+const facts = data.hero.facts.map((f) => ({
+	value: f.value,
+	label: f.label ?? '',
+}));
+---
+
+<PageHero
+	eyebrow={data.hero.eyebrow}
+	title={data.hero.title}
+	lede={data.hero.lede}
+	note={data.hero.note}
+	primaryHref="/contact-us#demo-form"
+	primaryLabel="Book a free demo"
+	secondaryHref={data.cta.secondaryHref ?? '/pricing'}
+	secondaryLabel={data.cta.secondaryLabel ?? 'See pricing'}
+>
+	<HeroFacts slot="under-lede" facts={facts} />
+</PageHero>

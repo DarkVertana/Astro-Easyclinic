@@ -1,0 +1,51 @@
+---
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Context from '../components/ethiopia-comparison/Context.astro';
+import Hero from '../components/ethiopia-comparison/Hero.astro';
+import Shortlist from '../components/ethiopia-comparison/Shortlist.astro';
+import SwitchCost from '../components/ethiopia-comparison/SwitchCost.astro';
+import Vendors from '../components/ethiopia-comparison/Vendors.astro';
+import Verdict from '../components/ethiopia-comparison/Verdict.astro';
+import Wins from '../components/ethiopia-comparison/Wins.astro';
+import Marketing from '../layouts/Marketing.astro';
+
+const faqs = [
+	{
+		question: 'Best for Ethiopia?',
+		answer:
+			'EasyClinic for connected private clinics; self-host/on-prem when offline is mandatory.',
+	},
+	{
+		question: 'Telebirr?',
+		answer: 'Confirm with EasyClinic before buy.',
+	},
+	{
+		question: 'Offline?',
+		answer: 'Cloud-first — confirm mode; rivals may fit offline-mandatory sites better.',
+	},
+];
+---
+
+<Marketing
+	title="Best Clinic Management Software Ethiopia (2026 Comparison) — EasyClinic"
+	description="Compare clinic management software Ethiopia — EasyClinic vs SoftClinic GenX, Smart Hospital Manager, and DoctorsApp on Cura AI, telemedicine, and offline trade-offs."
+	mainClass="ethiopia-comparison"
+>
+	<Hero />
+	<Context />
+	<Shortlist />
+	<Vendors />
+	<Wins />
+	<SwitchCost />
+	<Verdict />
+	<Faq items={faqs} />
+	<Cta
+		title="See EasyClinic on an Ethiopian clinic day"
+		lede="Book a demo — confirm connectivity, telebirr, and AI workflows."
+		primaryHref="/contact-us#demo-form"
+		primaryLabel="Book a free demo"
+		secondaryHref="/pricing"
+		secondaryLabel="See pricing"
+	/>
+</Marketing>

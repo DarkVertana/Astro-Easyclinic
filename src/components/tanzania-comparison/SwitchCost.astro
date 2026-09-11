@@ -1,0 +1,106 @@
+---
+import SectionHead from '../SectionHead.astro';
+
+const signs = [
+	'Unreliable connectivity',
+	'Mobile Money desk friction',
+	'No AI/telehealth path',
+	'Multi-site chaos',
+];
+---
+
+<section class="switch">
+	<div class="inner">
+		<div class="col">
+			<SectionHead title="When to switch" />
+			<ul>
+				{signs.map((s) => <li>{s}</li>)}
+			</ul>
+		</div>
+		<div class="col cost">
+			<SectionHead
+				title="What it costs"
+				lede="See Pricing for published tiers; demo for a Tanzania quote. Confirm connectivity assumptions and Mobile Money on the same call."
+			/>
+			<p class="link-row">
+				<a href="/pricing">See pricing</a>
+				<a href="/emr-software-in-tanzania">Tanzania EMR ops page</a>
+				<a href="/curapilot">Cura AI</a>
+			</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.switch {
+		background: var(--brand-wash);
+		padding: 5rem 1.5rem;
+	}
+	.inner {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2.5rem;
+		max-width: var(--page-max);
+		margin: 0 auto;
+		align-items: start;
+	}
+	.col :global(.section-head) {
+		text-align: left;
+	}
+	.col :global(.section-head h2) {
+		margin-left: 0;
+		margin-right: 0;
+		max-width: 18ch;
+	}
+	.col :global(.section-head .lede) {
+		margin-left: 0;
+		margin-right: 0;
+		text-align: left;
+	}
+	ul {
+		margin: 1.5rem 0 0;
+		padding: 0;
+		list-style: none;
+		display: grid;
+		gap: 0.75rem;
+	}
+	li {
+		position: relative;
+		padding: 0.95rem 1.1rem 0.95rem 2.6rem;
+		border-radius: 14px;
+		background: var(--surface);
+		border: 1px solid rgba(10, 37, 64, 8%);
+		color: var(--navy);
+		font-weight: 600;
+		font-size: 0.975rem;
+	}
+	li::before {
+		content: '';
+		position: absolute;
+		left: 1rem;
+		top: 1.2rem;
+		width: 0.55rem;
+		height: 0.55rem;
+		border-radius: 50%;
+		background: var(--brand-teal);
+	}
+	.link-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.85rem 1.25rem;
+		margin: 1.75rem 0 0;
+	}
+	a {
+		color: var(--brand-blue);
+		font-weight: 650;
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+	@media (max-width: 860px) {
+		.inner {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

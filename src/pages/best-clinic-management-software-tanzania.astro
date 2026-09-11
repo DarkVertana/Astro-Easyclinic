@@ -1,0 +1,51 @@
+---
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Context from '../components/tanzania-comparison/Context.astro';
+import Hero from '../components/tanzania-comparison/Hero.astro';
+import Shortlist from '../components/tanzania-comparison/Shortlist.astro';
+import SwitchCost from '../components/tanzania-comparison/SwitchCost.astro';
+import Vendors from '../components/tanzania-comparison/Vendors.astro';
+import Verdict from '../components/tanzania-comparison/Verdict.astro';
+import Wins from '../components/tanzania-comparison/Wins.astro';
+import Marketing from '../layouts/Marketing.astro';
+
+const faqs = [
+	{
+		question: 'Best for Tanzania?',
+		answer:
+			'EasyClinic when connectivity is steady and you want AI/WhatsApp; self-host/on-prem when offline is the gate.',
+	},
+	{
+		question: 'Mobile Money?',
+		answer: 'Confirm with EasyClinic before switch.',
+	},
+	{
+		question: 'Offline?',
+		answer: 'Cloud-first — confirm; self-host rivals may fit rural offline better.',
+	},
+];
+---
+
+<Marketing
+	title="Best Clinic Management Software Tanzania (2026 Comparison) — EasyClinic"
+	description="Compare clinic management software Tanzania — EasyClinic vs Smart Hospital Manager, Tenwave ETHER, and Ksatria on AI, telemedicine, WhatsApp, and Mobile Money."
+	mainClass="tanzania-comparison"
+>
+	<Hero />
+	<Context />
+	<Shortlist />
+	<Vendors />
+	<Wins />
+	<SwitchCost />
+	<Verdict />
+	<Faq items={faqs} />
+	<Cta
+		title="See EasyClinic on a Tanzanian clinic day"
+		lede="Book a demo — confirm connectivity assumptions and MoMo."
+		primaryHref="/contact-us#demo-form"
+		primaryLabel="Book a free demo"
+		secondaryHref="/pricing"
+		secondaryLabel="See pricing"
+	/>
+</Marketing>

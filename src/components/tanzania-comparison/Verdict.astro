@@ -1,0 +1,30 @@
+---
+import SectionHead from '../SectionHead.astro';
+---
+
+<section class="verdict">
+	<div class="inner">
+		<SectionHead title="The verdict" />
+		<p>
+			Steady connection + modern ops → EasyClinic. Must-work-offline → keep self-host/on-prem in final two.
+		</p>
+	</div>
+</section>
+
+<style>
+	.verdict {
+		background: var(--surface);
+		padding: 4.5rem 1.5rem 1rem;
+	}
+	.inner {
+		max-width: 720px;
+		margin: 0 auto;
+	}
+	p {
+		margin: 1.5rem auto 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+		line-height: 1.65;
+		text-align: center;
+	}
+</style>

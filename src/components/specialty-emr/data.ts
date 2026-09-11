@@ -792,6 +792,7 @@ const obgyn = createSpecialty({
 });
 
 const cardiology = createSpecialty({
+	enabled: true,
 	slug: 'cardiology-emr',
 	specialty: 'Cardiology',
 	specialtyAdj: 'cardiology',
@@ -799,25 +800,88 @@ const cardiology = createSpecialty({
 	seoTitle: 'Cardiology EMR & Practice Management — EasyClinic',
 	seoDescription:
 		'Cardiology EMR — cardiac templates, ECG/report storage, chronic follow-ups, appointments, and billing for heart clinics.',
+	eyebrow: 'Cardiology',
 	title: 'Cardiology EMR for longitudinal heart care — notes, ECGs, and follow-ups',
 	lede: 'Cardiology templates, ECG and diagnostic file storage, chronic follow-up tracking, scheduling, and billing in one clinic management stack.',
-	heroFacts: [{ value: 'Cardiac templates' }, { value: 'ECG on chart' }, { value: 'Chronic follow-ups' }],
+	note: 'Built for cardiology clinics, multi-cardiologist centres, and hospital cardiology OPD.',
+	heroFacts: [
+		{ value: 'Cardiac templates', label: 'Faster consult notes' },
+		{ value: 'ECG on chart', label: 'Diagnostics with the visit' },
+		{ value: 'Chronic follow-ups', label: 'Recall that sticks' },
+	],
 	clinical: [
-		{ title: 'Cardiology templates' },
-		{ title: 'ECG/diagnostics store' },
-		{ title: 'Trend visuals' },
-		{ title: 'Med management' },
-		{ title: 'Patient education hooks' },
-		{ title: 'Optional Cura AI', accent: true },
+		{
+			title: 'Cardiology templates',
+			copy: 'Structured cardiac consult templates so notes keep pace with OPD volume.',
+		},
+		{
+			title: 'ECG/diagnostics store',
+			copy: 'Attach ECGs and reports to the patient chart for the next visit.',
+		},
+		{
+			title: 'Trend visuals',
+			copy: 'Keep key measures easy to scan across chronic follow-ups.',
+		},
+		{
+			title: 'Med management',
+			copy: 'Track cardiac medications and changes across visits.',
+		},
+		{
+			title: 'Patient education hooks',
+			copy: 'Share visit summaries and aftercare before the patient leaves.',
+		},
+		{
+			title: 'Optional Cura AI',
+			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			accent: true,
+		},
+	],
+	ops: [
+		'Appointment scheduling',
+		'Reminders (WhatsApp/SMS/email)',
+		'Visit & procedure billing',
+		'Pharmacy inventory',
+		'Teleconsult + online fees',
+		'Multi-doctor roles',
+		'Reports',
 	],
 	problems: [
-		{ title: 'ECGs siloed' },
-		{ title: 'Chronic patients without recall' },
-		{ title: 'Evening documentation load' },
+		{
+			title: 'ECGs siloed',
+			copy: 'Traces and reports live outside the note the next cardiologist needs.',
+		},
+		{
+			title: 'Chronic patients without recall',
+			copy: 'Heart-failure and hypertension reviews slip without a plan on the chart.',
+		},
+		{
+			title: 'Evening documentation load',
+			copy: 'Busy OPD leaves note-writing for after hours.',
+		},
 	],
 	fit: ['Cardiology clinics', 'Multi-cardiologist centres', 'Hospital cardiology OPD'],
-	faqSeeds: ['Best cardio EMR?', 'ECG storage?', 'Chronic follow-up?', 'AI docs?'],
+	faqs: [
+		{
+			question: 'Best EMR for cardiology clinics?',
+			answer:
+				'Look for cardiac templates, ECG storage, chronic follow-ups, scheduling, and billing together; EasyClinic covers that workflow.',
+		},
+		{
+			question: 'ECG storage?',
+			answer: 'Yes — attach ECGs and diagnostic reports to the patient record.',
+		},
+		{
+			question: 'Chronic follow-up tracking?',
+			answer: 'Yes — keep longitudinal plans and recalls on the same chart.',
+		},
+		{
+			question: 'AI documentation for cardio notes?',
+			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+		},
+	],
 	ctaTitle: 'See cardiology EMR on your follow-up list',
+	ctaLede:
+		'Book a demo — we’ll walk cardiac templates, ECG storage, chronic follow-ups, and billing on your workflow.',
 });
 
 const psychiatry = createSpecialty({

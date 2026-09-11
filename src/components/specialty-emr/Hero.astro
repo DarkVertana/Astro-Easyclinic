@@ -12,6 +12,7 @@ import ophthalmologyPhoto from '../../assets/specialty-emr/ophthalmology-hero.we
 import orthopedicPhoto from '../../assets/specialty-emr/orthopedic-hero.webp';
 import pediatricPhoto from '../../assets/specialty-emr/pediatric-hero.webp';
 import obgynPhoto from '../../assets/specialty-emr/obgyn-hero.webp';
+import cardiologyPhoto from '../../assets/specialty-emr/cardiology-hero.webp';
 import type { HeroIcon, Specialty } from './data';
 
 interface Props {
@@ -51,6 +52,10 @@ const photos: Record<string, { src: ImageMetadata; alt: string }> = {
 	'obgyn-emr-software': {
 		src: obgynPhoto,
 		alt: 'A clinician providing women’s health care in a modern clinic',
+	},
+	'cardiology-emr': {
+		src: cardiologyPhoto,
+		alt: 'A clinician reviewing cardiac care with diagnostic context in clinic',
 	},
 };
 

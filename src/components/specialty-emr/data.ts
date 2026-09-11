@@ -699,32 +699,96 @@ const pediatric = createSpecialty({
 });
 
 const obgyn = createSpecialty({
+	enabled: true,
 	slug: 'obgyn-emr-software',
 	specialty: 'OB-GYN',
 	specialtyAdj: 'OB-GYN',
-	specialtyNoun: 'women’s health clinic',
+	specialtyNoun: "women's health clinic",
 	seoTitle: 'OB-GYN EMR Software — EasyClinic',
 	seoDescription:
 		'OB-GYN EMR — antenatal tracking, gynecological charting, ultrasound files, appointments, and billing for women’s health clinics.',
+	eyebrow: 'OB-GYN',
 	title: 'OB-GYN EMR for antenatal continuity and gynecology visits',
 	lede: 'Track pregnancy visits, gyn charting, ultrasounds, Rx, and billing in one platform — so continuity doesn’t live in a notebook.',
-	heroFacts: [{ value: 'Pregnancy tracking' }, { value: 'Gyn charting' }, { value: 'Ultrasound on file' }],
+	note: 'Built for OB-GYN solo practices, women’s health clinics, and maternity OPD.',
+	heroFacts: [
+		{ value: 'Pregnancy tracking', label: 'ANC visits on one chart' },
+		{ value: 'Gyn charting', label: 'Visit notes that stick' },
+		{ value: 'Ultrasound on file', label: 'Reports with the record' },
+	],
 	clinical: [
-		{ title: 'ANC / pregnancy tracking' },
-		{ title: 'Gynecological charting' },
-		{ title: 'Ultrasound & report store' },
-		{ title: 'Specialty forms' },
-		{ title: 'Visit summaries' },
-		{ title: 'Optional Cura AI', accent: true },
+		{
+			title: 'ANC / pregnancy tracking',
+			copy: 'Keep trimester visits, vitals, and plans together across the pregnancy.',
+		},
+		{
+			title: 'Gynecological charting',
+			copy: 'Document gyn consults with specialty-ready forms, not generic blanks.',
+		},
+		{
+			title: 'Ultrasound & report store',
+			copy: 'Attach scans and reports to the patient chart for the next visit.',
+		},
+		{
+			title: 'Specialty forms',
+			copy: 'Intake and exam templates tuned for antenatal and gyn workflows.',
+		},
+		{
+			title: 'Visit summaries',
+			copy: 'Share clear after-visit guidance before the patient leaves.',
+		},
+		{
+			title: 'Optional Cura AI',
+			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			accent: true,
+		},
+	],
+	ops: [
+		'Appointment scheduling',
+		'Reminders (WhatsApp/SMS/email)',
+		'Visit & procedure billing',
+		'Pharmacy / consumables inventory',
+		'Teleconsult + online fees',
+		'Multi-doctor roles',
+		'Reports',
 	],
 	problems: [
-		{ title: 'ANC cards vs digital chart split' },
-		{ title: 'Ultrasounds unattached' },
-		{ title: 'Missed trimester follow-ups' },
+		{
+			title: 'ANC cards vs digital chart split',
+			copy: 'Pregnancy history lives in a paper card while the EMR only has fragments.',
+		},
+		{
+			title: 'Ultrasounds unattached',
+			copy: 'Scans sit on CDs or phones instead of the patient record.',
+		},
+		{
+			title: 'Missed trimester follow-ups',
+			copy: 'High-risk and routine ANC reviews slip without reliable recalls.',
+		},
 	],
-	fit: ['OB-GYN solo', 'Women’s health clinics', 'Maternity OPD'],
-	faqSeeds: ['Best gyn EMR?', 'Pregnancy/ANC?', 'Ultrasound store?', 'AI docs?'],
+	fit: ['OB-GYN solo', "Women's health clinics", 'Maternity OPD'],
+	faqs: [
+		{
+			question: 'Best EMR for gynecology clinics?',
+			answer:
+				'Look for ANC tracking, gyn charting, ultrasound storage, scheduling, and billing together; EasyClinic covers that workflow.',
+		},
+		{
+			question: 'Pregnancy / ANC tracking?',
+			answer: 'Yes — antenatal visits and plans stay on one continuous chart.',
+		},
+		{
+			question: 'Ultrasound storage?',
+			answer: 'Yes — attach scans and reports to the patient record.',
+		},
+		{
+			question: 'AI documentation for OB-GYN notes?',
+			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+		},
+	],
 	ctaTitle: 'See OB-GYN EMR on an antenatal schedule',
+	ctaLede:
+		'Book a demo — we’ll walk ANC tracking, gyn charting, ultrasound files, and billing on your workflow.',
 });
 
 const cardiology = createSpecialty({

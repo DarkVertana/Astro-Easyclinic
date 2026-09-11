@@ -23,6 +23,25 @@ const specialty = getSpecialty('mental-health');
 	<Ops specialty={specialty} />
 	<Problems specialty={specialty} />
 	<Fit specialty={specialty} />
+	<section class="related" aria-label="Related mental health pages">
+		<div class="inner">
+			<p class="eyebrow">Related</p>
+			<h2>Psychiatry and psychology specialty pages</h2>
+			<ul>
+				<li><a href="/psychiatry-emr">Psychiatry EMR</a></li>
+				<li><a href="/psychology-emr">Psychology EMR</a></li>
+			</ul>
+		</div>
+	</section>
+	<style>
+		.related { background: var(--brand-wash); padding: 3.5rem 1.5rem; }
+		.related .inner { max-width: var(--page-max); margin: 0 auto; text-align: center; }
+		.related .eyebrow { margin: 0; color: var(--brand-blue); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+		.related h2 { margin: 0.75rem 0 0; color: var(--navy); font-size: clamp(1.5rem, 2.8vw, 2rem); }
+		.related ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
+		.related a { display: inline-block; border-radius: 999px; padding: 0.7rem 1.15rem; background: var(--surface); border: 1px solid rgba(10, 37, 64, 10%); color: var(--navy); font-weight: 650; text-decoration: none; }
+		.related a:hover { border-color: var(--brand-blue); color: var(--brand-blue); }
+	</style>
 	<Faq items={specialty.faqs} />
 	<Cta
 		title={specialty.ctaTitle}

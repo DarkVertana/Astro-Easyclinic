@@ -233,9 +233,9 @@ export const doctors: PersonaPage = {
 		title: 'AI EMR and clinic management software that scales with how you practise',
 		lede: 'From solo clinic to multi-location — EMR, scheduling, billing, pharmacy, and optional Cura AI in one system you can grow without switching.',
 		facts: [
-			{ value: 'Solo → chain' },
-			{ value: 'Optional Cura AI' },
-			{ value: 'Ops included' },
+			{ value: 'Solo → chain', label: 'Same product as you grow' },
+			{ value: 'Optional Cura AI', label: 'Documentation assist' },
+			{ value: 'Ops included', label: 'Scheduling, billing, pharmacy' },
 		],
 	},
 	outcomes: {

@@ -602,6 +602,7 @@ const orthopedic = createSpecialty({
 });
 
 const pediatric = createSpecialty({
+	enabled: true,
 	slug: 'pediatric-emr',
 	specialty: 'Pediatrics',
 	specialtyAdj: 'pediatric',
@@ -609,31 +610,92 @@ const pediatric = createSpecialty({
 	seoTitle: 'Pediatric EMR Software — EasyClinic',
 	seoDescription:
 		'Pediatric EMR — growth charts, immunization schedules, age-based forms, parent reminders, appointments, and billing.',
+	eyebrow: 'Pediatrics',
 	title: 'Pediatric EMR with growth, vaccines, and parent-ready follow-ups',
 	lede: 'Age-aware charts, immunization tracking, scheduling, and WhatsApp reminders so pediatric clinics keep well-child and sick visits organized.',
-	heroFacts: [{ value: 'Growth charts' }, { value: 'Vaccine schedules' }, { value: 'Parent WhatsApp' }],
+	note: 'Built for solo pediatricians, pediatric polyclinics, and family + child clinics.',
+	heroFacts: [
+		{ value: 'Growth charts', label: 'Age-aware tracking' },
+		{ value: 'Vaccine schedules', label: 'Immunization on the chart' },
+		{ value: 'Parent WhatsApp', label: 'Fewer missed follow-ups' },
+	],
 	clinical: [
-		{ title: 'Growth charts' },
-		{ title: 'Immunization tracking' },
-		{ title: 'Pediatric intake forms' },
-		{ title: 'Quick Rx' },
-		{ title: 'Visit summaries' },
-		{ title: 'Optional Cura AI', accent: true },
+		{
+			title: 'Growth charts',
+			copy: 'Plot weight, height, and milestones alongside the visit note.',
+		},
+		{
+			title: 'Immunization tracking',
+			copy: 'Keep vaccine schedules current so the next dose is never a guess.',
+		},
+		{
+			title: 'Pediatric intake forms',
+			copy: 'Age-aware intake and exam templates for well-child and sick visits.',
+		},
+		{
+			title: 'Quick Rx',
+			copy: 'Share prescriptions via print or WhatsApp before the family leaves.',
+		},
+		{
+			title: 'Visit summaries',
+			copy: 'Send clear aftercare notes parents can actually follow.',
+		},
+		{
+			title: 'Optional Cura AI',
+			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			accent: true,
+		},
+	],
+	ops: [
+		'Appointment scheduling',
+		'Parent reminders (WhatsApp/SMS/email)',
+		'Visit billing & invoicing',
+		'Vaccine / pharmacy inventory',
+		'Teleconsult + online fees',
+		'Multi-doctor roles',
+		'Reports',
 	],
 	problems: [
-		{ title: 'Paper vaccine cards' },
-		{ title: 'Growth data not trended' },
-		{ title: 'Parents missing follow-ups' },
+		{
+			title: 'Paper vaccine cards',
+			copy: 'Immunization history lives in a booklet that isn’t in the EMR.',
+		},
+		{
+			title: 'Growth data not trended',
+			copy: 'Weight and height entries don’t show the curve the clinician needs.',
+		},
+		{
+			title: 'Parents missing follow-ups',
+			copy: 'Well-child and review visits slip without reliable reminders.',
+		},
 	],
 	fit: ['Solo pediatricians', 'Pediatric polyclinics', 'Family + child clinics'],
-	faqSeeds: [
-		'Best pediatric EMR?',
-		'Growth tracking?',
-		'Vaccination schedules?',
-		'AI docs?',
-		'Parent reminders?',
+	faqs: [
+		{
+			question: 'Best EMR for pediatric clinics?',
+			answer:
+				'Look for growth charts, immunization tracking, parent reminders, scheduling, and billing together; EasyClinic covers that workflow.',
+		},
+		{
+			question: 'Growth tracking?',
+			answer: 'Yes — capture growth measures with the visit so trends stay on the chart.',
+		},
+		{
+			question: 'Vaccination schedules?',
+			answer: 'Yes — immunization tracking stays with the patient record.',
+		},
+		{
+			question: 'AI documentation for pediatric notes?',
+			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+		},
+		{
+			question: 'Parent reminders?',
+			answer: 'Yes — WhatsApp, SMS, and email reminders for appointments and follow-ups.',
+		},
 	],
 	ctaTitle: 'See pediatric EMR on a well-child day',
+	ctaLede:
+		'Book a demo — we’ll walk growth charts, vaccines, parent reminders, and billing on your workflow.',
 });
 
 const obgyn = createSpecialty({

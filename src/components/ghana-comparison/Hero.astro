@@ -1,0 +1,128 @@
+---
+import { Image } from 'astro:assets';
+import HeroFacts from '../HeroFacts.astro';
+import PageHero from '../PageHero.astro';
+import heroPhoto from '../../assets/ghana-comparison/hero.webp';
+
+const facts = [
+	{ value: 'Cura AI', label: 'Live documentation assist' },
+	{ value: 'WhatsApp', label: 'Reminders patients read' },
+	{ value: 'MoMo / NHIS', label: 'Confirm connectors' },
+];
+---
+
+<PageHero
+	eyebrow="Ghana · 2026"
+	title="Best clinic management software in Ghana — 2026 comparison"
+	lede="Side-by-side for private clinics — judged on Cura AI, WhatsApp, mobile money at the desk, and NHIS claim reality."
+	note="Direct NHIS integration for EasyClinic: not confirmed on features — confirm in demo. MoMo/card rails: confirm current payment partners in demo."
+	primaryHref="/contact-us#demo-form"
+	primaryLabel="Book a free demo"
+	secondaryHref="/pricing"
+	secondaryLabel="See pricing"
+>
+	<HeroFacts slot="under-lede" facts={facts} />
+
+	<figure class="photo">
+		<svg class="deco ring" viewBox="0 0 200 200" aria-hidden="true">
+			<circle cx="100" cy="100" r="88" fill="none" stroke="var(--brand-teal)" stroke-width="2" opacity="0.5"></circle>
+			<circle cx="100" cy="100" r="66" fill="none" stroke="var(--brand-blue)" stroke-width="2" opacity="0.35"></circle>
+		</svg>
+		<svg class="deco dots" viewBox="0 0 120 120" aria-hidden="true">
+			{
+				Array.from({ length: 25 }, (_, i) => (
+					<circle cx={8 + (i % 5) * 26} cy={8 + Math.floor(i / 5) * 26} r="3.5" fill="var(--brand-blue)" opacity="0.35" />
+				))
+			}
+		</svg>
+		<Image
+			src={heroPhoto}
+			alt="A modern clinic corridor representing Ghanaian private clinic care"
+			densities={[1, 1.5]}
+			loading="eager"
+		/>
+		<span class="chip chip-calendar" aria-hidden="true">
+			<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<rect x="3" y="4" width="18" height="17" rx="2"></rect>
+				<path d="M16 2v4M8 2v4M3 10h18"></path>
+			</svg>
+		</span>
+		<figcaption class="badge">
+			<strong>Private clinics</strong>
+			<span>Cura AI · WhatsApp · MoMo / NHIS honesty</span>
+		</figcaption>
+	</figure>
+</PageHero>
+
+<style>
+	.photo {
+		position: relative;
+		width: fit-content;
+		margin: 0 auto;
+	}
+	.photo :global(img) {
+		position: relative;
+		z-index: 1;
+		display: block;
+		width: 100%;
+		max-width: 480px;
+		height: auto;
+		border-radius: 20px;
+		box-shadow: 0 20px 48px rgba(10, 37, 64, 14%);
+	}
+	.deco {
+		position: absolute;
+		z-index: 0;
+	}
+	.ring {
+		top: -3.25rem;
+		right: -3.25rem;
+		width: 150px;
+		height: 150px;
+	}
+	.dots {
+		bottom: -2.5rem;
+		right: -2rem;
+		width: 110px;
+		height: 110px;
+	}
+	.chip {
+		position: absolute;
+		z-index: 2;
+		display: grid;
+		place-items: center;
+		width: 48px;
+		height: 48px;
+		border-radius: 14px;
+		background: var(--surface);
+		color: var(--brand-blue);
+		box-shadow: 0 12px 28px rgba(10, 37, 64, 12%);
+	}
+	.chip-calendar {
+		top: 1.25rem;
+		left: -0.75rem;
+	}
+	.badge {
+		position: absolute;
+		z-index: 2;
+		right: 1rem;
+		bottom: 1rem;
+		display: grid;
+		gap: 0.15rem;
+		border-radius: 14px;
+		padding: 0.7rem 0.9rem;
+		background: rgba(255, 255, 255, 0.94);
+		box-shadow: 0 12px 28px rgba(10, 37, 64, 12%);
+		color: var(--navy);
+		font-size: 0.8125rem;
+		line-height: 1.3;
+	}
+	.badge strong {
+		font-size: 0.9375rem;
+	}
+	@media (max-width: 720px) {
+		.chip-calendar {
+			left: 0.5rem;
+		}
+	}
+</style>

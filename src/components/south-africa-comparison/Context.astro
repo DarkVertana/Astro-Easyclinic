@@ -1,0 +1,83 @@
+---
+import SectionHead from '../SectionHead.astro';
+
+const triggers = [
+	'Medical aid claim friction',
+	'Doctors typing after close',
+	'No teleconsult path',
+	'SMS-only reminders patients ignore',
+	'Multi-site reporting gaps',
+];
+---
+
+<section class="context">
+	<div class="inner">
+		<SectionHead
+			eyebrow="Why now"
+			title="What SA practices are shopping for"
+			lede="A calmer practice day — modern EMR, telehealth, and billing that respects how medical aid actually works."
+		/>
+		<p class="body">
+			GoodX carries deep local claim heritage; MocDoc is a solid POPIA-minded regional cloud suite. EasyClinic is
+			the AI + WhatsApp international cloud pick once claim fit is confirmed.
+		</p>
+
+		<h3 class="sub">Why practices switch now</h3>
+		<ul class="chips" data-stagger>
+			{triggers.map((item) => <li>{item}</li>)}
+		</ul>
+		<p class="note">One trigger is enough to look; two usually means you’re overdue.</p>
+	</div>
+</section>
+
+<style>
+	.context {
+		background: var(--brand-wash);
+		padding: 5rem 1.5rem;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+	}
+	.body {
+		max-width: 62ch;
+		margin: 2rem auto 0;
+		color: var(--muted);
+		font-size: 1.0625rem;
+		line-height: 1.65;
+		text-align: center;
+	}
+	.sub {
+		margin: 3rem 0 0;
+		color: var(--navy);
+		font-size: clamp(1.375rem, 2.4vw, 1.75rem);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		text-align: center;
+	}
+	.chips {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.75rem;
+		max-width: 920px;
+		margin: 1.5rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	.chips li {
+		border: 1px solid rgba(10, 37, 64, 10%);
+		border-radius: 999px;
+		padding: 0.7rem 1.1rem;
+		background: var(--surface);
+		color: var(--navy);
+		font-size: 0.9375rem;
+		font-weight: 600;
+	}
+	.note {
+		margin: 1.25rem 0 0;
+		color: var(--muted);
+		font-size: 0.9375rem;
+		text-align: center;
+	}
+</style>

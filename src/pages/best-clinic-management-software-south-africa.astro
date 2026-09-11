@@ -1,0 +1,59 @@
+---
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Context from '../components/south-africa-comparison/Context.astro';
+import Hero from '../components/south-africa-comparison/Hero.astro';
+import Shortlist from '../components/south-africa-comparison/Shortlist.astro';
+import SwitchCost from '../components/south-africa-comparison/SwitchCost.astro';
+import Vendors from '../components/south-africa-comparison/Vendors.astro';
+import Verdict from '../components/south-africa-comparison/Verdict.astro';
+import Wins from '../components/south-africa-comparison/Wins.astro';
+import Marketing from '../layouts/Marketing.astro';
+
+const faqs = [
+	{
+		question: 'Best CMS for SA private practice?',
+		answer:
+			'EasyClinic for AI + telehealth + WhatsApp; GoodX when deep local claim switching dominates; MocDoc as POPIA-minded regional cloud alternative.',
+	},
+	{
+		question: 'POPIA?',
+		answer: 'Discuss EasyClinic controls in demo — no certification checkbox.',
+	},
+	{
+		question: 'Medical aid claims?',
+		answer: 'Confirm claim switching / medical-aid workflows with EasyClinic before buy.',
+	},
+	{
+		question: 'WhatsApp vs SMS?',
+		answer: 'EasyClinic supports WhatsApp/SMS/email; GoodX often SMS-leaning per live comparison.',
+	},
+	{
+		question: 'Cost in ZAR?',
+		answer: 'Ask each vendor for a current quote; EasyClinic offers demo/trial.',
+	},
+];
+---
+
+<Marketing
+	title="Best Clinic Management Software South Africa (2026 Comparison) — EasyClinic"
+	description="Compare clinic management software for South African doctors in 2026 — EasyClinic vs GoodX and MocDoc on Cura AI, telemedicine, ICD-10 billing, and POPIA."
+	mainClass="south-africa-comparison"
+>
+	<Hero />
+	<Context />
+	<Shortlist />
+	<Vendors />
+	<Wins />
+	<SwitchCost />
+	<Verdict />
+	<Faq items={faqs} />
+	<Cta
+		title="See EasyClinic on a South African practice day"
+		lede="Book a demo — AI docs, telehealth, and billing fit for your medical-aid mix."
+		primaryHref="/contact-us#demo-form"
+		primaryLabel="Book a free demo"
+		secondaryHref="/pricing"
+		secondaryLabel="See pricing"
+	/>
+</Marketing>

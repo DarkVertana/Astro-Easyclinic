@@ -1,0 +1,102 @@
+---
+import SectionHead from '../SectionHead.astro';
+
+const headers = ['Capability', 'EasyClinic', 'GoodX', 'MocDoc'];
+const rows = [
+	['Cloud SaaS', 'Yes', 'Strong SA presence', 'Cloud suite'],
+	['Cura AI', 'Live', 'Notes linked to file / check', 'Check'],
+	['Telemedicine', 'Yes', 'Check', 'Check'],
+	['WhatsApp messaging', 'Native style', 'SMS-leaning (live)', 'Check'],
+	['ICD-10 / billing', 'In-product coding; medical-aid depth confirm', 'Deep local claim switching heritage', 'Regional billing'],
+	['POPIA posture', 'Discuss in demo', 'Long SA track record', 'POPIA-ready messaging (live)'],
+	['Multi-site', 'Yes', 'Strong', 'Yes'],
+	['Pricing', 'Plans + quote / trial', 'Quote', 'Quote'],
+];
+---
+
+<section class="shortlist">
+	<div class="inner">
+		<SectionHead
+			title="The shortlist"
+			lede="All three are partly quote-based — get current ZAR quotes and test on your workflow."
+		/>
+		<div class="table-wrap" role="region" aria-label="South Africa clinic software shortlist comparison" tabindex="0">
+			<table>
+				<thead>
+					<tr>
+						{headers.map((h) => <th scope="col">{h}</th>)}
+					</tr>
+				</thead>
+				<tbody>
+					{
+						rows.map((row) => (
+							<tr>
+								{row.map((cell, i) => (i === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>))}
+							</tr>
+						))
+					}
+				</tbody>
+			</table>
+		</div>
+		<p class="hint">Details live in the vendor cards below — this table stays one-screen.</p>
+	</div>
+</section>
+
+<style>
+	.shortlist {
+		background: var(--surface);
+		padding: 5rem 1.5rem;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+	}
+	.table-wrap {
+		overflow-x: auto;
+		margin: 2.75rem auto 0;
+		border: 1px solid rgba(10, 37, 64, 10%);
+		border-radius: 18px;
+		background: #fff;
+		-webkit-overflow-scrolling: touch;
+	}
+	table {
+		width: 100%;
+		min-width: 720px;
+		border-collapse: collapse;
+		font-size: 0.9375rem;
+	}
+	th,
+	td {
+		padding: 0.95rem 1rem;
+		border-bottom: 1px solid rgba(10, 37, 64, 8%);
+		text-align: left;
+		vertical-align: top;
+		color: var(--muted);
+		line-height: 1.45;
+	}
+	thead th {
+		background: var(--brand-wash);
+		color: var(--navy);
+		font-weight: 700;
+		white-space: nowrap;
+	}
+	tbody th {
+		color: var(--navy);
+		font-weight: 650;
+		width: 20%;
+	}
+	tbody tr:last-child th,
+	tbody tr:last-child td {
+		border-bottom: 0;
+	}
+	tbody td:nth-child(2) {
+		color: var(--navy);
+		font-weight: 600;
+	}
+	.hint {
+		margin: 1rem 0 0;
+		color: var(--muted);
+		font-size: 0.875rem;
+		text-align: center;
+	}
+</style>

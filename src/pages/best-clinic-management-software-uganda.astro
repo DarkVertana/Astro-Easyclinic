@@ -1,0 +1,55 @@
+---
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Context from '../components/uganda-comparison/Context.astro';
+import Hero from '../components/uganda-comparison/Hero.astro';
+import Shortlist from '../components/uganda-comparison/Shortlist.astro';
+import SwitchCost from '../components/uganda-comparison/SwitchCost.astro';
+import Vendors from '../components/uganda-comparison/Vendors.astro';
+import Verdict from '../components/uganda-comparison/Verdict.astro';
+import Wins from '../components/uganda-comparison/Wins.astro';
+import Marketing from '../layouts/Marketing.astro';
+
+const faqs = [
+	{
+		question: 'Best CMS in Uganda?',
+		answer:
+			'EasyClinic for SaaS AI + WhatsApp + telehealth; Kico when custom MoMo is the gate; Smart Hospital when self-host is required.',
+	},
+	{
+		question: 'Mobile money?',
+		answer: 'Confirm EasyClinic Uganda MoMo status in demo; Kico often builds it in.',
+	},
+	{
+		question: 'WhatsApp/telemedicine?',
+		answer: 'Yes on EasyClinic.',
+	},
+	{
+		question: 'Cost?',
+		answer: 'Demo quote; custom builds price differently.',
+	},
+];
+---
+
+<Marketing
+	title="Best Clinic Management Software Uganda (2026 Comparison) — EasyClinic"
+	description="Compare clinic management software in Uganda — EasyClinic vs Zanda, Smart Hospital Manager, and Kico on AI, telemedicine, WhatsApp, and mobile money."
+	mainClass="uganda-comparison"
+>
+	<Hero />
+	<Context />
+	<Shortlist />
+	<Vendors />
+	<Wins />
+	<SwitchCost />
+	<Verdict />
+	<Faq items={faqs} />
+	<Cta
+		title="See EasyClinic on a Ugandan clinic workflow"
+		lede="Book a demo — charts, WhatsApp, and MoMo fit."
+		primaryHref="/contact-us#demo-form"
+		primaryLabel="Book a free demo"
+		secondaryHref="/pricing"
+		secondaryLabel="See pricing"
+	/>
+</Marketing>

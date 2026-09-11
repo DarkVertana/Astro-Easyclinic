@@ -1,0 +1,59 @@
+---
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Context from '../components/ghana-comparison/Context.astro';
+import Hero from '../components/ghana-comparison/Hero.astro';
+import Shortlist from '../components/ghana-comparison/Shortlist.astro';
+import SwitchCost from '../components/ghana-comparison/SwitchCost.astro';
+import Vendors from '../components/ghana-comparison/Vendors.astro';
+import Verdict from '../components/ghana-comparison/Verdict.astro';
+import Wins from '../components/ghana-comparison/Wins.astro';
+import Marketing from '../layouts/Marketing.astro';
+
+const faqs = [
+	{
+		question: 'Best CMS in Ghana in 2026?',
+		answer:
+			'If NHIS + offline are non-negotiable, shortlist Ksatria/HealthTech first; if you want AI + WhatsApp cloud ops and can confirm NHIS/MoMo, EasyClinic is the strongest modern all-rounder.',
+	},
+	{
+		question: 'Does EasyClinic do NHIS?',
+		answer: 'Direct NHIS integration not documented — confirm current status in demo.',
+	},
+	{
+		question: 'Mobile money?',
+		answer: 'MoMo/card handling: confirm payment partners in demo.',
+	},
+	{
+		question: 'WhatsApp and telemedicine?',
+		answer: 'Yes — core EasyClinic engagement and telehealth modules.',
+	},
+	{
+		question: 'Cost?',
+		answer: 'Pricing + Ghana demo quote.',
+	},
+];
+---
+
+<Marketing
+	title="Best Clinic Management Software Ghana (2026 Comparison) — EasyClinic"
+	description="Compare clinic management software Ghana clinics use in 2026 — EasyClinic vs Ksatria, HealthTech Ghana, and Smart Hospital Manager on Cura AI, WhatsApp, MoMo, and NHIS."
+	mainClass="ghana-comparison"
+>
+	<Hero />
+	<Context />
+	<Shortlist />
+	<Vendors />
+	<Wins />
+	<SwitchCost />
+	<Verdict />
+	<Faq items={faqs} />
+	<Cta
+		title="See EasyClinic on a Ghanaian clinic day"
+		lede="Book a demo — EMR, WhatsApp, and confirm NHIS/MoMo fit for your facility."
+		primaryHref="/contact-us#demo-form"
+		primaryLabel="Book a free demo"
+		secondaryHref="/pricing"
+		secondaryLabel="See pricing"
+	/>
+</Marketing>

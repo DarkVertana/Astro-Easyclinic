@@ -9,6 +9,7 @@ import PageHero from '../PageHero.astro';
 import dentalPhoto from '../../assets/specialty-emr/dental-hero.webp';
 import dermatologyPhoto from '../../assets/specialty-emr/dermatology-hero.webp';
 import ophthalmologyPhoto from '../../assets/specialty-emr/ophthalmology-hero.webp';
+import orthopedicPhoto from '../../assets/specialty-emr/orthopedic-hero.webp';
 import type { HeroIcon, Specialty } from './data';
 
 interface Props {
@@ -36,6 +37,10 @@ const photos: Record<string, { src: ImageMetadata; alt: string }> = {
 	'ophthalmology-emr': {
 		src: ophthalmologyPhoto,
 		alt: 'An ophthalmologist examining a patient during a clinic visit',
+	},
+	'orthopedic-emr': {
+		src: orthopedicPhoto,
+		alt: 'A clinician reviewing musculoskeletal care with a patient in clinic',
 	},
 };
 

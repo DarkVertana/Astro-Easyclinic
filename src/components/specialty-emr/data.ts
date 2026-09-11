@@ -509,6 +509,7 @@ const ophthalmology = createSpecialty({
 });
 
 const orthopedic = createSpecialty({
+	enabled: true,
 	slug: 'orthopedic-emr',
 	specialty: 'Orthopedics',
 	specialtyAdj: 'orthopedic',
@@ -516,25 +517,88 @@ const orthopedic = createSpecialty({
 	seoTitle: 'Orthopedic EMR Software — EasyClinic',
 	seoDescription:
 		'Orthopedic EMR — injury templates, imaging, procedure notes, rehab follow-ups, scheduling, and billing.',
+	eyebrow: 'Orthopedics',
 	title: 'Orthopedic EMR for injury notes, imaging, and procedure follow-through',
 	lede: 'Template-driven ortho documentation, X-ray storage, procedure notes, scheduling, and billing in one clinic management system.',
-	heroFacts: [{ value: 'Injury templates' }, { value: 'X-rays on chart' }, { value: 'Procedure docs' }],
+	note: 'Built for ortho clinics, sports injury practices, and multi-surgeon centres.',
+	heroFacts: [
+		{ value: 'Injury templates', label: 'Faster consult notes' },
+		{ value: 'X-rays on chart', label: 'Imaging with the visit' },
+		{ value: 'Procedure docs', label: 'Notes that match the day' },
+	],
 	clinical: [
-		{ title: 'Ortho templates' },
-		{ title: 'Imaging store' },
-		{ title: 'Procedure/surgery notes' },
-		{ title: 'Rehab / follow-up plans' },
-		{ title: 'Point-and-click EMR' },
-		{ title: 'Optional Cura AI', accent: true },
+		{
+			title: 'Ortho templates',
+			copy: 'Injury and MSK templates so documentation keeps pace with OPD volume.',
+		},
+		{
+			title: 'Imaging store',
+			copy: 'Keep X-rays and reports on the patient record, not on a separate drive.',
+		},
+		{
+			title: 'Procedure/surgery notes',
+			copy: 'Capture procedure detail while the visit is still fresh.',
+		},
+		{
+			title: 'Rehab / follow-up plans',
+			copy: 'Track physio and review visits against the original plan.',
+		},
+		{
+			title: 'Point-and-click EMR',
+			copy: 'Chief complaint, history, Rx, and follow-ups without hunting menus.',
+		},
+		{
+			title: 'Optional Cura AI',
+			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			accent: true,
+		},
+	],
+	ops: [
+		'Appointment scheduling',
+		'Reminders (WhatsApp/SMS/email)',
+		'Procedure billing & invoicing',
+		'Consumables inventory',
+		'Teleconsult + online fees',
+		'Multi-doctor roles',
+		'Reports',
 	],
 	problems: [
-		{ title: 'X-rays outside the record' },
-		{ title: 'Procedure notes after hours' },
-		{ title: 'Physio follow-ups unmanaged' },
+		{
+			title: 'X-rays outside the record',
+			copy: 'Films and CDs sit apart from the note the next surgeon needs.',
+		},
+		{
+			title: 'Procedure notes after hours',
+			copy: 'Documentation piles up after a long OT or injection list.',
+		},
+		{
+			title: 'Physio follow-ups unmanaged',
+			copy: 'Rehab schedules drift without a plan tied to the chart.',
+		},
 	],
 	fit: ['Ortho clinics', 'Sports injury practices', 'Multi-surgeon ortho centres'],
-	faqSeeds: ['Best ortho EMR?', 'X-rays?', 'Procedure docs?', 'AI docs?'],
+	faqs: [
+		{
+			question: 'Best EMR for orthopedic clinics?',
+			answer:
+				'Look for injury templates, imaging on the chart, procedure notes, scheduling, and billing together; EasyClinic covers that workflow.',
+		},
+		{
+			question: 'Can we store X-rays?',
+			answer: 'Yes — attach imaging and reports to the patient record.',
+		},
+		{
+			question: 'Procedure documentation?',
+			answer: 'Yes — procedure and surgery notes stay with the visit and plan.',
+		},
+		{
+			question: 'AI documentation for ortho notes?',
+			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+		},
+	],
 	ctaTitle: 'See orthopedic EMR on your procedure day',
+	ctaLede:
+		'Book a demo — we’ll walk injury templates, imaging, procedure notes, and billing on your workflow.',
 });
 
 const pediatric = createSpecialty({

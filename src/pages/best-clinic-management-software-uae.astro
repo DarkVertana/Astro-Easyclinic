@@ -1,0 +1,61 @@
+---
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Context from '../components/uae-comparison/Context.astro';
+import Hero from '../components/uae-comparison/Hero.astro';
+import Shortlist from '../components/uae-comparison/Shortlist.astro';
+import SwitchCost from '../components/uae-comparison/SwitchCost.astro';
+import Vendors from '../components/uae-comparison/Vendors.astro';
+import Verdict from '../components/uae-comparison/Verdict.astro';
+import Wins from '../components/uae-comparison/Wins.astro';
+import Marketing from '../layouts/Marketing.astro';
+
+const faqs = [
+	{
+		question: 'Best CMS in UAE in 2026?',
+		answer:
+			'If exchange certification is the blocker, shortlist Clinicea/MedicoPlus/PappyJoe first; if you want AI + WhatsApp cloud ops and can confirm connectivity, EasyClinic is the strongest modern all-rounder.',
+	},
+	{
+		question: 'Is EasyClinic NABIDH/Malaffi/Riayati certified?',
+		answer:
+			'Confirm current status with EasyClinic before buy — do not checkbox-claim.',
+	},
+	{
+		question: 'Arabic support?',
+		answer:
+			'Prescriptions any language including Arabic; full UI language options confirm in demo.',
+	},
+	{
+		question: 'Multi-Emirate groups?',
+		answer: 'Cloud multi-branch; exchange rules still per Emirate.',
+	},
+	{
+		question: 'Cost?',
+		answer: 'Demo for UAE quote; see Pricing for published tiers.',
+	},
+];
+---
+
+<Marketing
+	title="Best Clinic Management Software UAE (2026 Comparison) — EasyClinic"
+	description="Compare clinic management software for UAE doctors in 2026 — EasyClinic vs Clinicea, PappyJoe, and MedicoPlus on NABIDH/Malaffi/Riayati, AI, WhatsApp, and billing."
+	mainClass="uae-comparison"
+>
+	<Hero />
+	<Context />
+	<Shortlist />
+	<Vendors />
+	<Wins />
+	<SwitchCost />
+	<Verdict />
+	<Faq items={faqs} />
+	<Cta
+		title="Confirm exchange fit, then see the clinic OS"
+		lede="Book a demo — we’ll map your Emirate requirements, then EMR, WhatsApp, and billing."
+		primaryHref="/contact-us#demo-form"
+		primaryLabel="Book a free demo"
+		secondaryHref="/pricing"
+		secondaryLabel="See pricing"
+	/>
+</Marketing>

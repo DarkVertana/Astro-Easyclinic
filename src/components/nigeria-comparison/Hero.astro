@@ -2,20 +2,20 @@
 import { Image } from 'astro:assets';
 import HeroFacts from '../HeroFacts.astro';
 import PageHero from '../PageHero.astro';
-import heroPhoto from '../../assets/india-comparison/hero.webp';
+import heroPhoto from '../../assets/nigeria-comparison/hero.webp';
 
 const facts = [
-	{ value: 'Cura AI', label: 'Live documentation assist' },
-	{ value: 'WhatsApp', label: 'Reminders patients read' },
-	{ value: 'Multi-branch', label: 'One patient record' },
+	{ value: 'Cura AI', label: 'Live assist' },
+	{ value: 'WhatsApp', label: 'Reminders + Rx' },
+	{ value: 'HMO hygiene', label: 'Claims docs — confirm connectors' },
 ];
 ---
 
 <PageHero
-	eyebrow="India · 2026"
-	title="Best clinic management software in India — 2026 comparison"
-	lede="A side-by-side look at EMR and clinic-management tools Indian private clinics actually choose — judged on Cura AI documentation, WhatsApp, UPI-friendly billing, and multi-branch control."
-	note="ABDM / ABHA workflows: work in progress — confirm current status in demo."
+	eyebrow="Nigeria · 2026"
+	title="Best clinic management software in Nigeria — 2026 comparison"
+	lede="Side-by-side for private clinics in Lagos, Abuja, and beyond — judged on Cura AI, WhatsApp, telemedicine, and HMO-friendly billing hygiene."
+	note="Nigeria-specific HMO connectors: confirm in demo. NDPA controls discussed in demo — no checkbox certification claims."
 	primaryHref="/contact-us#demo-form"
 	primaryLabel="Book a free demo"
 	secondaryHref="/pricing"
@@ -37,7 +37,7 @@ const facts = [
 		</svg>
 		<Image
 			src={heroPhoto}
-			alt="A modern clinic corridor representing Indian private clinic care"
+			alt="A modern clinic corridor representing Nigerian private clinic care"
 			densities={[1, 1.5]}
 			loading="eager"
 		/>
@@ -49,7 +49,7 @@ const facts = [
 		</span>
 		<figcaption class="badge">
 			<strong>Private clinics</strong>
-			<span>Cura AI · WhatsApp · Multi-branch</span>
+			<span>Cura AI · WhatsApp · HMO hygiene</span>
 		</figcaption>
 	</figure>
 </PageHero>

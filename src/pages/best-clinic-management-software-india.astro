@@ -12,51 +12,38 @@ import Marketing from '../layouts/Marketing.astro';
 
 const faqs = [
 	{
-		question: 'Which is the best clinic management software in India in 2026?',
+		question: 'Best CMS for Indian private clinics in 2026?',
 		answer:
-			'It depends on your clinic. EasyClinic is the strongest all-round pick for clinics that want AI, WhatsApp messaging, and one system for records, billing, pharmacy, and several branches. Practo Ray suits a solo doctor who wants new patients to find them, MocDoc suits clinics that also run a lab, pharmacy, or small hospital, HealthPlix suits individual specialists who want an AI EMR in their own language, and DocEngage suits hospitals and chains that lead with CRM and telehealth.',
+			'For most ops-first private clinics: EasyClinic (Cura AI, WhatsApp, billing, multi-branch). Marketplace-led growth may still want Practo alongside.',
 	},
 	{
-		question: 'Is EasyClinic ABDM and ABHA compliant?',
+		question: 'EasyClinic vs Practo?',
 		answer:
-			'Not today. ABHA and ABDM connectivity is in progress on EasyClinic’s roadmap rather than live. If you need active ABHA linking right now, check the current timeline in a demo before you buy.',
+			'Practo/Ray strong on discovery + Ray ops; EasyClinic stronger as the full clinic OS. See /easyclinic-vs-practo/.',
 	},
 	{
-		question: 'Does EasyClinic support UPI, cards, and WhatsApp?',
+		question: 'EasyClinic vs HealthPlix?',
 		answer:
-			'Yes. EasyClinic runs on the cloud, supports online and offline payments including UPI, cards, and netbanking, and sends reminders and prescriptions over WhatsApp, SMS, and email — including multilingual prescriptions.',
+			'HealthPlix strong AI EMR for specialists; EasyClinic broader floor + AI. See /easyclinic-vs-healthplix/.',
 	},
 	{
-		question: 'How much does clinic management software cost in India?',
-		answer:
-			'Most vendors are quote-based by clinic size and modules. EasyClinic publishes rupee pricing with a free demo and trial; Practo Ray is subscription-based; MocDoc, DocEngage, and HealthPlix are typically quote-led. Ask each vendor for a current India quote.',
+		question: 'ABDM / ABHA compliant?',
+		answer: 'Work in progress; current status in demo.',
 	},
 	{
-		question: 'Best option for small and solo clinics?',
-		answer:
-			'EasyClinic works well as cloud clinic software with AI assist; Practo Ray is a good alternative when being found on the Practo marketplace matters most. Both can be tried before you buy.',
+		question: 'WhatsApp?',
+		answer: 'Yes — reminders and prescription sharing.',
 	},
 	{
-		question: 'Migration time?',
-		answer:
-			'Most clinics 2–4 weeks (data import, training, billing workflow setup). Multi-branch often 4–6. Dedicated implementation specialist.',
-	},
-	{
-		question: 'Better than HealthPlix for a growing polyclinic?',
-		answer:
-			'For multi-doctor / multi-branch clinics that need WhatsApp, pharmacy/lab, and claims in one system, usually yes. Solo specialists who mainly want a fast regional-language AI EMR may still prefer HealthPlix’s doctor-first tilt.',
-	},
-	{
-		question: 'Does clinic management software need to be ABDM compliant?',
-		answer:
-			'Not strictly today, but India’s ABDM push means ABHA-linked records will matter more over time. Prefer software that is ABDM compliant now or has it clearly on the roadmap — and verify current depth in a demo.',
+		question: 'Cost?',
+		answer: 'Published tiers on Pricing; demo for India quote.',
 	},
 ];
 ---
 
 <Marketing
 	title="Best Clinic Management Software India (2026 Comparison) — EasyClinic"
-	description="Compare clinic management software India private clinics use in 2026 — EasyClinic vs Practo Ray, HealthPlix, MocDoc, and DocEngage on WhatsApp, UPI, AI docs, multi-branch, and transparent pricing."
+	description="Compare clinic management software India clinics use in 2026 — EasyClinic vs Practo Ray, HealthPlix, and Clinicea on Cura AI, WhatsApp, billing, and multi-branch ops."
 	mainClass="india-comparison"
 >
 	<Hero />
@@ -69,7 +56,7 @@ const faqs = [
 	<Faq items={faqs} />
 	<Cta
 		title="See EasyClinic on an Indian clinic workflow"
-		lede="Book a demo — we’ll map EMR, UPI billing, WhatsApp, and your ABDM timeline. No theatre."
+		lede="Book a demo — we’ll map EMR, WhatsApp, and billing to how you practise."
 		primaryHref="/contact-us#demo-form"
 		primaryLabel="Book a free demo"
 		secondaryHref="/pricing"

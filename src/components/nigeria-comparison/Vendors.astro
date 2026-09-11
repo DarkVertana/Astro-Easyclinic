@@ -1,0 +1,82 @@
+---
+import SectionHead from '../SectionHead.astro';
+
+const vendors = [
+	{
+		title: 'MocDoc',
+		copy: 'Closest all-round rival in Nigeria — cloud suite across clinics/hospitals/labs/pharmacies, NDPA-minded security story, Nigerian language depth, HMO workflow, 24/7 support. EasyClinic answers with deeper live AI (Cura AI), integrated telemedicine, and WhatsApp messaging inside one ops spine. Compare NDPA evidence and HMO connectors in demos.',
+	},
+	{
+		title: 'eClinicPlus',
+		copy: 'Local option with clearer tiered pricing and named HMO billing. Strong when budget clarity and local HMO billing matter most. EasyClinic differentiates on Cura AI, WhatsApp, and telemedicine in one international cloud platform — confirm NG HMO connector depth either way.',
+	},
+	{
+		title: 'OneCare',
+		copy: 'Integrated Nigerian EHR spanning primary to tertiary care. Fits broader facility scope. EasyClinic is aimed at connected private clinics that want AI documentation, WhatsApp, and telehealth without hospital-only complexity.',
+	},
+];
+---
+
+<section class="vendors">
+	<div class="inner">
+		<SectionHead
+			eyebrow="Head to head"
+			title="How EasyClinic compares, vendor by vendor"
+			lede="Short takes grounded in each vendor’s public positioning. Full demos beat feature matrices."
+		/>
+		<ul class="grid" data-stagger>
+			{
+				vendors.map((v) => (
+					<li>
+						<h3>EasyClinic vs {v.title}</h3>
+						<p>{v.copy}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+
+<style>
+	.vendors {
+		background: var(--brand-wash);
+		padding: 5rem 1.5rem;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+		max-width: 1040px;
+		margin: 2.75rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	.grid li {
+		border: 1px solid rgba(10, 37, 64, 8%);
+		border-radius: 18px;
+		padding: 1.5rem 1.55rem 1.6rem;
+		background: var(--surface);
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.125rem;
+		font-weight: 700;
+		letter-spacing: -0.01em;
+	}
+	p {
+		margin: 0.75rem 0 0;
+		color: var(--muted);
+		font-size: 0.9875rem;
+		line-height: 1.6;
+	}
+	@media (max-width: 800px) {
+		.grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

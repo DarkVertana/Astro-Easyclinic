@@ -1,0 +1,61 @@
+---
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Context from '../components/nigeria-comparison/Context.astro';
+import Hero from '../components/nigeria-comparison/Hero.astro';
+import Shortlist from '../components/nigeria-comparison/Shortlist.astro';
+import SwitchCost from '../components/nigeria-comparison/SwitchCost.astro';
+import Vendors from '../components/nigeria-comparison/Vendors.astro';
+import Verdict from '../components/nigeria-comparison/Verdict.astro';
+import Wins from '../components/nigeria-comparison/Wins.astro';
+import Marketing from '../layouts/Marketing.astro';
+
+const faqs = [
+	{
+		question: 'Best CMS for Nigerian private clinics?',
+		answer:
+			'EasyClinic as AI + WhatsApp + telehealth all-rounder; keep MocDoc in the final two for NDPA/language/HMO depth; eClinicPlus for local tier pricing.',
+	},
+	{
+		question: 'HMO integration?',
+		answer:
+			'Claim workflows exist; Nigeria-specific connector details confirm with EasyClinic.',
+	},
+	{
+		question: 'WhatsApp and telemedicine?',
+		answer:
+			'Yes — reminders/Rx channels and teleconsult with online payment.',
+	},
+	{
+		question: 'NDPA?',
+		answer: 'Discuss controls and posture in demo; don’t claim certification.',
+	},
+	{
+		question: 'Cost?',
+		answer: 'Pricing page + Nigeria demo quote.',
+	},
+];
+---
+
+<Marketing
+	title="Best Clinic Management Software Nigeria (2026 Comparison) — EasyClinic"
+	description="Compare clinic management software Nigeria clinics use in 2026 — EasyClinic vs MocDoc, eClinicPlus, and OneCare on Cura AI, WhatsApp, telemedicine, and HMO claims."
+	mainClass="nigeria-comparison"
+>
+	<Hero />
+	<Context />
+	<Shortlist />
+	<Vendors />
+	<Wins />
+	<SwitchCost />
+	<Verdict />
+	<Faq items={faqs} />
+	<Cta
+		title="See EasyClinic on a Nigerian clinic day"
+		lede="Book a demo — EMR, WhatsApp, telemedicine, and HMO claim hygiene on your workflow."
+		primaryHref="/contact-us#demo-form"
+		primaryLabel="Book a free demo"
+		secondaryHref="/pricing"
+		secondaryLabel="See pricing"
+	/>
+</Marketing>

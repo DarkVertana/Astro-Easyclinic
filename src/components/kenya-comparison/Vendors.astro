@@ -1,0 +1,94 @@
+---
+import SectionHead from '../SectionHead.astro';
+
+const vendors = [
+	{
+		title: 'KenyaEMR',
+		copy: 'One of Africa’s largest open-source EMR rollouts (300+ public facilities) — strong for HIV, TB, and UHC programmes. For a fee-paying private clinic it’s heavy: facility installs, specialised support, and a stack aimed at public workflows. Pick KenyaEMR for public programmes; pick EasyClinic for private OPD speed, M-Pesa billing, and published SaaS pricing.',
+	},
+	{
+		title: 'Helium Health',
+		copy: 'Serious option for large hospital groups. For one-to-ten branch private clinics, EasyClinic usually wins on published pricing, live Cura AI, native M-Pesa, and SHA support being built into the core EMR rather than a separate wallet. Helium still makes sense when you need big-hospital breadth.',
+	},
+	{
+		title: 'Streamline Health',
+		copy: 'Africa-focused hospital system with clinical prompts and local-language medication labels — useful in rural/multi-county settings. EasyClinic leans harder on AI documentation, WhatsApp-first engagement, and private-clinic billing hygiene.',
+	},
+	{
+		title: 'Clinicea',
+		copy: 'Global cloud EMR with strong templates and Nairobi presence. EasyClinic’s Kenya case is more local: M-Pesa in billing (post-Oct-2024 rules awareness), WhatsApp reminders, transparent pricing, and SHA on the roadmap inside the EMR.',
+	},
+	{
+		title: 'ClinikEHR',
+		copy: 'AI EHR with a generous free tier and a solo/global slant — fine for a single doctor testing water. EasyClinic is built for the next step: multi-branch, M-Pesa reconciliation, and SHA-oriented claims work.',
+	},
+	{
+		title: 'OpenMRS / HospitalOS',
+		copy: 'OpenMRS underpins KenyaEMR, Bahmni, and many donor builds — flexible if you have developers. HospitalOS is a small-hospital open-source option. Neither is turnkey private-clinic SaaS with native M-Pesa the way EasyClinic is.',
+	},
+];
+---
+
+<section class="vendors">
+	<div class="inner">
+		<SectionHead
+			eyebrow="Head to head"
+			title="How EasyClinic compares, vendor by vendor"
+			lede="Short takes. Full demos beat feature matrices."
+		/>
+		<ul class="grid" data-stagger>
+			{
+				vendors.map((v) => (
+					<li>
+						<h3>EasyClinic vs {v.title}</h3>
+						<p>{v.copy}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+
+<style>
+	.vendors {
+		background: var(--brand-wash);
+		padding: 5rem 1.5rem;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+		max-width: 1040px;
+		margin: 2.75rem auto 0;
+		padding: 0;
+		list-style: none;
+	}
+	.grid li {
+		border: 1px solid rgba(10, 37, 64, 8%);
+		border-radius: 18px;
+		padding: 1.5rem 1.55rem 1.6rem;
+		background: var(--surface);
+	}
+	h3 {
+		margin: 0;
+		color: var(--navy);
+		font-size: 1.125rem;
+		font-weight: 700;
+		letter-spacing: -0.01em;
+	}
+	p {
+		margin: 0.75rem 0 0;
+		color: var(--muted);
+		font-size: 0.9875rem;
+		line-height: 1.6;
+	}
+	@media (max-width: 800px) {
+		.grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

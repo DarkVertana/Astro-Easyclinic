@@ -1,0 +1,76 @@
+---
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Context from '../components/kenya-comparison/Context.astro';
+import Hero from '../components/kenya-comparison/Hero.astro';
+import Shortlist from '../components/kenya-comparison/Shortlist.astro';
+import SwitchCost from '../components/kenya-comparison/SwitchCost.astro';
+import Vendors from '../components/kenya-comparison/Vendors.astro';
+import Verdict from '../components/kenya-comparison/Verdict.astro';
+import Wins from '../components/kenya-comparison/Wins.astro';
+import Marketing from '../layouts/Marketing.astro';
+
+const faqs = [
+	{
+		question: 'Which CMS should a private clinic in Kenya choose in 2026?',
+		answer:
+			'For most private clinics: EasyClinic as all-rounder (Cura AI, native M-Pesa, transparent pricing, SHA/SHIF in development). Public-sector programme facilities: KenyaEMR/OpenMRS still often fit better.',
+	},
+	{
+		question: 'SHA / SHIF compliant today?',
+		answer:
+			'Not yet. SHA, SHIF, and KRA eTIMS are in active development — eligibility, attachments, and submit-from-EMR are the aim.',
+	},
+	{
+		question: 'Best EMR for M-Pesa?',
+		answer:
+			'EasyClinic — M-Pesa is part of billing, not a bolt-on; payments reconcile to invoices.',
+	},
+	{
+		question: 'Unreliable internet?',
+		answer:
+			'Cloud-tuned for low bandwidth (incl. 3G outside Nairobi). Not fully offline today; self-hosted options discussed for larger groups in demo.',
+	},
+	{
+		question: 'Migration time?',
+		answer:
+			'Most clinics 2–4 weeks (data import, training, SHA workflow prep). Multi-branch often 4–6. Dedicated implementation specialist.',
+	},
+	{
+		question: 'Monthly cost?',
+		answer: 'See Pricing; demo for Kenya quote by doctors/branches/modules.',
+	},
+	{
+		question: 'Better than Helium for a Nairobi clinic?',
+		answer:
+			'For ~1–10 branches, usually yes (pricing clarity, live AI, M-Pesa, SHA-in-core roadmap). Large hospital groups may still prefer Helium’s breadth.',
+	},
+	{
+		question: 'WhatsApp reminders?',
+		answer: 'Yes — WhatsApp, SMS, and email. WhatsApp is what patients here actually read.',
+	},
+];
+---
+
+<Marketing
+	title="Best Clinic Management Software Kenya (2026 Comparison) — EasyClinic"
+	description="Compare clinic management software Kenya private clinics use in 2026 — EasyClinic vs KenyaEMR, Helium Health, and others on SHA, M-Pesa, AI docs, and transparent pricing."
+	mainClass="kenya-comparison"
+>
+	<Hero />
+	<Context />
+	<Shortlist />
+	<Vendors />
+	<Wins />
+	<SwitchCost />
+	<Verdict />
+	<Faq items={faqs} />
+	<Cta
+		title="See EasyClinic on a Kenyan clinic workflow"
+		lede="Book a demo — we’ll map EMR, M-Pesa billing, and your SHA timeline. No theatre."
+		primaryHref="/contact-us#demo-form"
+		primaryLabel="Book a free demo"
+		secondaryHref="/pricing"
+		secondaryLabel="See pricing"
+	/>
+</Marketing>

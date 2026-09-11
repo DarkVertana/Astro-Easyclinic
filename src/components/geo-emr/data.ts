@@ -5,6 +5,13 @@
    docs/seo-packs/BATCH2_UAE_MY_NG_SPECIALTIES.md §A (UAE, Malaysia, Nigeria fills).
    Only `enabled` markets get a prerendered route. */
 
+import type { ImageMetadata } from 'astro';
+
+/* Hero photo per geo. India ships one; the rest fall back to the facts card until
+   India photo hero (webp)
+   once the India clinic photo is downloaded (see src/assets/geo-emr/README.md). */
+import indiaHero from '../../assets/geo-emr/india-hero.webp';
+
 export type FaqItem = {
 	question: string;
 	answer: string;
@@ -73,6 +80,9 @@ export type GeoMarket = GeoVars & {
 	lede: string;
 	heroFacts: HeroFact[];
 	heroBadge: { value: string; label: string };
+	/** Optional hero photo. Present = photo hero; absent = facts card in the right slot. */
+	heroImage?: ImageMetadata;
+	heroImageAlt?: string;
 	clinicTypesEyebrow: string;
 	clinicTypesTitle: string;
 	clinicTypesLede: string;
@@ -196,6 +206,8 @@ type MarketInput = GeoVars & {
 	lede: string;
 	heroFacts: HeroFact[];
 	heroBadge?: { value: string; label: string };
+	heroImage?: ImageMetadata;
+	heroImageAlt?: string;
 	clinicTypes?: ClinicType[];
 	modules?: Module[];
 	modulesLede?: string;
@@ -232,6 +244,8 @@ function createMarket(input: MarketInput): GeoMarket {
 		lede: input.lede,
 		heroFacts: input.heroFacts,
 		heroBadge: input.heroBadge ?? { value: 'Cloud-first', label: input.complianceNote },
+		heroImage: input.heroImage,
+		heroImageAlt: input.heroImageAlt ?? `A clinician using EasyClinic in a clinic in ${geo}`,
 
 		clinicTypesEyebrow: 'Who it’s for',
 		clinicTypesTitle: `Clinics we set up across ${geo}`,
@@ -290,6 +304,8 @@ const india = createMarket({
 		{ value: 'Cura AI', label: 'Optional documentation assist' },
 	],
 	heroBadge: { value: 'Honest compliance', label: 'ABDM & DPDP status shared in demo' },
+	heroImage: indiaHero,
+	heroImageAlt: 'A clinician writing up a consultation in the EasyClinic EMR on a laptop',
 	complianceBullets: [
 		'ABDM / ABHA workflows: in progress',
 		'DPDP Act 2023 alignment: in progress',
@@ -550,6 +566,8 @@ const cityMarket = (city: string): GeoMarket => {
 		lede: india.lede.replace('across India', `across ${city}`),
 		heroFacts: india.heroFacts,
 		heroBadge: india.heroBadge,
+		heroImage: india.heroImage,
+		heroImageAlt: india.heroImageAlt,
 		complianceBullets: india.complianceBullets,
 		faqs: india.faqs.map((faq) => ({
 			...faq,

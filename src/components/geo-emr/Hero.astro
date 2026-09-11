@@ -1,5 +1,10 @@
 ---
+/* Photo hero, same pattern as about/contact/pricing: photo + deco rings/dots,
+   float chips, and a figcaption badge. Geos without a `heroImage` keep the
+   original facts card so staged markets still render. */
+import { Image } from 'astro:assets';
 import PageHero from '../PageHero.astro';
+import HeroFacts from './HeroFacts.astro';
 import type { GeoMarket } from './data';
 
 interface Props {
@@ -7,6 +12,7 @@ interface Props {
 }
 
 const { market } = Astro.props;
+const photo = market.heroImage;
 ---
 
 <PageHero
@@ -19,7 +25,10 @@ const { market } = Astro.props;
 	secondaryHref="/pricing"
 	secondaryLabel="See pricing"
 >
-	<div class="artifact">
+	{/* facts move out of the right slot when a photo takes it over */}
+	<HeroFacts slot="under-lede" facts={photo ? market.heroFacts : []} />
+
+	<figure class:list={['artifact', { 'has-photo': photo }]}>
 		<svg class="deco ring" viewBox="0 0 200 200" aria-hidden="true">
 			<circle cx="100" cy="100" r="88" fill="none" stroke="var(--brand-teal)" stroke-width="2" opacity="0.5"></circle>
 			<circle cx="100" cy="100" r="66" fill="none" stroke="var(--brand-blue)" stroke-width="2" opacity="0.35"></circle>
@@ -32,41 +41,76 @@ const { market } = Astro.props;
 			}
 		</svg>
 
-		<div class="card">
-			<p class="card-label">{`Clinics in ${market.geo}`}</p>
-			<ul class="rows">
-				{
-					market.heroFacts.map((item) => (
-						<li class="fact">
-							<strong>{item.value}</strong>
-							<span>{item.label}</span>
-						</li>
-					))
-				}
-			</ul>
-		</div>
+		{
+			photo ? (
+				<Image
+					class="photo"
+					src={photo}
+					alt={market.heroImageAlt ?? `A clinician using EasyClinic in a clinic in ${market.geo}`}
+					densities={[1, 1.5]}
+					loading="eager"
+				/>
+			) : (
+				<div class="card">
+					<p class="card-label">{`Clinics in ${market.geo}`}</p>
+					<ul class="rows">
+						{market.heroFacts.map((item) => (
+							<li class="fact">
+								<strong>{item.value}</strong>
+								<span>{item.label}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			)
+		}
 
-		<span class="float-chip" aria-hidden="true">
+		<span class="float-chip chip-pin" aria-hidden="true">
 			<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 				<path d="M12 21s7-4.4 7-10a7 7 0 1 0-14 0c0 5.6 7 10 7 10Z"></path>
 				<circle cx="12" cy="11" r="2.6"></circle>
 			</svg>
 		</span>
+		{
+			photo && (
+				<span class="float-chip chip-shield" aria-hidden="true">
+					<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M12 2.5 20 6v6c0 4.7-3.4 8.6-8 9.5-4.6-.9-8-4.8-8-9.5V6Z" />
+						<path d="m8.75 12 2.25 2.25L15.5 9.75" />
+					</svg>
+				</span>
+			)
+		}
 
-		<p class="badge">
+		<figcaption class="badge">
 			<strong>{market.heroBadge.value}</strong>
 			<span>{market.heroBadge.label}</span>
-		</p>
-	</div>
+		</figcaption>
+	</figure>
 </PageHero>
 
 <style>
 	.artifact {
 		position: relative;
+		margin: 0;
+	}
+	.artifact.has-photo {
+		width: fit-content;
+		margin: 0 auto;
 	}
 	.card {
 		position: relative;
 		z-index: 1;
+	}
+	.artifact :global(img.photo) {
+		position: relative;
+		z-index: 1;
+		display: block;
+		width: 100%;
+		max-width: 480px;
+		height: auto;
+		border-radius: 20px;
+		box-shadow: 0 20px 48px rgba(10, 37, 64, 14%);
 	}
 
 	.deco {
@@ -89,8 +133,6 @@ const { market } = Astro.props;
 	.float-chip {
 		position: absolute;
 		z-index: 2;
-		top: -1.35rem;
-		right: -1rem;
 		display: grid;
 		place-items: center;
 		width: 52px;
@@ -100,6 +142,16 @@ const { market } = Astro.props;
 		color: var(--brand-blue);
 		box-shadow: 0 12px 28px rgba(10, 37, 64, 16%);
 		animation: float 5.5s ease-in-out infinite;
+	}
+	.chip-pin {
+		top: -1.35rem;
+		right: -1rem;
+	}
+	.chip-shield {
+		top: 42%;
+		left: -1.75rem;
+		color: var(--brand-teal);
+		animation-delay: 1.4s;
 	}
 	@keyframes float {
 		0%,
@@ -126,6 +178,10 @@ const { market } = Astro.props;
 		background: var(--surface);
 		box-shadow: 0 14px 32px rgba(10, 37, 64, 18%);
 	}
+	/* over the photo, not hanging below it */
+	.has-photo .badge {
+		bottom: 1.5rem;
+	}
 	.badge strong {
 		color: var(--navy);
 		font-size: 1rem;
@@ -150,8 +206,14 @@ const { market } = Astro.props;
 			left: 0.75rem;
 			bottom: -1rem;
 		}
-		.float-chip {
+		.has-photo .badge {
+			bottom: 0.75rem;
+		}
+		.chip-pin {
 			right: 0.5rem;
+		}
+		.chip-shield {
+			left: 0.75rem;
 		}
 		.ring {
 			top: -1.5rem;

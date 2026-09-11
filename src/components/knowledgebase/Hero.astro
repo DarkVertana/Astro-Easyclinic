@@ -1,5 +1,11 @@
 ---
+/* Photo hero, same pattern as about/contact/pricing: photo + deco rings/dots,
+   float chips, and a figcaption badge. The facts that used to fill the right
+   slot move under the lede. */
+import { Image } from 'astro:assets';
+import HeroFacts from '../HeroFacts.astro';
 import PageHero from '../PageHero.astro';
+import heroPhoto from '../../assets/knowledgebase/hero.webp';
 import { HELP_URL } from './links';
 
 const facts = [
@@ -20,7 +26,11 @@ const facts = [
 	secondaryHref="/contact-us"
 	secondaryLabel="Contact support"
 >
-	<div class="artifact">
+	{/* facts move out of the right slot now that the photo takes it over */}
+	<HeroFacts slot="under-lede" facts={facts} />
+
+	<figure class="photo">
+		{/* abstract accents behind the photo */}
 		<svg class="deco ring" viewBox="0 0 200 200" aria-hidden="true">
 			<circle cx="100" cy="100" r="88" fill="none" stroke="var(--brand-teal)" stroke-width="2" opacity="0.5"></circle>
 			<circle cx="100" cy="100" r="66" fill="none" stroke="var(--brand-blue)" stroke-width="2" opacity="0.35"></circle>
@@ -33,43 +43,53 @@ const facts = [
 			}
 		</svg>
 
-		<div class="card">
-			<p class="card-label">At a glance</p>
-			<ul class="rows">
-				{
-					facts.map((item) => (
-						<li class="fact">
-							<strong>{item.value}</strong>
-							<span>{item.label}</span>
-						</li>
-					))
-				}
-			</ul>
-		</div>
+		<Image
+			src={heroPhoto}
+			alt="A clinician reading an EasyClinic how-to guide on a laptop"
+			densities={[1, 1.5]}
+			loading="eager"
+		/>
 
-		<span class="float-chip" aria-hidden="true">
+		{/* floating icon chips */}
+		<span class="chip chip-book" aria-hidden="true">
 			<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 				<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
 				<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"></path>
 			</svg>
 		</span>
+		<span class="chip chip-search" aria-hidden="true">
+			<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<circle cx="11" cy="11" r="7"></circle>
+				<path d="m20 20-3.9-3.9"></path>
+			</svg>
+		</span>
 
-		<p class="badge">
+		<figcaption class="badge">
 			<strong>help.easyclinic.io</strong>
 			<span>Guides for every module</span>
-		</p>
-	</div>
+		</figcaption>
+	</figure>
 </PageHero>
 
 <style>
-	.artifact {
+	.photo {
 		position: relative;
+		width: fit-content;
+		max-width: 100%;
+		margin: 0 auto;
 	}
-	.card {
+	.photo :global(img) {
 		position: relative;
 		z-index: 1;
+		display: block;
+		width: 100%;
+		max-width: 480px;
+		height: auto;
+		border-radius: 20px;
+		box-shadow: 0 20px 48px rgba(10, 37, 64, 14%);
 	}
 
+	/* abstract accents */
 	.deco {
 		position: absolute;
 		z-index: 0;
@@ -87,20 +107,29 @@ const facts = [
 		height: 105px;
 	}
 
-	.float-chip {
+	/* floating icon chips */
+	.chip {
 		position: absolute;
 		z-index: 2;
-		top: -1.35rem;
-		right: -1rem;
 		display: grid;
 		place-items: center;
 		width: 52px;
 		height: 52px;
 		border-radius: 16px;
 		background: var(--surface);
-		color: var(--brand-blue);
 		box-shadow: 0 12px 28px rgba(10, 37, 64, 16%);
 		animation: float 5.5s ease-in-out infinite;
+	}
+	.chip-book {
+		top: -1.35rem;
+		right: -1rem;
+		color: var(--brand-blue);
+	}
+	.chip-search {
+		top: 42%;
+		left: -1.75rem;
+		color: var(--brand-teal);
+		animation-delay: 1.4s;
 	}
 	@keyframes float {
 		0%,
@@ -115,11 +144,12 @@ const facts = [
 	.badge {
 		position: absolute;
 		left: -1.25rem;
-		bottom: -1.5rem;
+		bottom: 1.5rem;
 		z-index: 2;
 		display: flex;
 		flex-direction: column;
 		gap: 0.1rem;
+		max-width: 17rem;
 		margin: 0;
 		border-radius: 14px;
 		padding: 0.8rem 1.1rem;
@@ -137,21 +167,20 @@ const facts = [
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.float-chip {
+		.chip {
 			animation: none;
 		}
 	}
 	@media (max-width: 1080px) {
-		.artifact {
-			max-width: 520px;
-			margin: 0 auto;
-		}
 		.badge {
 			left: 0.75rem;
-			bottom: -1rem;
+			bottom: 0.75rem;
 		}
-		.float-chip {
+		.chip-book {
 			right: 0.5rem;
+		}
+		.chip-search {
+			left: 0.75rem;
 		}
 		.ring {
 			top: -1.5rem;
@@ -161,7 +190,7 @@ const facts = [
 		}
 		.dots {
 			right: -0.25rem;
-			bottom: -1.5rem;
+			bottom: -1.25rem;
 		}
 	}
 </style>

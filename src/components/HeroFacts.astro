@@ -1,0 +1,62 @@
+---
+/* Hero facts as chips under the lede. Used when the hero's right slot is a photo
+   instead of the facts card. Renders nothing when there are no facts. */
+interface Fact {
+	value: string;
+	label?: string;
+}
+
+interface Props {
+	facts: Fact[];
+}
+
+const { facts } = Astro.props;
+---
+
+{
+	facts.length > 0 && (
+		<ul class="facts">
+			{facts.map((item) => (
+				<li>
+					<strong>{item.value}</strong>
+					{item.label && <span>{item.label}</span>}
+				</li>
+			))}
+		</ul>
+	)
+}
+
+<style>
+	.facts {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin: 1.15rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.facts li {
+		display: flex;
+		align-items: baseline;
+		gap: 0.35rem;
+		border: 1px solid rgba(10, 37, 64, 10%);
+		border-radius: 999px;
+		padding: 0.4rem 0.85rem;
+		background: var(--surface);
+	}
+	.facts strong {
+		color: var(--navy);
+		font-size: 0.8125rem;
+		font-weight: 700;
+	}
+	/* separator so the chip reads "Searchable · Guides & how-tos" */
+	.facts strong:not(:only-child)::after {
+		content: ' ·';
+		color: var(--muted);
+		font-weight: 400;
+	}
+	.facts span {
+		color: var(--muted);
+		font-size: 0.8125rem;
+	}
+</style>

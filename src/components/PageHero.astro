@@ -35,6 +35,8 @@ const hasActions = Boolean(primaryHref || secondaryHref);
 			<h1>{title}</h1>
 			<p class="lede">{lede}</p>
 			{note && <p class="note">{note}</p>}
+			{/* optional extras under the lede — e.g. the geo hero's fact chips */}
+			<slot name="under-lede" />
 			{
 				hasActions && (
 					<div class="actions">

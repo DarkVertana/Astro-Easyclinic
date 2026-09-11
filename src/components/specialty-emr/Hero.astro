@@ -6,24 +6,42 @@
 import { Image } from 'astro:assets';
 import HeroFacts from '../HeroFacts.astro';
 import PageHero from '../PageHero.astro';
+import aestheticPhoto from '../../assets/specialty-emr/aesthetic-emr-software-hero.webp';
+import allergyPhoto from '../../assets/specialty-emr/allergy-emr-software-hero.webp';
+import alternativeMedicinePhoto from '../../assets/specialty-emr/alternative-medicine-hero.webp';
+import ayurvedaPhoto from '../../assets/specialty-emr/ayurveda-emr-software-hero.webp';
+import cardiologyPhoto from '../../assets/specialty-emr/cardiology-hero.webp';
+import cosmetologyPhoto from '../../assets/specialty-emr/cosmetology-emr-software-hero.webp';
 import dentalPhoto from '../../assets/specialty-emr/dental-hero.webp';
 import dermatologyPhoto from '../../assets/specialty-emr/dermatology-hero.webp';
+import diabetologyPhoto from '../../assets/specialty-emr/diabetology-emr-software-hero.webp';
+import endocrinologyPhoto from '../../assets/specialty-emr/endocrinology-emr-software-hero.webp';
+import entPhoto from '../../assets/specialty-emr/ent-hero.webp';
+import familyPhysicianPhoto from '../../assets/specialty-emr/family-physician-emr-hero.webp';
+import gastroenterologyPhoto from '../../assets/specialty-emr/gastroenterology-hero.webp';
+import generalPractitionerPhoto from '../../assets/specialty-emr/general-practitioner-emr-hero.webp';
+import generalSurgeryPhoto from '../../assets/specialty-emr/general-surgery-emr-hero.webp';
+import hematologyPhoto from '../../assets/specialty-emr/hematology-emr-hero.webp';
+import immunologyPhoto from '../../assets/specialty-emr/immunology-emr-hero.webp';
+import ivfPhoto from '../../assets/specialty-emr/ivf-hero.webp';
+import mentalHealthPhoto from '../../assets/specialty-emr/mental-health-hero.webp';
+import nephrologyPhoto from '../../assets/specialty-emr/nephrology-emr-hero.webp';
+import neurologyPhoto from '../../assets/specialty-emr/neurology-hero.webp';
+import obgynPhoto from '../../assets/specialty-emr/obgyn-hero.webp';
+import oncologyPhoto from '../../assets/specialty-emr/oncology-hero.webp';
 import ophthalmologyPhoto from '../../assets/specialty-emr/ophthalmology-hero.webp';
 import orthopedicPhoto from '../../assets/specialty-emr/orthopedic-hero.webp';
+import pathologyPhoto from '../../assets/specialty-emr/pathology-emr-hero.webp';
 import pediatricPhoto from '../../assets/specialty-emr/pediatric-hero.webp';
-import obgynPhoto from '../../assets/specialty-emr/obgyn-hero.webp';
-import cardiologyPhoto from '../../assets/specialty-emr/cardiology-hero.webp';
+import physiotherapyPhoto from '../../assets/specialty-emr/physiotherapy-hero.webp';
 import psychiatryPhoto from '../../assets/specialty-emr/psychiatry-hero.webp';
 import psychologyPhoto from '../../assets/specialty-emr/psychology-hero.webp';
-import ivfPhoto from '../../assets/specialty-emr/ivf-hero.webp';
-import entPhoto from '../../assets/specialty-emr/ent-hero.webp';
-import neurologyPhoto from '../../assets/specialty-emr/neurology-hero.webp';
-import gastroenterologyPhoto from '../../assets/specialty-emr/gastroenterology-hero.webp';
-import urologyPhoto from '../../assets/specialty-emr/urology-hero.webp';
-import physiotherapyPhoto from '../../assets/specialty-emr/physiotherapy-hero.webp';
 import pulmonologyPhoto from '../../assets/specialty-emr/pulmonology-hero.webp';
-import oncologyPhoto from '../../assets/specialty-emr/oncology-hero.webp';
-import mentalHealthPhoto from '../../assets/specialty-emr/mental-health-hero.webp';
+import radiologyPhoto from '../../assets/specialty-emr/radiology-emr-hero.webp';
+import rheumatologyPhoto from '../../assets/specialty-emr/rheumatology-emr-hero.webp';
+import sexologyPhoto from '../../assets/specialty-emr/sexology-emr-hero.webp';
+import trichologyPhoto from '../../assets/specialty-emr/trichology-emr-software-hero.webp';
+import urologyPhoto from '../../assets/specialty-emr/urology-hero.webp';
 import type { HeroIcon, Specialty } from './data';
 
 interface Props {
@@ -38,79 +56,150 @@ const icons: Record<HeroIcon, string> = {
 		'<path d="M5 3v5a4 4 0 0 0 8 0V3"/><path d="M5 3H3.5"/><path d="M13 3h1.5"/><path d="M9 12v3a5 5 0 0 0 10 0v-1.2"/><circle cx="19" cy="11" r="2.2"/>',
 };
 
-/* Keyed by live slug so each specialty gets a photo that matches its practice. */
 const photos: Record<string, { src: ImageMetadata; alt: string }> = {
-	'dental-emr-software': {
-		src: dentalPhoto,
-		alt: 'A dentist reviewing a patient chart in EasyClinic between appointments',
+	'aesthetic-emr-software': {
+		src: aestheticPhoto,
+		alt: 'A clinician providing care on the aesthetic-emr-software workflow',
 	},
-	'dermatology-emr-software': {
-		src: dermatologyPhoto,
-		alt: 'A doctor in a white coat standing with arms folded, ready for consultations',
+	'allergy-emr-software': {
+		src: allergyPhoto,
+		alt: 'A clinician providing care on the allergy-emr-software workflow',
 	},
-	'ophthalmology-emr': {
-		src: ophthalmologyPhoto,
-		alt: 'An ophthalmologist examining a patient during a clinic visit',
+	'alternative-medicine': {
+		src: alternativeMedicinePhoto,
+		alt: 'A clinician providing care on the alternative-medicine workflow',
 	},
-	'orthopedic-emr': {
-		src: orthopedicPhoto,
-		alt: 'A clinician reviewing musculoskeletal care with a patient in clinic',
-	},
-	'pediatric-emr': {
-		src: pediatricPhoto,
-		alt: 'A clinician providing care in a pediatric clinic setting',
-	},
-	'obgyn-emr-software': {
-		src: obgynPhoto,
-		alt: 'A clinician providing women’s health care in a modern clinic',
+	'ayurveda-emr-software': {
+		src: ayurvedaPhoto,
+		alt: 'A clinician providing care on the ayurveda-emr-software workflow',
 	},
 	'cardiology-emr': {
 		src: cardiologyPhoto,
-		alt: 'A clinician reviewing cardiac care with diagnostic context in clinic',
+		alt: 'A clinician providing care on the cardiology-emr workflow',
 	},
-	'psychiatry-emr': {
-		src: psychiatryPhoto,
-		alt: 'A clinician in a calm consultation setting for mental health care',
+	'cosmetology-emr-software': {
+		src: cosmetologyPhoto,
+		alt: 'A clinician providing care on the cosmetology-emr-software workflow',
 	},
-	'psychology-emr': {
-		src: psychologyPhoto,
-		alt: 'A therapist consultation space ready for confidential sessions',
+	'dental-emr-software': {
+		src: dentalPhoto,
+		alt: 'A clinician providing care on the dental-emr-software workflow',
 	},
-	'ivf-emr': {
-		src: ivfPhoto,
-		alt: 'A modern clinical setting supporting fertility and IVF care coordination',
+	'dermatology-emr-software': {
+		src: dermatologyPhoto,
+		alt: 'A clinician providing care on the dermatology-emr-software workflow',
+	},
+	'diabetology-emr-software': {
+		src: diabetologyPhoto,
+		alt: 'A clinician providing care on the diabetology-emr-software workflow',
+	},
+	'endocrinology-emr-software': {
+		src: endocrinologyPhoto,
+		alt: 'A clinician providing care on the endocrinology-emr-software workflow',
 	},
 	'ent-emr-software': {
 		src: entPhoto,
-		alt: 'An ENT clinician preparing for consults and procedures in clinic',
+		alt: 'A clinician providing care on the ent-emr-software workflow',
 	},
-	'neurology-emr': {
-		src: neurologyPhoto,
-		alt: 'A clinician reviewing neurological care in a modern clinic',
+	'family-physician-emr': {
+		src: familyPhysicianPhoto,
+		alt: 'A clinician providing care on the family-physician-emr workflow',
 	},
 	'gastroenterology-emr': {
 		src: gastroenterologyPhoto,
-		alt: 'A clinician preparing for gastroenterology consults in clinic',
+		alt: 'A clinician providing care on the gastroenterology-emr workflow',
 	},
-	'urology-emr': {
-		src: urologyPhoto,
-		alt: 'A clinician preparing for urology consults and procedures',
+	'general-practitioner-emr': {
+		src: generalPractitionerPhoto,
+		alt: 'A clinician providing care on the general-practitioner-emr workflow',
 	},
-	'physiotherapy-emr': {
-		src: physiotherapyPhoto,
-		alt: 'A clinician providing physiotherapy care in a clinic setting',
+	'general-surgery-emr': {
+		src: generalSurgeryPhoto,
+		alt: 'A clinician providing care on the general-surgery-emr workflow',
 	},
-	'pulmonology-emr': {
-		src: pulmonologyPhoto,
-		alt: 'A clinician providing respiratory care in a modern clinic',
+	'hematology-emr': {
+		src: hematologyPhoto,
+		alt: 'A clinician providing care on the hematology-emr workflow',
 	},
-	'oncology-emr': {
-		src: oncologyPhoto,
-		alt: 'A clinician coordinating oncology care in a modern clinic',
+	'immunology-emr': {
+		src: immunologyPhoto,
+		alt: 'A clinician providing care on the immunology-emr workflow',
+	},
+	'ivf-emr': {
+		src: ivfPhoto,
+		alt: 'A clinician providing care on the ivf-emr workflow',
 	},
 	'mental-health': {
 		src: mentalHealthPhoto,
-		alt: 'A calm consultation setting for mental health care',
+		alt: 'A clinician providing care on the mental-health workflow',
+	},
+	'nephrology-emr': {
+		src: nephrologyPhoto,
+		alt: 'A clinician providing care on the nephrology-emr workflow',
+	},
+	'neurology-emr': {
+		src: neurologyPhoto,
+		alt: 'A clinician providing care on the neurology-emr workflow',
+	},
+	'obgyn-emr-software': {
+		src: obgynPhoto,
+		alt: 'A clinician providing care on the obgyn-emr-software workflow',
+	},
+	'oncology-emr': {
+		src: oncologyPhoto,
+		alt: 'A clinician providing care on the oncology-emr workflow',
+	},
+	'ophthalmology-emr': {
+		src: ophthalmologyPhoto,
+		alt: 'A clinician providing care on the ophthalmology-emr workflow',
+	},
+	'orthopedic-emr': {
+		src: orthopedicPhoto,
+		alt: 'A clinician providing care on the orthopedic-emr workflow',
+	},
+	'pathology-emr': {
+		src: pathologyPhoto,
+		alt: 'A clinician providing care on the pathology-emr workflow',
+	},
+	'pediatric-emr': {
+		src: pediatricPhoto,
+		alt: 'A clinician providing care on the pediatric-emr workflow',
+	},
+	'physiotherapy-emr': {
+		src: physiotherapyPhoto,
+		alt: 'A clinician providing care on the physiotherapy-emr workflow',
+	},
+	'psychiatry-emr': {
+		src: psychiatryPhoto,
+		alt: 'A clinician providing care on the psychiatry-emr workflow',
+	},
+	'psychology-emr': {
+		src: psychologyPhoto,
+		alt: 'A clinician providing care on the psychology-emr workflow',
+	},
+	'pulmonology-emr': {
+		src: pulmonologyPhoto,
+		alt: 'A clinician providing care on the pulmonology-emr workflow',
+	},
+	'radiology-emr': {
+		src: radiologyPhoto,
+		alt: 'A clinician providing care on the radiology-emr workflow',
+	},
+	'rheumatology-emr': {
+		src: rheumatologyPhoto,
+		alt: 'A clinician providing care on the rheumatology-emr workflow',
+	},
+	'sexology-emr': {
+		src: sexologyPhoto,
+		alt: 'A clinician providing care on the sexology-emr workflow',
+	},
+	'trichology-emr-software': {
+		src: trichologyPhoto,
+		alt: 'A clinician providing care on the trichology-emr-software workflow',
+	},
+	'urology-emr': {
+		src: urologyPhoto,
+		alt: 'A clinician providing care on the urology-emr workflow',
 	},
 };
 
@@ -120,6 +209,8 @@ if (!photo) {
 	throw new Error(`Specialty hero has no photo: ${specialty.slug}`);
 }
 ---
+
+
 
 <PageHero
 	eyebrow={specialty.eyebrow}

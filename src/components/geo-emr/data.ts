@@ -678,8 +678,8 @@ const LONG_TAIL: LongTailMarket[] = [
 		geo: 'Qatar',
 		geoAdj: 'Qatari',
 		localPay: 'Cards, local gateways',
-		complianceMeta: 'Local compliance — confirm status in demo',
-		complianceNote: 'Local compliance status confirmed in demo.',
+		complianceMeta: 'Facility/MoPH needs — confirm in demo',
+		complianceNote: 'Facility and MoPH needs confirmed in demo.',
 		complianceBullets: [
 			'Role-based access, encryption, audit logs',
 			'Private-clinic billing with local payment rails',
@@ -691,9 +691,9 @@ const LONG_TAIL: LongTailMarket[] = [
 		market: 'mauritius',
 		geo: 'Mauritius',
 		geoAdj: 'Mauritian',
-		localPay: 'Cards, local e-pay, cash',
-		complianceMeta: 'Local compliance — confirm status in demo',
-		complianceNote: 'Local compliance status confirmed in demo.',
+		localPay: 'Cards, local e-pay',
+		complianceMeta: 'Local compliance — confirm in demo',
+		complianceNote: 'Confirm status in demo (Port Louis / Curepipe belong on this page only).',
 		complianceBullets: [
 			'Role-based access, encryption, audit logs',
 			'Private-clinic billing workflows',

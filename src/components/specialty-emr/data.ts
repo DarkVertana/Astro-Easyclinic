@@ -403,7 +403,7 @@ const dermatology = createSpecialty({
 		'Book a demo — we’ll walk before/after imaging, procedure plans, and billing on your workflow.',
 });
 
-/* ---- staged seeds (Batch 2 §B2–B10) ----
+/* ---- live: ophthalmology (Batch 2 §B2 fill) ends above; staged seeds §B3–B10 ----
    Hero facts, clinical chips, and problems are the pack's chip text; the per-item
    supporting copy and the FAQ answers (`faqSeeds` holds the pack's question list)
    get written when each page is signed off. Routes stay off until then.
@@ -411,6 +411,7 @@ const dermatology = createSpecialty({
    are the replacements the pack asks for. */
 
 const ophthalmology = createSpecialty({
+	enabled: true,
 	slug: 'ophthalmology-emr',
 	specialty: 'Ophthalmology',
 	specialtyAdj: 'ophthalmology',
@@ -418,25 +419,93 @@ const ophthalmology = createSpecialty({
 	seoTitle: 'Ophthalmology EMR Software — EasyClinic',
 	seoDescription:
 		'Ophthalmology EMR — vision exams, imaging (OCT/fundus), eyeglass Rx, appointments, and billing for eye clinics.',
+	eyebrow: 'Ophthalmology',
 	title: 'Ophthalmology EMR that keeps exams, imaging, and optical Rx together',
 	lede: 'Document vision exams, attach OCT/fundus images, write optical and medication Rx, and bill the visit — without juggling tools.',
-	heroFacts: [{ value: 'Vision exam records' }, { value: 'Imaging on chart' }, { value: 'Optical Rx' }],
+	note: 'Built for eye clinics, optical + clinic combos, and high-volume OPD.',
+	heroFacts: [
+		{ value: 'Vision exam records', label: 'Refraction on the chart' },
+		{ value: 'Imaging on chart', label: 'OCT & fundus files' },
+		{ value: 'Optical Rx', label: 'Glasses + meds together' },
+	],
 	clinical: [
-		{ title: 'Vision / refraction documentation' },
-		{ title: 'OCT & fundus file store' },
-		{ title: 'Eyeglass & med Rx' },
-		{ title: 'Specialty eye forms' },
-		{ title: 'Trend visuals' },
-		{ title: 'Optional Cura AI', accent: true },
+		{
+			title: 'Vision / refraction documentation',
+			copy: 'Capture VA, refraction, and exam findings on the visit record.',
+		},
+		{
+			title: 'OCT & fundus file store',
+			copy: 'Attach imaging to the patient chart so the next visit starts with context.',
+		},
+		{
+			title: 'Eyeglass & med Rx',
+			copy: 'Write optical and medication prescriptions without retyping from paper.',
+		},
+		{
+			title: 'Specialty eye forms',
+			copy: 'Intake and exam templates tuned for ophthalmology OPD workflows.',
+		},
+		{
+			title: 'Trend visuals',
+			copy: 'Keep key measures easy to scan across follow-ups.',
+		},
+		{
+			title: 'Optional Cura AI',
+			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			accent: true,
+		},
+	],
+	ops: [
+		'Appointment scheduling',
+		'Reminders (WhatsApp/SMS/email)',
+		'Visit & procedure billing',
+		'Optical / pharmacy inventory',
+		'Teleconsult + online fees',
+		'Multi-doctor roles',
+		'Reports',
 	],
 	problems: [
-		{ title: 'Imaging orphaned from the chart' },
-		{ title: 'Optical Rx retyped' },
-		{ title: 'High-volume OPD queues' },
+		{
+			title: 'Imaging orphaned from the chart',
+			copy: 'OCT and fundus files live on a USB stick while the note sits elsewhere.',
+		},
+		{
+			title: 'Optical Rx retyped',
+			copy: 'Glasses prescriptions get re-entered by hand and drift from the exam.',
+		},
+		{
+			title: 'High-volume OPD queues',
+			copy: 'Busy eye clinics need fast charts and billing, not another clipboard.',
+		},
 	],
 	fit: ['Solo ophthalmologists', 'Eye hospitals OPD', 'Optical + clinic combos'],
-	faqSeeds: ['Best ophth EMR?', 'Vision records?', 'OCT/fundus?', 'AI docs?', 'Appointments?'],
+	faqs: [
+		{
+			question: 'Best EMR for ophthalmology clinics?',
+			answer:
+				'Look for vision exam docs, imaging on the chart, optical Rx, scheduling, and billing together; EasyClinic covers that OPD workflow.',
+		},
+		{
+			question: 'Can we record vision exams?',
+			answer: 'Yes — refraction and exam findings stay on the patient visit record.',
+		},
+		{
+			question: 'OCT and fundus images?',
+			answer: 'Yes — attach files to the chart so imaging is not orphaned from the note.',
+		},
+		{
+			question: 'AI documentation for eye notes?',
+			answer: 'Optional Cura AI helps draft notes faster; you review and sign.',
+		},
+		{
+			question: 'Appointments and billing included?',
+			answer:
+				'Yes — scheduling, reminders, visit invoicing, and online fees run on the same record.',
+		},
+	],
 	ctaTitle: 'See ophthalmology EMR on your OPD flow',
+	ctaLede:
+		'Book a demo — we’ll walk vision exams, imaging, optical Rx, and billing on your workflow.',
 });
 
 const orthopedic = createSpecialty({

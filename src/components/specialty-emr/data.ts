@@ -33,22 +33,22 @@ export type Problem = {
 
 export type HeroIcon = 'tooth' | 'stethoscope';
 
-/* Specialty variables from the pack's template fields. */
+/* Specialty variables from the pack's template fields. /
 export type SpecialtyVars = {
-	/** {{specialty}} */
+	/ {{specialty}} /
 	specialty: string;
-	/** {{specialty_adj}} — dental, dermatology, pediatric … */
+	/ {{specialty_adj}} — dental, dermatology, pediatric … /
 	specialtyAdj: string;
-	/** {{specialty_noun}} — dental clinic, skin clinic … */
+	/ {{specialty_noun}} — dental clinic, skin clinic … /
 	specialtyNoun: string;
 };
 
 export type Specialty = SpecialtyVars & {
-	/** false = copy is staged, route is not generated yet */
+	/ false = copy is staged, route is not generated yet /
 	enabled: boolean;
-	/** live path segment, kept stable for SEO */
+	/ live path segment, kept stable for SEO /
 	slug: string;
-	/** live path */
+	/ live path /
 	href: string;
 	seoTitle: string;
 	seoDescription: string;
@@ -75,15 +75,15 @@ export type Specialty = SpecialtyVars & {
 	fitTitle: string;
 	fitLede: string;
 	fit: string[];
-	/** live specialties only — staged entries keep `faqSeeds` until answers are signed off */
+	/ live specialties only — staged entries keep `faqSeeds` until answers are signed off /
 	faqs: FaqItem[];
-	/** pack shorthand for the questions a staged specialty should answer */
+	/ pack shorthand for the questions a staged specialty should answer /
 	faqSeeds?: string[];
 	ctaTitle: string;
 	ctaLede: string;
 };
 
-/* ---- shared shell (same everywhere; the specialty only swaps the fills) ---- */
+/ ---- shared shell (same everywhere; the specialty only swaps the fills) ---- /
 
 const sentenceCase = (value: string): string => value.charAt(0).toUpperCase() + value.slice(1);
 
@@ -133,7 +133,7 @@ type SpecialtyInput = SpecialtyVars & {
 	ctaLede?: string;
 };
 
-/** Builds a specialty page from the shared shell + the specialty's own fills. */
+/ Builds a specialty page from the shared shell + the specialty's own fills. */
 function createSpecialty(input: SpecialtyInput): Specialty {
 	const { specialty, specialtyAdj, specialtyNoun } = input;
 	const note = input.note ?? `Built for ${specialtyNoun}s and multi-doctor practices.`;
@@ -1147,15 +1147,15 @@ const neurology = createSpecialty({
 	problems: [
 		{
 			title: "Exam notes finished after the last patient",
-			copy: "Exam notes finished after the last patient.",
+			copy: "Notes spill past the last patient instead of finishing with the visit.",
 		},
 		{
 			title: "Diagnostics living outside the chart",
-			copy: "Diagnostics living outside the chart.",
+			copy: "The next clinician opens the note without the files they need.",
 		},
 		{
 			title: "Chronic follow-ups without a clear recall list",
-			copy: "Chronic follow-ups without a clear recall list.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		}
 	],
 	fit: ["Neurologists", "Neuro clinics", "Hospital neurology OPD"],
@@ -1243,15 +1243,15 @@ const gastroenterology = createSpecialty({
 	problems: [
 		{
 			title: "Endoscopy reports off-chart",
-			copy: "Endoscopy reports off-chart.",
+			copy: "The next clinician opens the note without the files they need.",
 		},
 		{
 			title: "Procedure notes after hours",
-			copy: "Procedure notes after hours.",
+			copy: "Notes spill past the last patient instead of finishing with the visit.",
 		},
 		{
 			title: "Chronic GI patients without structured recall",
-			copy: "Chronic GI patients without structured recall.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		}
 	],
 	fit: ["Gastroenterologists", "GI clinics", "Endoscopy + OPD centres"],
@@ -1339,15 +1339,15 @@ const urology = createSpecialty({
 	problems: [
 		{
 			title: "Imaging siloed from the chart",
-			copy: "Imaging siloed from the chart.",
+			copy: "The next clinician opens the note without the files they need.",
 		},
 		{
 			title: "Procedure notes delayed",
-			copy: "Procedure notes delayed.",
+			copy: "Notes spill past the last patient instead of finishing with the visit.",
 		},
 		{
 			title: "Follow-ups not tied to prior procedures",
-			copy: "Follow-ups not tied to prior procedures.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		}
 	],
 	fit: ["Urologists", "Urology clinics", "Multi-surgeon uro centres"],
@@ -1435,15 +1435,15 @@ const physiotherapy = createSpecialty({
 	problems: [
 		{
 			title: "Progress only in paper notes",
-			copy: "Progress only in paper notes.",
+			copy: "Work ends up in side channels instead of one patient record.",
 		},
 		{
 			title: "Plans not visible to the next therapist",
-			copy: "Plans not visible to the next therapist.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "No-shows without WhatsApp reminders",
-			copy: "No-shows without WhatsApp reminders.",
+			copy: "Busy books lose patients without reliable WhatsApp/SMS recalls.",
 		}
 	],
 	fit: ["Physio clinics", "Multi-therapist centres", "Rehab + ortho companion clinics"],
@@ -1531,15 +1531,15 @@ const pulmonology = createSpecialty({
 	problems: [
 		{
 			title: "Spirometry results off-system",
-			copy: "Spirometry results off-system.",
+			copy: "The next clinician opens the note without the files they need.",
 		},
 		{
 			title: "Chronic patients without structured recall",
-			copy: "Chronic patients without structured recall.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		},
 		{
 			title: "Evening documentation load",
-			copy: "Evening documentation load.",
+			copy: "Notes spill past the last patient instead of finishing with the visit.",
 		}
 	],
 	fit: ["Pulmonologists", "Chest clinics", "Hospital pulmonology OPD"],
@@ -1599,7 +1599,7 @@ const oncology = createSpecialty({
 		},
 		{
 			title: "Chemo & cycle tracking",
-			copy: "Follow treatment cycles across visits.*",
+			copy: "Follow treatment cycles across visits.",
 		},
 		{
 			title: "Lab & diagnostic store",
@@ -1627,15 +1627,15 @@ const oncology = createSpecialty({
 	problems: [
 		{
 			title: "Protocols in spreadsheets",
-			copy: "Protocols in spreadsheets.",
+			copy: "Work ends up in side channels instead of one patient record.",
 		},
 		{
 			title: "Labs not tied to the cycle day",
-			copy: "Labs not tied to the cycle day.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		},
 		{
 			title: "Long-term follow-ups hard to recall",
-			copy: "Long-term follow-ups hard to recall.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		}
 	],
 	fit: ["Oncology clinics", "Day-care chemo centres", "Multi-oncologist practices"],
@@ -1699,7 +1699,7 @@ const mentalHealth = createSpecialty({
 		},
 		{
 			title: "Drug interaction checks",
-			copy: "Safety prompts where enabled.*",
+			copy: "Safety prompts where enabled.",
 		},
 		{
 			title: "Telehealth",
@@ -1722,15 +1722,15 @@ const mentalHealth = createSpecialty({
 	problems: [
 		{
 			title: "Notes in unmanaged documents",
-			copy: "Notes in unmanaged documents.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		},
 		{
 			title: "Med changes hard to audit",
-			copy: "Med changes hard to audit.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Access too broad across staff",
-			copy: "Access too broad across staff.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		}
 	],
 	fit: ["Psychiatry clinics", "Psychology / therapy centres", "Mixed mental-health practices"],
@@ -1818,15 +1818,15 @@ const aesthetic = createSpecialty({
 	problems: [
 		{
 			title: "Photos scattered on phones",
-			copy: "Photos scattered on phones.",
+			copy: "Work ends up in side channels instead of one patient record.",
 		},
 		{
 			title: "Package balances unclear",
-			copy: "Package balances unclear.",
+			copy: "Charges drift from what was done unless billing follows the plan.",
 		},
 		{
 			title: "Consents missing at procedure time",
-			copy: "Consents missing at procedure time.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		}
 	],
 	fit: ["Aesthetic clinics", "Cosmetic derm companions", "Multi-chair aesthetic centres"],
@@ -1914,15 +1914,15 @@ const allergy = createSpecialty({
 	problems: [
 		{
 			title: "Test results off-chart",
-			copy: "Test results off-chart.",
+			copy: "The next clinician opens the note without the files they need.",
 		},
 		{
 			title: "Immunotherapy schedules in notebooks",
-			copy: "Immunotherapy schedules in notebooks.",
+			copy: "Work ends up in side channels instead of one patient record.",
 		},
 		{
 			title: "Long-term patients without structured recall",
-			copy: "Long-term patients without structured recall.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		}
 	],
 	fit: ["Allergy clinics", "Allergy + immunology practices", "Specialist OPD"],
@@ -2010,15 +2010,15 @@ const ayurveda = createSpecialty({
 	problems: [
 		{
 			title: "Intake on paper only",
-			copy: "Intake on paper only.",
+			copy: "Work ends up in side channels instead of one patient record.",
 		},
 		{
 			title: "Plans not visible to the next practitioner",
-			copy: "Plans not visible to the next practitioner.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Billing after the fact",
-			copy: "Billing after the fact.",
+			copy: "Charges drift from what was done unless billing follows the plan.",
 		}
 	],
 	fit: ["Ayurveda clinics", "Panchakarma centres", "Multi-vaidya practices"],
@@ -2070,7 +2070,7 @@ const alternativeMedicine = createSpecialty({
 		},
 		{
 			title: "Ayurveda / homeopathy / naturopathy Rx",
-			copy: "Prescription workflows that match how you prescribe.*",
+			copy: "Prescription workflows that match how you prescribe.",
 		},
 		{
 			title: "Multidisciplinary treatment management",
@@ -2102,15 +2102,15 @@ const alternativeMedicine = createSpecialty({
 	problems: [
 		{
 			title: "Paper-only treatment histories",
-			copy: "Paper-only treatment histories.",
+			copy: "Work ends up in side channels instead of one patient record.",
 		},
 		{
 			title: "Modalities tracked in separate books",
-			copy: "Modalities tracked in separate books.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Billing disconnected from the plan",
-			copy: "Billing disconnected from the plan.",
+			copy: "Charges drift from what was done unless billing follows the plan.",
 		}
 	],
 	fit: ["Ayurveda / homeopathy / naturopathy clinics", "Integrative centres", "Multi-practitioner holistic clinics"],
@@ -2198,15 +2198,15 @@ const cosmetology = createSpecialty({
 	problems: [
 		{
 			title: "Photos and notes disconnected",
-			copy: "Photos and notes disconnected.",
+			copy: "Progress shots sit in camera rolls instead of the visit timeline.",
 		},
 		{
 			title: "Package balances unclear",
-			copy: "Package balances unclear.",
+			copy: "Charges drift from what was done unless billing follows the plan.",
 		},
 		{
 			title: "Stockouts mid-treatment",
-			copy: "Stockouts mid-treatment.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		}
 	],
 	fit: ["Cosmetology clinics", "Beauty + clinical hybrid centres", "Multi-chair cosmetology practices"],
@@ -2290,15 +2290,15 @@ const diabetology = createSpecialty({
 	problems: [
 		{
 			title: "Labs not trended for the next visit",
-			copy: "Labs not trended for the next visit.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Foot/eye checks missed in the rush",
-			copy: "Foot/eye checks missed in the rush.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		},
 		{
 			title: "Evening charting after a full OPD",
-			copy: "Evening charting after a full OPD.",
+			copy: "Notes spill past the last patient instead of finishing with the visit.",
 		}
 	],
 	fit: ["Diabetologists", "Diabetes clinics", "Endocrine + diabetes centres"],
@@ -2382,15 +2382,15 @@ const endocrinology = createSpecialty({
 	problems: [
 		{
 			title: "Lab PDFs not trended",
-			copy: "Lab PDFs not trended.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Titration history hard to reconstruct",
-			copy: "Titration history hard to reconstruct.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Recall lists in spreadsheets",
-			copy: "Recall lists in spreadsheets.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		}
 	],
 	fit: ["Endocrinologists", "Endocrine clinics", "Hospital endocrine OPD"],
@@ -2474,15 +2474,15 @@ const familyPhysician = createSpecialty({
 	problems: [
 		{
 			title: "Family history fragmented across paper",
-			copy: "Family history fragmented across paper.",
+			copy: "Work ends up in side channels instead of one patient record.",
 		},
 		{
 			title: "Chronic recalls manual",
-			copy: "Chronic recalls manual.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		},
 		{
 			title: "Preventive care not scheduled systematically",
-			copy: "Preventive care not scheduled systematically.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		}
 	],
 	fit: ["Family physicians", "Neighbourhood clinics", "Small multi-doctor family practices"],
@@ -2570,15 +2570,15 @@ const generalPractitioner = createSpecialty({
 	problems: [
 		{
 			title: "Evening catch-up charts",
-			copy: "Evening catch-up charts.",
+			copy: "Notes spill past the last patient instead of finishing with the visit.",
 		},
 		{
 			title: "Chronic patients without recall",
-			copy: "Chronic patients without recall.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		},
 		{
 			title: "Billing after the fact",
-			copy: "Billing after the fact.",
+			copy: "Charges drift from what was done unless billing follows the plan.",
 		}
 	],
 	fit: ["GPs", "Solo clinics", "Small GP group practices"],
@@ -2666,15 +2666,15 @@ const generalSurgery = createSpecialty({
 	problems: [
 		{
 			title: "Pre-op checklists on paper",
-			copy: "Pre-op checklists on paper.",
+			copy: "Work ends up in side channels instead of one patient record.",
 		},
 		{
 			title: "Op notes delayed",
-			copy: "Op notes delayed.",
+			copy: "Notes spill past the last patient instead of finishing with the visit.",
 		},
 		{
 			title: "Post-op follow-ups unmanaged",
-			copy: "Post-op follow-ups unmanaged.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		}
 	],
 	fit: ["General surgeons", "Surgery clinics", "Day-care surgical centres"],
@@ -2762,15 +2762,15 @@ const hematology = createSpecialty({
 	problems: [
 		{
 			title: "Lab trends rebuilt from PDFs each visit",
-			copy: "Lab trends rebuilt from PDFs each visit.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Treatment changes hard to audit",
-			copy: "Treatment changes hard to audit.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Missed chronic recalls",
-			copy: "Missed chronic recalls.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		}
 	],
 	fit: ["Hematologists", "Hematology clinics", "Hospital hematology OPD"],
@@ -2854,15 +2854,15 @@ const immunology = createSpecialty({
 	problems: [
 		{
 			title: "Sensitivity lists outdated",
-			copy: "Sensitivity lists outdated.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Immunization history incomplete",
-			copy: "Immunization history incomplete.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Autoimmune follow-ups unscheduled",
-			copy: "Autoimmune follow-ups unscheduled.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		}
 	],
 	fit: ["Immunologists", "Allergy-immunology clinics", "Specialty OPD"],
@@ -2922,7 +2922,7 @@ const nephrology = createSpecialty({
 		},
 		{
 			title: "Dialysis session documentation",
-			copy: "Record sessions on the chart.*",
+			copy: "Record sessions on the chart.",
 		},
 		{
 			title: "Medication management",
@@ -2946,15 +2946,15 @@ const nephrology = createSpecialty({
 	problems: [
 		{
 			title: "Labs not trended for CKD visits",
-			copy: "Labs not trended for CKD visits.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Dialysis notes in separate books",
-			copy: "Dialysis notes in separate books.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Medication changes hard to reconstruct",
-			copy: "Medication changes hard to reconstruct.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		}
 	],
 	fit: ["Nephrologists", "Kidney clinics", "Dialysis + nephrology centres"],
@@ -3018,7 +3018,7 @@ const pathology = createSpecialty({
 		},
 		{
 			title: "Report generation",
-			copy: "Produce reports without a second system.*",
+			copy: "Produce reports without a second system.",
 		},
 		{
 			title: "High-volume ops",
@@ -3042,15 +3042,15 @@ const pathology = createSpecialty({
 	problems: [
 		{
 			title: "Samples hard to locate mid-flow",
-			copy: "Samples hard to locate mid-flow.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Reports delayed by handoffs",
-			copy: "Reports delayed by handoffs.",
+			copy: "Notes spill past the last patient instead of finishing with the visit.",
 		},
 		{
 			title: "Packages billed inconsistently",
-			copy: "Packages billed inconsistently.",
+			copy: "Charges drift from what was done unless billing follows the plan.",
 		}
 	],
 	fit: ["Pathology labs", "Diagnostic centres", "Hospital lab OPD interfaces"],
@@ -3138,15 +3138,15 @@ const radiology = createSpecialty({
 	problems: [
 		{
 			title: "Orders stuck between desk and modality",
-			copy: "Orders stuck between desk and modality.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Reports inconsistent",
-			copy: "Reports inconsistent.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Billing delayed after reads",
-			copy: "Billing delayed after reads.",
+			copy: "Notes spill past the last patient instead of finishing with the visit.",
 		}
 	],
 	fit: ["Radiology clinics", "Imaging centres", "Hospital radiology OPD counters"],
@@ -3206,7 +3206,7 @@ const rheumatology = createSpecialty({
 		},
 		{
 			title: "Long-term treatment plans",
-			copy: "DMARD and related plans with history.*",
+			copy: "DMARD and related plans with history.",
 		},
 		{
 			title: "Trend visuals",
@@ -3234,15 +3234,15 @@ const rheumatology = createSpecialty({
 	problems: [
 		{
 			title: "Disease activity history hard to reconstruct",
-			copy: "Disease activity history hard to reconstruct.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Labs/PDFs rebuilt each visit",
-			copy: "Labs/PDFs rebuilt each visit.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Therapy changes poorly audited",
-			copy: "Therapy changes poorly audited.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		}
 	],
 	fit: ["Rheumatologists", "Rheumatology clinics", "Hospital rheum OPD"],
@@ -3326,15 +3326,15 @@ const sexology = createSpecialty({
 	problems: [
 		{
 			title: "Sensitive notes in unmanaged files",
-			copy: "Sensitive notes in unmanaged files.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		},
 		{
 			title: "Session history incomplete",
-			copy: "Session history incomplete.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Access too broad for staff roles",
-			copy: "Access too broad for staff roles.",
+			copy: "Sensitive notes need role-aware access, not a shared inbox.",
 		}
 	],
 	fit: ["Sexologists", "Sexual health clinics", "Counselling + clinical hybrid practices"],
@@ -3422,15 +3422,15 @@ const trichology = createSpecialty({
 	problems: [
 		{
 			title: "Progress photos on personal phones",
-			copy: "Progress photos on personal phones.",
+			copy: "Work ends up in side channels instead of one patient record.",
 		},
 		{
 			title: "Plans not comparable visit to visit",
-			copy: "Plans not comparable visit to visit.",
+			copy: "Keep the workflow on one chart so the next visit starts with context.",
 		},
 		{
 			title: "Follow-ups missed after procedures",
-			copy: "Follow-ups missed after procedures.",
+			copy: "Reviews slip unless the plan and recall live on the same chart.",
 		}
 	],
 	fit: ["Trichology clinics", "Hair restoration centres", "Derm + trichology practices"],

@@ -299,14 +299,10 @@ const dental = createSpecialty({
 	ctaLede: 'Book a demo — we’ll walk charting, treatment plans, and billing on your workflow.',
 });
 
-/* ---- staged seeds (Batch 2 §B1–B10) ----
-   Hero facts, clinical chips, and problems are the pack's chip text; the per-item
-   supporting copy and the FAQ answers (`faqSeeds` holds the pack's question list)
-   get written when each page is signed off. Routes stay off until then.
-   Pediatric / psychiatry / psychology live H1s are CTA copy today — the titles below
-   are the replacements the pack asks for. */
+/* ---- live: dermatology (Batch 2 §B1 fill) ---- */
 
 const dermatology = createSpecialty({
+	enabled: true,
 	slug: 'dermatology-emr-software',
 	specialty: 'Dermatology',
 	specialtyAdj: 'dermatology',
@@ -316,30 +312,103 @@ const dermatology = createSpecialty({
 		'Dermatology EMR — consult notes, before/after images, procedure tracking, appointments, and billing for skin and aesthetic clinics.',
 	title: 'Dermatology EMR for skin clinics that live on photos and procedures',
 	lede: 'Charts, before/after images, treatment plans, scheduling, and billing in one clinic management platform — built for derm and aesthetic workflows.',
-	heroFacts: [{ value: 'Before/after images' }, { value: '30-sec Rx' }, { value: 'Procedure billing' }],
+	note: 'Built for skin clinics, aesthetic practices, and multi-doctor centres.',
+	heroFacts: [
+		{ value: 'Before/after images', label: 'On the patient record' },
+		{ value: '30-sec Rx', label: 'Share via print / WhatsApp' },
+		{ value: 'Procedure billing', label: 'Invoice from the plan' },
+	],
 	clinical: [
-		{ title: 'Before & after image store' },
-		{ title: 'Procedure / laser / cosmetic tracking' },
-		{ title: 'Specialty derm forms' },
-		{ title: 'Point-and-click notes' },
-		{ title: 'Optional Cura AI docs', accent: true },
-		{ title: 'Patient summaries' },
+		{
+			title: 'Before & after image store',
+			copy: 'Keep visit-dated photos on the chart so progress is visible side by side.',
+		},
+		{
+			title: 'Procedure / laser / cosmetic tracking',
+			copy: 'Log sessions, settings, and areas treated across a multi-session course.',
+		},
+		{
+			title: 'Specialty derm forms',
+			copy: 'Intake and exam templates tuned for skin, hair, and aesthetic consults.',
+		},
+		{
+			title: 'Point-and-click notes',
+			copy: 'Chief complaint, history, Rx, and follow-ups without hunting menus.',
+		},
+		{
+			title: 'Optional Cura AI docs',
+			copy: 'Optional Cura AI assist for faster notes; clinician reviews and signs.',
+			accent: true,
+		},
+		{
+			title: 'Patient summaries',
+			copy: 'Send the visit summary and aftercare instructions before the patient leaves.',
+		},
+	],
+	ops: [
+		'Appointment scheduling',
+		'Reminders (WhatsApp/SMS/email)',
+		'Procedure billing & invoicing',
+		'Derm & aesthetic supplies inventory',
+		'Teleconsult + online fees',
+		'Multi-doctor roles',
+		'Reports',
 	],
 	problems: [
-		{ title: 'Photos scattered across phones' },
-		{ title: 'Procedure plans not tied to billing' },
-		{ title: 'Follow-ups lost between visits' },
+		{
+			title: 'Photos scattered across phones',
+			copy: 'Before/after shots sit in camera rolls instead of the patient’s chart.',
+		},
+		{
+			title: 'Procedure plans not tied to billing',
+			copy: 'Session counts drift from what was invoiced; bill from the plan instead.',
+		},
+		{
+			title: 'Follow-ups lost between visits',
+			copy: 'Multi-session courses need scheduled recalls, not a reminder in someone’s head.',
+		},
 	],
 	fit: ['Solo derm', 'Aesthetic/derm clinics', 'Multi-doctor skin centres'],
-	faqSeeds: [
-		'Best derm EMR?',
-		'AI docs?',
-		'Before/after images?',
-		'Cosmetic/laser tracking?',
-		'Scheduling/billing?',
+	faqs: [
+		{
+			question: 'Best EMR for dermatology clinics?',
+			answer:
+				'Look for image storage, procedure tracking, scheduling, and billing in one place; EasyClinic covers that full derm and aesthetic workflow.',
+		},
+		{
+			question: 'AI documentation for derm notes?',
+			answer: 'Optional Cura AI helps draft consult notes faster; you review and sign.',
+		},
+		{
+			question: 'Before and after images?',
+			answer: 'Yes — visit-dated photos stored on the patient record and compared side by side.',
+		},
+		{
+			question: 'Cosmetic and laser tracking?',
+			answer:
+				'Yes — log each session with settings and areas treated across a multi-session course.',
+		},
+		{
+			question: 'Scheduling and billing included?',
+			answer:
+				'Yes — appointments, reminders, procedure invoicing, and online fees run on the same record.',
+		},
+		{
+			question: 'Inventory for derm supplies?',
+			answer: 'Yes — consumables, injectables, and medicines in the inventory module.',
+		},
 	],
 	ctaTitle: 'See dermatology EMR on your procedure list',
+	ctaLede:
+		'Book a demo — we’ll walk before/after imaging, procedure plans, and billing on your workflow.',
 });
+
+/* ---- staged seeds (Batch 2 §B2–B10) ----
+   Hero facts, clinical chips, and problems are the pack's chip text; the per-item
+   supporting copy and the FAQ answers (`faqSeeds` holds the pack's question list)
+   get written when each page is signed off. Routes stay off until then.
+   Pediatric / psychiatry / psychology live H1s are CTA copy today — the titles below
+   are the replacements the pack asks for. */
 
 const ophthalmology = createSpecialty({
 	slug: 'ophthalmology-emr',

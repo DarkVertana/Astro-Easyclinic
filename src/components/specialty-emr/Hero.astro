@@ -7,6 +7,7 @@ import { Image } from 'astro:assets';
 import HeroFacts from '../HeroFacts.astro';
 import PageHero from '../PageHero.astro';
 import dentalPhoto from '../../assets/specialty-emr/dental-hero.webp';
+import dermatologyPhoto from '../../assets/specialty-emr/dermatology-hero.webp';
 import type { HeroIcon, Specialty } from './data';
 
 interface Props {
@@ -26,6 +27,10 @@ const photos: Record<string, { src: ImageMetadata; alt: string }> = {
 	'dental-emr-software': {
 		src: dentalPhoto,
 		alt: 'A dentist reviewing a patient chart in EasyClinic between appointments',
+	},
+	'dermatology-emr-software': {
+		src: dermatologyPhoto,
+		alt: 'A doctor in a white coat standing with arms folded, ready for consultations',
 	},
 };
 

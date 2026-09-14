@@ -8,7 +8,11 @@ import Features from '../components/Features.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import PatientCare from '../components/PatientCare.astro';
+<<<<<<< Updated upstream
 import Problems from '../components/Problems.astro';
+=======
+import Reveal from '../components/Reveal.astro';
+>>>>>>> Stashed changes
 import Stories from '../components/Stories.astro';
 import Testimonials from '../components/Testimonials.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
@@ -17,15 +21,20 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 <!doctype html>
 <html lang="en">
 	<head>
+<<<<<<< Updated upstream
 		<BaseHead title={`AI EMR & Clinic Management Software, ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 		{/* set before paint, so sections are only hidden when the observer can reveal them */}
 		<script is:inline>
 			document.documentElement.classList.add('js-reveal');
 		</script>
+=======
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<Reveal />
+>>>>>>> Stashed changes
 	</head>
 	<body>
 		<Header />
-		<main class="home">
+		<main class="home" data-reveal>
 			<Hero />
 			<Features />
 			<ClinicTypes />
@@ -48,6 +57,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</body>
 </html>
 
+<<<<<<< Updated upstream
 <script>
 	const sections = [...document.querySelectorAll<HTMLElement>('main.home > section')];
 	const [hero, ...rest] = sections;
@@ -70,6 +80,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	}
 </script>
 
+=======
+>>>>>>> Stashed changes
 <style>
 	main {
 		width: 100%;
@@ -78,6 +90,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		padding: 0;
 	}
 </style>
+<<<<<<< Updated upstream
 
 <style is:global>
 	@media (prefers-reduced-motion: no-preference) {
@@ -139,3 +152,5 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		}
 	}
 </style>
+=======
+>>>>>>> Stashed changes

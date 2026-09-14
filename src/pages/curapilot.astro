@@ -1,4 +1,5 @@
 ---
+<<<<<<< Updated upstream
 import Cta from '../components/Cta.astro';
 import Faq from '../components/Faq.astro';
 import Capabilities from '../components/curapilot/Capabilities.astro';
@@ -22,3 +23,1483 @@ import { SITE_TITLE } from '../consts';
 	<Faq items={curaFaqs} />
 	<Cta />
 </Marketing>
+=======
+import { Image } from 'astro:assets';
+import aiSuggestions from '../assets/AI-suggestions-1.png';
+import caseClinical from '../assets/AI-suggestions-1.png';
+import caseOps from '../assets/inventory-dashboard.webp';
+import caseFinance from '../assets/AI-suggestions-1.png';
+import BaseHead from '../components/BaseHead.astro';
+import Cta from '../components/Cta.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Reveal from '../components/Reveal.astro';
+import { SITE_TITLE } from '../consts';
+
+// Every heading, figure, narrative and quote on this page is lifted from the
+// CuraPilot page published at easyclinic.io/curapilot — the Penda Health study
+// figures, the 11 capabilities, the three use-case stories and the 90-day PoC
+// stages. Nothing here is invented. The dashboard panels further down are
+// illustrative product UI built in CSS, using the sample records the page shows.
+
+const problems = [
+	{
+		title: 'Clinical blind spots',
+		copy: 'No single visit contains enough information. Diagnoses hide across visits, across facilities, across time. Clinicians treat symptoms in isolation because the pattern is only visible when you connect the data.',
+		figure: '16%',
+		label: 'Diagnostic errors reduced with CuraPilot',
+	},
+	{
+		title: 'Operational gaps',
+		copy: 'Medicine stockouts surface when patients arrive, not weeks before. Facility managers make decisions based on data that is already days old. The information needed to act early exists — but it is scattered.',
+		figure: '67%',
+		label: 'Fewer stockout events with early detection',
+	},
+	{
+		title: 'Revenue leakage',
+		copy: 'The billing failure was actually a prescribing decision. Treatments prescribed without knowing what the patient’s plan actually covers. Revenue disappears at the prescription moment — weeks before anyone in billing.',
+		figure: '34%',
+		label: 'Fewer denied insurance claims',
+	},
+];
+
+const capabilities = [
+	{
+		name: 'Clinical decision support',
+		copy: 'Real-time guidance at the point of care. Protocol-based recommendations tailored to each patient encounter.',
+		icon: 'M8 14.4A6.4 6.4 0 1 0 8 1.6a6.4 6.4 0 0 0 0 12.8zM8 5.2v5.6M5.2 8h5.6',
+	},
+	{
+		name: 'Safety alerts',
+		copy: 'Drug interaction checks, allergy flags, and dosage verification before prescriptions are finalised.',
+		icon: 'M8 2.1 13 4.1v3.8c0 3-2.1 5.1-5 6-2.9-.9-5-3-5-6V4.1zM8 5.6v3.1M8 10.7v.7',
+	},
+	{
+		name: 'Diagnostic analysis',
+		copy: 'Cross-visit pattern recognition that connects symptoms across encounters to surface hidden diagnoses.',
+		icon: 'M7.1 12.1a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM10.7 10.7 14 14M4.7 7.1h1.3l.9 2 1.1-3.4.8 1.4h1.2',
+	},
+	{
+		name: 'Voice commands',
+		copy: 'Hands-free clinical documentation. Dictate notes, orders, and observations without leaving the patient.',
+		icon: 'M8 1.8a1.7 1.7 0 0 1 1.7 1.7v3.7a1.7 1.7 0 1 1-3.4 0V3.5A1.7 1.7 0 0 1 8 1.8zM4.2 7.3a3.8 3.8 0 0 0 7.6 0M8 11.2v2.4M6.1 13.6h3.8',
+	},
+	{
+		name: 'Supply chain intelligence',
+		copy: 'Consumption-based forecasting that spots shortages 45 days before they hit the dispensing counter.',
+		icon: 'M2.6 5.5 8 2.9l5.4 2.6v5.2L8 13.3l-5.4-2.6zM2.6 5.5 8 8.1l5.4-2.6M8 8.1v5.2',
+	},
+	{
+		name: 'Operations analytics',
+		copy: 'Live dashboards across every facility. No more monthly reports — see what is happening now.',
+		icon: 'M2.4 13.4h11.2M4.9 11.2V7.4M8 11.2V4M11.1 11.2V8.8',
+	},
+	{
+		name: 'Claims optimisation',
+		copy: 'Every claim audited against payer rules before it leaves the facility. Rejections caught at the source.',
+		icon: 'M4.2 2.2h4.9l2.9 2.9v8.7H4.2zM9.1 2.2v2.9H12M6.2 9.6l1.4 1.4 2.7-2.9',
+	},
+	{
+		name: 'Executive insights',
+		copy: 'Network-wide performance intelligence for leadership. Facility comparisons, trend analysis, outcome tracking.',
+		icon: 'M2.4 11.7 6 8.1l2.6 2.6 5-5.4M10.3 5.3h3.3v3.3',
+	},
+	{
+		name: 'Patient engagement',
+		copy: 'Automated follow-ups, chronic disease monitoring, and post-care advice in the patient’s language.',
+		icon: 'M13.4 8.6c0 2.4-2.4 4.4-5.4 4.4-.7 0-1.4-.1-2-.3L3 14l.9-2.4A4.4 4.4 0 0 1 2.6 8.6C2.6 6.2 5 4.2 8 4.2s5.4 2 5.4 4.4zM6 8.6h.01M8 8.6h.01M10 8.6h.01',
+	},
+	{
+		name: 'Telemedicine',
+		copy: 'Integrated virtual consultations with full access to patient records, AI-assisted during the call.',
+		icon: 'M2.4 4.4h7.3v7.2H2.4zM9.7 7.3l3.9-2v5.4l-3.9-2z',
+	},
+	{
+		name: 'Lab and radiology integration',
+		copy: 'Results delivered directly into the clinical workflow. Abnormal findings flagged automatically.',
+		icon: 'M6.4 2.2v4.1L3.2 11.9a1.2 1.2 0 0 0 1 1.9h7.6a1.2 1.2 0 0 0 1-1.9L9.6 6.3V2.2M5.4 2.2h5.2M4.9 9.4h6.2',
+	},
+];
+
+const evidence = [
+	{ figure: '16%', label: 'Fewer diagnostic errors' },
+	{ figure: '13%', label: 'Fewer treatment errors' },
+	{ figure: '32%', label: 'Fewer history-taking errors' },
+	{ figure: '10%', label: 'Fewer unnecessary investigations' },
+	{ figure: '100%', label: 'Clinician satisfaction' },
+	{ figure: '99.97%', label: 'Uptime over nine years' },
+];
+
+// The published page names the four stages and their weeks; the one-line
+// descriptions restate the section's own sentence about what each stage does.
+// The step number comes from the order, so the list cannot fall out of sequence.
+const stages = [
+	{
+		title: 'Understand',
+		window: 'Weeks 1–3',
+		copy: 'We come to you and map your clinical, operational and financial processes as they actually run today.',
+	},
+	{
+		title: 'Deploy',
+		window: 'Weeks 4–6',
+		copy: 'CuraPilot goes live on top of what you already have, with no rip and replace and no change to the clinician’s workflow.',
+	},
+	{
+		title: 'Measure',
+		window: 'Weeks 7–10',
+		copy: 'We measure what changes against the baseline we took in stage one — your data, your numbers.',
+	},
+	{
+		title: 'Decide',
+		window: 'Week 11+',
+		copy: 'You have real evidence from your own organisation before you make a real commitment.',
+	},
+];
+
+
+// The hero figures, as published on the CuraPilot page. They render at their final
+// value, so the number is correct with or without the count-up script.
+const counters = [
+	{ to: 22, suffix: '+', label: 'Years in healthcare tech' },
+	{ to: 18, suffix: '', label: 'Countries deployed' },
+	{ to: 108, suffix: '', label: 'Physicians in study' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`CuraPilot — the AI copilot for your healthcare organisation | ${SITE_TITLE}`}
+			description="CuraPilot is the AI intelligence layer that sits on top of your existing EMR and hospital information system — 11 capabilities across clinical, operational and financial intelligence, measured across 39,849 patient visits."
+		/>
+		<Reveal />
+	</head>
+	<body>
+		<Header />
+		<main data-reveal>
+			<!-- hero: carries the wash band down from the header -->
+			<section class="hero">
+				<div class="inner">
+					<div class="copy">
+						<p class="eyebrow">CuraPilot</p>
+						<h1>The AI curapilot built into your healthcare</h1>
+						<p class="lede">
+							The AI intelligence layer that sits on top of your existing EMR — making every
+							clinician sharper, every operation tighter, and every unit of revenue traceable.
+						</p>
+
+						<ul class="counters">
+							{
+								counters.map((counter) => (
+									<li>
+										<strong data-count-to={counter.to} data-suffix={counter.suffix}>
+											{counter.to.toLocaleString('en-GB')}
+											{counter.suffix}
+										</strong>
+										<span>{counter.label}</span>
+									</li>
+								))
+							}
+						</ul>
+					</div>
+
+					<figure class="shot">
+						<Image
+							src={aiSuggestions}
+							alt="CuraPilot suggesting investigations, medication and patient guidelines alongside the chief complaints, vitals and diagnosis on a patient's current visit"
+							widths={[620, 900, 1230]}
+							sizes="(max-width: 1080px) 92vw, 48vw"
+							loading="eager"
+						/>
+					</figure>
+				</div>
+			</section>
+
+			<!-- the problem: white panel rounding over the wash, as Features does on the homepage -->
+			<section class="problem">
+				<div class="panel">
+					<div class="inner">
+						<div class="head">
+							<p class="eyebrow">The problem</p>
+							<h2>Three invisible leaks in every health system</h2>
+							<p class="lede">
+								Better outcomes do not come from bigger budgets or newer technology. They come from
+								connection — clinical, operational, and financial working as one.
+							</p>
+						</div>
+						<ul class="leaks" data-stagger>
+							{
+								problems.map((problem, index) => (
+									<li>
+										<span class="num" aria-hidden="true">
+											{String(index + 1).padStart(2, '0')}
+										</span>
+										<h3>{problem.title}</h3>
+										<p>{problem.copy}</p>
+										<p class="metric">
+											<strong>{problem.figure}</strong>
+											<span>{problem.label}</span>
+										</p>
+									</li>
+								))
+							}
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- capabilities -->
+			<section class="capabilities">
+				<div class="inner">
+					<div class="head">
+						<p class="eyebrow">Capabilities</p>
+						<h2>11 capabilities, one intelligence layer</h2>
+						<p class="lede">
+							CuraPilot is not a single feature. It is a complete AI layer covering clinical,
+							operational, and financial intelligence — all working from the same data, in real
+							time.
+						</p>
+					</div>
+					<ul class="cards" data-stagger>
+						{
+							capabilities.map((capability) => (
+								<li>
+									<span class="tile" aria-hidden="true">
+										<svg viewBox="0 0 16 16" width="22" height="22">
+											<path
+												d={capability.icon}
+												fill="none"
+												stroke="currentColor"
+												stroke-width="1.3"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+											/>
+										</svg>
+									</span>
+									<h3>{capability.name}</h3>
+									<p>{capability.copy}</p>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</section>
+
+			<!-- evidence: the navy band the use-case panel then rounds back over -->
+			<section class="evidence" id="evidence">
+				<div class="bubbles" aria-hidden="true">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<div class="inner">
+					<div class="head">
+						<h2>Measured across 39,849 patient visits</h2>
+						<p class="lede">
+							Penda Health, Nairobi — one of the world’s earliest deployments of AI-assisted
+							clinical decision support, developed in collaboration with OpenAI and {SITE_TITLE}.
+						</p>
+					</div>
+
+					<ul class="results" data-stagger>
+						{
+							evidence.map((result) => (
+								<li>
+									<strong>{result.figure}</strong>
+									<span>{result.label}</span>
+								</li>
+							))
+						}
+					</ul>
+
+					<figure class="quote">
+						<blockquote>
+							<p>
+								{SITE_TITLE} has been a true innovation partner for nearly a decade. Together we implemented
+								one of the world’s early deployments of an AI-assisted clinical decision support
+								system developed in collaboration with OpenAI.
+							</p>
+						</blockquote>
+						<figcaption>
+							<strong>Dr Robert Korom</strong>
+							<span>Chief Medical Officer, Penda Health</span>
+						</figcaption>
+					</figure>
+				</div>
+			</section>
+
+			<!-- use cases: white panel rounding back over the navy -->
+			<section class="cases">
+				<div class="panel">
+					<div class="inner">
+						<div class="head">
+							<p class="eyebrow">Use cases</p>
+							<h2>Three moments. Real organisations. Invisible technology.</h2>
+							<p class="lede">
+								These are not hypothetical scenarios. They are documented outcomes from live
+								CuraPilot deployments.
+							</p>
+						</div>
+
+						<article class="case case-blue">
+							<div class="case-copy">
+								<p class="case-kicker">Clinical intelligence</p>
+								<h3>What no single visit could reveal</h3>
+								<p>
+									David Kamau, 48. Eight visits over 14 months — fatigue, weight gain, headaches,
+									blurred vision. Treated each time as a separate event. Sent home each time with a
+									different answer.
+								</p>
+								<p>
+									No single visit contained enough information. The pattern was only visible across
+									all of them. CuraPilot connected all eight visits. The diagnosis had been hiding
+									in the data the entire time.
+								</p>
+								<p class="case-outcome">
+									<strong>8 visits</strong> connected into one diagnosis
+								</p>
+							</div>
+
+							<figure class="case-shot">
+								<Image
+									src={caseClinical}
+									alt="The AI suggestion set surfacing investigations, medication and guidelines beside a patient’s complaints, vitals and diagnosis"
+									widths={[520, 760, 1100]}
+									sizes="(max-width: 1080px) 92vw, 48vw"
+								/>
+							</figure>
+						</article>
+
+						<article class="case case-flip case-teal">
+							<div class="case-copy">
+								<p class="case-kicker">Operational intelligence</p>
+								<h3>When medicines stop running out</h3>
+								<p>
+									Dr Robert Korom manages 12 facilities across Nairobi and Central Kenya. For years,
+									decisions were based on data that was already days old by the time it reached him.
+									Medicine shortages were discovered when patients arrived, not weeks before.
+								</p>
+								<p>CuraPilot surfaces shortages 45 days in advance.</p>
+								<p class="case-outcome">
+									<strong>67% fewer</strong> stockout events across 28 organisations
+								</p>
+							</div>
+
+							<figure class="case-shot">
+								<Image
+									src={caseOps}
+									alt="The inventory dashboard flagging low stock and near-reorder levels, with order plotted against consumption through the year"
+									widths={[520, 760, 1100]}
+									sizes="(max-width: 1080px) 92vw, 48vw"
+								/>
+							</figure>
+						</article>
+
+						<article class="case case-amber">
+							<div class="case-copy">
+								<p class="case-kicker">Financial intelligence</p>
+								<h3>Revenue that stays where it was earned</h3>
+								<p>
+									A hospital group was losing 23% of its insurance revenue to claim rejections. The
+									finance team assumed it was documentation errors. It was not. Treatments were being
+									prescribed without knowing what the patient’s plan actually covered.
+								</p>
+								<p>CuraPilot connected the prescribing moment to coverage reality.</p>
+								<p class="case-outcome">
+									Rejections fell from 23% to <strong>under 4%</strong> in one quarter
+								</p>
+							</div>
+
+							<figure class="case-shot">
+								<Image
+									src={caseFinance}
+									alt="A patient record in EasyClinic, where the prescribing decision is made against what the plan actually covers"
+									widths={[520, 760, 1100]}
+									sizes="(max-width: 1080px) 92vw, 48vw"
+								/>
+							</figure>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- proof of concept -->
+			<section class="poc">
+				<div class="inner">
+					<div class="head">
+						<p class="eyebrow">The 90-day proof of concept</p>
+						<h2>Your data. Your baseline. Your results.</h2>
+						<p class="lede">
+							The {SITE_TITLE} PoC is designed to give you real evidence before you make a real
+							commitment. We come to you, map your processes, deploy CuraPilot, and measure what
+							changes — in 90 days or less.
+						</p>
+					</div>
+
+					<ol class="stages" data-stagger>
+						{
+							stages.map((stage, index) => (
+								<li>
+									<p class="stage-top">
+										<span class="stage-no">{String(index + 1).padStart(2, '0')}</span>
+										<span class="stage-when">{stage.window}</span>
+									</p>
+									<h3>{stage.title}</h3>
+									<p>{stage.copy}</p>
+								</li>
+							))
+						}
+					</ol>
+
+					<div class="actions">
+						<a class="btn btn-solid" href="/contact-us#demo-form">Start a conversation</a>
+						<a class="btn btn-ghost" href="/pricing">See pricing</a>
+					</div>
+				</div>
+			</section>
+
+			<Cta />
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<script>
+	// Counts the hero figures up once they scroll into view. They are already in the
+	// DOM at their final value, so nothing is lost without JS or with reduced motion.
+	const figures = document.querySelectorAll<HTMLElement>('[data-count-to]');
+	const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	if (figures.length && !still && 'IntersectionObserver' in window) {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				for (const entry of entries) {
+					if (!entry.isIntersecting) continue;
+					observer.unobserve(entry.target);
+					count(entry.target as HTMLElement);
+				}
+			},
+			{ threshold: 0.5 }
+		);
+		figures.forEach((figure) => observer.observe(figure));
+	}
+
+	function count(el: HTMLElement) {
+		const target = Number(el.dataset.countTo);
+		const suffix = el.dataset.suffix ?? '';
+		const duration = 1200;
+		const started = performance.now();
+
+		const step = (now: number) => {
+			const progress = Math.min(1, (now - started) / duration);
+			const eased = 1 - Math.pow(1 - progress, 3);
+			el.textContent = Math.round(target * eased).toLocaleString('en-GB') + suffix;
+			if (progress < 1) requestAnimationFrame(step);
+		};
+
+		el.textContent = '0' + suffix;
+		requestAnimationFrame(step);
+	}
+</script>
+
+<style>
+	main {
+		width: 100%;
+		max-width: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	/* ---------- shared furniture ---------- */
+	.eyebrow {
+		margin: 0;
+		color: var(--brand-blue);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	h2 {
+		margin: 0.875rem 0 0;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 3rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+	}
+	.head {
+		max-width: 780px;
+	}
+	.head .lede {
+		margin: 1.25rem 0 0;
+		color: var(--muted);
+		font-size: 1.125rem;
+	}
+	.tile {
+		display: grid;
+		place-items: center;
+		flex-shrink: 0;
+		width: 48px;
+		height: 48px;
+		border-radius: 12px;
+		background: var(--surface-tint);
+		color: var(--brand-blue);
+		box-shadow: inset 0 0 0 1px rgba(0, 128, 246, 0.09);
+	}
+
+	/* Shared card finish. Two shadow layers rather than one: a tight contact shadow
+	   that sits the card on the page, and a wider ambient one for depth. The faint
+	   top-to-bottom gradient stands in for light falling from above. */
+	.leaks li,
+	.cards li,
+	.stages li {
+		background: linear-gradient(180deg, var(--surface), #fbfdff);
+		box-shadow:
+			0 1px 2px rgba(10, 37, 64, 0.05),
+			0 10px 24px -8px rgba(10, 37, 64, 0.09);
+	}
+	.btn {
+		border-radius: 10px;
+		padding: 0.875rem 1.5rem;
+		font-weight: 600;
+		line-height: 1.2;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	.btn-solid {
+		border: 1.5px solid var(--brand-blue);
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+	.btn-solid:hover {
+		border-color: var(--brand-blue-dark);
+		background: var(--brand-blue-dark);
+	}
+	.btn-ghost {
+		border: 1.5px solid var(--brand-blue);
+		color: var(--brand-blue);
+	}
+	.btn-ghost:hover {
+		background: var(--brand-blue);
+		color: var(--surface);
+	}
+
+	/* ---------- hero ---------- */
+	.hero {
+		position: relative;
+		background: var(--brand-wash);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+		overflow: hidden;
+	}
+	.hero .inner {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+		align-items: center;
+		gap: 4rem;
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 5rem 1.5rem 6rem;
+	}
+	.hero .eyebrow {
+		display: inline-block;
+		border-radius: 999px;
+		padding: 0.375rem 0.875rem;
+		background: var(--surface);
+		font-size: 0.8125rem;
+	}
+	h1 {
+		max-width: 15ch;
+		margin: 1.25rem 0 0;
+		color: var(--navy);
+		font-size: clamp(2.25rem, 4.4vw, 3.5rem);
+		font-weight: 700;
+		line-height: 1.04;
+		letter-spacing: -0.03em;
+	}
+	.hero .lede {
+		max-width: 50ch;
+		margin: 1.375rem 0 0;
+		color: var(--muted);
+		font-size: 1.0625rem;
+	}
+
+	/* the figures count up once the hero scrolls into view */
+	.counters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem 2.75rem;
+		margin: 2.75rem 0 0;
+		padding: 2rem 0 0;
+		border-top: 1px solid var(--brand-wash-deep);
+		list-style: none;
+	}
+	.counters li {
+		display: flex;
+		flex-direction: column;
+		gap: 0.375rem;
+	}
+	.counters strong {
+		color: var(--navy);
+		font-size: clamp(2rem, 3.2vw, 2.75rem);
+		font-weight: 700;
+		line-height: 1;
+		letter-spacing: -0.03em;
+		/* the digits must not reflow as the number climbs */
+		font-variant-numeric: tabular-nums;
+	}
+	.counters span {
+		color: var(--muted);
+		font-size: 0.9375rem;
+	}
+
+	/* the product shot holds the right column */
+	.shot {
+		margin: 0;
+		border: 1px solid var(--border);
+		border-radius: 18px;
+		background: var(--surface);
+		box-shadow: 0 40px 80px rgba(10, 37, 64, 0.16);
+		overflow: hidden;
+	}
+	.shot img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 0;
+	}
+
+	/* ---------- problem ---------- */
+	.problem {
+		background: var(--brand-wash);
+	}
+	.problem .panel {
+		background: var(--surface);
+		border-radius: 24px 24px 0 0;
+		padding: 6.5rem 1.5rem 5rem;
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.problem .inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+	}
+	.problem .head {
+		margin: 0 auto;
+		text-align: center;
+	}
+	.problem .head h2 {
+		max-width: 20ch;
+		margin-inline: auto;
+	}
+	.leaks {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.5rem;
+		margin: 3.5rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.leaks li {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 2rem;
+	}
+	.num {
+		color: #b2d9fc;
+		font-size: 2.75rem;
+		font-weight: 700;
+		line-height: 1;
+		letter-spacing: -0.03em;
+	}
+	.leaks h3 {
+		margin: 1.125rem 0 0;
+		color: var(--navy);
+		font-size: 1.375rem;
+		font-weight: 700;
+		line-height: 1.2;
+	}
+	.leaks li > p {
+		/* the longest of the three runs to six lines — the others reserve the same */
+		min-height: 9em;
+		margin: 0.875rem 0 0rem;
+		color: var(--muted);
+		font-size: 1rem;
+	}
+	.metric {
+		display: flex;
+		flex-direction: column;
+		gap: 0.375rem;
+		margin: auto 0 0;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--border);
+	}
+	.metric strong {
+		color: var(--brand-blue);
+		font-size: 2.25rem;
+		font-weight: 700;
+		line-height: 1;
+		letter-spacing: -0.02em;
+	}
+	.metric span {
+		color: var(--muted);
+		font-size: 0.9375rem;
+	}
+
+	/* ---------- capabilities ---------- */
+	.capabilities {
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.capabilities .inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 5rem 1.5rem 6.5rem;
+	}
+	.capabilities .head {
+		margin: 0 auto;
+		text-align: center;
+	}
+	.capabilities .head h2 {
+		max-width: 22ch;
+		margin-inline: auto;
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1.25rem;
+		margin: 3.5rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.cards li {
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.75rem;
+		transition:
+			border-color 0.25s ease,
+			box-shadow 0.25s ease,
+			transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	.cards .tile {
+		transition:
+			background 0.25s ease,
+			color 0.25s ease;
+	}
+	@media (hover: hover) {
+		.cards li:hover {
+			border-color: #b2d9fc;
+			box-shadow:
+				0 1px 2px rgba(10, 37, 64, 0.06),
+				0 20px 44px -14px rgba(10, 37, 64, 0.22);
+			transform: translateY(-4px);
+		}
+		.cards li:hover .tile {
+			background: var(--brand-blue);
+			color: var(--surface);
+		}
+	}
+	.cards h3 {
+		min-height: 2.6em;
+		margin: 1.375rem 0 0;
+		color: var(--navy);
+		font-size: 1.0625rem;
+		font-weight: 700;
+		line-height: 1.3;
+		text-wrap: balance;
+	}
+	.cards p {
+		margin: 0.625rem 0 0;
+		color: var(--muted);
+		line-height: 1.55;
+		font-size: 0.9375rem;
+	}
+
+	/* ---------- evidence ---------- */
+	.evidence {
+		position: relative;
+		background: var(--navy);
+		color: rgba(255, 255, 255, 0.78);
+		font-size: 16px;
+		line-height: 1.5;
+		overflow: hidden;
+	}
+	.evidence .inner {
+		position: relative;
+		z-index: 1;
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 6rem 1.5rem 6.5rem;
+	}
+
+	/* Bubbles drifting out from the middle of the band. Only the two colours the
+	   logo carries besides the navy this sits on — the blue and the teal. Each one
+	   is a soft radial rather than a flat disc, so it reads as light not a dot. */
+	.bubbles {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		pointer-events: none;
+	}
+	.bubbles span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: var(--size);
+		height: var(--size);
+		margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2);
+		border-radius: 50%;
+		background: radial-gradient(circle at 36% 34%, var(--tint), transparent 74%);
+		opacity: 0;
+		animation: drift var(--dur) linear var(--delay) infinite;
+	}
+	/* Position only — no scale, so a bubble is the same size the whole way out. */
+	@keyframes drift {
+		0% {
+			opacity: 0;
+			transform: translate(0, 0);
+		}
+		14% {
+			opacity: 0.95;
+		}
+		30% {
+			transform: translate(var(--x1), var(--y1));
+		}
+		56% {
+			transform: translate(var(--x2), var(--y2));
+		}
+		80% {
+			opacity: 0.7;
+			transform: translate(var(--x3), var(--y3));
+		}
+		100% {
+			opacity: 0;
+			transform: translate(var(--x), var(--y));
+		}
+	}
+	/* Twelve wandering paths out of the centre. Each bubble passes through three
+	   waypoints that are pushed off its bearing, so it drifts rather than tracks a
+	   straight line, and no two share a duration or a delay. */
+	.bubbles span:nth-child(1) {
+		--size: 36px;
+		--x1: 112px;
+		--y1: -41px;
+		--x2: 222px;
+		--y2: -12px;
+		--x3: 313px;
+		--y3: -51px;
+		--x: 395px;
+		--y: -31px;
+		--dur: 16s;
+		--delay: 0.0s;
+		--tint: rgba(48, 160, 255, 0.73);
+	}
+	.bubbles span:nth-child(2) {
+		--size: 66px;
+		--x1: 98px;
+		--y1: 51px;
+		--x2: 193px;
+		--y2: 73px;
+		--x3: 250px;
+		--y3: 157px;
+		--x: 319px;
+		--y: 186px;
+		--dur: 20s;
+		--delay: 1.7s;
+		--tint: rgba(0, 192, 176, 0.73);
+	}
+	.bubbles span:nth-child(3) {
+		--size: 36px;
+		--x1: 76px;
+		--y1: 159px;
+		--x2: 175px;
+		--y2: 279px;
+		--x3: 90px;
+		--y3: 461px;
+		--x: 279px;
+		--y: 517px;
+		--dur: 24s;
+		--delay: 3.4s;
+		--tint: rgba(48, 160, 255, 0.73);
+	}
+	.bubbles span:nth-child(4) {
+		--size: 44px;
+		--x1: -24px;
+		--y1: 127px;
+		--x2: -48px;
+		--y2: 236px;
+		--x3: -67px;
+		--y3: 337px;
+		--x: -67px;
+		--y: 424px;
+		--dur: 25s;
+		--delay: 5.1s;
+		--tint: rgba(0, 192, 176, 0.88);
+	}
+	.bubbles span:nth-child(5) {
+		--size: 50px;
+		--x1: -39px;
+		--y1: 144px;
+		--x2: -103px;
+		--y2: 259px;
+		--x3: -28px;
+		--y3: 397px;
+		--x: -170px;
+		--y: 467px;
+		--dur: 29s;
+		--delay: 6.8s;
+		--tint: rgba(48, 160, 255, 0.73);
+	}
+	.bubbles span:nth-child(6) {
+		--size: 66px;
+		--x1: -139px;
+		--y1: 72px;
+		--x2: -229px;
+		--y2: 183px;
+		--x3: -388px;
+		--y3: 157px;
+		--x: -416px;
+		--y: 318px;
+		--dur: 33s;
+		--delay: 8.5s;
+		--tint: rgba(0, 192, 176, 0.8);
+	}
+	.bubbles span:nth-child(7) {
+		--size: 50px;
+		--x1: -112px;
+		--y1: 44px;
+		--x2: -219px;
+		--y2: 53px;
+		--x3: -320px;
+		--y3: 37px;
+		--x: -401px;
+		--y: 45px;
+		--dur: 16s;
+		--delay: 10.2s;
+		--tint: rgba(48, 160, 255, 0.8);
+	}
+	.bubbles span:nth-child(8) {
+		--size: 40px;
+		--x1: -147px;
+		--y1: -39px;
+		--x2: -255px;
+		--y2: -123px;
+		--x3: -319px;
+		--y3: -250px;
+		--x: -444px;
+		--y: -243px;
+		--dur: 20s;
+		--delay: 11.9s;
+		--tint: rgba(0, 192, 176, 0.75);
+	}
+	.bubbles span:nth-child(9) {
+		--size: 40px;
+		--x1: -39px;
+		--y1: -104px;
+		--x2: -96px;
+		--y2: -183px;
+		--x3: -84px;
+		--y3: -283px;
+		--x: -186px;
+		--y: -319px;
+		--dur: 24s;
+		--delay: 13.6s;
+		--tint: rgba(48, 160, 255, 0.79);
+	}
+	.bubbles span:nth-child(10) {
+		--size: 72px;
+		--x1: -28px;
+		--y1: -148px;
+		--x2: -48px;
+		--y2: -277px;
+		--x3: -24px;
+		--y3: -401px;
+		--x: 43px;
+		--y: -501px;
+		--dur: 25s;
+		--delay: 15.3s;
+		--tint: rgba(0, 192, 176, 0.88);
+	}
+	.bubbles span:nth-child(11) {
+		--size: 56px;
+		--x1: 66px;
+		--y1: -146px;
+		--x2: 181px;
+		--y2: -239px;
+		--x3: 219px;
+		--y3: -368px;
+		--x: 175px;
+		--y: -506px;
+		--dur: 29s;
+		--delay: 17.0s;
+		--tint: rgba(48, 160, 255, 0.79);
+	}
+	.bubbles span:nth-child(12) {
+		--size: 36px;
+		--x1: 149px;
+		--y1: -45px;
+		--x2: 229px;
+		--y2: -180px;
+		--x3: 365px;
+		--y3: -201px;
+		--x: 437px;
+		--y: -283px;
+		--dur: 33s;
+		--delay: 18.7s;
+		--tint: rgba(0, 192, 176, 0.83);
+	}
+	.evidence .head {
+		max-width: 840px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.evidence h2 {
+		max-width: 20ch;
+		margin-inline: auto;
+		color: var(--surface);
+	}
+	.evidence .lede {
+		color: rgba(255, 255, 255, 0.72);
+	}
+
+	.results {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		margin: 3.5rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.results li {
+		display: flex;
+		flex-direction: column;
+		gap: 0.625rem;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		border-radius: 18px;
+		padding: 1.875rem;
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035));
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09);
+	}
+	.results strong {
+		color: var(--surface);
+		font-size: clamp(1.75rem, 2.4vw, 2.125rem);
+		font-weight: 700;
+		line-height: 1;
+		letter-spacing: -0.02em;
+	}
+	.results span {
+		color: rgba(255, 255, 255, 0.72);
+		font-size: 0.9375rem;
+	}
+	.quote {
+		max-width: 900px;
+		margin: 3.5rem auto 0;
+		text-align: center;
+	}
+	.quote blockquote {
+		margin: 0;
+		border: 0;
+		padding: 0;
+	}
+	.quote p {
+		margin: 0;
+		color: var(--surface);
+		font-size: clamp(1.0625rem, 1.7vw, 1.3125rem);
+		font-weight: 500;
+		line-height: 1.5;
+		letter-spacing: -0.01em;
+	}
+	.quote p::before {
+		content: '\201C';
+	}
+	.quote p::after {
+		content: '\201D';
+	}
+	.quote figcaption {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		margin-top: 1.5rem;
+	}
+	.quote figcaption strong {
+		color: var(--surface);
+		font-size: 1rem;
+	}
+	.quote figcaption span {
+		color: rgba(255, 255, 255, 0.62);
+		font-size: 0.9375rem;
+	}
+
+	/* ---------- use cases ---------- */
+	.cases {
+		background: var(--navy);
+	}
+	.cases .panel {
+		background: var(--surface);
+		border-radius: 24px 24px 0 0;
+		padding: 6rem 1.5rem 5rem;
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.cases .inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+	}
+	.cases .head {
+		margin: 0 auto;
+		text-align: center;
+	}
+	.cases .head h2 {
+		max-width: 24ch;
+		margin-inline: auto;
+	}
+	.case {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+		align-items: center;
+		gap: 4rem;
+		margin-top: 4.5rem;
+	}
+	/* the second story mirrors, so the panels alternate down the page */
+	.case-flip .case-copy {
+		order: 2;
+	}
+	/* One accent per story, mixed from a brand token the same way the pricing
+	   add-on cards are: the wash is that colour over white, the ink the same hue
+	   darkened until it clears 4.5:1 on it. */
+	.case {
+		--case-wash: #edf6fe;
+		--case-ink: var(--brand-blue-dark);
+	}
+	.case-teal {
+		--case-wash: #edfaf9;
+		--case-ink: #037c73;
+	}
+	.case-amber {
+		--case-wash: #fef9ef;
+		--case-ink: #976b09;
+	}
+	/* one pill treatment for all three, on the palette's own tokens — the per-story
+	   accent is left to the outcome callout, where it carries a figure */
+	.case-kicker {
+		display: inline-block;
+		margin: 0;
+		border-radius: 999px;
+		padding: 0.3125rem 0.6875rem;
+		background: var(--surface-tint);
+		color: var(--brand-blue-dark);
+		font-size: 0.625rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+	.case-copy h3 {
+		max-width: 18ch;
+		margin: 1.125rem 0 0;
+		color: var(--navy);
+		font-size: clamp(1.5rem, 2.6vw, 2.125rem);
+		font-weight: 700;
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+		text-wrap: balance;
+	}
+	.case-copy p {
+		max-width: 54ch;
+		margin: 1.25rem 0 0;
+		color: var(--muted);
+		
+		line-height: 1.65;
+	}
+	/* the figure each story lands on, pulled out of the narrative */
+	.case-outcome {
+		margin-top: 1.75rem;
+		border-radius: 0 12px 12px 0;
+		border-left: 3px solid var(--case-ink);
+		padding: 0.875rem 1.125rem;
+		background: var(--case-wash);
+		color: var(--navy);
+		font-size: 1.0625rem;
+	}
+	.case-outcome strong {
+		color: var(--case-ink);
+		font-weight: 700;
+	}
+
+	/* the product shot for each story */
+	.case-shot {
+		margin: 0;
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		background: var(--surface);
+		box-shadow:
+			0 1px 2px rgba(10, 37, 64, 0.05),
+			0 26px 54px -18px rgba(10, 37, 64, 0.22);
+		overflow: hidden;
+	}
+	.case-shot img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 0;
+	}
+
+	/* ---------- proof of concept ---------- */
+	.poc {
+		background: var(--brand-wash);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.poc .inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 5.5rem 1.5rem 6rem;
+	}
+	.poc .head {
+		margin: 0 auto;
+		text-align: center;
+	}
+	.poc .head h2 {
+		max-width: 20ch;
+		margin-inline: auto;
+	}
+	.stages {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1.25rem;
+		margin: 3.5rem 0 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: stage;
+	}
+	.stages li {
+		position: relative;
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 1.875rem;
+		transition:
+			border-color 0.25s ease,
+			box-shadow 0.25s ease,
+			transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	/* a rule across the gap, so the four read as one run rather than four boxes */
+	.stages li:not(:last-child)::after {
+		content: '';
+		position: absolute;
+		top: calc(1.875rem + 19px);
+		left: 100%;
+		width: 1.25rem;
+		height: 2px;
+		background: var(--brand-wash-deep);
+	}
+	@media (hover: hover) {
+		.stages li:hover {
+			border-color: #b2d9fc;
+			box-shadow:
+				0 1px 2px rgba(10, 37, 64, 0.06),
+				0 20px 44px -14px rgba(10, 37, 64, 0.2);
+			transform: translateY(-4px);
+		}
+	}
+	.stage-top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.75rem;
+		margin: 0;
+	}
+	.stage-no {
+		display: grid;
+		place-items: center;
+		flex-shrink: 0;
+		width: 38px;
+		height: 38px;
+		border-radius: 12px;
+		background: var(--brand-blue);
+		color: var(--surface);
+		font-size: 0.9375rem;
+		font-weight: 700;
+		letter-spacing: -0.01em;
+		box-shadow: 0 4px 12px rgba(0, 128, 246, 0.28);
+	}
+	.stage-when {
+		border: 1px solid var(--brand-wash-deep);
+		border-radius: 999px;
+		padding: 0.25rem 0.625rem;
+		color: var(--muted);
+		font-size: 0.75rem;
+		font-weight: 600;
+		white-space: nowrap;
+	}
+	.stages h3 {
+		margin: 1.25rem 0 0;
+		color: var(--navy);
+		font-size: 1.25rem;
+		font-weight: 700;
+		line-height: 1.2;
+	}
+	.stages p {
+		margin: 0.75rem 0 0;
+		color: var(--muted);
+		font-size: 0.9375rem;
+	}
+	.poc .actions {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1rem;
+		margin-top: 3rem;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.cards li {
+			transition: none;
+		}
+		.bubbles {
+			display: none;
+		}
+	}
+
+	/* ---------- responsive ---------- */
+	@media (max-width: 1180px) {
+		.cards {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+	@media (max-width: 1080px) {
+		/* the shot drops below the copy and the hero reads as one column */
+		.hero .inner {
+			grid-template-columns: minmax(0, 1fr);
+			gap: 3rem;
+			padding: 4.5rem 1.5rem 5rem;
+		}
+		h1,
+		.hero .lede {
+			max-width: none;
+		}
+		.problem .panel,
+		.cases .panel {
+			padding: 4.5rem 1.5rem 4rem;
+		}
+		.capabilities .inner,
+		.evidence .inner,
+		.poc .inner {
+			padding: 4.5rem 1.5rem 5rem;
+		}
+		.leaks {
+			grid-template-columns: minmax(0, 1fr);
+		}
+		.leaks li {
+			padding: 1.75rem;
+		}
+		.leaks li > p {
+			min-height: 0;
+		}
+		.metric {
+			flex-direction: row;
+			align-items: baseline;
+			gap: 0.875rem;
+		}
+		.case {
+			grid-template-columns: minmax(0, 1fr);
+			gap: 2.5rem;
+			margin-top: 3.5rem;
+		}
+		.case-flip .case-copy {
+			order: 0;
+		}
+		.case-copy h3,
+		.case-copy p {
+			max-width: none;
+		}
+		.stages {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+		.stages li:not(:last-child)::after {
+			display: none;
+		}
+	}
+	@media (max-width: 900px) {
+		.cards {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+		.results {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	@media (max-width: 640px) {
+		.hero .inner {
+			padding: 3rem 1rem 3.5rem;
+		}
+		.hero .lede,
+		.head .lede {
+			font-size: 1.0625rem;
+		}
+		.counters {
+			gap: 1.25rem 2rem;
+			margin-top: 2rem;
+			padding-top: 1.5rem;
+		}
+		.shot {
+			border-radius: 14px;
+		}
+		.problem .panel,
+		.cases .panel {
+			padding: 3rem 1rem 3rem;
+		}
+		.capabilities .inner,
+		.evidence .inner,
+		.poc .inner {
+			padding: 3rem 1rem 3.5rem;
+		}
+		.leaks,
+		.cards,
+		.results,
+		.stages {
+			grid-template-columns: minmax(0, 1fr);
+			margin-top: 2.5rem;
+		}
+		.leaks li,
+		.cards li,
+		.results li,
+		.stages li {
+			padding: 1.5rem;
+		}
+		.cards h3 {
+			min-height: 0;
+		}
+		.quote {
+			margin-top: 2.5rem;
+		}
+		.case {
+			margin-top: 2.75rem;
+		}
+		.poc .actions {
+			margin-top: 2.25rem;
+		}
+		.poc .actions .btn {
+			flex: 1 1 100%;
+		}
+	}
+</style>
+>>>>>>> Stashed changes

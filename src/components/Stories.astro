@@ -48,8 +48,13 @@ const readingTime = (body: string | undefined) => {
 		<ul class="track" data-track data-stagger>
 			{
 				posts.map((post) => (
+<<<<<<< Updated upstream
 					<li class="card">
 						<a href={`/blogs/${post.id}`}>
+=======
+					<li class="card" data-card>
+						<a href={`/blog/${post.id}/`}>
+>>>>>>> Stashed changes
 							{post.data.heroImage && (
 								<Image
 									class="shot"
@@ -76,32 +81,9 @@ const readingTime = (body: string | undefined) => {
 </section>
 
 <script>
-	document.querySelectorAll<HTMLElement>('.stories').forEach((section) => {
-		const track = section.querySelector<HTMLElement>('[data-track]');
-		const arrows = section.querySelectorAll<HTMLButtonElement>('[data-scroll]');
-		if (!track) return;
+	import { initCarousel } from '../scripts/carousel';
 
-		const sync = () => {
-			const end = track.scrollWidth - track.clientWidth;
-			arrows.forEach((arrow) => {
-				const atEdge =
-					arrow.dataset.scroll === 'prev' ? track.scrollLeft < 8 : track.scrollLeft >= end - 8;
-				arrow.disabled = atEdge;
-			});
-		};
-
-		arrows.forEach((arrow) => {
-			arrow.addEventListener('click', () => {
-				const card = track.querySelector<HTMLElement>('.card');
-				const step = card ? card.offsetWidth + 24 : track.clientWidth;
-				track.scrollBy({ left: arrow.dataset.scroll === 'prev' ? -step : step });
-			});
-		});
-
-		track.addEventListener('scroll', sync, { passive: true });
-		window.addEventListener('resize', sync);
-		sync();
-	});
+	initCarousel('.stories');
 </script>
 
 <style>

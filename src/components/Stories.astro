@@ -48,13 +48,8 @@ const readingTime = (body: string | undefined) => {
 		<ul class="track" data-track data-stagger>
 			{
 				posts.map((post) => (
-<<<<<<< Updated upstream
-					<li class="card">
-						<a href={`/blogs/${post.id}`}>
-=======
 					<li class="card" data-card>
-						<a href={`/blog/${post.id}/`}>
->>>>>>> Stashed changes
+						<a href={`/blogs/${post.id}`}>
 							{post.data.heroImage && (
 								<Image
 									class="shot"

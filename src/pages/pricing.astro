@@ -5,7 +5,7 @@ import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Testimonials from '../components/Testimonials.astro';
-import Compare from '../components/pricing/Compare.astro';
+import Addon from '../components/pricing/Addon.astro';
 import Hero from '../components/pricing/Hero.astro';
 import Plans from '../components/pricing/Plans.astro';
 import { pricingFaqs } from '../components/pricing/data';
@@ -63,7 +63,8 @@ import { SITE_TITLE } from '../consts';
 					document.documentElement.setAttribute('data-prices-ready', '');
 				})();
 			</script>
-			<Compare />
+			<Addon />
+			
 			<Testimonials />
 			<Faq items={pricingFaqs} />
 			<Cta />

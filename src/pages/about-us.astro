@@ -4,7 +4,6 @@ import Testimonials from '../components/Testimonials.astro';
 import Clients from '../components/about/Clients.astro';
 import Hero from '../components/about/Hero.astro';
 import Stats from '../components/about/Stats.astro';
-import Story from '../components/about/Story.astro';
 import Team from '../components/about/Team.astro';
 import Values from '../components/about/Values.astro';
 import Marketing from '../layouts/Marketing.astro';
@@ -16,11 +15,10 @@ import Marketing from '../layouts/Marketing.astro';
 	mainClass="about"
 >
 	<Hero />
-	<Story />
+	<Clients />
+	<Testimonials moreHref="/testimonials" />
 	<Values />
 	<Stats />
-	<Team />
-	<Testimonials moreHref="/testimonials" />
-	<Clients />
+	<Team />	
 	<Cta />
 </Marketing>

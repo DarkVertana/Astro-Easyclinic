@@ -1,57 +1,11 @@
----
-import { Image } from 'astro:assets';
-import doctor from '../../assets/pricing-hero.webp';
-import { SITE_TITLE } from '../../consts';
----
-
 <section class="hero">
 	<div class="inner">
-		<div class="copy">
-			<p class="eyebrow">Pricing</p>
-			<h1>Easy Plans. Easy Pricing. No&nbsp;Surprises.</h1>
-			<p class="lede">
-				One price per doctor, reception included, no lock-in. Start with the EMR you need and grow{' '}
-				{SITE_TITLE} as the practice grows.
-			</p>
-			<p class="proof">Used by 5,000+ doctors across 200 cities.</p>
-		</div>
-
-		<figure class="visual">
-			{/* abstract accents behind the screenshot */}
-			<svg class="deco ring" viewBox="0 0 200 200" aria-hidden="true">
-				<circle cx="100" cy="100" r="88" fill="none" stroke="var(--brand-teal)" stroke-width="2" opacity="0.5"></circle>
-				<circle cx="100" cy="100" r="66" fill="none" stroke="var(--brand-blue)" stroke-width="2" opacity="0.35"></circle>
-			</svg>
-			<svg class="deco dots" viewBox="0 0 120 120" aria-hidden="true">
-				{
-					Array.from({ length: 25 }, (_, i) => (
-						<circle cx={8 + (i % 5) * 26} cy={8 + Math.floor(i / 5) * 26} r="3.5" fill="var(--brand-blue)" opacity="0.35" />
-					))
-				}
-			</svg>
-
-			<Image
-				src={doctor}
-				alt="A doctor checking Easy Clinic on their phone"
-				width={1040}
-				height={693}
-				densities={[1, 1.5]}
-				loading="eager"
-			/>
-
-			<span class="chip chip-wallet" aria-hidden="true">
-				<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-					<path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
-					<path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
-					<path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
-				</svg>
-			</span>
-
-			<figcaption class="badge">
-				<strong>No lock-in contracts</strong>
-				<span>Reception licence included free</span>
-			</figcaption>
-		</figure>
+		<p class="eyebrow">Pricing</p>
+		<h1>Simple pricing, priced per<br /> doctor</h1>
+		<p class="lede">
+			Pick the plan that matches how you practise. Every plan runs in the cloud and comes with free
+			unlimited support and training — no servers, no setup fee, no lock&#8209;in contracts.
+		</p>
 	</div>
 </section>
 <style>
@@ -60,170 +14,44 @@ import { SITE_TITLE } from '../../consts';
 		color: var(--ink);
 		font-size: 16px;
 		line-height: 1.5;
-		overflow: hidden;
 	}
 	.inner {
-		display: grid;
-		grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.85fr);
-		align-items: center;
-		gap: 4rem;
 		max-width: var(--page-max);
 		margin: 0 auto;
-		padding: 4.5rem 1.5rem 5.5rem;
+		padding: 5.75rem 1.5rem 6rem;
+		text-align: center;
 	}
 
 	.eyebrow {
 		margin: 0 0 0.85rem;
 		color: var(--brand-blue);
-		font-size: 0.875rem;
+		font-size: 0.8125rem;
 		font-weight: 600;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
 	}
 	h1 {
 		margin: 0;
-		max-width: 14ch;
 		color: var(--navy);
 		font-size: clamp(2.25rem, 4.4vw, 3.25rem);
 		font-weight: 700;
-		line-height: 1.08;
+		line-height: 1.06;
 		letter-spacing: -0.02em;
 	}
 	.lede {
-		margin: 1.35rem 0 0;
-		max-width: 44ch;
+		max-width: 44rem;
+		margin: 1.45rem auto 0;
 		color: var(--muted);
 		font-size: 1.125rem;
-	}
-	.proof {
-		margin: 2rem 0 0;
-		color: var(--muted);
-		font-size: 0.9375rem;
+		line-height: 1.55;
 	}
 
-	.visual {
-		position: relative;
-		width: fit-content;
-		max-width: 100%;
-		margin: 0 auto;
-	}
-	.visual :global(img) {
-		position: relative;
-		z-index: 1;
-		display: block;
-		width: 100%;
-		max-width: 520px;
-		height: auto;
-		border-radius: 20px;
-		box-shadow: 0 20px 48px rgba(10, 37, 64, 14%);
-	}
-
-	.deco {
-		position: absolute;
-		z-index: 0;
-	}
-	.ring {
-		top: -3rem;
-		right: -3rem;
-		width: 140px;
-		height: 140px;
-	}
-	.dots {
-		bottom: -2.25rem;
-		right: -1.75rem;
-		width: 105px;
-		height: 105px;
-	}
-
-	.chip {
-		position: absolute;
-		z-index: 2;
-		top: 1.75rem;
-		right: 0.9rem;
-		display: grid;
-		place-items: center;
-		width: 52px;
-		height: 52px;
-		border-radius: 16px;
-		background: var(--surface);
-		color: var(--brand-blue);
-		box-shadow: 0 12px 28px rgba(10, 37, 64, 16%);
-		animation: float 5.5s ease-in-out infinite;
-	}
-	@keyframes float {
-		0%,
-		100% {
-			transform: translateY(0);
-		}
-		50% {
-			transform: translateY(-8px);
-		}
-	}
-
-	.badge {
-		position: absolute;
-		left: -1.25rem;
-		bottom: 1.5rem;
-		z-index: 2;
-		display: flex;
-		flex-direction: column;
-		gap: 0.1rem;
-		border-radius: 14px;
-		padding: 0.8rem 1.1rem;
-		background: var(--surface);
-		box-shadow: 0 14px 32px rgba(10, 37, 64, 18%);
-	}
-	.badge strong {
-		color: var(--navy);
-		font-size: 1rem;
-		font-weight: 700;
-	}
-	.badge span {
-		color: var(--muted);
-		font-size: 0.8125rem;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.chip {
-			animation: none;
-		}
-	}
-	@media (min-width: 1260px) {
-		.chip {
-			right: -1.5rem;
-		}
-	}
-	@media (max-width: 1080px) {
-		.inner {
-			grid-template-columns: 1fr;
-			gap: 2.5rem;
-			padding: 3.5rem 1.5rem 4.5rem;
-		}
-		h1,
-		.lede {
-			max-width: none;
-		}
-		.badge {
-			left: 0.75rem;
-			bottom: 0.75rem;
-		}
-		.chip {
-			right: 0.75rem;
-		}
-		.ring {
-			top: -1.5rem;
-			right: -1rem;
-			width: 110px;
-			height: 110px;
-		}
-		.dots {
-			right: -0.25rem;
-			bottom: -1.25rem;
-		}
-	}
 	@media (max-width: 720px) {
 		.inner {
-			padding: 2.75rem 1rem 3.25rem;
+			padding: 3rem 1rem 3.5rem;
+		}
+		h1 br {
+			display: none;
 		}
 	}
 </style>

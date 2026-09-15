@@ -103,7 +103,7 @@ export const plans: Plan[] = [
 		cta: 'Book a Demo',
 		href: '/contact-us#demo-form',
 		featured: true,
-		badge: 'Most practices choose this',
+		badge: 'Most chosen',
 	},
 	{
 		id: 'enterprise',

@@ -1,0 +1,321 @@
+---
+// optional modules quoted on top of any plan; each card carries its own accent
+const addons = [
+	{
+		title: 'Pharmacy management',
+		tone: 'blue',
+		// capsule pill
+		icon: '<path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/>',
+		copy: 'Run the in-house pharmacy from the same record as the consultation — dispensing, stock and billing without a second system to reconcile.',
+	},
+	{
+		title: 'Integrations & custom development',
+		tone: 'red',
+		// puzzle piece
+		icon: '<path d="M15.39 4.39a1 1 0 0 0 1.68-.47 2.5 2.5 0 1 1 3.01 3.01 1 1 0 0 0-.47 1.68l1.68 1.68a2.41 2.41 0 0 1 0 3.42l-1.68 1.68a1 1 0 0 1-1.68-.47 2.5 2.5 0 1 0-3.01 3.01 1 1 0 0 1 .47 1.68l-1.68 1.68a2.41 2.41 0 0 1-3.42 0l-1.68-1.68a1 1 0 0 0-1.68.47 2.5 2.5 0 1 1-3.01-3.01 1 1 0 0 0 .47-1.68l-1.68-1.68a2.41 2.41 0 0 1 0-3.42l1.68-1.68a1 1 0 0 1 1.68.47 2.5 2.5 0 1 0 3.01-3.01 1 1 0 0 1-.47-1.68l1.68-1.68a2.41 2.41 0 0 1 3.42 0Z"/>',
+		copy: 'Connect the systems you already run through our APIs, or have our team build the workflow your practice needs and nobody else has.',
+	},
+	{
+		title: 'Insurance & third-party payors',
+		tone: 'amber',
+		// shield with a medical cross
+		icon: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M9 12h6"/><path d="M12 9v6"/>',
+		copy: 'Handle insurer and third-party payor billing alongside self-pay, so claims and settlements sit in the same ledger as everything else.',
+	},
+	{
+		title: 'Lab management',
+		tone: 'teal',
+		// microscope
+		icon: '<path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/>',
+		copy: 'Order sets, sample tracking and results that land straight back in the patient record, so nothing is retyped between the bench and the chart.',
+	},
+];
+---
+
+<section class="addons" id="addons">
+	<div class="inner">
+		<header class="head">
+			<h2>Enhance EasyClinic with add&#8209;ons</h2>
+			<p class="lede">
+				These modules extend the plan you choose. Tell us which ones your practice needs and we will
+				quote them alongside your subscription.
+			</p>
+		</header>
+
+		<ul class="grid" data-stagger>
+			{
+				addons.map((addon) => (
+					<li class:list={['card', addon.tone]}>
+						<div class="top">
+							<span class="icon" aria-hidden="true">
+								<svg
+									viewBox="0 0 24 24"
+									width="24"
+									height="24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.9"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									set:html={addon.icon}
+								/>
+							</span>
+							<span class="tag">Add-on</span>
+						</div>
+						<h3>{addon.title}</h3>
+						<p>{addon.copy}</p>
+						<a class="btn" href="/contact-us#demo-form" aria-label={`Talk to us about ${addon.title}`}>
+							Talk to us
+							<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="M5 12h14" />
+								<path d="m13 6 6 6-6 6" />
+							</svg>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+
+<style>
+	.addons {
+		background: var(--surface);
+		color: var(--ink);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 0 1.5rem 5.5rem;
+	}
+
+	.head {
+		text-align: center;
+	}
+	h2 {
+		max-width: 20ch;
+		margin: 0 auto;
+		color: var(--navy);
+		font-size: clamp(1.875rem, 3.4vw, 2.75rem);
+		font-weight: 700;
+		line-height: 1.12;
+		letter-spacing: -0.02em;
+	}
+	.lede {
+		max-width: 46rem;
+		margin: 1.1rem auto 0;
+		color: var(--muted);
+		font-size: 1.0625rem;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1.25rem;
+		margin: 3rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	/*
+	 * Each card sets four tokens and everything below reads from them:
+	 *   --tile   solid colour of the icon tile (white icon sits on it)
+	 *   --accent text/border colour, dark enough to read on the tint
+	 *   --tint   card background
+	 *   --line   hairline border
+	 */
+	.card {
+		--tile: var(--brand-blue);
+		--accent: var(--brand-blue);
+		--tint: #eef6ff;
+		--line: #d3e6fc;
+		position: relative;
+		isolation: isolate;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		border: 1px solid var(--line);
+		border-radius: 20px;
+		padding: 1.85rem 1.95rem 1.95rem;
+		background: var(--tint);
+		box-shadow: 0 1px 2px rgba(10, 37, 64, 4%);
+		transition:
+			transform 0.25s ease,
+			box-shadow 0.25s ease,
+			border-color 0.25s ease;
+	}
+	.card.red {
+		--tile: #f0303a;
+		--accent: #d11f29;
+		--tint: #fff3f3;
+		--line: #fbd6d8;
+	}
+	.card.amber {
+		--tile: #e39a10;
+		--accent: #975f00;
+		--tint: #fff9ec;
+		--line: #f4e2b6;
+	}
+	.card.teal {
+		--tile: #06a99c;
+		--accent: #037d74;
+		--tint: #edf9f7;
+		--line: #c7ebe6;
+	}
+	/* faint accent glow in the top-right corner */
+	.card::before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: -9rem;
+		right: -7rem;
+		width: 20rem;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background: radial-gradient(closest-side, color-mix(in srgb, var(--tile) 12%, transparent), transparent);
+		pointer-events: none;
+	}
+	.card:hover {
+		border-color: color-mix(in srgb, var(--tile) 35%, var(--line));
+		box-shadow: 0 20px 44px color-mix(in srgb, var(--tile) 16%, transparent);
+		transform: translateY(-4px);
+	}
+
+	.top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		align-self: stretch;
+	}
+
+	/* solid colour tile with a white halo ring, soft glow and inner highlight */
+	.icon {
+		display: grid;
+		place-items: center;
+		width: 52px;
+		height: 52px;
+		border-radius: 15px;
+		background: var(--tile);
+		color: #fff;
+		box-shadow:
+			inset 0 1px 0 rgba(255, 255, 255, 30%),
+			0 0 0 5px rgba(255, 255, 255, 75%),
+			0 12px 24px color-mix(in srgb, var(--tile) 34%, transparent);
+		transition: transform 0.25s ease;
+	}
+	.card:hover .icon {
+		transform: rotate(-6deg) scale(1.04);
+	}
+
+	.tag {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		border: 1px solid var(--line);
+		border-radius: 999px;
+		padding: 0.3rem 0.75rem 0.3rem 0.6rem;
+		background: rgba(255, 255, 255, 85%);
+		color: var(--accent);
+		font-size: 0.6875rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		line-height: 1.3;
+		text-transform: uppercase;
+	}
+	.tag::before {
+		content: '';
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--tile);
+		box-shadow: 0 0 0 3px color-mix(in srgb, var(--tile) 20%, transparent);
+	}
+
+	h3 {
+		margin: 1.5rem 0 0;
+		color: var(--navy);
+		font-size: 1.25rem;
+		font-weight: 700;
+		letter-spacing: -0.01em;
+	}
+	.card p {
+		max-width: 64ch;
+		margin: 0.55rem 0 auto;
+		color: var(--muted);
+		font-size: 0.9375rem;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		margin-top: 1.5rem;
+		border: 1.5px solid var(--accent);
+		border-radius: 10px;
+		padding: 0.6rem 1rem 0.6rem 1.15rem;
+		background: var(--surface);
+		color: var(--accent);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.2;
+		text-decoration: none;
+		transition:
+			background 0.2s ease,
+			color 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+	.btn svg {
+		transition: transform 0.2s ease;
+	}
+	.btn:hover {
+		background: var(--accent);
+		color: var(--surface);
+		box-shadow: 0 8px 18px color-mix(in srgb, var(--accent) 28%, transparent);
+	}
+	.btn:hover svg {
+		transform: translateX(3px);
+	}
+	.btn:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 3px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.card,
+		.icon,
+		.btn,
+		.btn svg {
+			transition: none;
+		}
+		.card:hover,
+		.card:hover .icon,
+		.btn:hover svg {
+			transform: none;
+		}
+	}
+	@media (max-width: 900px) {
+		.inner {
+			padding: 0 1.5rem 4rem;
+		}
+		.grid {
+			grid-template-columns: 1fr;
+			margin-top: 2.5rem;
+		}
+	}
+	@media (max-width: 640px) {
+		.inner {
+			padding: 0 1rem 3rem;
+		}
+		.card {
+			padding: 1.6rem 1.35rem 1.7rem;
+		}
+		.icon {
+			width: 48px;
+			height: 48px;
+			border-radius: 14px;
+		}
+	}
+</style>
